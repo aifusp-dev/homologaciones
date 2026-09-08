@@ -10,6 +10,7 @@ import {
   calculateTriaxleMasses,
   calculateSemiO4Masses,
   calculateSemiO4ThreeAxleMasses,
+  fuelMassKg,
 } from "@/lib/calculations/masses";
 import { CustomerForm } from "./customer-form";
 import { DealerForm } from "./dealer-form";
@@ -137,7 +138,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     seats2Mass: m?.seats2Mass ?? null,
     seats2CentreOfGravity: m?.seats2CentreOfGravity ?? null,
     fuelCentreOfGravity: m?.fuelCentreOfGravity ?? null,
-    fuelCapacity: m?.fuelCapacity ?? null,
+    fuelCapacity: fuelMassKg(m?.fuelCapacity ?? null),
     tareAxle1: m?.tareAxle1 ?? null,
     tareAxle2: m?.tareAxle2 ?? null,
     tareAxle3: m?.tareAxle3 ?? null,
@@ -263,6 +264,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             axleCount={dossier.coc?.axleCount ?? null}
             vehicleConfig={vehicleConfig}
             diagramData={diagramData}
+            massesInputs={massesInputs}
           />
         </div>
       ),

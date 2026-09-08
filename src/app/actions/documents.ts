@@ -10,7 +10,7 @@ import { renderBodyworkCertificate } from "@/lib/pdf/templates/bodyworkCertifica
 import { renderCopRegister } from "@/lib/pdf/templates/copRegister";
 import { renderReducedDatasheet, tireSpec } from "@/lib/pdf/templates/reducedDatasheet";
 import { renderBodyworkCertificatePart2 } from "@/lib/pdf/templates/bodyworkCertificatePart2";
-import { calculateBaseMasses } from "@/lib/calculations/masses";
+import { calculateBaseMasses, fuelMassKg } from "@/lib/calculations/masses";
 import { fiscalHorsepower } from "@/lib/calculations/coc";
 import { detectVehicleConfig } from "@/lib/vehicleConfig";
 import { fmt } from "@/lib/pdf/layout";
@@ -100,7 +100,7 @@ async function loadDossierData(dossierId: string, companyId: string) {
     seats2Mass: dossier.massesDimensions?.seats2Mass ?? null,
     seats2CentreOfGravity: dossier.massesDimensions?.seats2CentreOfGravity ?? null,
     fuelCentreOfGravity: dossier.massesDimensions?.fuelCentreOfGravity ?? null,
-    fuelCapacity: dossier.massesDimensions?.fuelCapacity ?? null,
+    fuelCapacity: fuelMassKg(dossier.massesDimensions?.fuelCapacity ?? null),
     tareAxle1: dossier.massesDimensions?.tareAxle1 ?? null,
     tareAxle2: dossier.massesDimensions?.tareAxle2 ?? null,
     tareAxle3: dossier.massesDimensions?.tareAxle3 ?? null,

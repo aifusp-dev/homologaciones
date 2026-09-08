@@ -4,7 +4,9 @@ import { useActionState } from "react";
 import { updateMasses } from "@/app/actions/masses";
 import { MASSES_FIELDS } from "@/lib/massesFields";
 import { MassesDiagram, type DiagramData } from "./masses-diagram";
+import { MassesVerificationPanel } from "./masses-verification-panel";
 import type { VehicleConfig } from "@/lib/vehicleConfig";
+import type { MassesInputs } from "@/lib/calculations/masses";
 
 const inputClass =
   "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
@@ -53,6 +55,7 @@ export function MassesForm({
   axleCount,
   vehicleConfig,
   diagramData,
+  massesInputs,
 }: {
   dossierId: string;
   masses: MassesValues | null;
@@ -60,6 +63,7 @@ export function MassesForm({
   axleCount: number | null;
   vehicleConfig: VehicleConfig;
   diagramData: DiagramData;
+  massesInputs: MassesInputs;
 }) {
   const [state, action, pending] = useActionState(updateMasses, undefined);
   const resultEntries = Object.entries(RESULT_LABELS).filter(([key]) => computed[key] != null);
@@ -73,6 +77,8 @@ export function MassesForm({
       <input type="hidden" name="dossierId" value={dossierId} />
 
       <MassesDiagram variant={vehicleConfig} data={diagramData} />
+
+      {vehicleConfig === "base" && <MassesVerificationPanel inputs={massesInputs} />}
 
       {resultEntries.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

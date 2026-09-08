@@ -40,6 +40,15 @@ function r0(n: number): number {
   return Math.round(n);
 }
 
+// Capacidad_combustible se guarda en litros (ficha técnica del depósito)
+// pero el resto del motor la trata como masa en Kg — sin esto, todo reparto
+// de combustible por eje usaba litros como si fueran Kg. Densidad media del
+// gasóleo confirmada con el usuario/ingeniero del taller: 0,84 kg/L.
+export const DIESEL_DENSITY_KG_PER_LITER = 0.84;
+export function fuelMassKg(fuelCapacityLiters: number | null | undefined): number | null {
+  return fuelCapacityLiters == null ? null : r0(fuelCapacityLiters * DIESEL_DENSITY_KG_PER_LITER);
+}
+
 export type MassesInputs = {
   // Coc (certificado)
   axleDistance0to1: number | null;
