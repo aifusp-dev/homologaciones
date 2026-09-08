@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { updateMasses } from "@/app/actions/masses";
 import { MASSES_FIELDS } from "@/lib/massesFields";
+import { MassesDiagram } from "./masses-diagram";
 
 const inputClass =
   "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
@@ -49,14 +50,25 @@ export function MassesForm({
   masses,
   computed,
   axleCount,
+  wheelbase,
+  cargoLength,
+  exteriorWidth,
 }: {
   dossierId: string;
   masses: MassesValues | null;
   computed: Record<string, number | null>;
   axleCount: number | null;
+  wheelbase: number | null;
+  cargoLength: number | null;
+  exteriorWidth: number | null;
 }) {
   const [state, action, pending] = useActionState(updateMasses, undefined);
   const resultEntries = Object.entries(RESULT_LABELS).filter(([key]) => computed[key] != null);
+  const num = (v: string | number | null | undefined): number | null => {
+    if (v === null || v === undefined || v === "") return null;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  };
   const hiddenCount = MASSES_FIELDS.filter((f) => {
     const axleIndex = axleIndexOf(f.name);
     return axleIndex !== null && axleCount !== null && axleIndex > axleCount;
@@ -65,6 +77,19 @@ export function MassesForm({
   return (
     <form action={action} className="space-y-3">
       <input type="hidden" name="dossierId" value={dossierId} />
+
+      <MassesDiagram
+        data={{
+          totalLength: computed.totalLength ?? null,
+          frontOverhang: num(masses?.frontOverhang),
+          rearOverhang: computed.rearOverhang ?? null,
+          wheelbase,
+          firstAxleToBodyDistance: num(masses?.firstAxleToBodyDistance),
+          cargoLength,
+          height: num(masses?.maxHeightFromGround),
+          width: exteriorWidth,
+        }}
+      />
 
       {resultEntries.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

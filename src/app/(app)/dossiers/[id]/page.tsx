@@ -187,6 +187,9 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             masses={dossier.massesDimensions}
             computed={massesComputed}
             axleCount={dossier.coc?.axleCount ?? null}
+            wheelbase={dossier.coc?.axleDistance1to2 ?? null}
+            cargoLength={dossier.bodywork?.interiorLength ?? dossier.bodywork?.exteriorLength ?? null}
+            exteriorWidth={dossier.bodywork?.exteriorWidth ?? null}
           />
         </div>
       ),
