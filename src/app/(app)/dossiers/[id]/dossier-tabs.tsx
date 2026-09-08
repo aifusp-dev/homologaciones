@@ -5,6 +5,7 @@ import { useState, type ReactNode } from "react";
 export type DossierTab = {
   id: string;
   label: string;
+  icon: ReactNode;
   content: ReactNode;
 };
 
@@ -18,18 +19,19 @@ export function DossierTabs({ tabs }: { tabs: DossierTab[] }) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start">
-      <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible w-full lg:w-56 shrink-0 border-b lg:border-b-0 lg:border-r border-neutral-800 pb-2 lg:pb-0 lg:pr-4">
+      <nav className="flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible w-full lg:w-56 shrink-0 border-b lg:border-b-0 lg:border-r border-border pb-2 lg:pb-0 lg:pr-4">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             type="button"
             onClick={() => setActive(tab.id)}
-            className={`text-left px-3 py-2 rounded-lg text-sm whitespace-nowrap transition-colors ${
+            className={`flex items-center gap-2.5 text-left px-3 py-2 rounded-lg text-sm whitespace-nowrap transition-colors ${
               active === tab.id
-                ? "bg-neutral-100 text-neutral-900 font-medium"
-                : "text-neutral-400 hover:text-neutral-100 hover:bg-neutral-900"
+                ? "bg-accent text-accent-ink font-medium"
+                : "text-ink-dim hover:text-ink hover:bg-panel"
             }`}
           >
+            {tab.icon}
             {tab.label}
           </button>
         ))}

@@ -15,31 +15,31 @@ export default async function SuperAdminPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-xs uppercase tracking-wide text-neutral-500">Super admin</p>
-        <h1 className="text-2xl font-bold tracking-tight">Empresas</h1>
-        <p className="text-sm text-neutral-400 mt-1">{identity.email}</p>
+        <p className="font-display text-xs uppercase tracking-wide text-ink-faint">Super admin</p>
+        <h1 className="font-display text-3xl font-bold tracking-tight">Empresas</h1>
+        <p className="text-sm text-ink-dim mt-1">{identity.email}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="space-y-4">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+          <h2 className="font-display text-sm font-semibold uppercase tracking-wide text-ink-dim">
             Nueva empresa
           </h2>
           <CreateCompanyForm />
         </section>
 
         <section className="lg:col-span-2 space-y-3">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+          <h2 className="font-display text-sm font-semibold uppercase tracking-wide text-ink-dim">
             Todas las empresas
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {companies.map((c) => (
               <li
                 key={c.id}
-                className="flex justify-between items-baseline border border-neutral-800 rounded-lg px-4 py-3 text-sm"
+                className="flex justify-between items-baseline border border-border rounded-xl px-4 py-3 text-sm"
               >
                 <span className="font-medium">{c.name}</span>
-                <span className="text-neutral-500">
+                <span className="text-ink-faint">
                   {c.users.length > 0
                     ? `${c.users.length} gestor(es)`
                     : c.invitations[0]
@@ -49,7 +49,7 @@ export default async function SuperAdminPage() {
               </li>
             ))}
             {companies.length === 0 && (
-              <p className="text-sm text-neutral-500">Todavía no hay ninguna empresa dada de alta.</p>
+              <p className="text-sm text-ink-faint">Todavía no hay ninguna empresa dada de alta.</p>
             )}
           </ul>
         </section>

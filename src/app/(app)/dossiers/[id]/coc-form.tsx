@@ -5,8 +5,8 @@ import { updateCoc } from "@/app/actions/coc";
 import { COC_FIELDS, COC_SECTIONS, type CocSection } from "@/lib/cocFields";
 
 const inputClass =
-  "w-full bg-neutral-900 border border-neutral-800 rounded-lg px-3 py-2 text-sm outline-none focus:border-neutral-500";
-const labelClass = "text-xs text-neutral-400";
+  "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
+const labelClass = "text-xs text-ink-dim";
 
 type CocValues = Record<string, string | number | boolean | Date | null | undefined>;
 
@@ -37,21 +37,21 @@ export function CocForm({
       {sections.map((section) => {
         const fields = COC_FIELDS.filter((f) => f.section === section);
         return (
-          <details key={section} className="border border-neutral-800 rounded-lg overflow-hidden group">
-            <summary className="cursor-pointer select-none px-4 py-3 bg-neutral-900 text-sm font-medium flex items-center justify-between">
+          <details key={section} className="border border-border rounded-xl overflow-hidden group">
+            <summary className="cursor-pointer select-none px-4 py-3 bg-panel text-sm font-medium flex items-center justify-between">
               {COC_SECTIONS[section]}
-              <span className="text-neutral-500 text-xs">{fields.length} campos</span>
+              <span className="text-ink-faint text-xs">{fields.length} campos</span>
             </summary>
             <div className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {section === "motor" && (
-                <div className="col-span-full text-xs text-neutral-400 bg-neutral-900/60 rounded-lg px-3 py-2">
-                  Potencia fiscal (calculada): <b className="text-neutral-200">{fiscalHorsepower ?? "—"}</b> CV
+                <div className="col-span-full text-xs text-ink-dim bg-panel/60 rounded-lg px-3 py-2">
+                  Potencia fiscal (calculada): <b className="text-ink">{fiscalHorsepower ?? "—"}</b> CV
                 </div>
               )}
               {fields.map((field) => (
                 <div key={field.name} className="space-y-1">
                   <label className={labelClass}>
-                    <span className="text-neutral-600 mr-1">{field.clause}</span>
+                    <span className="text-ink-faint mr-1">{field.clause}</span>
                     {field.label}
                   </label>
                   <input
@@ -72,11 +72,11 @@ export function CocForm({
         <button
           type="submit"
           disabled={pending}
-          className="bg-white text-black font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="bg-accent text-accent-ink font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           {pending ? "Guardando..." : "Guardar COC"}
         </button>
-        {state?.message && <p className="text-sm text-neutral-400">{state.message}</p>}
+        {state?.message && <p className="text-sm text-ink-dim">{state.message}</p>}
       </div>
     </form>
   );

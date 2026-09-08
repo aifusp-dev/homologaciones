@@ -25,11 +25,11 @@ function GenerateButton({ dossierId, type, label }: { dossierId: string; type: s
       <button
         type="submit"
         disabled={pending}
-        className="border border-neutral-700 rounded-lg px-3 py-1.5 text-sm hover:border-neutral-500 transition-colors disabled:opacity-50"
+        className="border border-border-strong rounded-lg px-3 py-1.5 text-sm hover:border-accent transition-colors disabled:opacity-50"
       >
         {pending ? "Generando..." : `Generar ${label}`}
       </button>
-      {state?.message && <span className="text-xs text-neutral-500">{state.message}</span>}
+      {state?.message && <span className="text-xs text-ink-faint">{state.message}</span>}
     </form>
   );
 }
@@ -48,7 +48,7 @@ export function DocumentsSection({
           d.available ? (
             <GenerateButton key={d.type} dossierId={dossierId} type={d.type} label={d.label} />
           ) : (
-            <div key={d.type} className="text-sm text-neutral-600 px-3 py-1.5">
+            <div key={d.type} className="text-sm text-ink-faint px-3 py-1.5">
               {d.label} <span className="text-xs">(fase futura)</span>
             </div>
           )
@@ -58,11 +58,11 @@ export function DocumentsSection({
       {documents.length > 0 && (
         <ul className="space-y-1.5 text-sm">
           {documents.map((doc) => (
-            <li key={doc.id} className="flex justify-between border-t border-neutral-800 pt-2">
-              <a href={`/api/documents/${doc.id}`} target="_blank" className="text-neutral-300 hover:text-white underline">
+            <li key={doc.id} className="flex justify-between border-t border-border pt-2">
+              <a href={`/api/documents/${doc.id}`} target="_blank" className="text-ink-dim hover:text-white underline">
                 {DOCUMENT_LABELS[doc.type] ?? doc.type}
               </a>
-              <span className="text-neutral-500">{new Date(doc.createdAt).toLocaleString("es-ES")}</span>
+              <span className="text-ink-faint">{new Date(doc.createdAt).toLocaleString("es-ES")}</span>
             </li>
           ))}
         </ul>

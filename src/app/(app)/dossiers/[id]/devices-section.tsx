@@ -37,7 +37,7 @@ export function DevicesSection({ dossierId, records }: { dossierId: string; reco
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+        <h3 className="font-display text-xs font-semibold uppercase tracking-wide text-ink-faint">
           Dispositivos y protecciones
         </h3>
         <div className="space-y-2">
@@ -48,7 +48,7 @@ export function DevicesSection({ dossierId, records }: { dossierId: string; reco
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+        <h3 className="font-display text-xs font-semibold uppercase tracking-wide text-ink-faint">
           Señalización y alumbrado
         </h3>
         <div className="space-y-2">
@@ -59,7 +59,7 @@ export function DevicesSection({ dossierId, records }: { dossierId: string; reco
       </div>
 
       <div className="space-y-2">
-        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+        <h3 className="font-display text-xs font-semibold uppercase tracking-wide text-ink-faint">
           Documentación y actos reglamentarios
         </h3>
         <div className="space-y-2">

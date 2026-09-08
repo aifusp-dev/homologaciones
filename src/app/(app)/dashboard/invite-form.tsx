@@ -14,26 +14,26 @@ export function InviteForm() {
           type="email"
           required
           placeholder="email@compañero.com"
-          className="flex-1 bg-neutral-900 border border-neutral-800 rounded-lg px-3 py-2 text-sm outline-none focus:border-neutral-500"
+          className="flex-1 bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent"
         />
         <select
           name="role"
           defaultValue="OPERATOR"
-          className="bg-neutral-900 border border-neutral-800 rounded-lg px-2 py-2 text-sm outline-none focus:border-neutral-500"
+          className="bg-panel border border-border rounded-lg px-2 py-2 text-sm outline-none focus:border-accent"
         >
           <option value="OPERATOR">Operario</option>
           <option value="COMPANY_ADMIN">Gestor</option>
         </select>
       </div>
-      {state?.errors?.email && <p className="text-xs text-red-400">{state.errors.email[0]}</p>}
+      {state?.errors?.email && <p className="text-xs text-danger">{state.errors.email[0]}</p>}
       <button
         type="submit"
         disabled={pending}
-        className="bg-white text-black font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="bg-accent text-accent-ink font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
       >
         {pending ? "Invitando..." : "Invitar"}
       </button>
-      {state?.message && <p className="text-sm text-neutral-400">{state.message}</p>}
+      {state?.message && <p className="text-sm text-ink-dim">{state.message}</p>}
     </form>
   );
 }

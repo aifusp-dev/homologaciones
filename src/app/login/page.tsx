@@ -7,8 +7,8 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center px-4">
       <div className="w-full max-w-sm space-y-8 text-center">
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight">WorkshopManagement</h1>
-          <p className="text-sm text-neutral-400">Inicia sesión con tu cuenta de Google</p>
+          <h1 className="font-display text-3xl font-bold tracking-tight">WorkshopManagement</h1>
+          <p className="text-sm text-ink-dim">Inicia sesión con tu cuenta de Google</p>
         </div>
 
         {clientId ? (
@@ -16,7 +16,7 @@ export default function LoginPage() {
             <GoogleSignInButton clientId={clientId} />
           </div>
         ) : (
-          <p className="text-sm text-red-400">
+          <p className="text-sm text-danger">
             Falta configurar NEXT_PUBLIC_GOOGLE_CLIENT_ID.
           </p>
         )}

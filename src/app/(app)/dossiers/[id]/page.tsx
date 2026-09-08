@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText } from "lucide-react";
 import { notFound } from "next/navigation";
 import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
@@ -150,24 +151,37 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   };
 
   const tabs: DossierTab[] = [
-    { id: "cliente", label: "Cliente", content: <CustomerForm dossierId={dossier.id} customer={dossier.customer} /> },
-    { id: "concesionario", label: "Concesionario", content: <DealerForm dossierId={dossier.id} dealer={dossier.dealer} /> },
+    {
+      id: "cliente",
+      label: "Cliente",
+      icon: <User size={16} strokeWidth={1.9} className="shrink-0" />,
+      content: <CustomerForm dossierId={dossier.id} customer={dossier.customer} />,
+    },
+    {
+      id: "concesionario",
+      label: "Concesionario",
+      icon: <Building2 size={16} strokeWidth={1.9} className="shrink-0" />,
+      content: <DealerForm dossierId={dossier.id} dealer={dossier.dealer} />,
+    },
     {
       id: "coc",
       label: "COC",
+      icon: <ShieldCheck size={16} strokeWidth={1.9} className="shrink-0" />,
       content: <CocForm dossierId={dossier.id} coc={dossier.coc} fiscalHorsepower={power} />,
     },
     {
       id: "carrozado",
       label: "Carrozado",
+      icon: <Truck size={16} strokeWidth={1.9} className="shrink-0" />,
       content: <BodyworkForm dossierId={dossier.id} bodywork={dossier.bodywork} computed={bodyworkComputed} />,
     },
     {
       id: "masas",
       label: "Masas y dimensiones",
+      icon: <Scale size={16} strokeWidth={1.9} className="shrink-0" />,
       content: (
         <div className="space-y-3">
-          <p className="text-xs text-neutral-500">Vehículo 2 ejes</p>
+          <p className="text-xs text-ink-faint">Vehículo 2 ejes</p>
           <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
         </div>
       ),
@@ -175,6 +189,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     {
       id: "dispositivos",
       label: "Dispositivos y señalización",
+      icon: <Wrench size={16} strokeWidth={1.9} className="shrink-0" />,
       content: (
         <DevicesSection
           dossierId={dossier.id}
@@ -207,6 +222,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     {
       id: "documentos",
       label: "Documentos",
+      icon: <FileText size={16} strokeWidth={1.9} className="shrink-0" />,
       content: <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />,
     },
   ];
@@ -214,7 +230,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   return (
     <div className="space-y-6">
       <header className="space-y-1">
-        <Link href="/dashboard" className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors">
+        <Link href="/dashboard" className="text-sm text-ink-faint hover:text-ink transition-colors">
           ← Volver
         </Link>
         <h1 className="text-2xl font-bold tracking-tight font-mono">{dossier.number}</h1>

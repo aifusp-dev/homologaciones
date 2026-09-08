@@ -63,8 +63,8 @@ export function GoogleSignInButton({ clientId }: { clientId: string }) {
         <input ref={credentialRef} type="hidden" name="credential" />
         <div ref={buttonSlotRef} aria-live="polite" />
       </form>
-      {pending && <p className="text-sm text-neutral-400 text-center">Entrando...</p>}
-      {state?.message && <p className="text-sm text-red-400 text-center max-w-xs">{state.message}</p>}
+      {pending && <p className="text-sm text-ink-dim text-center">Entrando...</p>}
+      {state?.message && <p className="text-sm text-danger text-center max-w-xs">{state.message}</p>}
     </div>
   );
 }

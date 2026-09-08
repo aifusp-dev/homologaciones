@@ -5,8 +5,8 @@ import { updateDealer } from "@/app/actions/dossiers";
 import type { Dealer } from "@/generated/prisma/client";
 
 const inputClass =
-  "w-full bg-neutral-900 border border-neutral-800 rounded-lg px-3 py-2 text-sm outline-none focus:border-neutral-500";
-const labelClass = "text-xs font-medium text-neutral-400 uppercase tracking-wide";
+  "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
+const labelClass = "text-xs font-medium text-ink-dim uppercase tracking-wide";
 
 export function DealerForm({ dossierId, dealer }: { dossierId: string; dealer: Dealer | null }) {
   const [state, action, pending] = useActionState(updateDealer, undefined);
@@ -48,11 +48,11 @@ export function DealerForm({ dossierId, dealer }: { dossierId: string; dealer: D
         <button
           type="submit"
           disabled={pending}
-          className="bg-white text-black font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="bg-accent text-accent-ink font-semibold rounded-lg px-4 py-2 text-sm hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           {pending ? "Guardando..." : "Guardar concesionario"}
         </button>
-        {state?.message && <p className="text-sm text-neutral-400">{state.message}</p>}
+        {state?.message && <p className="text-sm text-ink-dim">{state.message}</p>}
       </div>
     </form>
   );

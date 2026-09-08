@@ -1,16 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Barlow_Semi_Condensed, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import { RegisterServiceWorker } from "@/components/register-sw";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Identidad "ámbar taller" (Fase 6): Barlow Semi Condensed para
+// títulos/marca (referencia histórica a señalética de carretera —
+// encaja con una app de vehículos), IBM Plex Sans para cuerpo, IBM Plex
+// Mono para datos técnicos (VIN, matrículas, masas — ver uso de
+// font-mono en toda la app).
+const barlow = Barlow_Semi_Condensed({
+  variable: "--font-barlow",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -24,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a0a0a",
+  themeColor: "#16140f",
 };
 
 export default function RootLayout({
@@ -35,9 +48,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className={`${barlow.variable} ${plexSans.variable} ${plexMono.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-neutral-950 text-neutral-100">
+      <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
         <RegisterServiceWorker />
         {children}
       </body>

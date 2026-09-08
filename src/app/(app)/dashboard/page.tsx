@@ -26,18 +26,18 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <p className="text-xs uppercase tracking-wide text-neutral-500">{company.name}</p>
-        <h1 className="text-2xl font-bold tracking-tight">Panel</h1>
+        <p className="font-display text-xs uppercase tracking-wide text-ink-faint">{company.name}</p>
+        <h1 className="font-display text-3xl font-bold tracking-tight">Panel</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <section className="lg:col-span-2 space-y-3">
           <div className="flex items-center justify-between">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            <h2 className="font-display text-sm font-semibold uppercase tracking-wide text-ink-dim">
               Expedientes
             </h2>
             <form action={createDossier}>
-              <button className="bg-white text-black font-semibold rounded-lg px-3.5 py-1.5 text-sm hover:opacity-90 transition-opacity">
+              <button className="bg-accent text-accent-ink font-semibold rounded-lg px-3.5 py-1.5 text-sm hover:opacity-90 transition-opacity">
                 Nuevo expediente
               </button>
             </form>
@@ -47,32 +47,32 @@ export default async function DashboardPage() {
               <li key={d.id}>
                 <Link
                   href={`/dossiers/${d.id}`}
-                  className="flex justify-between items-baseline border border-neutral-800 rounded-lg px-4 py-3 text-sm hover:border-neutral-600 transition-colors"
+                  className="flex justify-between items-baseline border border-border rounded-xl px-4 py-3 text-sm hover:border-accent transition-colors"
                 >
                   <span className="font-mono font-medium">{d.number}</span>
-                  <span className="text-neutral-500">{d.customer?.name ?? "Sin cliente"}</span>
+                  <span className="text-ink-faint">{d.customer?.name ?? "Sin cliente"}</span>
                 </Link>
               </li>
             ))}
             {company.dossiers.length === 0 && (
-              <p className="text-sm text-neutral-500">Todavía no hay ningún expediente.</p>
+              <p className="text-sm text-ink-faint">Todavía no hay ningún expediente.</p>
             )}
           </ul>
         </section>
 
         <section className="space-y-4">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Equipo</h2>
+          <h2 className="font-display text-sm font-semibold uppercase tracking-wide text-ink-dim">Equipo</h2>
           <ul className="space-y-1.5 text-sm">
             {company.users.map((u) => (
-              <li key={u.id} className="flex justify-between text-neutral-300">
+              <li key={u.id} className="flex justify-between text-ink-dim">
                 <span>
-                  {u.name} <span className="text-neutral-500">({u.email})</span>
+                  {u.name} <span className="text-ink-faint">({u.email})</span>
                 </span>
-                <span className="text-neutral-500">{ROLE_LABEL[u.role] ?? u.role}</span>
+                <span className="text-ink-faint">{ROLE_LABEL[u.role] ?? u.role}</span>
               </li>
             ))}
             {company.invitations.map((inv) => (
-              <li key={inv.id} className="flex justify-between text-neutral-500 italic">
+              <li key={inv.id} className="flex justify-between text-ink-faint italic">
                 <span>{inv.email}</span>
                 <span>Invitado · {ROLE_LABEL[inv.role] ?? inv.role}</span>
               </li>
