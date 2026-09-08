@@ -68,6 +68,10 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   if (!dossier) notFound();
 
   const hReports = await prisma.hReport.findMany({ where: { companyId: user.companyId } });
+  const savedCustomers = await prisma.savedCustomer.findMany({
+    where: { companyId: user.companyId },
+    orderBy: { name: "asc" },
+  });
   const hReportsByCategory: Record<string, { id: string; number: string; issuer: string | null }[]> = {
     LIGHTING: [],
     SPRAY_SUPPRESSION: [],
@@ -235,7 +239,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       id: "cliente",
       label: "Cliente",
       icon: <User size={16} strokeWidth={1.9} className="shrink-0" />,
-      content: <CustomerForm dossierId={dossier.id} customer={dossier.customer} />,
+      content: <CustomerForm dossierId={dossier.id} customer={dossier.customer} savedCustomers={savedCustomers} />,
     },
     {
       id: "concesionario",

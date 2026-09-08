@@ -236,6 +236,7 @@ export type CompanyWhereInput = {
   invitations?: Prisma.InvitationListRelationFilter
   dossiers?: Prisma.DossierListRelationFilter
   hReports?: Prisma.HReportListRelationFilter
+  savedCustomers?: Prisma.SavedCustomerListRelationFilter
 }
 
 export type CompanyOrderByWithRelationInput = {
@@ -250,6 +251,7 @@ export type CompanyOrderByWithRelationInput = {
   invitations?: Prisma.InvitationOrderByRelationAggregateInput
   dossiers?: Prisma.DossierOrderByRelationAggregateInput
   hReports?: Prisma.HReportOrderByRelationAggregateInput
+  savedCustomers?: Prisma.SavedCustomerOrderByRelationAggregateInput
 }
 
 export type CompanyWhereUniqueInput = Prisma.AtLeast<{
@@ -267,6 +269,7 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   invitations?: Prisma.InvitationListRelationFilter
   dossiers?: Prisma.DossierListRelationFilter
   hReports?: Prisma.HReportListRelationFilter
+  savedCustomers?: Prisma.SavedCustomerListRelationFilter
 }, "id">
 
 export type CompanyOrderByWithAggregationInput = {
@@ -309,6 +312,7 @@ export type CompanyCreateInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateInput = {
@@ -323,6 +327,7 @@ export type CompanyUncheckedCreateInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUpdateInput = {
@@ -337,6 +342,7 @@ export type CompanyUpdateInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateInput = {
@@ -351,6 +357,7 @@ export type CompanyUncheckedUpdateInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateManyInput = {
@@ -446,6 +453,20 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type CompanyCreateNestedOneWithoutSavedCustomersInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutSavedCustomersInput, Prisma.CompanyUncheckedCreateWithoutSavedCustomersInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutSavedCustomersInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutSavedCustomersNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutSavedCustomersInput, Prisma.CompanyUncheckedCreateWithoutSavedCustomersInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutSavedCustomersInput
+  upsert?: Prisma.CompanyUpsertWithoutSavedCustomersInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutSavedCustomersInput, Prisma.CompanyUpdateWithoutSavedCustomersInput>, Prisma.CompanyUncheckedUpdateWithoutSavedCustomersInput>
+}
+
 export type CompanyCreateNestedOneWithoutUsersInput = {
   create?: Prisma.XOR<Prisma.CompanyCreateWithoutUsersInput, Prisma.CompanyUncheckedCreateWithoutUsersInput>
   connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutUsersInput
@@ -502,6 +523,78 @@ export type CompanyUpdateOneRequiredWithoutHReportsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutHReportsInput, Prisma.CompanyUpdateWithoutHReportsInput>, Prisma.CompanyUncheckedUpdateWithoutHReportsInput>
 }
 
+export type CompanyCreateWithoutSavedCustomersInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutSavedCustomersInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutSavedCustomersInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutSavedCustomersInput, Prisma.CompanyUncheckedCreateWithoutSavedCustomersInput>
+}
+
+export type CompanyUpsertWithoutSavedCustomersInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutSavedCustomersInput, Prisma.CompanyUncheckedUpdateWithoutSavedCustomersInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutSavedCustomersInput, Prisma.CompanyUncheckedCreateWithoutSavedCustomersInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutSavedCustomersInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutSavedCustomersInput, Prisma.CompanyUncheckedUpdateWithoutSavedCustomersInput>
+}
+
+export type CompanyUpdateWithoutSavedCustomersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutSavedCustomersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
 export type CompanyCreateWithoutUsersInput = {
   id?: string
   name: string
@@ -513,6 +606,7 @@ export type CompanyCreateWithoutUsersInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutUsersInput = {
@@ -526,6 +620,7 @@ export type CompanyUncheckedCreateWithoutUsersInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutUsersInput = {
@@ -555,6 +650,7 @@ export type CompanyUpdateWithoutUsersInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutUsersInput = {
@@ -568,6 +664,7 @@ export type CompanyUncheckedUpdateWithoutUsersInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutInvitationsInput = {
@@ -581,6 +678,7 @@ export type CompanyCreateWithoutInvitationsInput = {
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutInvitationsInput = {
@@ -594,6 +692,7 @@ export type CompanyUncheckedCreateWithoutInvitationsInput = {
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutInvitationsInput = {
@@ -623,6 +722,7 @@ export type CompanyUpdateWithoutInvitationsInput = {
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutInvitationsInput = {
@@ -636,6 +736,7 @@ export type CompanyUncheckedUpdateWithoutInvitationsInput = {
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutDossiersInput = {
@@ -649,6 +750,7 @@ export type CompanyCreateWithoutDossiersInput = {
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutDossiersInput = {
@@ -662,6 +764,7 @@ export type CompanyUncheckedCreateWithoutDossiersInput = {
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutDossiersInput = {
@@ -691,6 +794,7 @@ export type CompanyUpdateWithoutDossiersInput = {
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutDossiersInput = {
@@ -704,6 +808,7 @@ export type CompanyUncheckedUpdateWithoutDossiersInput = {
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutHReportsInput = {
@@ -717,6 +822,7 @@ export type CompanyCreateWithoutHReportsInput = {
   users?: Prisma.UserCreateNestedManyWithoutCompanyInput
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutHReportsInput = {
@@ -730,6 +836,7 @@ export type CompanyUncheckedCreateWithoutHReportsInput = {
   users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutHReportsInput = {
@@ -759,6 +866,7 @@ export type CompanyUpdateWithoutHReportsInput = {
   users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutHReportsInput = {
@@ -772,6 +880,7 @@ export type CompanyUncheckedUpdateWithoutHReportsInput = {
   users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 
@@ -784,6 +893,7 @@ export type CompanyCountOutputType = {
   invitations: number
   dossiers: number
   hReports: number
+  savedCustomers: number
 }
 
 export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -791,6 +901,7 @@ export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   invitations?: boolean | CompanyCountOutputTypeCountInvitationsArgs
   dossiers?: boolean | CompanyCountOutputTypeCountDossiersArgs
   hReports?: boolean | CompanyCountOutputTypeCountHReportsArgs
+  savedCustomers?: boolean | CompanyCountOutputTypeCountSavedCustomersArgs
 }
 
 /**
@@ -831,6 +942,13 @@ export type CompanyCountOutputTypeCountHReportsArgs<ExtArgs extends runtime.Type
   where?: Prisma.HReportWhereInput
 }
 
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountSavedCustomersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SavedCustomerWhereInput
+}
+
 
 export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -844,6 +962,7 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   invitations?: boolean | Prisma.Company$invitationsArgs<ExtArgs>
   dossiers?: boolean | Prisma.Company$dossiersArgs<ExtArgs>
   hReports?: boolean | Prisma.Company$hReportsArgs<ExtArgs>
+  savedCustomers?: boolean | Prisma.Company$savedCustomersArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["company"]>
 
@@ -883,6 +1002,7 @@ export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   invitations?: boolean | Prisma.Company$invitationsArgs<ExtArgs>
   dossiers?: boolean | Prisma.Company$dossiersArgs<ExtArgs>
   hReports?: boolean | Prisma.Company$hReportsArgs<ExtArgs>
+  savedCustomers?: boolean | Prisma.Company$savedCustomersArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CompanyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -895,6 +1015,7 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     invitations: Prisma.$InvitationPayload<ExtArgs>[]
     dossiers: Prisma.$DossierPayload<ExtArgs>[]
     hReports: Prisma.$HReportPayload<ExtArgs>[]
+    savedCustomers: Prisma.$SavedCustomerPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1302,6 +1423,7 @@ export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends runtime.
   invitations<T extends Prisma.Company$invitationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   dossiers<T extends Prisma.Company$dossiersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$dossiersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DossierPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   hReports<T extends Prisma.Company$hReportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$hReportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  savedCustomers<T extends Prisma.Company$savedCustomersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$savedCustomersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavedCustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1824,6 +1946,30 @@ export type Company$hReportsArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.HReportScalarFieldEnum | Prisma.HReportScalarFieldEnum[]
+}
+
+/**
+ * Company.savedCustomers
+ */
+export type Company$savedCustomersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SavedCustomer
+   */
+  select?: Prisma.SavedCustomerSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SavedCustomer
+   */
+  omit?: Prisma.SavedCustomerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SavedCustomerInclude<ExtArgs> | null
+  where?: Prisma.SavedCustomerWhereInput
+  orderBy?: Prisma.SavedCustomerOrderByWithRelationInput | Prisma.SavedCustomerOrderByWithRelationInput[]
+  cursor?: Prisma.SavedCustomerWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SavedCustomerScalarFieldEnum | Prisma.SavedCustomerScalarFieldEnum[]
 }
 
 /**

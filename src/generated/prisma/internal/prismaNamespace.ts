@@ -398,6 +398,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Company: 'Company',
+  SavedCustomer: 'SavedCustomer',
   User: 'User',
   LoginToken: 'LoginToken',
   Invitation: 'Invitation',
@@ -447,7 +448,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
+    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -522,6 +523,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.CompanyCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.CompanyCountAggregateOutputType> | number
+        }
+      }
+    }
+    SavedCustomer: {
+      payload: Prisma.$SavedCustomerPayload<ExtArgs>
+      fields: Prisma.SavedCustomerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SavedCustomerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SavedCustomerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        findFirst: {
+          args: Prisma.SavedCustomerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SavedCustomerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        findMany: {
+          args: Prisma.SavedCustomerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>[]
+        }
+        create: {
+          args: Prisma.SavedCustomerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        createMany: {
+          args: Prisma.SavedCustomerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SavedCustomerCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>[]
+        }
+        delete: {
+          args: Prisma.SavedCustomerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        update: {
+          args: Prisma.SavedCustomerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        deleteMany: {
+          args: Prisma.SavedCustomerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SavedCustomerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SavedCustomerUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>[]
+        }
+        upsert: {
+          args: Prisma.SavedCustomerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SavedCustomerPayload>
+        }
+        aggregate: {
+          args: Prisma.SavedCustomerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSavedCustomer>
+        }
+        groupBy: {
+          args: Prisma.SavedCustomerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavedCustomerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SavedCustomerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SavedCustomerCountAggregateOutputType> | number
         }
       }
     }
@@ -3093,6 +3168,21 @@ export const CompanyScalarFieldEnum = {
 export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
 
 
+export const SavedCustomerScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  contactName: 'contactName',
+  contactPhone: 'contactPhone',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type SavedCustomerScalarFieldEnum = (typeof SavedCustomerScalarFieldEnum)[keyof typeof SavedCustomerScalarFieldEnum]
+
+
 export const UserScalarFieldEnum = {
   id: 'id',
   companyId: 'companyId',
@@ -4268,6 +4358,7 @@ export interface PrismaClientOptionsWithAdapter extends PrismaClientBaseOptions 
 export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaClientOptionsWithAdapter
 export type GlobalOmitConfig = {
   company?: Prisma.CompanyOmit
+  savedCustomer?: Prisma.SavedCustomerOmit
   user?: Prisma.UserOmit
   loginToken?: Prisma.LoginTokenOmit
   invitation?: Prisma.InvitationOmit

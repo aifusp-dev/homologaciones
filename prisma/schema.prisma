@@ -32,10 +32,32 @@ model Company {
 
   users       User[]
   invitations Invitation[]
-  dossiers    Dossier[]
-  hReports    HReport[]
+  dossiers       Dossier[]
+  hReports       HReport[]
+  savedCustomers SavedCustomer[]
 
   @@map("companies")
+}
+
+// Catálogo de clientes habituales por empresa — para no reintroducir los
+// mismos datos en cada expediente nuevo. Mismos campos que Customer (el
+// 1:1 real por expediente), se carga en su formulario por selección, no
+// sustituye el modelo por expediente.
+model SavedCustomer {
+  id           String   @id @default(cuid())
+  companyId    String
+  name         String?
+  phone        String?
+  email        String?
+  contactName  String?
+  contactPhone String?
+  notes        String?
+  createdAt    DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId])
+  @@map("saved_customers")
 }
 
 // Sin contraseña: la identidad viene siempre de Google. Un User es siempre
