@@ -3,54 +3,54 @@ import { cache } from "react";
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/session";
 import { prisma } from "@/lib/db";
-import type { Role } from "@/generated/prisma/enums";
+import { isSuperAdminEmail } from "@/lib/superAdmin";
 
-export const verifySession = cache(async () => {
+/**
+ * Identidad completa de la sesión actual: puede ser super_admin, puede ser
+ * miembro de una empresa (companyUser), o las dos cosas a la vez — no son
+ * excluyentes (ver comentario en schema.prisma sobre User).
+ */
+export const getIdentity = cache(async () => {
   const session = await getSession();
-  if (!session?.userId) {
-    redirect("/login");
-  }
-  return { userId: session.userId };
+  if (!session?.email) return null;
+
+  const [isSuperAdmin, companyUser] = await Promise.all([
+    Promise.resolve(isSuperAdminEmail(session.email)),
+    prisma.user.findUnique({
+      where: { email: session.email },
+      select: { id: true, email: true, name: true, role: true, companyId: true },
+    }),
+  ]);
+
+  if (!isSuperAdmin && !companyUser) return null;
+  return { email: session.email, isSuperAdmin, companyUser };
+});
+
+export const requireIdentity = cache(async () => {
+  const identity = await getIdentity();
+  if (!identity) redirect("/login");
+  return identity;
+});
+
+export const requireSuperAdmin = cache(async () => {
+  const identity = await requireIdentity();
+  if (!identity.isSuperAdmin) redirect(defaultDestination(identity));
+  return identity;
 });
 
 /**
- * Cualquier usuario logueado, sea cual sea su rol o empresa. Redirige a
- * /login si la sesión no existe o el usuario fue borrado.
- */
-export const requireUser = cache(async () => {
-  const { userId } = await verifySession();
-  const user = await prisma.user.findUnique({
-    where: { id: userId },
-    select: { id: true, email: true, name: true, role: true, companyId: true },
-  });
-  if (!user) redirect("/login");
-  return user;
-});
-
-/**
- * Como requireUser, pero además exige un rol concreto. Un usuario logueado
- * con el rol equivocado se manda a su propio home en vez de a /login.
- */
-export async function requireRole(role: Role) {
-  const user = await requireUser();
-  if (user.role !== role) {
-    redirect(homeForRole(user.role));
-  }
-  return user;
-}
-
-/**
- * Usuario de empresa (COMPANY_ADMIN u OPERATOR) con companyId garantizado
- * no-nulo, listo para usar en cualquier consulta scoped a la empresa.
+ * Usuario de empresa (COMPANY_ADMIN u OPERATOR), garantizado con
+ * companyUser no-nulo, listo para usar en cualquier consulta scoped a la
+ * empresa.
  */
 export const requireCompanyUser = cache(async () => {
-  const user = await requireUser();
-  if (!user.companyId) {
-    redirect(homeForRole(user.role));
-  }
-  return { ...user, companyId: user.companyId };
+  const identity = await requireIdentity();
+  if (!identity.companyUser) redirect(defaultDestination(identity));
+  return identity.companyUser;
 });
 
-export function homeForRole(role: Role) {
-  return role === "SUPER_ADMIN" ? "/super-admin" : "/dashboard";
+export function defaultDestination(identity: { isSuperAdmin: boolean; companyUser: unknown }) {
+  if (identity.isSuperAdmin) return "/super-admin";
+  if (identity.companyUser) return "/dashboard";
+  return "/login";
 }

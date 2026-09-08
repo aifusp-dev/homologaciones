@@ -1,10 +1,11 @@
-import { requireRole } from "@/lib/dal";
+import Link from "next/link";
+import { requireSuperAdmin } from "@/lib/dal";
 import { prisma } from "@/lib/db";
 import { logout } from "@/app/actions/auth";
 import { CreateCompanyForm } from "./create-company-form";
 
 export default async function SuperAdminPage() {
-  const user = await requireRole("SUPER_ADMIN");
+  const identity = await requireSuperAdmin();
   const companies = await prisma.company.findMany({
     orderBy: { createdAt: "desc" },
     include: {
@@ -19,13 +20,20 @@ export default async function SuperAdminPage() {
         <div>
           <p className="text-xs uppercase tracking-wide text-neutral-500">Super admin</p>
           <h1 className="text-2xl font-bold tracking-tight">Empresas</h1>
-          <p className="text-sm text-neutral-400 mt-1">{user.name}</p>
+          <p className="text-sm text-neutral-400 mt-1">{identity.email}</p>
         </div>
-        <form action={logout}>
-          <button className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
-            Cerrar sesión
-          </button>
-        </form>
+        <div className="flex items-center gap-4">
+          {identity.companyUser && (
+            <Link href="/dashboard" className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
+              Ir a mi empresa
+            </Link>
+          )}
+          <form action={logout}>
+            <button className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
+              Cerrar sesión
+            </button>
+          </form>
+        </div>
       </header>
 
       <section className="space-y-4">

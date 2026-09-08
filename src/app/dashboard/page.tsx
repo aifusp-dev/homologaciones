@@ -1,4 +1,5 @@
-import { requireCompanyUser } from "@/lib/dal";
+import Link from "next/link";
+import { requireCompanyUser, getIdentity } from "@/lib/dal";
 import { prisma } from "@/lib/db";
 import { logout } from "@/app/actions/auth";
 import { InviteForm } from "./invite-form";
@@ -10,6 +11,7 @@ const ROLE_LABEL: Record<string, string> = {
 
 export default async function DashboardPage() {
   const user = await requireCompanyUser();
+  const identity = await getIdentity();
   const company = await prisma.company.findUniqueOrThrow({
     where: { id: user.companyId },
     include: {
@@ -28,11 +30,18 @@ export default async function DashboardPage() {
             {user.name} · {ROLE_LABEL[user.role] ?? user.role}
           </p>
         </div>
-        <form action={logout}>
-          <button className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
-            Cerrar sesión
-          </button>
-        </form>
+        <div className="flex items-center gap-4">
+          {identity?.isSuperAdmin && (
+            <Link href="/super-admin" className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
+              Panel super-admin
+            </Link>
+          )}
+          <form action={logout}>
+            <button className="text-sm text-neutral-400 hover:text-neutral-200 transition-colors">
+              Cerrar sesión
+            </button>
+          </form>
+        </div>
       </header>
 
       <section className="space-y-3">

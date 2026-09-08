@@ -11,7 +11,6 @@ datasource db {
 }
 
 enum Role {
-  SUPER_ADMIN
   COMPANY_ADMIN
   OPERATOR
 }
@@ -29,18 +28,22 @@ model Company {
   @@map("companies")
 }
 
-// Sin contraseña: la identidad viene siempre de Google. SUPER_ADMIN no
-// pertenece a ninguna empresa (companyId null); todos los demás roles sí.
+// Sin contraseña: la identidad viene siempre de Google. Un User es siempre
+// miembro de una empresa (companyId requerido) — el "super_admin" NO es un
+// User, es una capacidad global que se concede solo por estar en la env var
+// SUPER_ADMIN_EMAILS (ver src/lib/superAdmin.ts). Así el mismo email puede
+// ser super_admin Y, por separado, dueño/miembro de una empresa (ej. el
+// propio operador del SaaS probando o usando su propio taller) sin chocar.
 model User {
   id        String   @id @default(cuid())
-  companyId String?
+  companyId String
   googleId  String   @unique
   email     String   @unique
   name      String
   role      Role
   createdAt DateTime @default(now())
 
-  company Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
 
   @@index([companyId])
   @@map("users")

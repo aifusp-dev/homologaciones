@@ -11,8 +11,11 @@ const encodedKey = new TextEncoder().encode(secretKey);
 const COOKIE_NAME = "session";
 const SESSION_DURATION_MS = 7 * 24 * 60 * 60 * 1000;
 
+// La sesión identifica a la persona por email, no por User.id: el email
+// puede ser super_admin (capacidad global, sin fila en la tabla users), o
+// miembro de una empresa (con fila en users), o ambas cosas a la vez.
 export type SessionPayload = {
-  userId: string;
+  email: string;
 };
 
 export async function encrypt(payload: SessionPayload) {
@@ -35,8 +38,8 @@ export async function decrypt(session: string | undefined) {
   }
 }
 
-export async function createSession(userId: string) {
-  const session = await encrypt({ userId });
+export async function createSession(email: string) {
+  const session = await encrypt({ email });
   const expires = new Date(Date.now() + SESSION_DURATION_MS);
   const cookieStore = await cookies();
 

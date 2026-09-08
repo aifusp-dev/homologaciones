@@ -10,7 +10,6 @@
 */
 
 export const Role = {
-  SUPER_ADMIN: 'SUPER_ADMIN',
   COMPANY_ADMIN: 'COMPANY_ADMIN',
   OPERATOR: 'OPERATOR'
 } as const

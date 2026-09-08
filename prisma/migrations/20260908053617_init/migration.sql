@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "Role" AS ENUM ('SUPER_ADMIN', 'COMPANY_ADMIN', 'OPERATOR');
+CREATE TYPE "Role" AS ENUM ('COMPANY_ADMIN', 'OPERATOR');
 
 -- CreateTable
 CREATE TABLE "companies" (
@@ -13,7 +13,7 @@ CREATE TABLE "companies" (
 -- CreateTable
 CREATE TABLE "users" (
     "id" TEXT NOT NULL,
-    "companyId" TEXT,
+    "companyId" TEXT NOT NULL,
     "googleId" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,

@@ -2,7 +2,7 @@
 
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
-import { requireRole, requireCompanyUser } from "@/lib/dal";
+import { requireSuperAdmin, requireCompanyUser } from "@/lib/dal";
 import { CreateCompanySchema, InviteTeammateSchema } from "@/lib/definitions";
 import type { FormState } from "@/lib/definitions";
 
@@ -12,7 +12,7 @@ import type { FormState } from "@/lib/definitions";
  * única puerta de entrada para una empresa nueva.
  */
 export async function createCompany(_state: FormState, formData: FormData): Promise<FormState> {
-  await requireRole("SUPER_ADMIN");
+  await requireSuperAdmin();
 
   const validated = CreateCompanySchema.safeParse({
     companyName: formData.get("companyName"),
@@ -27,7 +27,7 @@ export async function createCompany(_state: FormState, formData: FormData): Prom
 
   const existingUser = await prisma.user.findUnique({ where: { email } });
   if (existingUser) {
-    return { message: "Ya existe una cuenta con ese email." };
+    return { message: "Ese email ya es miembro de otra empresa." };
   }
 
   await prisma.$transaction(async (tx) => {
@@ -69,7 +69,7 @@ export async function inviteTeammate(_state: FormState, formData: FormData): Pro
 
   const existingUser = await prisma.user.findUnique({ where: { email } });
   if (existingUser) {
-    return { message: "Ya existe una cuenta con ese email." };
+    return { message: "Ese email ya es miembro de otra empresa." };
   }
 
   await prisma.invitation.upsert({
