@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Homologaciones",
+  title: "WorkshopManagement",
   description: "Gestión de expedientes de homologación de vehículos",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
-    title: "Homologaciones",
+    title: "WM",
   },
 };
 

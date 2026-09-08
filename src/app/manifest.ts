@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Homologaciones",
-    short_name: "Homolog.",
+    name: "WorkshopManagement",
+    short_name: "WM",
     description: "Gestión de expedientes de homologación de vehículos",
     start_url: "/",
     display: "standalone",

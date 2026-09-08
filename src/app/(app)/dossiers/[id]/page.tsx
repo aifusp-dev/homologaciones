@@ -17,6 +17,7 @@ import { BodyworkForm } from "./bodywork-form";
 import { MassesForm } from "./masses-form";
 import { DocumentsSection } from "./documents-section";
 import { DevicesSection } from "./devices-section";
+import { DossierTabs, type DossierTab } from "./dossier-tabs";
 
 export default async function DossierPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -148,48 +149,33 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     ...calculateSemiO4ThreeAxleMasses(massesInputs),
   };
 
-  return (
-    <div className="min-h-screen max-w-3xl mx-auto px-6 py-10 space-y-8">
-      <header className="space-y-1">
-        <Link href="/dashboard" className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors">
-          ← Volver
-        </Link>
-        <h1 className="text-2xl font-bold tracking-tight font-mono">{dossier.number}</h1>
-      </header>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Cliente</h2>
-        <CustomerForm dossierId={dossier.id} customer={dossier.customer} />
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Concesionario</h2>
-        <DealerForm dossierId={dossier.id} dealer={dossier.dealer} />
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
-          Certificado de conformidad (COC)
-        </h2>
-        <CocForm dossierId={dossier.id} coc={dossier.coc} fiscalHorsepower={power} />
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Carrozado</h2>
-        <BodyworkForm dossierId={dossier.id} bodywork={dossier.bodywork} computed={bodyworkComputed} />
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
-          Masas y dimensiones <span className="text-neutral-600 normal-case">— vehículo 2 ejes</span>
-        </h2>
-        <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
-      </section>
-
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
-          Dispositivos y señalización
-        </h2>
+  const tabs: DossierTab[] = [
+    { id: "cliente", label: "Cliente", content: <CustomerForm dossierId={dossier.id} customer={dossier.customer} /> },
+    { id: "concesionario", label: "Concesionario", content: <DealerForm dossierId={dossier.id} dealer={dossier.dealer} /> },
+    {
+      id: "coc",
+      label: "COC",
+      content: <CocForm dossierId={dossier.id} coc={dossier.coc} fiscalHorsepower={power} />,
+    },
+    {
+      id: "carrozado",
+      label: "Carrozado",
+      content: <BodyworkForm dossierId={dossier.id} bodywork={dossier.bodywork} computed={bodyworkComputed} />,
+    },
+    {
+      id: "masas",
+      label: "Masas y dimensiones",
+      content: (
+        <div className="space-y-3">
+          <p className="text-xs text-neutral-500">Vehículo 2 ejes</p>
+          <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
+        </div>
+      ),
+    },
+    {
+      id: "dispositivos",
+      label: "Dispositivos y señalización",
+      content: (
         <DevicesSection
           dossierId={dossier.id}
           records={{
@@ -216,12 +202,25 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             platesInscriptions: dossier.platesInscriptions,
           }}
         />
-      </section>
+      ),
+    },
+    {
+      id: "documentos",
+      label: "Documentos",
+      content: <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />,
+    },
+  ];
 
-      <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Documentos</h2>
-        <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />
-      </section>
+  return (
+    <div className="space-y-6">
+      <header className="space-y-1">
+        <Link href="/dashboard" className="text-sm text-neutral-500 hover:text-neutral-300 transition-colors">
+          ← Volver
+        </Link>
+        <h1 className="text-2xl font-bold tracking-tight font-mono">{dossier.number}</h1>
+      </header>
+
+      <DossierTabs tabs={tabs} />
     </div>
   );
 }
