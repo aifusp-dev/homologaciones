@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireRole, requireCompanyUser } from "@/lib/dal";
 import { CreateCompanySchema, InviteTeammateSchema } from "@/lib/definitions";
@@ -37,7 +37,12 @@ export async function createCompany(_state: FormState, formData: FormData): Prom
     });
   });
 
+  // revalidatePath solo invalida cache para próximas navegaciones; refresh()
+  // es lo que realmente vuelve a renderizar esta misma página ya cargada
+  // (Next 16 con Cache Components separa ambas cosas, a diferencia de
+  // versiones anteriores donde revalidatePath ya refrescaba la actual).
   revalidatePath("/super-admin");
+  refresh();
   return { message: `Empresa "${companyName}" creada. Invitación enviada a ${email}.` };
 }
 
@@ -74,5 +79,6 @@ export async function inviteTeammate(_state: FormState, formData: FormData): Pro
   });
 
   revalidatePath("/dashboard");
+  refresh();
   return { message: `Invitación enviada a ${email}.` };
 }
