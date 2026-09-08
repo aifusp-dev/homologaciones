@@ -1,17 +1,30 @@
 "use server";
 
-import { randomBytes, createHash } from "node:crypto";
+import { randomInt, createHash } from "node:crypto";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { verifyGoogleIdToken } from "@/lib/google";
-import { sendMagicLinkEmail } from "@/lib/email";
+import { sendLoginCodeEmail } from "@/lib/email";
 import { createSession, deleteSession } from "@/lib/session";
 import { isSuperAdminEmail } from "@/lib/superAdmin";
 import { defaultDestination } from "@/lib/dal";
 import type { FormState } from "@/lib/definitions";
 import type { User } from "@/generated/prisma/client";
 
-const TOKEN_TTL_MS = 15 * 60 * 1000;
+const CODE_TTL_MS = 10 * 60 * 1000;
+const MAX_ATTEMPTS = 5;
+
+/** Estado compartido por el login en dos pasos (pedir código / verificarlo). */
+export type LoginCodeState =
+  | { step: "request"; message?: string }
+  | { step: "code"; email: string; message?: string }
+  | undefined;
+
+function generateCode(): string {
+  // 6 dígitos, con ceros a la izquierda si hace falta — randomInt es
+  // criptográficamente seguro (a diferencia de Math.random).
+  return randomInt(0, 1_000_000).toString().padStart(6, "0");
+}
 
 /**
  * Resuelve (y da de alta si hace falta) la identidad de un email ya
@@ -104,20 +117,28 @@ export async function googleLogin(_state: FormState, formData: FormData): Promis
   redirect(defaultDestination({ isSuperAdmin, companyUser }));
 }
 
-const GENERIC_MAGIC_LINK_MESSAGE =
-  "Si ese email tiene acceso, te hemos mandado un enlace — revisa tu bandeja de entrada.";
+const GENERIC_CODE_SENT_MESSAGE =
+  "Si ese email tiene acceso, te hemos mandado un código — revisa tu bandeja de entrada.";
+const GENERIC_CODE_INVALID_MESSAGE = "Código incorrecto o caducado. Pide uno nuevo.";
 
 /**
- * Pide un magic link. La respuesta es SIEMPRE el mismo mensaje genérico,
- * autorizado o no — para no filtrar por este formulario qué direcciones
- * existen en el sistema. Solo si está autorizado (usuario existente,
- * super admin, o invitación pendiente) se genera y manda el token de
- * verdad.
+ * Paso 1: pide un código de acceso de 6 dígitos. La respuesta es SIEMPRE
+ * el mismo mensaje genérico, autorizado o no — para no filtrar por este
+ * formulario qué direcciones existen en el sistema. Solo si está
+ * autorizado (usuario existente, super admin, o invitación pendiente) se
+ * genera y manda un código de verdad. En cualquier caso se avanza al
+ * paso 2 (introducir código) — así tampoco se filtra la autorización por
+ * si el formulario pasa o no de paso.
+ *
+ * Un código de 6 dígitos, a diferencia de un enlace, se puede leer en un
+ * dispositivo (el email, p. ej. el móvil) y teclear en otro (donde se
+ * empezó el login, p. ej. el ordenador del taller) — evita el problema
+ * del magic link de solo abrir en el dispositivo donde se lee el correo.
  */
-export async function requestMagicLink(_state: FormState, formData: FormData): Promise<FormState> {
+export async function requestLoginCode(_state: LoginCodeState, formData: FormData): Promise<LoginCodeState> {
   const rawEmail = formData.get("email");
   if (typeof rawEmail !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(rawEmail)) {
-    return { message: "Introduce un email válido." };
+    return { step: "request", message: "Introduce un email válido." };
   }
   const email = rawEmail.trim().toLowerCase();
 
@@ -129,43 +150,67 @@ export async function requestMagicLink(_state: FormState, formData: FormData): P
   const authorized = isSuperAdmin || companyUser !== null || invitation !== null;
 
   if (authorized) {
-    // Invalida (consume) cualquier token pendiente anterior del mismo
-    // email para que no queden varios enlaces válidos a la vez.
+    // Invalida (consume) cualquier código pendiente anterior del mismo
+    // email para que no queden varios códigos válidos a la vez.
     await prisma.loginToken.updateMany({
       where: { email, consumedAt: null },
       data: { consumedAt: new Date() },
     });
 
-    const token = randomBytes(32).toString("hex");
-    const tokenHash = createHash("sha256").update(token).digest("hex");
+    const code = generateCode();
+    const tokenHash = createHash("sha256").update(code).digest("hex");
     await prisma.loginToken.create({
-      data: { email, tokenHash, expiresAt: new Date(Date.now() + TOKEN_TTL_MS) },
+      data: { email, tokenHash, expiresAt: new Date(Date.now() + CODE_TTL_MS) },
     });
 
-    const appUrl = process.env.APP_URL ?? "http://localhost:3000";
-    const url = `${appUrl}/login/verify?token=${token}`;
     try {
-      await sendMagicLinkEmail(email, url);
+      await sendLoginCodeEmail(email, code);
     } catch (err) {
-      console.error("Error enviando magic link:", err);
-      return { message: "No se pudo enviar el email. Inténtalo de nuevo en un momento." };
+      console.error("Error enviando código de acceso:", err);
+      return { step: "request", message: "No se pudo enviar el email. Inténtalo de nuevo en un momento." };
     }
   }
 
-  return { message: GENERIC_MAGIC_LINK_MESSAGE };
+  return { step: "code", email, message: GENERIC_CODE_SENT_MESSAGE };
 }
 
 /**
- * Verifica un token de magic link — llamado desde el Route Handler
- * src/app/login/verify/route.ts. Redirige siempre (éxito o error), nunca
- * devuelve.
+ * Paso 2: verifica el código de 6 dígitos tecleado por la persona.
+ * `MAX_ATTEMPTS` intentos fallidos por código antes de que quede inútil
+ * (hay que pedir uno nuevo) — necesario porque, a diferencia del token
+ * largo del magic link, un código de 6 dígitos es adivinable a fuerza
+ * bruta sin ese límite.
  */
-export async function verifyMagicLink(token: string): Promise<never> {
-  const tokenHash = createHash("sha256").update(token).digest("hex");
-  const loginToken = await prisma.loginToken.findUnique({ where: { tokenHash } });
+export async function verifyLoginCode(_state: LoginCodeState, formData: FormData): Promise<LoginCodeState> {
+  const rawEmail = formData.get("email");
+  const rawCode = formData.get("code");
+  if (typeof rawEmail !== "string" || typeof rawCode !== "string") {
+    return { step: "request", message: "Introduce un email válido." };
+  }
+  const email = rawEmail.trim().toLowerCase();
+  const code = rawCode.trim();
 
-  if (!loginToken || loginToken.consumedAt || loginToken.expiresAt < new Date()) {
-    redirect("/login?error=invalid_token");
+  const loginToken = await prisma.loginToken.findFirst({
+    where: { email, consumedAt: null },
+    orderBy: { createdAt: "desc" },
+  });
+
+  if (!loginToken || loginToken.expiresAt < new Date() || loginToken.attempts >= MAX_ATTEMPTS) {
+    return { step: "code", email, message: GENERIC_CODE_INVALID_MESSAGE };
+  }
+
+  const codeHash = createHash("sha256").update(code).digest("hex");
+  if (codeHash !== loginToken.tokenHash) {
+    await prisma.loginToken.update({
+      where: { id: loginToken.id },
+      data: { attempts: { increment: 1 } },
+    });
+    const remaining = MAX_ATTEMPTS - (loginToken.attempts + 1);
+    return {
+      step: "code",
+      email,
+      message: remaining > 0 ? `Código incorrecto. Te quedan ${remaining} intentos.` : GENERIC_CODE_INVALID_MESSAGE,
+    };
   }
 
   await prisma.loginToken.update({
@@ -173,12 +218,11 @@ export async function verifyMagicLink(token: string): Promise<never> {
     data: { consumedAt: new Date() },
   });
 
-  const email = loginToken.email;
   const name = email.split("@")[0];
   const { isSuperAdmin, companyUser } = await resolveLoginIdentity({ email, name });
 
   if (!isSuperAdmin && !companyUser) {
-    redirect("/login?error=invalid_token");
+    return { step: "code", email, message: GENERIC_CODE_INVALID_MESSAGE };
   }
 
   await createSession(email);

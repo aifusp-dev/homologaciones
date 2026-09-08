@@ -20,14 +20,25 @@ export type LoginTokenModel = runtime.Types.Result.DefaultSelection<Prisma.$Logi
 
 export type AggregateLoginToken = {
   _count: LoginTokenCountAggregateOutputType | null
+  _avg: LoginTokenAvgAggregateOutputType | null
+  _sum: LoginTokenSumAggregateOutputType | null
   _min: LoginTokenMinAggregateOutputType | null
   _max: LoginTokenMaxAggregateOutputType | null
+}
+
+export type LoginTokenAvgAggregateOutputType = {
+  attempts: number | null
+}
+
+export type LoginTokenSumAggregateOutputType = {
+  attempts: number | null
 }
 
 export type LoginTokenMinAggregateOutputType = {
   id: string | null
   email: string | null
   tokenHash: string | null
+  attempts: number | null
   expiresAt: Date | null
   consumedAt: Date | null
   createdAt: Date | null
@@ -37,6 +48,7 @@ export type LoginTokenMaxAggregateOutputType = {
   id: string | null
   email: string | null
   tokenHash: string | null
+  attempts: number | null
   expiresAt: Date | null
   consumedAt: Date | null
   createdAt: Date | null
@@ -46,6 +58,7 @@ export type LoginTokenCountAggregateOutputType = {
   id: number
   email: number
   tokenHash: number
+  attempts: number
   expiresAt: number
   consumedAt: number
   createdAt: number
@@ -53,10 +66,19 @@ export type LoginTokenCountAggregateOutputType = {
 }
 
 
+export type LoginTokenAvgAggregateInputType = {
+  attempts?: true
+}
+
+export type LoginTokenSumAggregateInputType = {
+  attempts?: true
+}
+
 export type LoginTokenMinAggregateInputType = {
   id?: true
   email?: true
   tokenHash?: true
+  attempts?: true
   expiresAt?: true
   consumedAt?: true
   createdAt?: true
@@ -66,6 +88,7 @@ export type LoginTokenMaxAggregateInputType = {
   id?: true
   email?: true
   tokenHash?: true
+  attempts?: true
   expiresAt?: true
   consumedAt?: true
   createdAt?: true
@@ -75,6 +98,7 @@ export type LoginTokenCountAggregateInputType = {
   id?: true
   email?: true
   tokenHash?: true
+  attempts?: true
   expiresAt?: true
   consumedAt?: true
   createdAt?: true
@@ -119,6 +143,18 @@ export type LoginTokenAggregateArgs<ExtArgs extends runtime.Types.Extensions.Int
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
+   * Select which fields to average
+  **/
+  _avg?: LoginTokenAvgAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
+   * Select which fields to sum
+  **/
+  _sum?: LoginTokenSumAggregateInputType
+  /**
+   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+   * 
    * Select which fields to find the minimum value
   **/
   _min?: LoginTokenMinAggregateInputType
@@ -149,6 +185,8 @@ export type LoginTokenGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   _count?: LoginTokenCountAggregateInputType | true
+  _avg?: LoginTokenAvgAggregateInputType
+  _sum?: LoginTokenSumAggregateInputType
   _min?: LoginTokenMinAggregateInputType
   _max?: LoginTokenMaxAggregateInputType
 }
@@ -157,10 +195,13 @@ export type LoginTokenGroupByOutputType = {
   id: string
   email: string
   tokenHash: string
+  attempts: number
   expiresAt: Date
   consumedAt: Date | null
   createdAt: Date
   _count: LoginTokenCountAggregateOutputType | null
+  _avg: LoginTokenAvgAggregateOutputType | null
+  _sum: LoginTokenSumAggregateOutputType | null
   _min: LoginTokenMinAggregateOutputType | null
   _max: LoginTokenMaxAggregateOutputType | null
 }
@@ -187,6 +228,7 @@ export type LoginTokenWhereInput = {
   id?: Prisma.StringFilter<"LoginToken"> | string
   email?: Prisma.StringFilter<"LoginToken"> | string
   tokenHash?: Prisma.StringFilter<"LoginToken"> | string
+  attempts?: Prisma.IntFilter<"LoginToken"> | number
   expiresAt?: Prisma.DateTimeFilter<"LoginToken"> | Date | string
   consumedAt?: Prisma.DateTimeNullableFilter<"LoginToken"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"LoginToken"> | Date | string
@@ -196,6 +238,7 @@ export type LoginTokenOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
+  attempts?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   consumedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -208,6 +251,7 @@ export type LoginTokenWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.LoginTokenWhereInput[]
   NOT?: Prisma.LoginTokenWhereInput | Prisma.LoginTokenWhereInput[]
   email?: Prisma.StringFilter<"LoginToken"> | string
+  attempts?: Prisma.IntFilter<"LoginToken"> | number
   expiresAt?: Prisma.DateTimeFilter<"LoginToken"> | Date | string
   consumedAt?: Prisma.DateTimeNullableFilter<"LoginToken"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"LoginToken"> | Date | string
@@ -217,12 +261,15 @@ export type LoginTokenOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
+  attempts?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   consumedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.LoginTokenCountOrderByAggregateInput
+  _avg?: Prisma.LoginTokenAvgOrderByAggregateInput
   _max?: Prisma.LoginTokenMaxOrderByAggregateInput
   _min?: Prisma.LoginTokenMinOrderByAggregateInput
+  _sum?: Prisma.LoginTokenSumOrderByAggregateInput
 }
 
 export type LoginTokenScalarWhereWithAggregatesInput = {
@@ -232,6 +279,7 @@ export type LoginTokenScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"LoginToken"> | string
   email?: Prisma.StringWithAggregatesFilter<"LoginToken"> | string
   tokenHash?: Prisma.StringWithAggregatesFilter<"LoginToken"> | string
+  attempts?: Prisma.IntWithAggregatesFilter<"LoginToken"> | number
   expiresAt?: Prisma.DateTimeWithAggregatesFilter<"LoginToken"> | Date | string
   consumedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"LoginToken"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"LoginToken"> | Date | string
@@ -241,6 +289,7 @@ export type LoginTokenCreateInput = {
   id?: string
   email: string
   tokenHash: string
+  attempts?: number
   expiresAt: Date | string
   consumedAt?: Date | string | null
   createdAt?: Date | string
@@ -250,6 +299,7 @@ export type LoginTokenUncheckedCreateInput = {
   id?: string
   email: string
   tokenHash: string
+  attempts?: number
   expiresAt: Date | string
   consumedAt?: Date | string | null
   createdAt?: Date | string
@@ -259,6 +309,7 @@ export type LoginTokenUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
+  attempts?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   consumedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -268,6 +319,7 @@ export type LoginTokenUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
+  attempts?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   consumedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -277,6 +329,7 @@ export type LoginTokenCreateManyInput = {
   id?: string
   email: string
   tokenHash: string
+  attempts?: number
   expiresAt: Date | string
   consumedAt?: Date | string | null
   createdAt?: Date | string
@@ -286,6 +339,7 @@ export type LoginTokenUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
+  attempts?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   consumedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -295,6 +349,7 @@ export type LoginTokenUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
   tokenHash?: Prisma.StringFieldUpdateOperationsInput | string
+  attempts?: Prisma.IntFieldUpdateOperationsInput | number
   expiresAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   consumedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -304,15 +359,21 @@ export type LoginTokenCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
+  attempts?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   consumedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+}
+
+export type LoginTokenAvgOrderByAggregateInput = {
+  attempts?: Prisma.SortOrder
 }
 
 export type LoginTokenMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
+  attempts?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   consumedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -322,9 +383,14 @@ export type LoginTokenMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   email?: Prisma.SortOrder
   tokenHash?: Prisma.SortOrder
+  attempts?: Prisma.SortOrder
   expiresAt?: Prisma.SortOrder
   consumedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+}
+
+export type LoginTokenSumOrderByAggregateInput = {
+  attempts?: Prisma.SortOrder
 }
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -337,6 +403,7 @@ export type LoginTokenSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   id?: boolean
   email?: boolean
   tokenHash?: boolean
+  attempts?: boolean
   expiresAt?: boolean
   consumedAt?: boolean
   createdAt?: boolean
@@ -346,6 +413,7 @@ export type LoginTokenSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   email?: boolean
   tokenHash?: boolean
+  attempts?: boolean
   expiresAt?: boolean
   consumedAt?: boolean
   createdAt?: boolean
@@ -355,6 +423,7 @@ export type LoginTokenSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   email?: boolean
   tokenHash?: boolean
+  attempts?: boolean
   expiresAt?: boolean
   consumedAt?: boolean
   createdAt?: boolean
@@ -364,12 +433,13 @@ export type LoginTokenSelectScalar = {
   id?: boolean
   email?: boolean
   tokenHash?: boolean
+  attempts?: boolean
   expiresAt?: boolean
   consumedAt?: boolean
   createdAt?: boolean
 }
 
-export type LoginTokenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "tokenHash" | "expiresAt" | "consumedAt" | "createdAt", ExtArgs["result"]["loginToken"]>
+export type LoginTokenOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "tokenHash" | "attempts" | "expiresAt" | "consumedAt" | "createdAt", ExtArgs["result"]["loginToken"]>
 
 export type $LoginTokenPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "LoginToken"
@@ -378,6 +448,7 @@ export type $LoginTokenPayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: string
     email: string
     tokenHash: string
+    attempts: number
     expiresAt: Date
     consumedAt: Date | null
     createdAt: Date
@@ -807,6 +878,7 @@ export interface LoginTokenFieldRefs {
   readonly id: Prisma.FieldRef<"LoginToken", 'String'>
   readonly email: Prisma.FieldRef<"LoginToken", 'String'>
   readonly tokenHash: Prisma.FieldRef<"LoginToken", 'String'>
+  readonly attempts: Prisma.FieldRef<"LoginToken", 'Int'>
   readonly expiresAt: Prisma.FieldRef<"LoginToken", 'DateTime'>
   readonly consumedAt: Prisma.FieldRef<"LoginToken", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"LoginToken", 'DateTime'>

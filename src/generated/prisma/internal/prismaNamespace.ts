@@ -2885,6 +2885,7 @@ export const LoginTokenScalarFieldEnum = {
   id: 'id',
   email: 'email',
   tokenHash: 'tokenHash',
+  attempts: 'attempts',
   expiresAt: 'expiresAt',
   consumedAt: 'consumedAt',
   createdAt: 'createdAt'

@@ -60,15 +60,18 @@ model User {
   @@map("users")
 }
 
-// Enlace de un solo uso para el login sin contraseña ("magic link"). Se
-// guarda el hash SHA-256 del token, nunca el token en claro — el email
-// lleva el token real, la base de datos solo lo necesario para
-// verificarlo. Sin relación a User: se pide antes de que exista fila de
-// usuario en el caso de invitación pendiente.
+// Código numérico de un solo uso para el login sin contraseña. Se guarda el
+// hash SHA-256 del código, nunca en claro — el email lleva el código real,
+// la base de datos solo lo necesario para verificarlo. Sin relación a
+// User: se pide antes de que exista fila de usuario en el caso de
+// invitación pendiente. `attempts` frena la fuerza bruta sobre un código
+// de solo 6 dígitos (ver MAX_ATTEMPTS en src/app/actions/auth.ts) — al
+// llegar al límite, ese código queda inútil aunque no haya caducado.
 model LoginToken {
   id         String    @id @default(cuid())
   email      String
   tokenHash  String    @unique
+  attempts   Int       @default(0)
   expiresAt  DateTime
   consumedAt DateTime?
   createdAt  DateTime  @default(now())

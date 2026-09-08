@@ -9,7 +9,12 @@ function esc(value: string): string {
   return value.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 }
 
-export async function sendMagicLinkEmail(email: string, url: string): Promise<void> {
+// Código (no enlace) a propósito: un enlace de login solo abre la sesión
+// en el dispositivo donde se lee el correo — si el email se mira desde el
+// móvil pero se quiere entrar en el ordenador del taller, un magic link
+// deja la sesión abierta en el sitio equivocado. Un código de 6 dígitos
+// se lee en un dispositivo y se teclea en el que se quiera.
+export async function sendLoginCodeEmail(email: string, code: string): Promise<void> {
   if (!RESEND_API_KEY) {
     throw new Error("RESEND_API_KEY no está configurada.");
   }
@@ -20,16 +25,16 @@ export async function sendMagicLinkEmail(email: string, url: string): Promise<vo
         <span style="display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#efa226;color:#1a1207;font-weight:bold;font-size:12px;">WM</span>
         <span style="font-weight:600;">WorkshopManagement</span>
       </div>
-      <h1 style="font-size:20px;margin:0 0 12px;">Inicia sesión</h1>
-      <p style="font-size:14px;color:#a89f8f;line-height:1.5;margin:0 0 24px;">
-        Pulsa el botón para entrar en WorkshopManagement con ${esc(email)}. El enlace caduca en 15 minutos
+      <h1 style="font-size:20px;margin:0 0 12px;">Tu código de acceso</h1>
+      <p style="font-size:14px;color:#a89f8f;line-height:1.5;margin:0 0 20px;">
+        Introduce este código para entrar en WorkshopManagement con ${esc(email)}. Caduca en 10 minutos
         y solo se puede usar una vez.
       </p>
-      <a href="${esc(url)}" style="display:inline-block;background:#efa226;color:#1a1207;font-weight:600;text-decoration:none;padding:12px 20px;border-radius:8px;font-size:14px;">
-        Entrar en WorkshopManagement
-      </a>
+      <div style="font-size:32px;font-weight:700;letter-spacing:0.3em;background:#241d10;border:1px solid #3a2f1a;border-radius:10px;padding:16px 20px;text-align:center;color:#efa226;">
+        ${esc(code)}
+      </div>
       <p style="font-size:12px;color:#6f6656;line-height:1.5;margin:28px 0 0;">
-        Si no has pedido este enlace, puedes ignorar este correo — nadie podrá entrar sin pulsarlo.
+        Si no has pedido este código, puedes ignorar este correo — nadie podrá entrar sin él.
       </p>
     </div>
   </body></html>`;
@@ -43,7 +48,7 @@ export async function sendMagicLinkEmail(email: string, url: string): Promise<vo
     body: JSON.stringify({
       from: EMAIL_FROM,
       to: email,
-      subject: "Tu enlace de acceso a WorkshopManagement",
+      subject: `${code} — tu código de acceso a WorkshopManagement`,
       html,
     }),
   });

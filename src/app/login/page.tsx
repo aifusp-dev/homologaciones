@@ -1,17 +1,8 @@
 import { GoogleSignInButton } from "./google-button";
-import { MagicLinkForm } from "./magic-link-form";
+import { LoginCodeForm } from "./login-code-form";
 
-const ERROR_MESSAGES: Record<string, string> = {
-  invalid_token: "El enlace no es válido, ha caducado o ya se usó. Pide uno nuevo.",
-};
-
-export default async function LoginPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ error?: string }>;
-}) {
+export default function LoginPage() {
   const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID;
-  const { error } = await searchParams;
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
@@ -21,12 +12,8 @@ export default async function LoginPage({
           <p className="text-sm text-ink-dim">Inicia sesión para continuar</p>
         </div>
 
-        {error && ERROR_MESSAGES[error] && (
-          <p className="text-sm text-danger">{ERROR_MESSAGES[error]}</p>
-        )}
-
         <div className="space-y-6">
-          <MagicLinkForm />
+          <LoginCodeForm />
 
           <div className="flex items-center gap-3">
             <span className="flex-1 h-px bg-border" />
