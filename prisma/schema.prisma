@@ -100,6 +100,23 @@ model Dossier {
   massesDimensions MassesDimensions?
   documents        GeneratedDocument[]
 
+  couplingDevice               CouplingDevice?
+  spraySuppression             SpraySuppression?
+  electromagneticCompatibility ElectromagneticCompatibility?
+  lateralProtection            LateralProtection?
+  rearProtection               RearProtection?
+  lateralMarking               LateralMarking?
+  lightingSide                 LightingSide?
+  lightingPosition             LightingPosition?
+  lightingReflector            LightingReflector?
+  lightingBrake                LightingBrake?
+  lightingTurnSignal           LightingTurnSignal?
+  lightingRearOutlineMarker    LightingRearOutlineMarker?
+  lightingFrontOutlineMarker   LightingFrontOutlineMarker?
+  lightingPlate                LightingPlate?
+  lightingReverse              LightingReverse?
+  lightingFog                  LightingFog?
+
   @@unique([companyId, number])
   @@index([companyId])
   @@map("dossiers")
@@ -953,4 +970,1036 @@ model MassesDimensions {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("masses_dimensions")
+}
+
+// ---------------------------------------------------------------------
+// Fase 4: dispositivos y señalización. 16 tablas 1:1 con Dossier,
+// sin cálculos (todas entrada manual) — ver Fase 4 del documento de diseño.
+// ---------------------------------------------------------------------
+
+// "Dispositivo de acoplamiento" — antes tabla DISPOSITIVOACOPLAMIENTO. Entrada manual, sin cálculos.
+model CouplingDevice {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// DISPOSITIVOACOPLAMIENTO::Dispositivo1fase
+  device1stPhase String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Dispositivo2fase
+  device2ndPhase String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Marca
+  brand String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Tipo
+  type String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Homologacion
+  approvalNumber String?
+
+  /// DISPOSITIVOACOPLAMIENTO::D
+  dValue String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Dc
+  dcValue String?
+
+  /// DISPOSITIVOACOPLAMIENTO::S
+  sValue String?
+
+  /// DISPOSITIVOACOPLAMIENTO::V
+  vValue String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Altura_libre_alsuelo
+  heightClearanceToGround Float?
+
+  /// DISPOSITIVOACOPLAMIENTO::Distancia_centro_finalcaja
+  distanceCentreFinalcaja Float?
+
+  /// DISPOSITIVOACOPLAMIENTO::Tipo_accionamiento
+  typeActuation String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Se_cumplen_angulos
+  seCompliantAngles String?
+
+  /// DISPOSITIVOACOPLAMIENTO::Observaciones
+  notes String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("coupling_devices")
+}
+
+// "Antiproyección" — antes tabla ANTIPROYECCION. Entrada manual, sin cálculos.
+model SpraySuppression {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// ANTIPROYECCION::Marcado_dispositivo
+  markingDevice String?
+
+  /// ANTIPROYECCION::Dist_bordeinferior_faldilla_suelo
+  distanceBordeinferiorSkirtGround Float?
+
+  /// ANTIPROYECCION::Dist_faldillaposterior_neumatico
+  distanceFaldillaposteriorTyre Float?
+
+  /// ANTIPROYECCION::Ancho_guardabarros
+  widthMudguard Float?
+
+  /// ANTIPROYECCION::Ancho_neumatico
+  widthTyre Float?
+
+  /// ANTIPROYECCION::Ancho_banda_rodadura
+  widthBandTread Float?
+
+  /// ANTIPROYECCION::Ancho_faldilla_posterior
+  widthSkirtRear Float?
+
+  /// ANTIPROYECCION::Angulo_coberturatrasero_dispproyeccion
+  angleCoberturatraseroDispproyeccion Float?
+
+  /// ANTIPROYECCION::Dist_bordeinferior_faldilla_centroneumatico
+  distanceBordeinferiorSkirtCentroneumatico Float?
+
+  /// ANTIPROYECCION::Altura_faldilla_exterior
+  heightSkirtExterior Float?
+
+  /// ANTIPROYECCION::Ausencia_aberturas
+  ausenciaOpenings String?
+
+  /// ANTIPROYECCION::Anchura_cubretotalneumatico
+  widthCubretotalneumatico String?
+
+  /// ANTIPROYECCION::Parte_posterior_150mm_planohorizontal
+  partRear150mmPlanohorizontal String?
+
+  /// ANTIPROYECCION::Observaciones
+  notes String?
+
+  /// ANTIPROYECCION::Opcion_A
+  optionTo String?
+
+  /// ANTIPROYECCION::Opcion_B
+  optionB String?
+
+  /// ANTIPROYECCION::Opcion_C
+  optionC String?
+
+  /// ANTIPROYECCION::Opcion_D
+  optionD String?
+
+  /// ANTIPROYECCION::_5_6_dispone_parteposteriorsistemaantiproyeccion
+  hasRearSpraySuppressionSystem String?
+
+  /// ANTIPROYECCION::Ref_interna
+  refInternal String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("spray_suppressions")
+}
+
+// "Compatibilidad electromagnética" — antes tabla CELECTROMAGNETICA. Entrada manual, sin cálculos.
+model ElectromagneticCompatibility {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// CELECTROMAGNETICA::Instala_sistemas_electronicos_electricos
+  fittedSystemsElectronicElectrical String?
+
+  /// CELECTROMAGNETICA::Aplica_reglamento10
+  appliesRegulation10 String?
+
+  /// CELECTROMAGNETICA::Descripción1_subconjuntos
+  descripcin1Subassemblies String?
+
+  /// CELECTROMAGNETICA::Descripción2_subconjuntos
+  descripcin2Subassemblies String?
+
+  /// CELECTROMAGNETICA::Descripción3_subconjuntos
+  descripcin3Subassemblies String?
+
+  /// CELECTROMAGNETICA::Funciona_restringido
+  operatesRestricted String?
+
+  /// CELECTROMAGNETICA::Fijado_nosepuedadesmontar
+  fixedNosepuedadesmontar String?
+
+  /// CELECTROMAGNETICA::Contraseña_homologacion
+  approvalCodeApprovalNumber String?
+
+  /// CELECTROMAGNETICA::Comprobacio_instalacion_esquemas
+  checkInstalacionDiagrams String?
+
+  /// CELECTROMAGNETICA::Conectado_por_in terfaz
+  connectedPorInTerfaz String?
+
+  /// CELECTROMAGNETICA::Aplicabilidad del reglamento
+  applicabilityDelRegulation String?
+
+  /// CELECTROMAGNETICA::Equipos_medida_utilizados
+  equipmentMeasurementUsed String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("electromagnetic_compatibilities")
+}
+
+// "Protección lateral" — antes tabla PROTECCIONLATERAL. Entrada manual, sin cálculos.
+model LateralProtection {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// PROTECCIONLATERAL::Marcado_dispositivo
+  markingDevice String?
+
+  /// PROTECCIONLATERAL::Dist_part_inferior_asuelo_DE
+  distancePartLowerToGroundRight Float?
+
+  /// PROTECCIONLATERAL::Dist_part_inferior_asuelo_IZ
+  distancePartLowerToGroundLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_ruedadelantera_DE
+  distanceEdgeAnteriorRuedadelanteraRight Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_ruedadelantera_IZ
+  distanceEdgeAnteriorRuedadelanteraLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_centropivote_DE
+  distanceEdgeAnteriorCentropivoteRight Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_centropivote_IZ
+  distanceEdgeAnteriorCentropivoteLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_pmedio_patas_DE
+  distanceEdgeAnteriorMidPointLegsRight Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_anterior_pmedio_patas_IZ
+  distanceEdgeAnteriorMidPointLegsLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_posterior_ruedatrasera_DE
+  distanceEdgeRearRuedatraseraRight Float?
+
+  /// PROTECCIONLATERAL::Dist_borde_posterior_ruedatrasera_IZ
+  distanceEdgeRearRuedatraseraLeft Float?
+
+  /// PROTECCIONLATERAL::Ancho_largueros_DE
+  widthChassisRailsRight Float?
+
+  /// PROTECCIONLATERAL::Ancho_largueros_IZ
+  widthChassisRailsLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_largueros_DE
+  distanceChassisRailsRight Float?
+
+  /// PROTECCIONLATERAL::Dist_largueros_IZ
+  distanceChassisRailsLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_bordesuperior_a_carroceria_DE
+  distanceBordesuperiorToBodyworkRight Float?
+
+  /// PROTECCIONLATERAL::Dist_bordesuperior_a_carroceria_IZ
+  distanceBordesuperiorToBodyworkLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_dispositivo_a_bordecarroceria_DE
+  distanceDeviceToBordecarroceriaRight Float?
+
+  /// PROTECCIONLATERAL::Dist_dispositivo_a_bordecarroceria_IZ
+  distanceDeviceToBordecarroceriaLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_extdispositivo_bordeext_neumatico_DE
+  distanceExtdispositivoBordeextTyreRight Float?
+
+  /// PROTECCIONLATERAL::Dist_extdispositivo_bordeext_neumatico_IZ
+  distanceExtdispositivoBordeextTyreLeft Float?
+
+  /// PROTECCIONLATERAL::Dist_puntosunion_chasis_DE
+  distanceAttachmentPointsChassisRight Float?
+
+  /// PROTECCIONLATERAL::Dist_puntosunion_chasis_IZ
+  distanceAttachmentPointsChassisLeft Float?
+
+  /// PROTECCIONLATERAL::Voladizo_delantero_proteccion_DE
+  overhangFrontProtectionRight Float?
+
+  /// PROTECCIONLATERAL::Voladizo_delantero_proteccion_IZ
+  overhangFrontProtectionLeft Float?
+
+  /// PROTECCIONLATERAL::Voladizo_trasero_proteccion_IZ
+  overhangRearProtectionLeft Float?
+
+  /// PROTECCIONLATERAL::Voladizo_trasero_proteccion_DE
+  overhangRearProtectionRight Float?
+
+  /// PROTECCIONLATERAL::PL_DE_PRIMERA_FASE
+  firstPhase String?
+
+  /// PROTECCIONLATERAL::Observaciones
+  notes String?
+
+  /// PROTECCIONLATERAL::Ref_interna_prot_lateral
+  refInternalProtSide String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lateral_protections")
+}
+
+// "Protección trasera" — antes tabla PROTECCIONTRASERA. Entrada manual, sin cálculos.
+model RearProtection {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// PROTECCIONTRASERA::Prot_trasera_1fase
+  protRear1fase String?
+
+  /// PROTECCIONTRASERA::Dispone_d_homologado
+  hasDHomologado String?
+
+  /// PROTECCIONTRASERA::Numero_homnologacion_prot_trasera
+  numberHomnologacionProtRear String?
+
+  /// PROTECCIONTRASERA::Dist_exte_eje_masancho
+  distanceExteAxleMasancho Float?
+
+  /// PROTECCIONTRASERA::Cota_deformacion
+  valueDeformation Float?
+
+  /// PROTECCIONTRASERA::Aristas_laterales
+  edgesSides Float?
+
+  /// PROTECCIONTRASERA::Altura_perfil
+  heightProfile Float?
+
+  /// PROTECCIONTRASERA::Distancia_soportes
+  distanceBrackets Float?
+
+  /// PROTECCIONTRASERA::Altura_suelo_borde_inferior
+  heightGroundEdgeLower Float?
+
+  /// PROTECCIONTRASERA::MMTA_VALIDA_DISPOSITIVO
+  mMTAValidDevice Float?
+
+  /// PROTECCIONTRASERA::Dist_parte_posterior_vehículo
+  distancePartRearVehicle Float?
+
+  /// PROTECCIONTRASERA::Alturap-aplicacion
+  alturapaplicacion Float?
+
+  /// PROTECCIONTRASERA::Observaciones
+  notes String?
+
+  /// PROTECCIONTRASERA::Ref_interna_prot_trasera
+  refInternalProtRear String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("rear_protections")
+}
+
+// "Marcado lateral" — antes tabla MARCADO_lateral. Entrada manual, sin cálculos.
+model LateralMarking {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// MARCADO_lateral::Lateral_opcion_marcado
+  sideOptionMarking String?
+
+  /// MARCADO_lateral::Lateral_dist_suelo_borde_inferior_DE
+  sideDistanceGroundEdgeLowerRight Float?
+
+  /// MARCADO_lateral::Lateral_dist_suelo_borde_inferior_IZ
+  sideDistanceGroundEdgeLowerLeft Float?
+
+  /// MARCADO_lateral::Lateral_dist_suelo_borde_superior_DE
+  sideDistanceGroundEdgeUpperRight Float?
+
+  /// MARCADO_lateral::Lateral_dist_suelo_borde_superior_IZ
+  sideDistanceGroundEdgeUpperLeft Float?
+
+  /// MARCADO_lateral::Lateral_borde_exterior_a_frontal_caja_IZ
+  sideEdgeExteriorToFrontCajaLeft Float?
+
+  /// MARCADO_lateral::Lateral_borde_exterior_a_frontal_caja_DE
+  sideEdgeExteriorToFrontCajaRight Float?
+
+  /// MARCADO_lateral::Lateral_borde_exterior_a_trasera_caja_DE
+  sideEdgeExteriorToRearCajaRight Float?
+
+  /// MARCADO_lateral::Lateral_borde_exterior_a_trasera_caja_IZ
+  sideEdgeExteriorToRearCajaLeft Float?
+
+  /// MARCADO_lateral::Lateral_dist_b_interior_a_bsuperior_caja_DE
+  sideDistanceBInteriorToBsuperiorCajaRight Float?
+
+  /// MARCADO_lateral::Lateral_dist_b_interior_a_bsuperior_caja_IZ
+  sideDistanceBInteriorToBsuperiorCajaLeft Float?
+
+  /// MARCADO_lateral::Lateral_tipo
+  sideType String?
+
+  /// MARCADO_lateral::Lateral_homologacion
+  sideApprovalNumber String?
+
+  /// MARCADO_lateral::Lateral_color
+  sideColor String?
+
+  /// MARCADO_lateral::Lateral_longitud_marcado_parcial_DE
+  sideLongitudMarkingParcialRight String?
+
+  /// MARCADO_lateral::Lateral_longitud_marcado_parcial_IZ
+  sideLongitudMarkingParcialLeft String?
+
+  /// MARCADO_lateral::Trasera_opcion_marcado
+  rearOptionMarking String?
+
+  /// MARCADO_lateral::Trasera_dist_suelo_borde_inferior_IZ
+  rearDistanceGroundEdgeLowerLeft Float?
+
+  /// MARCADO_lateral::Trasera_dist_suelo_borde_inferior_DE
+  rearDistanceGroundEdgeLowerRight Float?
+
+  /// MARCADO_lateral::Trasera_dist_suelo_borde_superior_IZ
+  rearDistanceGroundEdgeUpperLeft Float?
+
+  /// MARCADO_lateral::Trasera_dist_suelo_borde_superior_DE
+  rearDistanceGroundEdgeUpperRight Float?
+
+  /// MARCADO_lateral::Trasera_dist_marcado_a_luzfreno
+  rearDistanceMarkingToLuzfreno Float?
+
+  /// MARCADO_lateral::Trasera_color
+  rearColor Float?
+
+  /// MARCADO_lateral::Trasera_longitud_marcado_parcial
+  rearLongitudMarkingParcial Float?
+
+  /// MARCADO_lateral::Observaciones
+  notes String?
+
+  /// MARCADO_lateral::Ref_interna_blanca
+  refInternalWhite String?
+
+  /// MARCADO_lateral::Ref_interna_roja
+  refInternalRed String?
+
+  /// MARCADO_lateral::O4_opcion_marcado_delantero
+  o4OptionMarkingFront String?
+
+  /// MARCADO_lateral::O4_delantero_dist_suelo_borde_inferior
+  o4FrontDistanceGroundEdgeLower Float?
+
+  /// MARCADO_lateral::O4_delantero_dist_suelo_borde_superior
+  o4FrontDistanceGroundEdgeUpper Float?
+
+  /// MARCADO_lateral::O4_delantero_homologacion
+  o4FrontApprovalNumber String?
+
+  /// MARCADO_lateral::O4_delantero_longitud_marcado_parcial
+  o4FrontLongitudMarkingParcial Float?
+
+  /// MARCADO_lateral::O4_distancia_borde_exterior_caja
+  o4DistanceEdgeExteriorCaja Float?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lateral_markings")
+}
+
+// "Señalización lateral" — antes tabla SEÑALIZACION_lateral. Entrada manual, sin cálculos.
+model LightingSide {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_lateral::Instala_pilotos
+  fittedLights String?
+
+  /// SEÑALIZACION_lateral::Instala_capta
+  fittedReflector String?
+
+  /// SEÑALIZACION_lateral::Altura_borde_superior_piloto
+  heightEdgeUpperLight Float?
+
+  /// SEÑALIZACION_lateral::Altura_borde_superior_capta
+  heightEdgeUpperReflector Float?
+
+  /// SEÑALIZACION_lateral::Distancia_final vehiculo_pilotos_De
+  distanceFinalVehicleLightsRight Float?
+
+  /// SEÑALIZACION_lateral::Distancia_final vehiculo_pilotos_Iz
+  distanceFinalVehicleLightsLeft Float?
+
+  /// SEÑALIZACION_lateral::Distancia_final_vehiculo_capta_De
+  distanceFinalVehicleReflectorRight Float?
+
+  /// SEÑALIZACION_lateral::Distancia_final_vehiculo_capta_Iz
+  distanceFinalVehicleReflectorLeft Float?
+
+  /// SEÑALIZACION_lateral::De_1eje_a_1_piloto_De
+  deAxle1To1LightRight Float?
+
+  /// SEÑALIZACION_lateral::O4_frontal_1º_piloto_De
+  o4Front1LightRight Float?
+
+  /// SEÑALIZACION_lateral::De_1eje_a_1_piloto_Iz
+  deAxle1To1LightLeft Float?
+
+  /// SEÑALIZACION_lateral::O4_frontal_1º_piloto_Iz
+  o4Front1LightLeft Float?
+
+  /// SEÑALIZACION_lateral::De_1piloto_a_2_piloto_De
+  deLight1To2LightRight Float?
+
+  /// SEÑALIZACION_lateral::De_1piloto_a_2_piloto_Iz
+  deLight1To2LightLeft Float?
+
+  /// SEÑALIZACION_lateral::De_2piloto_a_3_piloto_De
+  deLight2To3LightRight Float?
+
+  /// SEÑALIZACION_lateral::De_2piloto_a_3_piloto_Iz
+  deLight2To3LightLeft Float?
+
+  /// SEÑALIZACION_lateral::De_3piloto_a_4_piloto_De
+  deLight3To4LightRight Float?
+
+  /// SEÑALIZACION_lateral::De_4piloto_a_5_piloto_De
+  deLight4To5LightRight Float?
+
+  /// SEÑALIZACION_lateral::De_3piloto_a_4_piloto_Iz
+  deLight3To4LightLeft Float?
+
+  /// SEÑALIZACION_lateral::De_4piloto_a_5_piloto_Iz
+  deLight4To5LightLeft Float?
+
+  /// SEÑALIZACION_lateral::De_1eje_a_1capta_De
+  deAxle1ToReflector1Right Float?
+
+  /// SEÑALIZACION_lateral::O4_frontal_1º_capta_De
+  o4Front1ReflectorRight Float?
+
+  /// SEÑALIZACION_lateral::De_1eje_a_1capta_Iz
+  deAxle1ToReflector1Left Float?
+
+  /// SEÑALIZACION_lateral::O4_frontal_1º_capta_Iz
+  o4Front1ReflectorLeft Float?
+
+  /// SEÑALIZACION_lateral::De_1capta_a_2capta_Iz
+  deReflector1ToReflector2Left Float?
+
+  /// SEÑALIZACION_lateral::De_1capta_a_2capta_De
+  deReflector1ToReflector2Right Float?
+
+  /// SEÑALIZACION_lateral::De_2capta_a_3capta_De
+  deReflector2ToReflector3Right Float?
+
+  /// SEÑALIZACION_lateral::De_2capta_a_3capta_Iz
+  deReflector2ToReflector3Left Float?
+
+  /// SEÑALIZACION_lateral::De_3capta_a_4capta_De
+  deReflector3ToReflector4Right Float?
+
+  /// SEÑALIZACION_lateral::De_4capta_a_5capta_De
+  deReflector4ToReflector5Right Float?
+
+  /// SEÑALIZACION_lateral::De_3capta_a_4capta_Iz
+  deReflector3ToReflector4Left Float?
+
+  /// SEÑALIZACION_lateral::De_4capta_a_5capta_Iz
+  deReflector4ToReflector5Left Float?
+
+  /// SEÑALIZACION_lateral::Distancia_maxima_pilotos
+  distanceMaxLights Float?
+
+  /// SEÑALIZACION_lateral::Distancia_maxima_capta
+  distanceMaxReflector Float?
+
+  /// SEÑALIZACION_lateral::Cumple_horizontal_piloto
+  compliantHorizontalLight Float?
+
+  /// SEÑALIZACION_lateral::Cumple_vertical_piloto
+  compliantVerticalLight Float?
+
+  /// SEÑALIZACION_lateral::Instala_captadioptrico
+  fittedReflector2 String?
+
+  /// SEÑALIZACION_lateral::Cumple_vertical_capta
+  compliantVerticalReflector Float?
+
+  /// SEÑALIZACION_lateral::Cumple_horizontal_capta
+  compliantHorizontalReflector String?
+
+  /// SEÑALIZACION_lateral::Color
+  color String?
+
+  /// SEÑALIZACION_lateral::Numero_pilotos_laterales
+  numberLightsSides String?
+
+  /// SEÑALIZACION_lateral::Numero_capta_larterales
+  numberReflectorsSides String?
+
+  /// SEÑALIZACION_lateral::Contraseña_homologacion_piloto
+  approvalCodeApprovalNumberLight String?
+
+  /// SEÑALIZACION_lateral::Contraseña_homologacion_capta
+  approvalCodeApprovalNumberReflector String?
+
+  /// SEÑALIZACION_lateral::Distancia_principio_primer_piloto
+  distanceStartFirstLight String?
+
+  /// SEÑALIZACION_lateral::Distancia_principio_primer_capta
+  distanceStartFirstReflector String?
+
+  /// SEÑALIZACION_lateral::Observaciones_señalización_lateral
+  notesSideLighting String?
+
+  /// SEÑALIZACION_lateral::Segundo_color piloto_lateral
+  secondColorLightSide String?
+
+  /// SEÑALIZACION_lateral::Ref_interna_piloto
+  refInternalLight String?
+
+  /// SEÑALIZACION_lateral::Ref_interna_capta
+  refInternalReflector String?
+
+  /// SEÑALIZACION_lateral::O4_De_5piloto_a_6_piloto_De
+  o4DeLight5To6LightRight Float?
+
+  /// SEÑALIZACION_lateral::O4_De_5piloto_a_6_piloto_IZ
+  o4DeLight5To6LightLeft Float?
+
+  /// SEÑALIZACION_lateral::O4_De_5capta_a_6capta_Iz
+  o4DeReflector5ToReflector6Left Float?
+
+  /// SEÑALIZACION_lateral::O4_De_5capta_a_6capta_De
+  o4DeReflector5ToReflector6Right Float?
+
+  /// SEÑALIZACION_lateral::O4_distancia_inicio_primero_piloto_galibo
+  o4DistanceInicioFirstLightGalibo Float?
+
+  /// SEÑALIZACION_lateral::O4_distancia_inicio_primero_capta
+  o4DistanceInicioFirstReflector Float?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_sides")
+}
+
+// "Señalización de posición" — antes tabla SEÑALIZACION_posicion. Entrada manual, sin cálculos.
+model LightingPosition {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_posicion::Altura_borde_inferior
+  heightEdgeLower Float?
+
+  /// SEÑALIZACION_posicion::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_posicion::Separacion
+  spacing Float?
+
+  /// SEÑALIZACION_posicion::Distancia_izquierda
+  distanceLeft Float?
+
+  /// SEÑALIZACION_posicion::Distancia_derecha
+  distanceRight Float?
+
+  /// SEÑALIZACION_posicion::unidades
+  count Float?
+
+  /// SEÑALIZACION_posicion::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_posicion::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_posicion::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_posicion::Color
+  color String?
+
+  /// SEÑALIZACION_posicion::O4_Altura_borde_inferior_delantera
+  o4HeightEdgeLowerFront Float?
+
+  /// SEÑALIZACION_posicion::O4_Altura_borde_superior_delantera
+  o4HeightEdgeUpperFront Float?
+
+  /// SEÑALIZACION_posicion::O4_Separacion_delantera
+  o4SpacingFront Float?
+
+  /// SEÑALIZACION_posicion::O4_Distancia_izquierda_delantera
+  o4DistanceLeftFront Float?
+
+  /// SEÑALIZACION_posicion::O4_Distancia_derecha_delantera
+  o4DistanceRightFront Float?
+
+  /// SEÑALIZACION_posicion::O4_unidades_delantera
+  o4CountFront Float?
+
+  /// SEÑALIZACION_posicion::O4_Homologacion_delantera
+  o4ApprovalNumberFront String?
+
+  /// SEÑALIZACION_posicion::O4_Angulo_vertical_delantera
+  o4AngleVerticalFront String?
+
+  /// SEÑALIZACION_posicion::O4_Angulo_horizontal_delantera
+  o4AngleHorizontalFront String?
+
+  /// SEÑALIZACION_posicion::O4_Color_delantera
+  o4ColorFront String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_positions")
+}
+
+// "Captafaros" — antes tabla SEÑALIZACION_capta. Entrada manual, sin cálculos.
+model LightingReflector {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_capta::Altura_borde_inferior
+  heightEdgeLower Float?
+
+  /// SEÑALIZACION_capta::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_capta::Separacion
+  spacing Float?
+
+  /// SEÑALIZACION_capta::Distancia_izquierda
+  distanceLeft Float?
+
+  /// SEÑALIZACION_capta::Distancia_derecha
+  distanceRight Float?
+
+  /// SEÑALIZACION_capta::unidades
+  count Float?
+
+  /// SEÑALIZACION_capta::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_capta::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_capta::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_capta::Color
+  color String?
+
+  /// SEÑALIZACION_capta::O4_Altura_borde_inferior_delantero
+  o4HeightEdgeLowerFront Float?
+
+  /// SEÑALIZACION_capta::O4_Altura_borde_superior_delantero
+  o4HeightEdgeUpperFront Float?
+
+  /// SEÑALIZACION_capta::O4_Separacion_delantero
+  o4SpacingFront Float?
+
+  /// SEÑALIZACION_capta::O4_Distancia_izquierda_delantero
+  o4DistanceLeftFront Float?
+
+  /// SEÑALIZACION_capta::O4_Distancia_derecha_delantero
+  o4DistanceRightFront Float?
+
+  /// SEÑALIZACION_capta::O4_unidades_delantero
+  o4CountFront Float?
+
+  /// SEÑALIZACION_capta::O4_Homologacion_delantero
+  o4ApprovalNumberFront String?
+
+  /// SEÑALIZACION_capta::O4_Angulo_vertical_delantero
+  o4AngleVerticalFront String?
+
+  /// SEÑALIZACION_capta::O4_Color_delantero
+  o4ColorFront String?
+
+  /// SEÑALIZACION_capta::O4_Angulo_horizontal_delantero
+  o4AngleHorizontalFront String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_reflectors")
+}
+
+// "Señalización de frenado" — antes tabla SEÑALIZACION_frenos. Entrada manual, sin cálculos.
+model LightingBrake {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_frenos::Altura_borde_inferior
+  heightEdgeLower Float?
+
+  /// SEÑALIZACION_frenos::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_frenos::Separacion
+  spacing Float?
+
+  /// SEÑALIZACION_frenos::Distancia_lateral_izquierdo
+  distanceSideLeft Float?
+
+  /// SEÑALIZACION_frenos::Distancia_lateral_derecho
+  distanceSideRight Float?
+
+  /// SEÑALIZACION_frenos::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_frenos::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_frenos::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_frenos::Altura_tercera_luz_freno
+  heightThirdLightBrake Float?
+
+  /// SEÑALIZACION_frenos::Homologacion_tercera_luz_freno
+  approvalNumberThirdLightBrake String?
+
+  /// SEÑALIZACION_frenos::Cantidad_luces_freno
+  countLucesBrake Float?
+
+  /// SEÑALIZACION_frenos::Angulo_3luz_vertical
+  angle3LightVertical String?
+
+  /// SEÑALIZACION_frenos::Angulo_3luz_horizontal
+  angle3LightHorizontal String?
+
+  /// SEÑALIZACION_frenos::Color
+  color String?
+
+  /// SEÑALIZACION_frenos::Observaciones_frenos
+  notesBrakes String?
+
+  /// SEÑALIZACION_frenos::Ref_interna_3luzfreno
+  refInternal3luzfreno String?
+
+  /// SEÑALIZACION_frenos::Ref_interna_pilotos_traseros_integrales
+  refInternalLightsRearIntegral String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_brakes")
+}
+
+// "Intermitentes" — antes tabla SEÑALIZACION_intermitentes. Entrada manual, sin cálculos.
+model LightingTurnSignal {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_intermitentes::Altura_borde_inferior
+  heightEdgeLower Float?
+
+  /// SEÑALIZACION_intermitentes::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_intermitentes::Separacion
+  spacing Float?
+
+  /// SEÑALIZACION_intermitentes::Distancia_izquierda
+  distanceLeft Float?
+
+  /// SEÑALIZACION_intermitentes::Distancia_derecha
+  distanceRight Float?
+
+  /// SEÑALIZACION_intermitentes::unidades
+  count Float?
+
+  /// SEÑALIZACION_intermitentes::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_intermitentes::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_intermitentes::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_intermitentes::Color
+  color String?
+
+  /// SEÑALIZACION_intermitentes::Homologacion_inter_lateral
+  approvalNumberInterSide String?
+
+  /// SEÑALIZACION_intermitentes::Numero_inter_lateral
+  numberInterSide Float?
+
+  /// SEÑALIZACION_intermitentes::Angulo_horizontal_inter_lateral
+  angleHorizontalInterSide String?
+
+  /// SEÑALIZACION_intermitentes::Angulo_vertical_inter_lateral
+  angleVerticalInterSide String?
+
+  /// SEÑALIZACION_intermitentes::Observaciones_intermitentes
+  notesIntermitentes String?
+
+  /// SEÑALIZACION_intermitentes::Altura_suelo_inter_lateral
+  heightGroundInterSide Float?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_turn_signals")
+}
+
+// "Gálibo trasero" — antes tabla SEÑALIZACION_t_galibo. Entrada manual, sin cálculos.
+model LightingRearOutlineMarker {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_t_galibo::Unidades
+  count Float?
+
+  /// SEÑALIZACION_t_galibo::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_t_galibo::Color
+  color String?
+
+  /// SEÑALIZACION_t_galibo::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_t_galibo::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_t_galibo::Observaciones
+  notes Float?
+
+  /// SEÑALIZACION_t_galibo::Distancia_luz_posicion
+  distanceLightPosicion Float?
+
+  /// SEÑALIZACION_t_galibo::Distancia_borde_carroceria
+  distanceEdgeBodywork Float?
+
+  /// SEÑALIZACION_t_galibo::Ref_interna
+  refInternal String?
+
+  /// SEÑALIZACION_t_galibo::Ref_interna2
+  refInterna2 String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_rear_outline_markers")
+}
+
+// "Gálibo delantero" — antes tabla SEÑALIZACION_d_galibo. Entrada manual, sin cálculos.
+model LightingFrontOutlineMarker {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_d_galibo::Unidades
+  count Float?
+
+  /// SEÑALIZACION_d_galibo::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_d_galibo::Color
+  color String?
+
+  /// SEÑALIZACION_d_galibo::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_d_galibo::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_d_galibo::Observaciones
+  notes Float?
+
+  /// SEÑALIZACION_d_galibo::Distancia_extremos_carroceria
+  distanceEndsBodywork Float?
+
+  /// SEÑALIZACION_d_galibo::Ref_interna
+  refInternal String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_front_outline_markers")
+}
+
+// "Luz de matrícula" — antes tabla SEÑALIZACION_p_matricula. Entrada manual, sin cálculos.
+model LightingPlate {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_p_matricula::Unidades
+  count Float?
+
+  /// SEÑALIZACION_p_matricula::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_p_matricula::Color
+  color String?
+
+  /// SEÑALIZACION_p_matricula::Interdistancia
+  spacing Float?
+
+  /// SEÑALIZACION_p_matricula::Opcion_montaje
+  optionMounting String?
+
+  /// SEÑALIZACION_p_matricula::Observaciones
+  notes String?
+
+  /// SEÑALIZACION_p_matricula::Ref_interna
+  refInternal String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_plates")
+}
+
+// "Marcha atrás" — antes tabla SEÑALIZACION_m_atras. Entrada manual, sin cálculos.
+model LightingReverse {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_m_atras::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_m_atras::Unidades
+  count Float?
+
+  /// SEÑALIZACION_m_atras::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_m_atras::Color
+  color String?
+
+  /// SEÑALIZACION_m_atras::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_m_atras::Angulo_horizontal
+  angleHorizontal String?
+
+  /// SEÑALIZACION_m_atras::Observaciones
+  notes Float?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_reverses")
+}
+
+// "Antiniebla" — antes tabla SEÑALIZACION_antiniebla. Entrada manual, sin cálculos.
+model LightingFog {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// SEÑALIZACION_antiniebla::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// SEÑALIZACION_antiniebla::Unidades
+  count Float?
+
+  /// SEÑALIZACION_antiniebla::Homologacion
+  approvalNumber String?
+
+  /// SEÑALIZACION_antiniebla::Angulo_vertical
+  angleVertical String?
+
+  /// SEÑALIZACION_antiniebla::Angulo_horizontal
+  angleHorizontal String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_fogs")
 }

@@ -16,6 +16,7 @@ import { CocForm } from "./coc-form";
 import { BodyworkForm } from "./bodywork-form";
 import { MassesForm } from "./masses-form";
 import { DocumentsSection } from "./documents-section";
+import { DevicesSection } from "./devices-section";
 
 export default async function DossierPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -30,6 +31,22 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       bodywork: true,
       massesDimensions: true,
       documents: { orderBy: { createdAt: "desc" } },
+      couplingDevice: true,
+      spraySuppression: true,
+      electromagneticCompatibility: true,
+      lateralProtection: true,
+      rearProtection: true,
+      lateralMarking: true,
+      lightingSide: true,
+      lightingPosition: true,
+      lightingReflector: true,
+      lightingBrake: true,
+      lightingTurnSignal: true,
+      lightingRearOutlineMarker: true,
+      lightingFrontOutlineMarker: true,
+      lightingPlate: true,
+      lightingReverse: true,
+      lightingFog: true,
     },
   });
   if (!dossier) notFound();
@@ -162,6 +179,33 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
           Masas y dimensiones <span className="text-neutral-600 normal-case">— vehículo 2 ejes</span>
         </h2>
         <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+          Dispositivos y señalización
+        </h2>
+        <DevicesSection
+          dossierId={dossier.id}
+          records={{
+            couplingDevice: dossier.couplingDevice,
+            spraySuppression: dossier.spraySuppression,
+            electromagneticCompatibility: dossier.electromagneticCompatibility,
+            lateralProtection: dossier.lateralProtection,
+            rearProtection: dossier.rearProtection,
+            lateralMarking: dossier.lateralMarking,
+            lightingSide: dossier.lightingSide,
+            lightingPosition: dossier.lightingPosition,
+            lightingReflector: dossier.lightingReflector,
+            lightingBrake: dossier.lightingBrake,
+            lightingTurnSignal: dossier.lightingTurnSignal,
+            lightingRearOutlineMarker: dossier.lightingRearOutlineMarker,
+            lightingFrontOutlineMarker: dossier.lightingFrontOutlineMarker,
+            lightingPlate: dossier.lightingPlate,
+            lightingReverse: dossier.lightingReverse,
+            lightingFog: dossier.lightingFog,
+          }}
+        />
       </section>
 
       <section className="space-y-3">

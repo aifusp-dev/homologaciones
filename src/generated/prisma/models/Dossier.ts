@@ -189,6 +189,22 @@ export type DossierWhereInput = {
   bodywork?: Prisma.XOR<Prisma.BodyworkNullableScalarRelationFilter, Prisma.BodyworkWhereInput> | null
   massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
   documents?: Prisma.GeneratedDocumentListRelationFilter
+  couplingDevice?: Prisma.XOR<Prisma.CouplingDeviceNullableScalarRelationFilter, Prisma.CouplingDeviceWhereInput> | null
+  spraySuppression?: Prisma.XOR<Prisma.SpraySuppressionNullableScalarRelationFilter, Prisma.SpraySuppressionWhereInput> | null
+  electromagneticCompatibility?: Prisma.XOR<Prisma.ElectromagneticCompatibilityNullableScalarRelationFilter, Prisma.ElectromagneticCompatibilityWhereInput> | null
+  lateralProtection?: Prisma.XOR<Prisma.LateralProtectionNullableScalarRelationFilter, Prisma.LateralProtectionWhereInput> | null
+  rearProtection?: Prisma.XOR<Prisma.RearProtectionNullableScalarRelationFilter, Prisma.RearProtectionWhereInput> | null
+  lateralMarking?: Prisma.XOR<Prisma.LateralMarkingNullableScalarRelationFilter, Prisma.LateralMarkingWhereInput> | null
+  lightingSide?: Prisma.XOR<Prisma.LightingSideNullableScalarRelationFilter, Prisma.LightingSideWhereInput> | null
+  lightingPosition?: Prisma.XOR<Prisma.LightingPositionNullableScalarRelationFilter, Prisma.LightingPositionWhereInput> | null
+  lightingReflector?: Prisma.XOR<Prisma.LightingReflectorNullableScalarRelationFilter, Prisma.LightingReflectorWhereInput> | null
+  lightingBrake?: Prisma.XOR<Prisma.LightingBrakeNullableScalarRelationFilter, Prisma.LightingBrakeWhereInput> | null
+  lightingTurnSignal?: Prisma.XOR<Prisma.LightingTurnSignalNullableScalarRelationFilter, Prisma.LightingTurnSignalWhereInput> | null
+  lightingRearOutlineMarker?: Prisma.XOR<Prisma.LightingRearOutlineMarkerNullableScalarRelationFilter, Prisma.LightingRearOutlineMarkerWhereInput> | null
+  lightingFrontOutlineMarker?: Prisma.XOR<Prisma.LightingFrontOutlineMarkerNullableScalarRelationFilter, Prisma.LightingFrontOutlineMarkerWhereInput> | null
+  lightingPlate?: Prisma.XOR<Prisma.LightingPlateNullableScalarRelationFilter, Prisma.LightingPlateWhereInput> | null
+  lightingReverse?: Prisma.XOR<Prisma.LightingReverseNullableScalarRelationFilter, Prisma.LightingReverseWhereInput> | null
+  lightingFog?: Prisma.XOR<Prisma.LightingFogNullableScalarRelationFilter, Prisma.LightingFogWhereInput> | null
 }
 
 export type DossierOrderByWithRelationInput = {
@@ -204,6 +220,22 @@ export type DossierOrderByWithRelationInput = {
   bodywork?: Prisma.BodyworkOrderByWithRelationInput
   massesDimensions?: Prisma.MassesDimensionsOrderByWithRelationInput
   documents?: Prisma.GeneratedDocumentOrderByRelationAggregateInput
+  couplingDevice?: Prisma.CouplingDeviceOrderByWithRelationInput
+  spraySuppression?: Prisma.SpraySuppressionOrderByWithRelationInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityOrderByWithRelationInput
+  lateralProtection?: Prisma.LateralProtectionOrderByWithRelationInput
+  rearProtection?: Prisma.RearProtectionOrderByWithRelationInput
+  lateralMarking?: Prisma.LateralMarkingOrderByWithRelationInput
+  lightingSide?: Prisma.LightingSideOrderByWithRelationInput
+  lightingPosition?: Prisma.LightingPositionOrderByWithRelationInput
+  lightingReflector?: Prisma.LightingReflectorOrderByWithRelationInput
+  lightingBrake?: Prisma.LightingBrakeOrderByWithRelationInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalOrderByWithRelationInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerOrderByWithRelationInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerOrderByWithRelationInput
+  lightingPlate?: Prisma.LightingPlateOrderByWithRelationInput
+  lightingReverse?: Prisma.LightingReverseOrderByWithRelationInput
+  lightingFog?: Prisma.LightingFogOrderByWithRelationInput
 }
 
 export type DossierWhereUniqueInput = Prisma.AtLeast<{
@@ -223,6 +255,22 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   bodywork?: Prisma.XOR<Prisma.BodyworkNullableScalarRelationFilter, Prisma.BodyworkWhereInput> | null
   massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
   documents?: Prisma.GeneratedDocumentListRelationFilter
+  couplingDevice?: Prisma.XOR<Prisma.CouplingDeviceNullableScalarRelationFilter, Prisma.CouplingDeviceWhereInput> | null
+  spraySuppression?: Prisma.XOR<Prisma.SpraySuppressionNullableScalarRelationFilter, Prisma.SpraySuppressionWhereInput> | null
+  electromagneticCompatibility?: Prisma.XOR<Prisma.ElectromagneticCompatibilityNullableScalarRelationFilter, Prisma.ElectromagneticCompatibilityWhereInput> | null
+  lateralProtection?: Prisma.XOR<Prisma.LateralProtectionNullableScalarRelationFilter, Prisma.LateralProtectionWhereInput> | null
+  rearProtection?: Prisma.XOR<Prisma.RearProtectionNullableScalarRelationFilter, Prisma.RearProtectionWhereInput> | null
+  lateralMarking?: Prisma.XOR<Prisma.LateralMarkingNullableScalarRelationFilter, Prisma.LateralMarkingWhereInput> | null
+  lightingSide?: Prisma.XOR<Prisma.LightingSideNullableScalarRelationFilter, Prisma.LightingSideWhereInput> | null
+  lightingPosition?: Prisma.XOR<Prisma.LightingPositionNullableScalarRelationFilter, Prisma.LightingPositionWhereInput> | null
+  lightingReflector?: Prisma.XOR<Prisma.LightingReflectorNullableScalarRelationFilter, Prisma.LightingReflectorWhereInput> | null
+  lightingBrake?: Prisma.XOR<Prisma.LightingBrakeNullableScalarRelationFilter, Prisma.LightingBrakeWhereInput> | null
+  lightingTurnSignal?: Prisma.XOR<Prisma.LightingTurnSignalNullableScalarRelationFilter, Prisma.LightingTurnSignalWhereInput> | null
+  lightingRearOutlineMarker?: Prisma.XOR<Prisma.LightingRearOutlineMarkerNullableScalarRelationFilter, Prisma.LightingRearOutlineMarkerWhereInput> | null
+  lightingFrontOutlineMarker?: Prisma.XOR<Prisma.LightingFrontOutlineMarkerNullableScalarRelationFilter, Prisma.LightingFrontOutlineMarkerWhereInput> | null
+  lightingPlate?: Prisma.XOR<Prisma.LightingPlateNullableScalarRelationFilter, Prisma.LightingPlateWhereInput> | null
+  lightingReverse?: Prisma.XOR<Prisma.LightingReverseNullableScalarRelationFilter, Prisma.LightingReverseWhereInput> | null
+  lightingFog?: Prisma.XOR<Prisma.LightingFogNullableScalarRelationFilter, Prisma.LightingFogWhereInput> | null
 }, "id" | "companyId_number">
 
 export type DossierOrderByWithAggregationInput = {
@@ -259,6 +307,22 @@ export type DossierCreateInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateInput = {
@@ -273,6 +337,22 @@ export type DossierUncheckedCreateInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUpdateInput = {
@@ -287,6 +367,22 @@ export type DossierUpdateInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateInput = {
@@ -301,6 +397,22 @@ export type DossierUncheckedUpdateInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyInput = {
@@ -496,6 +608,230 @@ export type DossierUpdateOneRequiredWithoutMassesDimensionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutMassesDimensionsInput, Prisma.DossierUpdateWithoutMassesDimensionsInput>, Prisma.DossierUncheckedUpdateWithoutMassesDimensionsInput>
 }
 
+export type DossierCreateNestedOneWithoutCouplingDeviceInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutCouplingDeviceInput, Prisma.DossierUncheckedCreateWithoutCouplingDeviceInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutCouplingDeviceInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutCouplingDeviceNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutCouplingDeviceInput, Prisma.DossierUncheckedCreateWithoutCouplingDeviceInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutCouplingDeviceInput
+  upsert?: Prisma.DossierUpsertWithoutCouplingDeviceInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutCouplingDeviceInput, Prisma.DossierUpdateWithoutCouplingDeviceInput>, Prisma.DossierUncheckedUpdateWithoutCouplingDeviceInput>
+}
+
+export type DossierCreateNestedOneWithoutSpraySuppressionInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutSpraySuppressionInput, Prisma.DossierUncheckedCreateWithoutSpraySuppressionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutSpraySuppressionInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutSpraySuppressionNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutSpraySuppressionInput, Prisma.DossierUncheckedCreateWithoutSpraySuppressionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutSpraySuppressionInput
+  upsert?: Prisma.DossierUpsertWithoutSpraySuppressionInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutSpraySuppressionInput, Prisma.DossierUpdateWithoutSpraySuppressionInput>, Prisma.DossierUncheckedUpdateWithoutSpraySuppressionInput>
+}
+
+export type DossierCreateNestedOneWithoutElectromagneticCompatibilityInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedCreateWithoutElectromagneticCompatibilityInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutElectromagneticCompatibilityInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutElectromagneticCompatibilityNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedCreateWithoutElectromagneticCompatibilityInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutElectromagneticCompatibilityInput
+  upsert?: Prisma.DossierUpsertWithoutElectromagneticCompatibilityInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutElectromagneticCompatibilityInput, Prisma.DossierUpdateWithoutElectromagneticCompatibilityInput>, Prisma.DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput>
+}
+
+export type DossierCreateNestedOneWithoutLateralProtectionInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLateralProtectionInput, Prisma.DossierUncheckedCreateWithoutLateralProtectionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLateralProtectionInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLateralProtectionNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLateralProtectionInput, Prisma.DossierUncheckedCreateWithoutLateralProtectionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLateralProtectionInput
+  upsert?: Prisma.DossierUpsertWithoutLateralProtectionInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLateralProtectionInput, Prisma.DossierUpdateWithoutLateralProtectionInput>, Prisma.DossierUncheckedUpdateWithoutLateralProtectionInput>
+}
+
+export type DossierCreateNestedOneWithoutRearProtectionInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutRearProtectionInput, Prisma.DossierUncheckedCreateWithoutRearProtectionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutRearProtectionInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutRearProtectionNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutRearProtectionInput, Prisma.DossierUncheckedCreateWithoutRearProtectionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutRearProtectionInput
+  upsert?: Prisma.DossierUpsertWithoutRearProtectionInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutRearProtectionInput, Prisma.DossierUpdateWithoutRearProtectionInput>, Prisma.DossierUncheckedUpdateWithoutRearProtectionInput>
+}
+
+export type DossierCreateNestedOneWithoutLateralMarkingInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLateralMarkingInput, Prisma.DossierUncheckedCreateWithoutLateralMarkingInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLateralMarkingInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLateralMarkingNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLateralMarkingInput, Prisma.DossierUncheckedCreateWithoutLateralMarkingInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLateralMarkingInput
+  upsert?: Prisma.DossierUpsertWithoutLateralMarkingInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLateralMarkingInput, Prisma.DossierUpdateWithoutLateralMarkingInput>, Prisma.DossierUncheckedUpdateWithoutLateralMarkingInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingSideInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingSideInput, Prisma.DossierUncheckedCreateWithoutLightingSideInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingSideInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingSideNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingSideInput, Prisma.DossierUncheckedCreateWithoutLightingSideInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingSideInput
+  upsert?: Prisma.DossierUpsertWithoutLightingSideInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingSideInput, Prisma.DossierUpdateWithoutLightingSideInput>, Prisma.DossierUncheckedUpdateWithoutLightingSideInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingPositionInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingPositionInput, Prisma.DossierUncheckedCreateWithoutLightingPositionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingPositionInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingPositionNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingPositionInput, Prisma.DossierUncheckedCreateWithoutLightingPositionInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingPositionInput
+  upsert?: Prisma.DossierUpsertWithoutLightingPositionInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingPositionInput, Prisma.DossierUpdateWithoutLightingPositionInput>, Prisma.DossierUncheckedUpdateWithoutLightingPositionInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingReflectorInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingReflectorInput, Prisma.DossierUncheckedCreateWithoutLightingReflectorInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingReflectorInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingReflectorNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingReflectorInput, Prisma.DossierUncheckedCreateWithoutLightingReflectorInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingReflectorInput
+  upsert?: Prisma.DossierUpsertWithoutLightingReflectorInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingReflectorInput, Prisma.DossierUpdateWithoutLightingReflectorInput>, Prisma.DossierUncheckedUpdateWithoutLightingReflectorInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingBrakeInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingBrakeInput, Prisma.DossierUncheckedCreateWithoutLightingBrakeInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingBrakeInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingBrakeNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingBrakeInput, Prisma.DossierUncheckedCreateWithoutLightingBrakeInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingBrakeInput
+  upsert?: Prisma.DossierUpsertWithoutLightingBrakeInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingBrakeInput, Prisma.DossierUpdateWithoutLightingBrakeInput>, Prisma.DossierUncheckedUpdateWithoutLightingBrakeInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingTurnSignalInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedCreateWithoutLightingTurnSignalInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingTurnSignalInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingTurnSignalNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedCreateWithoutLightingTurnSignalInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingTurnSignalInput
+  upsert?: Prisma.DossierUpsertWithoutLightingTurnSignalInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingTurnSignalInput, Prisma.DossierUpdateWithoutLightingTurnSignalInput>, Prisma.DossierUncheckedUpdateWithoutLightingTurnSignalInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingRearOutlineMarkerInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingRearOutlineMarkerInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingRearOutlineMarkerNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingRearOutlineMarkerInput
+  upsert?: Prisma.DossierUpsertWithoutLightingRearOutlineMarkerInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingRearOutlineMarkerInput, Prisma.DossierUpdateWithoutLightingRearOutlineMarkerInput>, Prisma.DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingFrontOutlineMarkerInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingFrontOutlineMarkerInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingFrontOutlineMarkerNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingFrontOutlineMarkerInput
+  upsert?: Prisma.DossierUpsertWithoutLightingFrontOutlineMarkerInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUpdateWithoutLightingFrontOutlineMarkerInput>, Prisma.DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingPlateInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingPlateInput, Prisma.DossierUncheckedCreateWithoutLightingPlateInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingPlateInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingPlateNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingPlateInput, Prisma.DossierUncheckedCreateWithoutLightingPlateInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingPlateInput
+  upsert?: Prisma.DossierUpsertWithoutLightingPlateInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingPlateInput, Prisma.DossierUpdateWithoutLightingPlateInput>, Prisma.DossierUncheckedUpdateWithoutLightingPlateInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingReverseInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingReverseInput, Prisma.DossierUncheckedCreateWithoutLightingReverseInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingReverseInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingReverseNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingReverseInput, Prisma.DossierUncheckedCreateWithoutLightingReverseInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingReverseInput
+  upsert?: Prisma.DossierUpsertWithoutLightingReverseInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingReverseInput, Prisma.DossierUpdateWithoutLightingReverseInput>, Prisma.DossierUncheckedUpdateWithoutLightingReverseInput>
+}
+
+export type DossierCreateNestedOneWithoutLightingFogInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingFogInput, Prisma.DossierUncheckedCreateWithoutLightingFogInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingFogInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingFogNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingFogInput, Prisma.DossierUncheckedCreateWithoutLightingFogInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingFogInput
+  upsert?: Prisma.DossierUpsertWithoutLightingFogInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingFogInput, Prisma.DossierUpdateWithoutLightingFogInput>, Prisma.DossierUncheckedUpdateWithoutLightingFogInput>
+}
+
 export type DossierCreateWithoutCompanyInput = {
   id?: string
   number: string
@@ -507,6 +843,22 @@ export type DossierCreateWithoutCompanyInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCompanyInput = {
@@ -520,6 +872,22 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCompanyInput = {
@@ -570,6 +938,22 @@ export type DossierCreateWithoutDocumentsInput = {
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutDocumentsInput = {
@@ -583,6 +967,22 @@ export type DossierUncheckedCreateWithoutDocumentsInput = {
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutDocumentsInput = {
@@ -612,6 +1012,22 @@ export type DossierUpdateWithoutDocumentsInput = {
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutDocumentsInput = {
@@ -625,6 +1041,22 @@ export type DossierUncheckedUpdateWithoutDocumentsInput = {
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCustomerInput = {
@@ -638,6 +1070,22 @@ export type DossierCreateWithoutCustomerInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCustomerInput = {
@@ -651,6 +1099,22 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCustomerInput = {
@@ -680,6 +1144,22 @@ export type DossierUpdateWithoutCustomerInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCustomerInput = {
@@ -693,6 +1173,22 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutDealerInput = {
@@ -706,6 +1202,22 @@ export type DossierCreateWithoutDealerInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutDealerInput = {
@@ -719,6 +1231,22 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutDealerInput = {
@@ -748,6 +1276,22 @@ export type DossierUpdateWithoutDealerInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutDealerInput = {
@@ -761,6 +1305,22 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCocInput = {
@@ -774,6 +1334,22 @@ export type DossierCreateWithoutCocInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCocInput = {
@@ -787,6 +1363,22 @@ export type DossierUncheckedCreateWithoutCocInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCocInput = {
@@ -816,6 +1408,22 @@ export type DossierUpdateWithoutCocInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCocInput = {
@@ -829,6 +1437,22 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutBodyworkInput = {
@@ -842,6 +1466,22 @@ export type DossierCreateWithoutBodyworkInput = {
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutBodyworkInput = {
@@ -855,6 +1495,22 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutBodyworkInput = {
@@ -884,6 +1540,22 @@ export type DossierUpdateWithoutBodyworkInput = {
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutBodyworkInput = {
@@ -897,6 +1569,22 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutMassesDimensionsInput = {
@@ -910,6 +1598,22 @@ export type DossierCreateWithoutMassesDimensionsInput = {
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
@@ -923,6 +1627,22 @@ export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutMassesDimensionsInput = {
@@ -952,6 +1672,22 @@ export type DossierUpdateWithoutMassesDimensionsInput = {
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
@@ -965,6 +1701,2134 @@ export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutCouplingDeviceInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutCouplingDeviceInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutCouplingDeviceInput, Prisma.DossierUncheckedCreateWithoutCouplingDeviceInput>
+}
+
+export type DossierUpsertWithoutCouplingDeviceInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutCouplingDeviceInput, Prisma.DossierUncheckedUpdateWithoutCouplingDeviceInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutCouplingDeviceInput, Prisma.DossierUncheckedCreateWithoutCouplingDeviceInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutCouplingDeviceInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutCouplingDeviceInput, Prisma.DossierUncheckedUpdateWithoutCouplingDeviceInput>
+}
+
+export type DossierUpdateWithoutCouplingDeviceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutSpraySuppressionInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutSpraySuppressionInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutSpraySuppressionInput, Prisma.DossierUncheckedCreateWithoutSpraySuppressionInput>
+}
+
+export type DossierUpsertWithoutSpraySuppressionInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutSpraySuppressionInput, Prisma.DossierUncheckedUpdateWithoutSpraySuppressionInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutSpraySuppressionInput, Prisma.DossierUncheckedCreateWithoutSpraySuppressionInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutSpraySuppressionInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutSpraySuppressionInput, Prisma.DossierUncheckedUpdateWithoutSpraySuppressionInput>
+}
+
+export type DossierUpdateWithoutSpraySuppressionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutElectromagneticCompatibilityInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutElectromagneticCompatibilityInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedCreateWithoutElectromagneticCompatibilityInput>
+}
+
+export type DossierUpsertWithoutElectromagneticCompatibilityInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedCreateWithoutElectromagneticCompatibilityInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutElectromagneticCompatibilityInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutElectromagneticCompatibilityInput, Prisma.DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput>
+}
+
+export type DossierUpdateWithoutElectromagneticCompatibilityInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLateralProtectionInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLateralProtectionInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLateralProtectionInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLateralProtectionInput, Prisma.DossierUncheckedCreateWithoutLateralProtectionInput>
+}
+
+export type DossierUpsertWithoutLateralProtectionInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLateralProtectionInput, Prisma.DossierUncheckedUpdateWithoutLateralProtectionInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLateralProtectionInput, Prisma.DossierUncheckedCreateWithoutLateralProtectionInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLateralProtectionInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLateralProtectionInput, Prisma.DossierUncheckedUpdateWithoutLateralProtectionInput>
+}
+
+export type DossierUpdateWithoutLateralProtectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutRearProtectionInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutRearProtectionInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutRearProtectionInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutRearProtectionInput, Prisma.DossierUncheckedCreateWithoutRearProtectionInput>
+}
+
+export type DossierUpsertWithoutRearProtectionInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutRearProtectionInput, Prisma.DossierUncheckedUpdateWithoutRearProtectionInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutRearProtectionInput, Prisma.DossierUncheckedCreateWithoutRearProtectionInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutRearProtectionInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutRearProtectionInput, Prisma.DossierUncheckedUpdateWithoutRearProtectionInput>
+}
+
+export type DossierUpdateWithoutRearProtectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutRearProtectionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLateralMarkingInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLateralMarkingInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLateralMarkingInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLateralMarkingInput, Prisma.DossierUncheckedCreateWithoutLateralMarkingInput>
+}
+
+export type DossierUpsertWithoutLateralMarkingInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLateralMarkingInput, Prisma.DossierUncheckedUpdateWithoutLateralMarkingInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLateralMarkingInput, Prisma.DossierUncheckedCreateWithoutLateralMarkingInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLateralMarkingInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLateralMarkingInput, Prisma.DossierUncheckedUpdateWithoutLateralMarkingInput>
+}
+
+export type DossierUpdateWithoutLateralMarkingInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingSideInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingSideInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingSideInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingSideInput, Prisma.DossierUncheckedCreateWithoutLightingSideInput>
+}
+
+export type DossierUpsertWithoutLightingSideInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingSideInput, Prisma.DossierUncheckedUpdateWithoutLightingSideInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingSideInput, Prisma.DossierUncheckedCreateWithoutLightingSideInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingSideInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingSideInput, Prisma.DossierUncheckedUpdateWithoutLightingSideInput>
+}
+
+export type DossierUpdateWithoutLightingSideInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingSideInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingPositionInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingPositionInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingPositionInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingPositionInput, Prisma.DossierUncheckedCreateWithoutLightingPositionInput>
+}
+
+export type DossierUpsertWithoutLightingPositionInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingPositionInput, Prisma.DossierUncheckedUpdateWithoutLightingPositionInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingPositionInput, Prisma.DossierUncheckedCreateWithoutLightingPositionInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingPositionInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingPositionInput, Prisma.DossierUncheckedUpdateWithoutLightingPositionInput>
+}
+
+export type DossierUpdateWithoutLightingPositionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingPositionInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingReflectorInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingReflectorInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingReflectorInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingReflectorInput, Prisma.DossierUncheckedCreateWithoutLightingReflectorInput>
+}
+
+export type DossierUpsertWithoutLightingReflectorInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingReflectorInput, Prisma.DossierUncheckedUpdateWithoutLightingReflectorInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingReflectorInput, Prisma.DossierUncheckedCreateWithoutLightingReflectorInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingReflectorInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingReflectorInput, Prisma.DossierUncheckedUpdateWithoutLightingReflectorInput>
+}
+
+export type DossierUpdateWithoutLightingReflectorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingBrakeInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingBrakeInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingBrakeInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingBrakeInput, Prisma.DossierUncheckedCreateWithoutLightingBrakeInput>
+}
+
+export type DossierUpsertWithoutLightingBrakeInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingBrakeInput, Prisma.DossierUncheckedUpdateWithoutLightingBrakeInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingBrakeInput, Prisma.DossierUncheckedCreateWithoutLightingBrakeInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingBrakeInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingBrakeInput, Prisma.DossierUncheckedUpdateWithoutLightingBrakeInput>
+}
+
+export type DossierUpdateWithoutLightingBrakeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingTurnSignalInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingTurnSignalInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedCreateWithoutLightingTurnSignalInput>
+}
+
+export type DossierUpsertWithoutLightingTurnSignalInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedUpdateWithoutLightingTurnSignalInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedCreateWithoutLightingTurnSignalInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingTurnSignalInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingTurnSignalInput, Prisma.DossierUncheckedUpdateWithoutLightingTurnSignalInput>
+}
+
+export type DossierUpdateWithoutLightingTurnSignalInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingRearOutlineMarkerInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput>
+}
+
+export type DossierUpsertWithoutLightingRearOutlineMarkerInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingRearOutlineMarkerInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingRearOutlineMarkerInput, Prisma.DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput>
+}
+
+export type DossierUpdateWithoutLightingRearOutlineMarkerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingFrontOutlineMarkerInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput>
+}
+
+export type DossierUpsertWithoutLightingFrontOutlineMarkerInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingFrontOutlineMarkerInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingFrontOutlineMarkerInput, Prisma.DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput>
+}
+
+export type DossierUpdateWithoutLightingFrontOutlineMarkerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingPlateInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingPlateInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingPlateInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingPlateInput, Prisma.DossierUncheckedCreateWithoutLightingPlateInput>
+}
+
+export type DossierUpsertWithoutLightingPlateInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingPlateInput, Prisma.DossierUncheckedUpdateWithoutLightingPlateInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingPlateInput, Prisma.DossierUncheckedCreateWithoutLightingPlateInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingPlateInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingPlateInput, Prisma.DossierUncheckedUpdateWithoutLightingPlateInput>
+}
+
+export type DossierUpdateWithoutLightingPlateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingPlateInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingReverseInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingReverseInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingReverseInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingReverseInput, Prisma.DossierUncheckedCreateWithoutLightingReverseInput>
+}
+
+export type DossierUpsertWithoutLightingReverseInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingReverseInput, Prisma.DossierUncheckedUpdateWithoutLightingReverseInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingReverseInput, Prisma.DossierUncheckedCreateWithoutLightingReverseInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingReverseInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingReverseInput, Prisma.DossierUncheckedUpdateWithoutLightingReverseInput>
+}
+
+export type DossierUpdateWithoutLightingReverseInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingReverseInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingFogInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingFogInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingFogInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingFogInput, Prisma.DossierUncheckedCreateWithoutLightingFogInput>
+}
+
+export type DossierUpsertWithoutLightingFogInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingFogInput, Prisma.DossierUncheckedUpdateWithoutLightingFogInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingFogInput, Prisma.DossierUncheckedCreateWithoutLightingFogInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingFogInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingFogInput, Prisma.DossierUncheckedUpdateWithoutLightingFogInput>
+}
+
+export type DossierUpdateWithoutLightingFogInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingFogInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyCompanyInput = {
@@ -985,6 +3849,22 @@ export type DossierUpdateWithoutCompanyInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCompanyInput = {
@@ -998,6 +3878,22 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateManyWithoutCompanyInput = {
@@ -1051,6 +3947,22 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   bodywork?: boolean | Prisma.Dossier$bodyworkArgs<ExtArgs>
   massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
   documents?: boolean | Prisma.Dossier$documentsArgs<ExtArgs>
+  couplingDevice?: boolean | Prisma.Dossier$couplingDeviceArgs<ExtArgs>
+  spraySuppression?: boolean | Prisma.Dossier$spraySuppressionArgs<ExtArgs>
+  electromagneticCompatibility?: boolean | Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>
+  lateralProtection?: boolean | Prisma.Dossier$lateralProtectionArgs<ExtArgs>
+  rearProtection?: boolean | Prisma.Dossier$rearProtectionArgs<ExtArgs>
+  lateralMarking?: boolean | Prisma.Dossier$lateralMarkingArgs<ExtArgs>
+  lightingSide?: boolean | Prisma.Dossier$lightingSideArgs<ExtArgs>
+  lightingPosition?: boolean | Prisma.Dossier$lightingPositionArgs<ExtArgs>
+  lightingReflector?: boolean | Prisma.Dossier$lightingReflectorArgs<ExtArgs>
+  lightingBrake?: boolean | Prisma.Dossier$lightingBrakeArgs<ExtArgs>
+  lightingTurnSignal?: boolean | Prisma.Dossier$lightingTurnSignalArgs<ExtArgs>
+  lightingRearOutlineMarker?: boolean | Prisma.Dossier$lightingRearOutlineMarkerArgs<ExtArgs>
+  lightingFrontOutlineMarker?: boolean | Prisma.Dossier$lightingFrontOutlineMarkerArgs<ExtArgs>
+  lightingPlate?: boolean | Prisma.Dossier$lightingPlateArgs<ExtArgs>
+  lightingReverse?: boolean | Prisma.Dossier$lightingReverseArgs<ExtArgs>
+  lightingFog?: boolean | Prisma.Dossier$lightingFogArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
@@ -1089,6 +4001,22 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   bodywork?: boolean | Prisma.Dossier$bodyworkArgs<ExtArgs>
   massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
   documents?: boolean | Prisma.Dossier$documentsArgs<ExtArgs>
+  couplingDevice?: boolean | Prisma.Dossier$couplingDeviceArgs<ExtArgs>
+  spraySuppression?: boolean | Prisma.Dossier$spraySuppressionArgs<ExtArgs>
+  electromagneticCompatibility?: boolean | Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>
+  lateralProtection?: boolean | Prisma.Dossier$lateralProtectionArgs<ExtArgs>
+  rearProtection?: boolean | Prisma.Dossier$rearProtectionArgs<ExtArgs>
+  lateralMarking?: boolean | Prisma.Dossier$lateralMarkingArgs<ExtArgs>
+  lightingSide?: boolean | Prisma.Dossier$lightingSideArgs<ExtArgs>
+  lightingPosition?: boolean | Prisma.Dossier$lightingPositionArgs<ExtArgs>
+  lightingReflector?: boolean | Prisma.Dossier$lightingReflectorArgs<ExtArgs>
+  lightingBrake?: boolean | Prisma.Dossier$lightingBrakeArgs<ExtArgs>
+  lightingTurnSignal?: boolean | Prisma.Dossier$lightingTurnSignalArgs<ExtArgs>
+  lightingRearOutlineMarker?: boolean | Prisma.Dossier$lightingRearOutlineMarkerArgs<ExtArgs>
+  lightingFrontOutlineMarker?: boolean | Prisma.Dossier$lightingFrontOutlineMarkerArgs<ExtArgs>
+  lightingPlate?: boolean | Prisma.Dossier$lightingPlateArgs<ExtArgs>
+  lightingReverse?: boolean | Prisma.Dossier$lightingReverseArgs<ExtArgs>
+  lightingFog?: boolean | Prisma.Dossier$lightingFogArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DossierIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1108,6 +4036,22 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     bodywork: Prisma.$BodyworkPayload<ExtArgs> | null
     massesDimensions: Prisma.$MassesDimensionsPayload<ExtArgs> | null
     documents: Prisma.$GeneratedDocumentPayload<ExtArgs>[]
+    couplingDevice: Prisma.$CouplingDevicePayload<ExtArgs> | null
+    spraySuppression: Prisma.$SpraySuppressionPayload<ExtArgs> | null
+    electromagneticCompatibility: Prisma.$ElectromagneticCompatibilityPayload<ExtArgs> | null
+    lateralProtection: Prisma.$LateralProtectionPayload<ExtArgs> | null
+    rearProtection: Prisma.$RearProtectionPayload<ExtArgs> | null
+    lateralMarking: Prisma.$LateralMarkingPayload<ExtArgs> | null
+    lightingSide: Prisma.$LightingSidePayload<ExtArgs> | null
+    lightingPosition: Prisma.$LightingPositionPayload<ExtArgs> | null
+    lightingReflector: Prisma.$LightingReflectorPayload<ExtArgs> | null
+    lightingBrake: Prisma.$LightingBrakePayload<ExtArgs> | null
+    lightingTurnSignal: Prisma.$LightingTurnSignalPayload<ExtArgs> | null
+    lightingRearOutlineMarker: Prisma.$LightingRearOutlineMarkerPayload<ExtArgs> | null
+    lightingFrontOutlineMarker: Prisma.$LightingFrontOutlineMarkerPayload<ExtArgs> | null
+    lightingPlate: Prisma.$LightingPlatePayload<ExtArgs> | null
+    lightingReverse: Prisma.$LightingReversePayload<ExtArgs> | null
+    lightingFog: Prisma.$LightingFogPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1520,6 +4464,22 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   bodywork<T extends Prisma.Dossier$bodyworkArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$bodyworkArgs<ExtArgs>>): Prisma.Prisma__BodyworkClient<runtime.Types.Result.GetResult<Prisma.$BodyworkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   massesDimensions<T extends Prisma.Dossier$massesDimensionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$massesDimensionsArgs<ExtArgs>>): Prisma.Prisma__MassesDimensionsClient<runtime.Types.Result.GetResult<Prisma.$MassesDimensionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   documents<T extends Prisma.Dossier$documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GeneratedDocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  couplingDevice<T extends Prisma.Dossier$couplingDeviceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$couplingDeviceArgs<ExtArgs>>): Prisma.Prisma__CouplingDeviceClient<runtime.Types.Result.GetResult<Prisma.$CouplingDevicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  spraySuppression<T extends Prisma.Dossier$spraySuppressionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$spraySuppressionArgs<ExtArgs>>): Prisma.Prisma__SpraySuppressionClient<runtime.Types.Result.GetResult<Prisma.$SpraySuppressionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  electromagneticCompatibility<T extends Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>>): Prisma.Prisma__ElectromagneticCompatibilityClient<runtime.Types.Result.GetResult<Prisma.$ElectromagneticCompatibilityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lateralProtection<T extends Prisma.Dossier$lateralProtectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lateralProtectionArgs<ExtArgs>>): Prisma.Prisma__LateralProtectionClient<runtime.Types.Result.GetResult<Prisma.$LateralProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  rearProtection<T extends Prisma.Dossier$rearProtectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$rearProtectionArgs<ExtArgs>>): Prisma.Prisma__RearProtectionClient<runtime.Types.Result.GetResult<Prisma.$RearProtectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lateralMarking<T extends Prisma.Dossier$lateralMarkingArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lateralMarkingArgs<ExtArgs>>): Prisma.Prisma__LateralMarkingClient<runtime.Types.Result.GetResult<Prisma.$LateralMarkingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingSide<T extends Prisma.Dossier$lightingSideArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingSideArgs<ExtArgs>>): Prisma.Prisma__LightingSideClient<runtime.Types.Result.GetResult<Prisma.$LightingSidePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingPosition<T extends Prisma.Dossier$lightingPositionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingPositionArgs<ExtArgs>>): Prisma.Prisma__LightingPositionClient<runtime.Types.Result.GetResult<Prisma.$LightingPositionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingReflector<T extends Prisma.Dossier$lightingReflectorArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingReflectorArgs<ExtArgs>>): Prisma.Prisma__LightingReflectorClient<runtime.Types.Result.GetResult<Prisma.$LightingReflectorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingBrake<T extends Prisma.Dossier$lightingBrakeArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingBrakeArgs<ExtArgs>>): Prisma.Prisma__LightingBrakeClient<runtime.Types.Result.GetResult<Prisma.$LightingBrakePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingTurnSignal<T extends Prisma.Dossier$lightingTurnSignalArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingTurnSignalArgs<ExtArgs>>): Prisma.Prisma__LightingTurnSignalClient<runtime.Types.Result.GetResult<Prisma.$LightingTurnSignalPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingRearOutlineMarker<T extends Prisma.Dossier$lightingRearOutlineMarkerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingRearOutlineMarkerArgs<ExtArgs>>): Prisma.Prisma__LightingRearOutlineMarkerClient<runtime.Types.Result.GetResult<Prisma.$LightingRearOutlineMarkerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingFrontOutlineMarker<T extends Prisma.Dossier$lightingFrontOutlineMarkerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingFrontOutlineMarkerArgs<ExtArgs>>): Prisma.Prisma__LightingFrontOutlineMarkerClient<runtime.Types.Result.GetResult<Prisma.$LightingFrontOutlineMarkerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingPlate<T extends Prisma.Dossier$lightingPlateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingPlateArgs<ExtArgs>>): Prisma.Prisma__LightingPlateClient<runtime.Types.Result.GetResult<Prisma.$LightingPlatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingReverse<T extends Prisma.Dossier$lightingReverseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingReverseArgs<ExtArgs>>): Prisma.Prisma__LightingReverseClient<runtime.Types.Result.GetResult<Prisma.$LightingReversePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingFog<T extends Prisma.Dossier$lightingFogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingFogArgs<ExtArgs>>): Prisma.Prisma__LightingFogClient<runtime.Types.Result.GetResult<Prisma.$LightingFogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2071,6 +5031,310 @@ export type Dossier$documentsArgs<ExtArgs extends runtime.Types.Extensions.Inter
   take?: number
   skip?: number
   distinct?: Prisma.GeneratedDocumentScalarFieldEnum | Prisma.GeneratedDocumentScalarFieldEnum[]
+}
+
+/**
+ * Dossier.couplingDevice
+ */
+export type Dossier$couplingDeviceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the CouplingDevice
+   */
+  select?: Prisma.CouplingDeviceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the CouplingDevice
+   */
+  omit?: Prisma.CouplingDeviceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.CouplingDeviceInclude<ExtArgs> | null
+  where?: Prisma.CouplingDeviceWhereInput
+}
+
+/**
+ * Dossier.spraySuppression
+ */
+export type Dossier$spraySuppressionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SpraySuppression
+   */
+  select?: Prisma.SpraySuppressionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SpraySuppression
+   */
+  omit?: Prisma.SpraySuppressionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SpraySuppressionInclude<ExtArgs> | null
+  where?: Prisma.SpraySuppressionWhereInput
+}
+
+/**
+ * Dossier.electromagneticCompatibility
+ */
+export type Dossier$electromagneticCompatibilityArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ElectromagneticCompatibility
+   */
+  select?: Prisma.ElectromagneticCompatibilitySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ElectromagneticCompatibility
+   */
+  omit?: Prisma.ElectromagneticCompatibilityOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ElectromagneticCompatibilityInclude<ExtArgs> | null
+  where?: Prisma.ElectromagneticCompatibilityWhereInput
+}
+
+/**
+ * Dossier.lateralProtection
+ */
+export type Dossier$lateralProtectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LateralProtection
+   */
+  select?: Prisma.LateralProtectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LateralProtection
+   */
+  omit?: Prisma.LateralProtectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LateralProtectionInclude<ExtArgs> | null
+  where?: Prisma.LateralProtectionWhereInput
+}
+
+/**
+ * Dossier.rearProtection
+ */
+export type Dossier$rearProtectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RearProtection
+   */
+  select?: Prisma.RearProtectionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RearProtection
+   */
+  omit?: Prisma.RearProtectionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RearProtectionInclude<ExtArgs> | null
+  where?: Prisma.RearProtectionWhereInput
+}
+
+/**
+ * Dossier.lateralMarking
+ */
+export type Dossier$lateralMarkingArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LateralMarking
+   */
+  select?: Prisma.LateralMarkingSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LateralMarking
+   */
+  omit?: Prisma.LateralMarkingOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LateralMarkingInclude<ExtArgs> | null
+  where?: Prisma.LateralMarkingWhereInput
+}
+
+/**
+ * Dossier.lightingSide
+ */
+export type Dossier$lightingSideArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingSide
+   */
+  select?: Prisma.LightingSideSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingSide
+   */
+  omit?: Prisma.LightingSideOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingSideInclude<ExtArgs> | null
+  where?: Prisma.LightingSideWhereInput
+}
+
+/**
+ * Dossier.lightingPosition
+ */
+export type Dossier$lightingPositionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingPosition
+   */
+  select?: Prisma.LightingPositionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingPosition
+   */
+  omit?: Prisma.LightingPositionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingPositionInclude<ExtArgs> | null
+  where?: Prisma.LightingPositionWhereInput
+}
+
+/**
+ * Dossier.lightingReflector
+ */
+export type Dossier$lightingReflectorArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingReflector
+   */
+  select?: Prisma.LightingReflectorSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingReflector
+   */
+  omit?: Prisma.LightingReflectorOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingReflectorInclude<ExtArgs> | null
+  where?: Prisma.LightingReflectorWhereInput
+}
+
+/**
+ * Dossier.lightingBrake
+ */
+export type Dossier$lightingBrakeArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingBrake
+   */
+  select?: Prisma.LightingBrakeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingBrake
+   */
+  omit?: Prisma.LightingBrakeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingBrakeInclude<ExtArgs> | null
+  where?: Prisma.LightingBrakeWhereInput
+}
+
+/**
+ * Dossier.lightingTurnSignal
+ */
+export type Dossier$lightingTurnSignalArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingTurnSignal
+   */
+  select?: Prisma.LightingTurnSignalSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingTurnSignal
+   */
+  omit?: Prisma.LightingTurnSignalOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingTurnSignalInclude<ExtArgs> | null
+  where?: Prisma.LightingTurnSignalWhereInput
+}
+
+/**
+ * Dossier.lightingRearOutlineMarker
+ */
+export type Dossier$lightingRearOutlineMarkerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingRearOutlineMarker
+   */
+  select?: Prisma.LightingRearOutlineMarkerSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingRearOutlineMarker
+   */
+  omit?: Prisma.LightingRearOutlineMarkerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingRearOutlineMarkerInclude<ExtArgs> | null
+  where?: Prisma.LightingRearOutlineMarkerWhereInput
+}
+
+/**
+ * Dossier.lightingFrontOutlineMarker
+ */
+export type Dossier$lightingFrontOutlineMarkerArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingFrontOutlineMarker
+   */
+  select?: Prisma.LightingFrontOutlineMarkerSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingFrontOutlineMarker
+   */
+  omit?: Prisma.LightingFrontOutlineMarkerOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingFrontOutlineMarkerInclude<ExtArgs> | null
+  where?: Prisma.LightingFrontOutlineMarkerWhereInput
+}
+
+/**
+ * Dossier.lightingPlate
+ */
+export type Dossier$lightingPlateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingPlate
+   */
+  select?: Prisma.LightingPlateSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingPlate
+   */
+  omit?: Prisma.LightingPlateOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingPlateInclude<ExtArgs> | null
+  where?: Prisma.LightingPlateWhereInput
+}
+
+/**
+ * Dossier.lightingReverse
+ */
+export type Dossier$lightingReverseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingReverse
+   */
+  select?: Prisma.LightingReverseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingReverse
+   */
+  omit?: Prisma.LightingReverseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingReverseInclude<ExtArgs> | null
+  where?: Prisma.LightingReverseWhereInput
+}
+
+/**
+ * Dossier.lightingFog
+ */
+export type Dossier$lightingFogArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingFog
+   */
+  select?: Prisma.LightingFogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingFog
+   */
+  omit?: Prisma.LightingFogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingFogInclude<ExtArgs> | null
+  where?: Prisma.LightingFogWhereInput
 }
 
 /**

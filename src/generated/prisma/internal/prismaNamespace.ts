@@ -406,7 +406,23 @@ export const ModelName = {
   Dealer: 'Dealer',
   Coc: 'Coc',
   Bodywork: 'Bodywork',
-  MassesDimensions: 'MassesDimensions'
+  MassesDimensions: 'MassesDimensions',
+  CouplingDevice: 'CouplingDevice',
+  SpraySuppression: 'SpraySuppression',
+  ElectromagneticCompatibility: 'ElectromagneticCompatibility',
+  LateralProtection: 'LateralProtection',
+  RearProtection: 'RearProtection',
+  LateralMarking: 'LateralMarking',
+  LightingSide: 'LightingSide',
+  LightingPosition: 'LightingPosition',
+  LightingReflector: 'LightingReflector',
+  LightingBrake: 'LightingBrake',
+  LightingTurnSignal: 'LightingTurnSignal',
+  LightingRearOutlineMarker: 'LightingRearOutlineMarker',
+  LightingFrontOutlineMarker: 'LightingFrontOutlineMarker',
+  LightingPlate: 'LightingPlate',
+  LightingReverse: 'LightingReverse',
+  LightingFog: 'LightingFog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -422,7 +438,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1166,6 +1182,1190 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CouplingDevice: {
+      payload: Prisma.$CouplingDevicePayload<ExtArgs>
+      fields: Prisma.CouplingDeviceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CouplingDeviceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CouplingDeviceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        findFirst: {
+          args: Prisma.CouplingDeviceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CouplingDeviceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        findMany: {
+          args: Prisma.CouplingDeviceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>[]
+        }
+        create: {
+          args: Prisma.CouplingDeviceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        createMany: {
+          args: Prisma.CouplingDeviceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CouplingDeviceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>[]
+        }
+        delete: {
+          args: Prisma.CouplingDeviceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        update: {
+          args: Prisma.CouplingDeviceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        deleteMany: {
+          args: Prisma.CouplingDeviceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CouplingDeviceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CouplingDeviceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>[]
+        }
+        upsert: {
+          args: Prisma.CouplingDeviceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CouplingDevicePayload>
+        }
+        aggregate: {
+          args: Prisma.CouplingDeviceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCouplingDevice>
+        }
+        groupBy: {
+          args: Prisma.CouplingDeviceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CouplingDeviceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CouplingDeviceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CouplingDeviceCountAggregateOutputType> | number
+        }
+      }
+    }
+    SpraySuppression: {
+      payload: Prisma.$SpraySuppressionPayload<ExtArgs>
+      fields: Prisma.SpraySuppressionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.SpraySuppressionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.SpraySuppressionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        findFirst: {
+          args: Prisma.SpraySuppressionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.SpraySuppressionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        findMany: {
+          args: Prisma.SpraySuppressionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>[]
+        }
+        create: {
+          args: Prisma.SpraySuppressionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        createMany: {
+          args: Prisma.SpraySuppressionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.SpraySuppressionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>[]
+        }
+        delete: {
+          args: Prisma.SpraySuppressionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        update: {
+          args: Prisma.SpraySuppressionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        deleteMany: {
+          args: Prisma.SpraySuppressionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.SpraySuppressionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.SpraySuppressionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>[]
+        }
+        upsert: {
+          args: Prisma.SpraySuppressionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$SpraySuppressionPayload>
+        }
+        aggregate: {
+          args: Prisma.SpraySuppressionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateSpraySuppression>
+        }
+        groupBy: {
+          args: Prisma.SpraySuppressionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SpraySuppressionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.SpraySuppressionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.SpraySuppressionCountAggregateOutputType> | number
+        }
+      }
+    }
+    ElectromagneticCompatibility: {
+      payload: Prisma.$ElectromagneticCompatibilityPayload<ExtArgs>
+      fields: Prisma.ElectromagneticCompatibilityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ElectromagneticCompatibilityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ElectromagneticCompatibilityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        findFirst: {
+          args: Prisma.ElectromagneticCompatibilityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ElectromagneticCompatibilityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        findMany: {
+          args: Prisma.ElectromagneticCompatibilityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>[]
+        }
+        create: {
+          args: Prisma.ElectromagneticCompatibilityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        createMany: {
+          args: Prisma.ElectromagneticCompatibilityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ElectromagneticCompatibilityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>[]
+        }
+        delete: {
+          args: Prisma.ElectromagneticCompatibilityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        update: {
+          args: Prisma.ElectromagneticCompatibilityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        deleteMany: {
+          args: Prisma.ElectromagneticCompatibilityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ElectromagneticCompatibilityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ElectromagneticCompatibilityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>[]
+        }
+        upsert: {
+          args: Prisma.ElectromagneticCompatibilityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ElectromagneticCompatibilityPayload>
+        }
+        aggregate: {
+          args: Prisma.ElectromagneticCompatibilityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateElectromagneticCompatibility>
+        }
+        groupBy: {
+          args: Prisma.ElectromagneticCompatibilityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ElectromagneticCompatibilityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ElectromagneticCompatibilityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ElectromagneticCompatibilityCountAggregateOutputType> | number
+        }
+      }
+    }
+    LateralProtection: {
+      payload: Prisma.$LateralProtectionPayload<ExtArgs>
+      fields: Prisma.LateralProtectionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LateralProtectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LateralProtectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        findFirst: {
+          args: Prisma.LateralProtectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LateralProtectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        findMany: {
+          args: Prisma.LateralProtectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>[]
+        }
+        create: {
+          args: Prisma.LateralProtectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        createMany: {
+          args: Prisma.LateralProtectionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LateralProtectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>[]
+        }
+        delete: {
+          args: Prisma.LateralProtectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        update: {
+          args: Prisma.LateralProtectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        deleteMany: {
+          args: Prisma.LateralProtectionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LateralProtectionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LateralProtectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>[]
+        }
+        upsert: {
+          args: Prisma.LateralProtectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralProtectionPayload>
+        }
+        aggregate: {
+          args: Prisma.LateralProtectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLateralProtection>
+        }
+        groupBy: {
+          args: Prisma.LateralProtectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LateralProtectionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LateralProtectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LateralProtectionCountAggregateOutputType> | number
+        }
+      }
+    }
+    RearProtection: {
+      payload: Prisma.$RearProtectionPayload<ExtArgs>
+      fields: Prisma.RearProtectionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RearProtectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RearProtectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        findFirst: {
+          args: Prisma.RearProtectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RearProtectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        findMany: {
+          args: Prisma.RearProtectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>[]
+        }
+        create: {
+          args: Prisma.RearProtectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        createMany: {
+          args: Prisma.RearProtectionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RearProtectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>[]
+        }
+        delete: {
+          args: Prisma.RearProtectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        update: {
+          args: Prisma.RearProtectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        deleteMany: {
+          args: Prisma.RearProtectionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RearProtectionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RearProtectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>[]
+        }
+        upsert: {
+          args: Prisma.RearProtectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RearProtectionPayload>
+        }
+        aggregate: {
+          args: Prisma.RearProtectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRearProtection>
+        }
+        groupBy: {
+          args: Prisma.RearProtectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RearProtectionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RearProtectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RearProtectionCountAggregateOutputType> | number
+        }
+      }
+    }
+    LateralMarking: {
+      payload: Prisma.$LateralMarkingPayload<ExtArgs>
+      fields: Prisma.LateralMarkingFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LateralMarkingFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LateralMarkingFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        findFirst: {
+          args: Prisma.LateralMarkingFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LateralMarkingFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        findMany: {
+          args: Prisma.LateralMarkingFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>[]
+        }
+        create: {
+          args: Prisma.LateralMarkingCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        createMany: {
+          args: Prisma.LateralMarkingCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LateralMarkingCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>[]
+        }
+        delete: {
+          args: Prisma.LateralMarkingDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        update: {
+          args: Prisma.LateralMarkingUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        deleteMany: {
+          args: Prisma.LateralMarkingDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LateralMarkingUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LateralMarkingUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>[]
+        }
+        upsert: {
+          args: Prisma.LateralMarkingUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LateralMarkingPayload>
+        }
+        aggregate: {
+          args: Prisma.LateralMarkingAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLateralMarking>
+        }
+        groupBy: {
+          args: Prisma.LateralMarkingGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LateralMarkingGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LateralMarkingCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LateralMarkingCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingSide: {
+      payload: Prisma.$LightingSidePayload<ExtArgs>
+      fields: Prisma.LightingSideFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingSideFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingSideFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        findFirst: {
+          args: Prisma.LightingSideFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingSideFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        findMany: {
+          args: Prisma.LightingSideFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>[]
+        }
+        create: {
+          args: Prisma.LightingSideCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        createMany: {
+          args: Prisma.LightingSideCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingSideCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>[]
+        }
+        delete: {
+          args: Prisma.LightingSideDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        update: {
+          args: Prisma.LightingSideUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingSideDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingSideUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingSideUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingSideUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingSidePayload>
+        }
+        aggregate: {
+          args: Prisma.LightingSideAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingSide>
+        }
+        groupBy: {
+          args: Prisma.LightingSideGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingSideGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingSideCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingSideCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingPosition: {
+      payload: Prisma.$LightingPositionPayload<ExtArgs>
+      fields: Prisma.LightingPositionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingPositionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingPositionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingPositionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingPositionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        findMany: {
+          args: Prisma.LightingPositionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>[]
+        }
+        create: {
+          args: Prisma.LightingPositionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        createMany: {
+          args: Prisma.LightingPositionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingPositionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingPositionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        update: {
+          args: Prisma.LightingPositionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingPositionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingPositionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingPositionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingPositionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPositionPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingPositionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingPosition>
+        }
+        groupBy: {
+          args: Prisma.LightingPositionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingPositionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingPositionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingPositionCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingReflector: {
+      payload: Prisma.$LightingReflectorPayload<ExtArgs>
+      fields: Prisma.LightingReflectorFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingReflectorFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingReflectorFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingReflectorFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingReflectorFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        findMany: {
+          args: Prisma.LightingReflectorFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>[]
+        }
+        create: {
+          args: Prisma.LightingReflectorCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        createMany: {
+          args: Prisma.LightingReflectorCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingReflectorCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingReflectorDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        update: {
+          args: Prisma.LightingReflectorUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingReflectorDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingReflectorUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingReflectorUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingReflectorUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReflectorPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingReflectorAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingReflector>
+        }
+        groupBy: {
+          args: Prisma.LightingReflectorGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingReflectorGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingReflectorCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingReflectorCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingBrake: {
+      payload: Prisma.$LightingBrakePayload<ExtArgs>
+      fields: Prisma.LightingBrakeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingBrakeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingBrakeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        findFirst: {
+          args: Prisma.LightingBrakeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingBrakeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        findMany: {
+          args: Prisma.LightingBrakeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>[]
+        }
+        create: {
+          args: Prisma.LightingBrakeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        createMany: {
+          args: Prisma.LightingBrakeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingBrakeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>[]
+        }
+        delete: {
+          args: Prisma.LightingBrakeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        update: {
+          args: Prisma.LightingBrakeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingBrakeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingBrakeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingBrakeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingBrakeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingBrakePayload>
+        }
+        aggregate: {
+          args: Prisma.LightingBrakeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingBrake>
+        }
+        groupBy: {
+          args: Prisma.LightingBrakeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingBrakeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingBrakeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingBrakeCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingTurnSignal: {
+      payload: Prisma.$LightingTurnSignalPayload<ExtArgs>
+      fields: Prisma.LightingTurnSignalFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingTurnSignalFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingTurnSignalFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingTurnSignalFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingTurnSignalFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        findMany: {
+          args: Prisma.LightingTurnSignalFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>[]
+        }
+        create: {
+          args: Prisma.LightingTurnSignalCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        createMany: {
+          args: Prisma.LightingTurnSignalCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingTurnSignalCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingTurnSignalDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        update: {
+          args: Prisma.LightingTurnSignalUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingTurnSignalDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingTurnSignalUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingTurnSignalUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingTurnSignalUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingTurnSignalPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingTurnSignalAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingTurnSignal>
+        }
+        groupBy: {
+          args: Prisma.LightingTurnSignalGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingTurnSignalGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingTurnSignalCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingTurnSignalCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingRearOutlineMarker: {
+      payload: Prisma.$LightingRearOutlineMarkerPayload<ExtArgs>
+      fields: Prisma.LightingRearOutlineMarkerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingRearOutlineMarkerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingRearOutlineMarkerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingRearOutlineMarkerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingRearOutlineMarkerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        findMany: {
+          args: Prisma.LightingRearOutlineMarkerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>[]
+        }
+        create: {
+          args: Prisma.LightingRearOutlineMarkerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        createMany: {
+          args: Prisma.LightingRearOutlineMarkerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingRearOutlineMarkerCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingRearOutlineMarkerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        update: {
+          args: Prisma.LightingRearOutlineMarkerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingRearOutlineMarkerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingRearOutlineMarkerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingRearOutlineMarkerUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingRearOutlineMarkerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingRearOutlineMarkerPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingRearOutlineMarkerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingRearOutlineMarker>
+        }
+        groupBy: {
+          args: Prisma.LightingRearOutlineMarkerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingRearOutlineMarkerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingRearOutlineMarkerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingRearOutlineMarkerCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingFrontOutlineMarker: {
+      payload: Prisma.$LightingFrontOutlineMarkerPayload<ExtArgs>
+      fields: Prisma.LightingFrontOutlineMarkerFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingFrontOutlineMarkerFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingFrontOutlineMarkerFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingFrontOutlineMarkerFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingFrontOutlineMarkerFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        findMany: {
+          args: Prisma.LightingFrontOutlineMarkerFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>[]
+        }
+        create: {
+          args: Prisma.LightingFrontOutlineMarkerCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        createMany: {
+          args: Prisma.LightingFrontOutlineMarkerCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingFrontOutlineMarkerCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingFrontOutlineMarkerDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        update: {
+          args: Prisma.LightingFrontOutlineMarkerUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingFrontOutlineMarkerDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingFrontOutlineMarkerUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingFrontOutlineMarkerUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingFrontOutlineMarkerUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFrontOutlineMarkerPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingFrontOutlineMarkerAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingFrontOutlineMarker>
+        }
+        groupBy: {
+          args: Prisma.LightingFrontOutlineMarkerGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingFrontOutlineMarkerGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingFrontOutlineMarkerCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingFrontOutlineMarkerCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingPlate: {
+      payload: Prisma.$LightingPlatePayload<ExtArgs>
+      fields: Prisma.LightingPlateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingPlateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingPlateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        findFirst: {
+          args: Prisma.LightingPlateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingPlateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        findMany: {
+          args: Prisma.LightingPlateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>[]
+        }
+        create: {
+          args: Prisma.LightingPlateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        createMany: {
+          args: Prisma.LightingPlateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingPlateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>[]
+        }
+        delete: {
+          args: Prisma.LightingPlateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        update: {
+          args: Prisma.LightingPlateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingPlateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingPlateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingPlateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingPlateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingPlatePayload>
+        }
+        aggregate: {
+          args: Prisma.LightingPlateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingPlate>
+        }
+        groupBy: {
+          args: Prisma.LightingPlateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingPlateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingPlateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingPlateCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingReverse: {
+      payload: Prisma.$LightingReversePayload<ExtArgs>
+      fields: Prisma.LightingReverseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingReverseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingReverseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        findFirst: {
+          args: Prisma.LightingReverseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingReverseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        findMany: {
+          args: Prisma.LightingReverseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>[]
+        }
+        create: {
+          args: Prisma.LightingReverseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        createMany: {
+          args: Prisma.LightingReverseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingReverseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>[]
+        }
+        delete: {
+          args: Prisma.LightingReverseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        update: {
+          args: Prisma.LightingReverseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingReverseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingReverseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingReverseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingReverseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingReversePayload>
+        }
+        aggregate: {
+          args: Prisma.LightingReverseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingReverse>
+        }
+        groupBy: {
+          args: Prisma.LightingReverseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingReverseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingReverseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingReverseCountAggregateOutputType> | number
+        }
+      }
+    }
+    LightingFog: {
+      payload: Prisma.$LightingFogPayload<ExtArgs>
+      fields: Prisma.LightingFogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingFogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingFogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingFogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingFogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        findMany: {
+          args: Prisma.LightingFogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>[]
+        }
+        create: {
+          args: Prisma.LightingFogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        createMany: {
+          args: Prisma.LightingFogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingFogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingFogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        update: {
+          args: Prisma.LightingFogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingFogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingFogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingFogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingFogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingFogPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingFogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingFog>
+        }
+        groupBy: {
+          args: Prisma.LightingFogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingFogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingFogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingFogCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1560,6 +2760,423 @@ export const MassesDimensionsScalarFieldEnum = {
 export type MassesDimensionsScalarFieldEnum = (typeof MassesDimensionsScalarFieldEnum)[keyof typeof MassesDimensionsScalarFieldEnum]
 
 
+export const CouplingDeviceScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  device1stPhase: 'device1stPhase',
+  device2ndPhase: 'device2ndPhase',
+  brand: 'brand',
+  type: 'type',
+  approvalNumber: 'approvalNumber',
+  dValue: 'dValue',
+  dcValue: 'dcValue',
+  sValue: 'sValue',
+  vValue: 'vValue',
+  heightClearanceToGround: 'heightClearanceToGround',
+  distanceCentreFinalcaja: 'distanceCentreFinalcaja',
+  typeActuation: 'typeActuation',
+  seCompliantAngles: 'seCompliantAngles',
+  notes: 'notes'
+} as const
+
+export type CouplingDeviceScalarFieldEnum = (typeof CouplingDeviceScalarFieldEnum)[keyof typeof CouplingDeviceScalarFieldEnum]
+
+
+export const SpraySuppressionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  markingDevice: 'markingDevice',
+  distanceBordeinferiorSkirtGround: 'distanceBordeinferiorSkirtGround',
+  distanceFaldillaposteriorTyre: 'distanceFaldillaposteriorTyre',
+  widthMudguard: 'widthMudguard',
+  widthTyre: 'widthTyre',
+  widthBandTread: 'widthBandTread',
+  widthSkirtRear: 'widthSkirtRear',
+  angleCoberturatraseroDispproyeccion: 'angleCoberturatraseroDispproyeccion',
+  distanceBordeinferiorSkirtCentroneumatico: 'distanceBordeinferiorSkirtCentroneumatico',
+  heightSkirtExterior: 'heightSkirtExterior',
+  ausenciaOpenings: 'ausenciaOpenings',
+  widthCubretotalneumatico: 'widthCubretotalneumatico',
+  partRear150mmPlanohorizontal: 'partRear150mmPlanohorizontal',
+  notes: 'notes',
+  optionTo: 'optionTo',
+  optionB: 'optionB',
+  optionC: 'optionC',
+  optionD: 'optionD',
+  hasRearSpraySuppressionSystem: 'hasRearSpraySuppressionSystem',
+  refInternal: 'refInternal'
+} as const
+
+export type SpraySuppressionScalarFieldEnum = (typeof SpraySuppressionScalarFieldEnum)[keyof typeof SpraySuppressionScalarFieldEnum]
+
+
+export const ElectromagneticCompatibilityScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  fittedSystemsElectronicElectrical: 'fittedSystemsElectronicElectrical',
+  appliesRegulation10: 'appliesRegulation10',
+  descripcin1Subassemblies: 'descripcin1Subassemblies',
+  descripcin2Subassemblies: 'descripcin2Subassemblies',
+  descripcin3Subassemblies: 'descripcin3Subassemblies',
+  operatesRestricted: 'operatesRestricted',
+  fixedNosepuedadesmontar: 'fixedNosepuedadesmontar',
+  approvalCodeApprovalNumber: 'approvalCodeApprovalNumber',
+  checkInstalacionDiagrams: 'checkInstalacionDiagrams',
+  connectedPorInTerfaz: 'connectedPorInTerfaz',
+  applicabilityDelRegulation: 'applicabilityDelRegulation',
+  equipmentMeasurementUsed: 'equipmentMeasurementUsed'
+} as const
+
+export type ElectromagneticCompatibilityScalarFieldEnum = (typeof ElectromagneticCompatibilityScalarFieldEnum)[keyof typeof ElectromagneticCompatibilityScalarFieldEnum]
+
+
+export const LateralProtectionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  markingDevice: 'markingDevice',
+  distancePartLowerToGroundRight: 'distancePartLowerToGroundRight',
+  distancePartLowerToGroundLeft: 'distancePartLowerToGroundLeft',
+  distanceEdgeAnteriorRuedadelanteraRight: 'distanceEdgeAnteriorRuedadelanteraRight',
+  distanceEdgeAnteriorRuedadelanteraLeft: 'distanceEdgeAnteriorRuedadelanteraLeft',
+  distanceEdgeAnteriorCentropivoteRight: 'distanceEdgeAnteriorCentropivoteRight',
+  distanceEdgeAnteriorCentropivoteLeft: 'distanceEdgeAnteriorCentropivoteLeft',
+  distanceEdgeAnteriorMidPointLegsRight: 'distanceEdgeAnteriorMidPointLegsRight',
+  distanceEdgeAnteriorMidPointLegsLeft: 'distanceEdgeAnteriorMidPointLegsLeft',
+  distanceEdgeRearRuedatraseraRight: 'distanceEdgeRearRuedatraseraRight',
+  distanceEdgeRearRuedatraseraLeft: 'distanceEdgeRearRuedatraseraLeft',
+  widthChassisRailsRight: 'widthChassisRailsRight',
+  widthChassisRailsLeft: 'widthChassisRailsLeft',
+  distanceChassisRailsRight: 'distanceChassisRailsRight',
+  distanceChassisRailsLeft: 'distanceChassisRailsLeft',
+  distanceBordesuperiorToBodyworkRight: 'distanceBordesuperiorToBodyworkRight',
+  distanceBordesuperiorToBodyworkLeft: 'distanceBordesuperiorToBodyworkLeft',
+  distanceDeviceToBordecarroceriaRight: 'distanceDeviceToBordecarroceriaRight',
+  distanceDeviceToBordecarroceriaLeft: 'distanceDeviceToBordecarroceriaLeft',
+  distanceExtdispositivoBordeextTyreRight: 'distanceExtdispositivoBordeextTyreRight',
+  distanceExtdispositivoBordeextTyreLeft: 'distanceExtdispositivoBordeextTyreLeft',
+  distanceAttachmentPointsChassisRight: 'distanceAttachmentPointsChassisRight',
+  distanceAttachmentPointsChassisLeft: 'distanceAttachmentPointsChassisLeft',
+  overhangFrontProtectionRight: 'overhangFrontProtectionRight',
+  overhangFrontProtectionLeft: 'overhangFrontProtectionLeft',
+  overhangRearProtectionLeft: 'overhangRearProtectionLeft',
+  overhangRearProtectionRight: 'overhangRearProtectionRight',
+  firstPhase: 'firstPhase',
+  notes: 'notes',
+  refInternalProtSide: 'refInternalProtSide'
+} as const
+
+export type LateralProtectionScalarFieldEnum = (typeof LateralProtectionScalarFieldEnum)[keyof typeof LateralProtectionScalarFieldEnum]
+
+
+export const RearProtectionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  protRear1fase: 'protRear1fase',
+  hasDHomologado: 'hasDHomologado',
+  numberHomnologacionProtRear: 'numberHomnologacionProtRear',
+  distanceExteAxleMasancho: 'distanceExteAxleMasancho',
+  valueDeformation: 'valueDeformation',
+  edgesSides: 'edgesSides',
+  heightProfile: 'heightProfile',
+  distanceBrackets: 'distanceBrackets',
+  heightGroundEdgeLower: 'heightGroundEdgeLower',
+  mMTAValidDevice: 'mMTAValidDevice',
+  distancePartRearVehicle: 'distancePartRearVehicle',
+  alturapaplicacion: 'alturapaplicacion',
+  notes: 'notes',
+  refInternalProtRear: 'refInternalProtRear'
+} as const
+
+export type RearProtectionScalarFieldEnum = (typeof RearProtectionScalarFieldEnum)[keyof typeof RearProtectionScalarFieldEnum]
+
+
+export const LateralMarkingScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  sideOptionMarking: 'sideOptionMarking',
+  sideDistanceGroundEdgeLowerRight: 'sideDistanceGroundEdgeLowerRight',
+  sideDistanceGroundEdgeLowerLeft: 'sideDistanceGroundEdgeLowerLeft',
+  sideDistanceGroundEdgeUpperRight: 'sideDistanceGroundEdgeUpperRight',
+  sideDistanceGroundEdgeUpperLeft: 'sideDistanceGroundEdgeUpperLeft',
+  sideEdgeExteriorToFrontCajaLeft: 'sideEdgeExteriorToFrontCajaLeft',
+  sideEdgeExteriorToFrontCajaRight: 'sideEdgeExteriorToFrontCajaRight',
+  sideEdgeExteriorToRearCajaRight: 'sideEdgeExteriorToRearCajaRight',
+  sideEdgeExteriorToRearCajaLeft: 'sideEdgeExteriorToRearCajaLeft',
+  sideDistanceBInteriorToBsuperiorCajaRight: 'sideDistanceBInteriorToBsuperiorCajaRight',
+  sideDistanceBInteriorToBsuperiorCajaLeft: 'sideDistanceBInteriorToBsuperiorCajaLeft',
+  sideType: 'sideType',
+  sideApprovalNumber: 'sideApprovalNumber',
+  sideColor: 'sideColor',
+  sideLongitudMarkingParcialRight: 'sideLongitudMarkingParcialRight',
+  sideLongitudMarkingParcialLeft: 'sideLongitudMarkingParcialLeft',
+  rearOptionMarking: 'rearOptionMarking',
+  rearDistanceGroundEdgeLowerLeft: 'rearDistanceGroundEdgeLowerLeft',
+  rearDistanceGroundEdgeLowerRight: 'rearDistanceGroundEdgeLowerRight',
+  rearDistanceGroundEdgeUpperLeft: 'rearDistanceGroundEdgeUpperLeft',
+  rearDistanceGroundEdgeUpperRight: 'rearDistanceGroundEdgeUpperRight',
+  rearDistanceMarkingToLuzfreno: 'rearDistanceMarkingToLuzfreno',
+  rearColor: 'rearColor',
+  rearLongitudMarkingParcial: 'rearLongitudMarkingParcial',
+  notes: 'notes',
+  refInternalWhite: 'refInternalWhite',
+  refInternalRed: 'refInternalRed',
+  o4OptionMarkingFront: 'o4OptionMarkingFront',
+  o4FrontDistanceGroundEdgeLower: 'o4FrontDistanceGroundEdgeLower',
+  o4FrontDistanceGroundEdgeUpper: 'o4FrontDistanceGroundEdgeUpper',
+  o4FrontApprovalNumber: 'o4FrontApprovalNumber',
+  o4FrontLongitudMarkingParcial: 'o4FrontLongitudMarkingParcial',
+  o4DistanceEdgeExteriorCaja: 'o4DistanceEdgeExteriorCaja'
+} as const
+
+export type LateralMarkingScalarFieldEnum = (typeof LateralMarkingScalarFieldEnum)[keyof typeof LateralMarkingScalarFieldEnum]
+
+
+export const LightingSideScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  fittedLights: 'fittedLights',
+  fittedReflector: 'fittedReflector',
+  heightEdgeUpperLight: 'heightEdgeUpperLight',
+  heightEdgeUpperReflector: 'heightEdgeUpperReflector',
+  distanceFinalVehicleLightsRight: 'distanceFinalVehicleLightsRight',
+  distanceFinalVehicleLightsLeft: 'distanceFinalVehicleLightsLeft',
+  distanceFinalVehicleReflectorRight: 'distanceFinalVehicleReflectorRight',
+  distanceFinalVehicleReflectorLeft: 'distanceFinalVehicleReflectorLeft',
+  deAxle1To1LightRight: 'deAxle1To1LightRight',
+  o4Front1LightRight: 'o4Front1LightRight',
+  deAxle1To1LightLeft: 'deAxle1To1LightLeft',
+  o4Front1LightLeft: 'o4Front1LightLeft',
+  deLight1To2LightRight: 'deLight1To2LightRight',
+  deLight1To2LightLeft: 'deLight1To2LightLeft',
+  deLight2To3LightRight: 'deLight2To3LightRight',
+  deLight2To3LightLeft: 'deLight2To3LightLeft',
+  deLight3To4LightRight: 'deLight3To4LightRight',
+  deLight4To5LightRight: 'deLight4To5LightRight',
+  deLight3To4LightLeft: 'deLight3To4LightLeft',
+  deLight4To5LightLeft: 'deLight4To5LightLeft',
+  deAxle1ToReflector1Right: 'deAxle1ToReflector1Right',
+  o4Front1ReflectorRight: 'o4Front1ReflectorRight',
+  deAxle1ToReflector1Left: 'deAxle1ToReflector1Left',
+  o4Front1ReflectorLeft: 'o4Front1ReflectorLeft',
+  deReflector1ToReflector2Left: 'deReflector1ToReflector2Left',
+  deReflector1ToReflector2Right: 'deReflector1ToReflector2Right',
+  deReflector2ToReflector3Right: 'deReflector2ToReflector3Right',
+  deReflector2ToReflector3Left: 'deReflector2ToReflector3Left',
+  deReflector3ToReflector4Right: 'deReflector3ToReflector4Right',
+  deReflector4ToReflector5Right: 'deReflector4ToReflector5Right',
+  deReflector3ToReflector4Left: 'deReflector3ToReflector4Left',
+  deReflector4ToReflector5Left: 'deReflector4ToReflector5Left',
+  distanceMaxLights: 'distanceMaxLights',
+  distanceMaxReflector: 'distanceMaxReflector',
+  compliantHorizontalLight: 'compliantHorizontalLight',
+  compliantVerticalLight: 'compliantVerticalLight',
+  fittedReflector2: 'fittedReflector2',
+  compliantVerticalReflector: 'compliantVerticalReflector',
+  compliantHorizontalReflector: 'compliantHorizontalReflector',
+  color: 'color',
+  numberLightsSides: 'numberLightsSides',
+  numberReflectorsSides: 'numberReflectorsSides',
+  approvalCodeApprovalNumberLight: 'approvalCodeApprovalNumberLight',
+  approvalCodeApprovalNumberReflector: 'approvalCodeApprovalNumberReflector',
+  distanceStartFirstLight: 'distanceStartFirstLight',
+  distanceStartFirstReflector: 'distanceStartFirstReflector',
+  notesSideLighting: 'notesSideLighting',
+  secondColorLightSide: 'secondColorLightSide',
+  refInternalLight: 'refInternalLight',
+  refInternalReflector: 'refInternalReflector',
+  o4DeLight5To6LightRight: 'o4DeLight5To6LightRight',
+  o4DeLight5To6LightLeft: 'o4DeLight5To6LightLeft',
+  o4DeReflector5ToReflector6Left: 'o4DeReflector5ToReflector6Left',
+  o4DeReflector5ToReflector6Right: 'o4DeReflector5ToReflector6Right',
+  o4DistanceInicioFirstLightGalibo: 'o4DistanceInicioFirstLightGalibo',
+  o4DistanceInicioFirstReflector: 'o4DistanceInicioFirstReflector'
+} as const
+
+export type LightingSideScalarFieldEnum = (typeof LightingSideScalarFieldEnum)[keyof typeof LightingSideScalarFieldEnum]
+
+
+export const LightingPositionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  o4HeightEdgeLowerFront: 'o4HeightEdgeLowerFront',
+  o4HeightEdgeUpperFront: 'o4HeightEdgeUpperFront',
+  o4SpacingFront: 'o4SpacingFront',
+  o4DistanceLeftFront: 'o4DistanceLeftFront',
+  o4DistanceRightFront: 'o4DistanceRightFront',
+  o4CountFront: 'o4CountFront',
+  o4ApprovalNumberFront: 'o4ApprovalNumberFront',
+  o4AngleVerticalFront: 'o4AngleVerticalFront',
+  o4AngleHorizontalFront: 'o4AngleHorizontalFront',
+  o4ColorFront: 'o4ColorFront'
+} as const
+
+export type LightingPositionScalarFieldEnum = (typeof LightingPositionScalarFieldEnum)[keyof typeof LightingPositionScalarFieldEnum]
+
+
+export const LightingReflectorScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  o4HeightEdgeLowerFront: 'o4HeightEdgeLowerFront',
+  o4HeightEdgeUpperFront: 'o4HeightEdgeUpperFront',
+  o4SpacingFront: 'o4SpacingFront',
+  o4DistanceLeftFront: 'o4DistanceLeftFront',
+  o4DistanceRightFront: 'o4DistanceRightFront',
+  o4CountFront: 'o4CountFront',
+  o4ApprovalNumberFront: 'o4ApprovalNumberFront',
+  o4AngleVerticalFront: 'o4AngleVerticalFront',
+  o4ColorFront: 'o4ColorFront',
+  o4AngleHorizontalFront: 'o4AngleHorizontalFront'
+} as const
+
+export type LightingReflectorScalarFieldEnum = (typeof LightingReflectorScalarFieldEnum)[keyof typeof LightingReflectorScalarFieldEnum]
+
+
+export const LightingBrakeScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceSideLeft: 'distanceSideLeft',
+  distanceSideRight: 'distanceSideRight',
+  angleHorizontal: 'angleHorizontal',
+  angleVertical: 'angleVertical',
+  approvalNumber: 'approvalNumber',
+  heightThirdLightBrake: 'heightThirdLightBrake',
+  approvalNumberThirdLightBrake: 'approvalNumberThirdLightBrake',
+  countLucesBrake: 'countLucesBrake',
+  angle3LightVertical: 'angle3LightVertical',
+  angle3LightHorizontal: 'angle3LightHorizontal',
+  color: 'color',
+  notesBrakes: 'notesBrakes',
+  refInternal3luzfreno: 'refInternal3luzfreno',
+  refInternalLightsRearIntegral: 'refInternalLightsRearIntegral'
+} as const
+
+export type LightingBrakeScalarFieldEnum = (typeof LightingBrakeScalarFieldEnum)[keyof typeof LightingBrakeScalarFieldEnum]
+
+
+export const LightingTurnSignalScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  approvalNumberInterSide: 'approvalNumberInterSide',
+  numberInterSide: 'numberInterSide',
+  angleHorizontalInterSide: 'angleHorizontalInterSide',
+  angleVerticalInterSide: 'angleVerticalInterSide',
+  notesIntermitentes: 'notesIntermitentes',
+  heightGroundInterSide: 'heightGroundInterSide'
+} as const
+
+export type LightingTurnSignalScalarFieldEnum = (typeof LightingTurnSignalScalarFieldEnum)[keyof typeof LightingTurnSignalScalarFieldEnum]
+
+
+export const LightingRearOutlineMarkerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes',
+  distanceLightPosicion: 'distanceLightPosicion',
+  distanceEdgeBodywork: 'distanceEdgeBodywork',
+  refInternal: 'refInternal',
+  refInterna2: 'refInterna2'
+} as const
+
+export type LightingRearOutlineMarkerScalarFieldEnum = (typeof LightingRearOutlineMarkerScalarFieldEnum)[keyof typeof LightingRearOutlineMarkerScalarFieldEnum]
+
+
+export const LightingFrontOutlineMarkerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes',
+  distanceEndsBodywork: 'distanceEndsBodywork',
+  refInternal: 'refInternal'
+} as const
+
+export type LightingFrontOutlineMarkerScalarFieldEnum = (typeof LightingFrontOutlineMarkerScalarFieldEnum)[keyof typeof LightingFrontOutlineMarkerScalarFieldEnum]
+
+
+export const LightingPlateScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  spacing: 'spacing',
+  optionMounting: 'optionMounting',
+  notes: 'notes',
+  refInternal: 'refInternal'
+} as const
+
+export type LightingPlateScalarFieldEnum = (typeof LightingPlateScalarFieldEnum)[keyof typeof LightingPlateScalarFieldEnum]
+
+
+export const LightingReverseScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeUpper: 'heightEdgeUpper',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes'
+} as const
+
+export type LightingReverseScalarFieldEnum = (typeof LightingReverseScalarFieldEnum)[keyof typeof LightingReverseScalarFieldEnum]
+
+
+export const LightingFogScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeUpper: 'heightEdgeUpper',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal'
+} as const
+
+export type LightingFogScalarFieldEnum = (typeof LightingFogScalarFieldEnum)[keyof typeof LightingFogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1841,6 +3458,22 @@ export type GlobalOmitConfig = {
   coc?: Prisma.CocOmit
   bodywork?: Prisma.BodyworkOmit
   massesDimensions?: Prisma.MassesDimensionsOmit
+  couplingDevice?: Prisma.CouplingDeviceOmit
+  spraySuppression?: Prisma.SpraySuppressionOmit
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityOmit
+  lateralProtection?: Prisma.LateralProtectionOmit
+  rearProtection?: Prisma.RearProtectionOmit
+  lateralMarking?: Prisma.LateralMarkingOmit
+  lightingSide?: Prisma.LightingSideOmit
+  lightingPosition?: Prisma.LightingPositionOmit
+  lightingReflector?: Prisma.LightingReflectorOmit
+  lightingBrake?: Prisma.LightingBrakeOmit
+  lightingTurnSignal?: Prisma.LightingTurnSignalOmit
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerOmit
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerOmit
+  lightingPlate?: Prisma.LightingPlateOmit
+  lightingReverse?: Prisma.LightingReverseOmit
+  lightingFog?: Prisma.LightingFogOmit
 }
 
 /* Types for Logging */

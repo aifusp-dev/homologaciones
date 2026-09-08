@@ -67,3 +67,83 @@ export type Bodywork = Prisma.BodyworkModel
  * 
  */
 export type MassesDimensions = Prisma.MassesDimensionsModel
+/**
+ * Model CouplingDevice
+ * 
+ */
+export type CouplingDevice = Prisma.CouplingDeviceModel
+/**
+ * Model SpraySuppression
+ * 
+ */
+export type SpraySuppression = Prisma.SpraySuppressionModel
+/**
+ * Model ElectromagneticCompatibility
+ * 
+ */
+export type ElectromagneticCompatibility = Prisma.ElectromagneticCompatibilityModel
+/**
+ * Model LateralProtection
+ * 
+ */
+export type LateralProtection = Prisma.LateralProtectionModel
+/**
+ * Model RearProtection
+ * 
+ */
+export type RearProtection = Prisma.RearProtectionModel
+/**
+ * Model LateralMarking
+ * 
+ */
+export type LateralMarking = Prisma.LateralMarkingModel
+/**
+ * Model LightingSide
+ * 
+ */
+export type LightingSide = Prisma.LightingSideModel
+/**
+ * Model LightingPosition
+ * 
+ */
+export type LightingPosition = Prisma.LightingPositionModel
+/**
+ * Model LightingReflector
+ * 
+ */
+export type LightingReflector = Prisma.LightingReflectorModel
+/**
+ * Model LightingBrake
+ * 
+ */
+export type LightingBrake = Prisma.LightingBrakeModel
+/**
+ * Model LightingTurnSignal
+ * 
+ */
+export type LightingTurnSignal = Prisma.LightingTurnSignalModel
+/**
+ * Model LightingRearOutlineMarker
+ * 
+ */
+export type LightingRearOutlineMarker = Prisma.LightingRearOutlineMarkerModel
+/**
+ * Model LightingFrontOutlineMarker
+ * 
+ */
+export type LightingFrontOutlineMarker = Prisma.LightingFrontOutlineMarkerModel
+/**
+ * Model LightingPlate
+ * 
+ */
+export type LightingPlate = Prisma.LightingPlateModel
+/**
+ * Model LightingReverse
+ * 
+ */
+export type LightingReverse = Prisma.LightingReverseModel
+/**
+ * Model LightingFog
+ * 
+ */
+export type LightingFog = Prisma.LightingFogModel

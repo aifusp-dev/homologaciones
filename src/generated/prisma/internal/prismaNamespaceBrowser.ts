@@ -60,7 +60,23 @@ export const ModelName = {
   Dealer: 'Dealer',
   Coc: 'Coc',
   Bodywork: 'Bodywork',
-  MassesDimensions: 'MassesDimensions'
+  MassesDimensions: 'MassesDimensions',
+  CouplingDevice: 'CouplingDevice',
+  SpraySuppression: 'SpraySuppression',
+  ElectromagneticCompatibility: 'ElectromagneticCompatibility',
+  LateralProtection: 'LateralProtection',
+  RearProtection: 'RearProtection',
+  LateralMarking: 'LateralMarking',
+  LightingSide: 'LightingSide',
+  LightingPosition: 'LightingPosition',
+  LightingReflector: 'LightingReflector',
+  LightingBrake: 'LightingBrake',
+  LightingTurnSignal: 'LightingTurnSignal',
+  LightingRearOutlineMarker: 'LightingRearOutlineMarker',
+  LightingFrontOutlineMarker: 'LightingFrontOutlineMarker',
+  LightingPlate: 'LightingPlate',
+  LightingReverse: 'LightingReverse',
+  LightingFog: 'LightingFog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -432,6 +448,423 @@ export const MassesDimensionsScalarFieldEnum = {
 } as const
 
 export type MassesDimensionsScalarFieldEnum = (typeof MassesDimensionsScalarFieldEnum)[keyof typeof MassesDimensionsScalarFieldEnum]
+
+
+export const CouplingDeviceScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  device1stPhase: 'device1stPhase',
+  device2ndPhase: 'device2ndPhase',
+  brand: 'brand',
+  type: 'type',
+  approvalNumber: 'approvalNumber',
+  dValue: 'dValue',
+  dcValue: 'dcValue',
+  sValue: 'sValue',
+  vValue: 'vValue',
+  heightClearanceToGround: 'heightClearanceToGround',
+  distanceCentreFinalcaja: 'distanceCentreFinalcaja',
+  typeActuation: 'typeActuation',
+  seCompliantAngles: 'seCompliantAngles',
+  notes: 'notes'
+} as const
+
+export type CouplingDeviceScalarFieldEnum = (typeof CouplingDeviceScalarFieldEnum)[keyof typeof CouplingDeviceScalarFieldEnum]
+
+
+export const SpraySuppressionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  markingDevice: 'markingDevice',
+  distanceBordeinferiorSkirtGround: 'distanceBordeinferiorSkirtGround',
+  distanceFaldillaposteriorTyre: 'distanceFaldillaposteriorTyre',
+  widthMudguard: 'widthMudguard',
+  widthTyre: 'widthTyre',
+  widthBandTread: 'widthBandTread',
+  widthSkirtRear: 'widthSkirtRear',
+  angleCoberturatraseroDispproyeccion: 'angleCoberturatraseroDispproyeccion',
+  distanceBordeinferiorSkirtCentroneumatico: 'distanceBordeinferiorSkirtCentroneumatico',
+  heightSkirtExterior: 'heightSkirtExterior',
+  ausenciaOpenings: 'ausenciaOpenings',
+  widthCubretotalneumatico: 'widthCubretotalneumatico',
+  partRear150mmPlanohorizontal: 'partRear150mmPlanohorizontal',
+  notes: 'notes',
+  optionTo: 'optionTo',
+  optionB: 'optionB',
+  optionC: 'optionC',
+  optionD: 'optionD',
+  hasRearSpraySuppressionSystem: 'hasRearSpraySuppressionSystem',
+  refInternal: 'refInternal'
+} as const
+
+export type SpraySuppressionScalarFieldEnum = (typeof SpraySuppressionScalarFieldEnum)[keyof typeof SpraySuppressionScalarFieldEnum]
+
+
+export const ElectromagneticCompatibilityScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  fittedSystemsElectronicElectrical: 'fittedSystemsElectronicElectrical',
+  appliesRegulation10: 'appliesRegulation10',
+  descripcin1Subassemblies: 'descripcin1Subassemblies',
+  descripcin2Subassemblies: 'descripcin2Subassemblies',
+  descripcin3Subassemblies: 'descripcin3Subassemblies',
+  operatesRestricted: 'operatesRestricted',
+  fixedNosepuedadesmontar: 'fixedNosepuedadesmontar',
+  approvalCodeApprovalNumber: 'approvalCodeApprovalNumber',
+  checkInstalacionDiagrams: 'checkInstalacionDiagrams',
+  connectedPorInTerfaz: 'connectedPorInTerfaz',
+  applicabilityDelRegulation: 'applicabilityDelRegulation',
+  equipmentMeasurementUsed: 'equipmentMeasurementUsed'
+} as const
+
+export type ElectromagneticCompatibilityScalarFieldEnum = (typeof ElectromagneticCompatibilityScalarFieldEnum)[keyof typeof ElectromagneticCompatibilityScalarFieldEnum]
+
+
+export const LateralProtectionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  markingDevice: 'markingDevice',
+  distancePartLowerToGroundRight: 'distancePartLowerToGroundRight',
+  distancePartLowerToGroundLeft: 'distancePartLowerToGroundLeft',
+  distanceEdgeAnteriorRuedadelanteraRight: 'distanceEdgeAnteriorRuedadelanteraRight',
+  distanceEdgeAnteriorRuedadelanteraLeft: 'distanceEdgeAnteriorRuedadelanteraLeft',
+  distanceEdgeAnteriorCentropivoteRight: 'distanceEdgeAnteriorCentropivoteRight',
+  distanceEdgeAnteriorCentropivoteLeft: 'distanceEdgeAnteriorCentropivoteLeft',
+  distanceEdgeAnteriorMidPointLegsRight: 'distanceEdgeAnteriorMidPointLegsRight',
+  distanceEdgeAnteriorMidPointLegsLeft: 'distanceEdgeAnteriorMidPointLegsLeft',
+  distanceEdgeRearRuedatraseraRight: 'distanceEdgeRearRuedatraseraRight',
+  distanceEdgeRearRuedatraseraLeft: 'distanceEdgeRearRuedatraseraLeft',
+  widthChassisRailsRight: 'widthChassisRailsRight',
+  widthChassisRailsLeft: 'widthChassisRailsLeft',
+  distanceChassisRailsRight: 'distanceChassisRailsRight',
+  distanceChassisRailsLeft: 'distanceChassisRailsLeft',
+  distanceBordesuperiorToBodyworkRight: 'distanceBordesuperiorToBodyworkRight',
+  distanceBordesuperiorToBodyworkLeft: 'distanceBordesuperiorToBodyworkLeft',
+  distanceDeviceToBordecarroceriaRight: 'distanceDeviceToBordecarroceriaRight',
+  distanceDeviceToBordecarroceriaLeft: 'distanceDeviceToBordecarroceriaLeft',
+  distanceExtdispositivoBordeextTyreRight: 'distanceExtdispositivoBordeextTyreRight',
+  distanceExtdispositivoBordeextTyreLeft: 'distanceExtdispositivoBordeextTyreLeft',
+  distanceAttachmentPointsChassisRight: 'distanceAttachmentPointsChassisRight',
+  distanceAttachmentPointsChassisLeft: 'distanceAttachmentPointsChassisLeft',
+  overhangFrontProtectionRight: 'overhangFrontProtectionRight',
+  overhangFrontProtectionLeft: 'overhangFrontProtectionLeft',
+  overhangRearProtectionLeft: 'overhangRearProtectionLeft',
+  overhangRearProtectionRight: 'overhangRearProtectionRight',
+  firstPhase: 'firstPhase',
+  notes: 'notes',
+  refInternalProtSide: 'refInternalProtSide'
+} as const
+
+export type LateralProtectionScalarFieldEnum = (typeof LateralProtectionScalarFieldEnum)[keyof typeof LateralProtectionScalarFieldEnum]
+
+
+export const RearProtectionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  protRear1fase: 'protRear1fase',
+  hasDHomologado: 'hasDHomologado',
+  numberHomnologacionProtRear: 'numberHomnologacionProtRear',
+  distanceExteAxleMasancho: 'distanceExteAxleMasancho',
+  valueDeformation: 'valueDeformation',
+  edgesSides: 'edgesSides',
+  heightProfile: 'heightProfile',
+  distanceBrackets: 'distanceBrackets',
+  heightGroundEdgeLower: 'heightGroundEdgeLower',
+  mMTAValidDevice: 'mMTAValidDevice',
+  distancePartRearVehicle: 'distancePartRearVehicle',
+  alturapaplicacion: 'alturapaplicacion',
+  notes: 'notes',
+  refInternalProtRear: 'refInternalProtRear'
+} as const
+
+export type RearProtectionScalarFieldEnum = (typeof RearProtectionScalarFieldEnum)[keyof typeof RearProtectionScalarFieldEnum]
+
+
+export const LateralMarkingScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  sideOptionMarking: 'sideOptionMarking',
+  sideDistanceGroundEdgeLowerRight: 'sideDistanceGroundEdgeLowerRight',
+  sideDistanceGroundEdgeLowerLeft: 'sideDistanceGroundEdgeLowerLeft',
+  sideDistanceGroundEdgeUpperRight: 'sideDistanceGroundEdgeUpperRight',
+  sideDistanceGroundEdgeUpperLeft: 'sideDistanceGroundEdgeUpperLeft',
+  sideEdgeExteriorToFrontCajaLeft: 'sideEdgeExteriorToFrontCajaLeft',
+  sideEdgeExteriorToFrontCajaRight: 'sideEdgeExteriorToFrontCajaRight',
+  sideEdgeExteriorToRearCajaRight: 'sideEdgeExteriorToRearCajaRight',
+  sideEdgeExteriorToRearCajaLeft: 'sideEdgeExteriorToRearCajaLeft',
+  sideDistanceBInteriorToBsuperiorCajaRight: 'sideDistanceBInteriorToBsuperiorCajaRight',
+  sideDistanceBInteriorToBsuperiorCajaLeft: 'sideDistanceBInteriorToBsuperiorCajaLeft',
+  sideType: 'sideType',
+  sideApprovalNumber: 'sideApprovalNumber',
+  sideColor: 'sideColor',
+  sideLongitudMarkingParcialRight: 'sideLongitudMarkingParcialRight',
+  sideLongitudMarkingParcialLeft: 'sideLongitudMarkingParcialLeft',
+  rearOptionMarking: 'rearOptionMarking',
+  rearDistanceGroundEdgeLowerLeft: 'rearDistanceGroundEdgeLowerLeft',
+  rearDistanceGroundEdgeLowerRight: 'rearDistanceGroundEdgeLowerRight',
+  rearDistanceGroundEdgeUpperLeft: 'rearDistanceGroundEdgeUpperLeft',
+  rearDistanceGroundEdgeUpperRight: 'rearDistanceGroundEdgeUpperRight',
+  rearDistanceMarkingToLuzfreno: 'rearDistanceMarkingToLuzfreno',
+  rearColor: 'rearColor',
+  rearLongitudMarkingParcial: 'rearLongitudMarkingParcial',
+  notes: 'notes',
+  refInternalWhite: 'refInternalWhite',
+  refInternalRed: 'refInternalRed',
+  o4OptionMarkingFront: 'o4OptionMarkingFront',
+  o4FrontDistanceGroundEdgeLower: 'o4FrontDistanceGroundEdgeLower',
+  o4FrontDistanceGroundEdgeUpper: 'o4FrontDistanceGroundEdgeUpper',
+  o4FrontApprovalNumber: 'o4FrontApprovalNumber',
+  o4FrontLongitudMarkingParcial: 'o4FrontLongitudMarkingParcial',
+  o4DistanceEdgeExteriorCaja: 'o4DistanceEdgeExteriorCaja'
+} as const
+
+export type LateralMarkingScalarFieldEnum = (typeof LateralMarkingScalarFieldEnum)[keyof typeof LateralMarkingScalarFieldEnum]
+
+
+export const LightingSideScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  fittedLights: 'fittedLights',
+  fittedReflector: 'fittedReflector',
+  heightEdgeUpperLight: 'heightEdgeUpperLight',
+  heightEdgeUpperReflector: 'heightEdgeUpperReflector',
+  distanceFinalVehicleLightsRight: 'distanceFinalVehicleLightsRight',
+  distanceFinalVehicleLightsLeft: 'distanceFinalVehicleLightsLeft',
+  distanceFinalVehicleReflectorRight: 'distanceFinalVehicleReflectorRight',
+  distanceFinalVehicleReflectorLeft: 'distanceFinalVehicleReflectorLeft',
+  deAxle1To1LightRight: 'deAxle1To1LightRight',
+  o4Front1LightRight: 'o4Front1LightRight',
+  deAxle1To1LightLeft: 'deAxle1To1LightLeft',
+  o4Front1LightLeft: 'o4Front1LightLeft',
+  deLight1To2LightRight: 'deLight1To2LightRight',
+  deLight1To2LightLeft: 'deLight1To2LightLeft',
+  deLight2To3LightRight: 'deLight2To3LightRight',
+  deLight2To3LightLeft: 'deLight2To3LightLeft',
+  deLight3To4LightRight: 'deLight3To4LightRight',
+  deLight4To5LightRight: 'deLight4To5LightRight',
+  deLight3To4LightLeft: 'deLight3To4LightLeft',
+  deLight4To5LightLeft: 'deLight4To5LightLeft',
+  deAxle1ToReflector1Right: 'deAxle1ToReflector1Right',
+  o4Front1ReflectorRight: 'o4Front1ReflectorRight',
+  deAxle1ToReflector1Left: 'deAxle1ToReflector1Left',
+  o4Front1ReflectorLeft: 'o4Front1ReflectorLeft',
+  deReflector1ToReflector2Left: 'deReflector1ToReflector2Left',
+  deReflector1ToReflector2Right: 'deReflector1ToReflector2Right',
+  deReflector2ToReflector3Right: 'deReflector2ToReflector3Right',
+  deReflector2ToReflector3Left: 'deReflector2ToReflector3Left',
+  deReflector3ToReflector4Right: 'deReflector3ToReflector4Right',
+  deReflector4ToReflector5Right: 'deReflector4ToReflector5Right',
+  deReflector3ToReflector4Left: 'deReflector3ToReflector4Left',
+  deReflector4ToReflector5Left: 'deReflector4ToReflector5Left',
+  distanceMaxLights: 'distanceMaxLights',
+  distanceMaxReflector: 'distanceMaxReflector',
+  compliantHorizontalLight: 'compliantHorizontalLight',
+  compliantVerticalLight: 'compliantVerticalLight',
+  fittedReflector2: 'fittedReflector2',
+  compliantVerticalReflector: 'compliantVerticalReflector',
+  compliantHorizontalReflector: 'compliantHorizontalReflector',
+  color: 'color',
+  numberLightsSides: 'numberLightsSides',
+  numberReflectorsSides: 'numberReflectorsSides',
+  approvalCodeApprovalNumberLight: 'approvalCodeApprovalNumberLight',
+  approvalCodeApprovalNumberReflector: 'approvalCodeApprovalNumberReflector',
+  distanceStartFirstLight: 'distanceStartFirstLight',
+  distanceStartFirstReflector: 'distanceStartFirstReflector',
+  notesSideLighting: 'notesSideLighting',
+  secondColorLightSide: 'secondColorLightSide',
+  refInternalLight: 'refInternalLight',
+  refInternalReflector: 'refInternalReflector',
+  o4DeLight5To6LightRight: 'o4DeLight5To6LightRight',
+  o4DeLight5To6LightLeft: 'o4DeLight5To6LightLeft',
+  o4DeReflector5ToReflector6Left: 'o4DeReflector5ToReflector6Left',
+  o4DeReflector5ToReflector6Right: 'o4DeReflector5ToReflector6Right',
+  o4DistanceInicioFirstLightGalibo: 'o4DistanceInicioFirstLightGalibo',
+  o4DistanceInicioFirstReflector: 'o4DistanceInicioFirstReflector'
+} as const
+
+export type LightingSideScalarFieldEnum = (typeof LightingSideScalarFieldEnum)[keyof typeof LightingSideScalarFieldEnum]
+
+
+export const LightingPositionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  o4HeightEdgeLowerFront: 'o4HeightEdgeLowerFront',
+  o4HeightEdgeUpperFront: 'o4HeightEdgeUpperFront',
+  o4SpacingFront: 'o4SpacingFront',
+  o4DistanceLeftFront: 'o4DistanceLeftFront',
+  o4DistanceRightFront: 'o4DistanceRightFront',
+  o4CountFront: 'o4CountFront',
+  o4ApprovalNumberFront: 'o4ApprovalNumberFront',
+  o4AngleVerticalFront: 'o4AngleVerticalFront',
+  o4AngleHorizontalFront: 'o4AngleHorizontalFront',
+  o4ColorFront: 'o4ColorFront'
+} as const
+
+export type LightingPositionScalarFieldEnum = (typeof LightingPositionScalarFieldEnum)[keyof typeof LightingPositionScalarFieldEnum]
+
+
+export const LightingReflectorScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  o4HeightEdgeLowerFront: 'o4HeightEdgeLowerFront',
+  o4HeightEdgeUpperFront: 'o4HeightEdgeUpperFront',
+  o4SpacingFront: 'o4SpacingFront',
+  o4DistanceLeftFront: 'o4DistanceLeftFront',
+  o4DistanceRightFront: 'o4DistanceRightFront',
+  o4CountFront: 'o4CountFront',
+  o4ApprovalNumberFront: 'o4ApprovalNumberFront',
+  o4AngleVerticalFront: 'o4AngleVerticalFront',
+  o4ColorFront: 'o4ColorFront',
+  o4AngleHorizontalFront: 'o4AngleHorizontalFront'
+} as const
+
+export type LightingReflectorScalarFieldEnum = (typeof LightingReflectorScalarFieldEnum)[keyof typeof LightingReflectorScalarFieldEnum]
+
+
+export const LightingBrakeScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceSideLeft: 'distanceSideLeft',
+  distanceSideRight: 'distanceSideRight',
+  angleHorizontal: 'angleHorizontal',
+  angleVertical: 'angleVertical',
+  approvalNumber: 'approvalNumber',
+  heightThirdLightBrake: 'heightThirdLightBrake',
+  approvalNumberThirdLightBrake: 'approvalNumberThirdLightBrake',
+  countLucesBrake: 'countLucesBrake',
+  angle3LightVertical: 'angle3LightVertical',
+  angle3LightHorizontal: 'angle3LightHorizontal',
+  color: 'color',
+  notesBrakes: 'notesBrakes',
+  refInternal3luzfreno: 'refInternal3luzfreno',
+  refInternalLightsRearIntegral: 'refInternalLightsRearIntegral'
+} as const
+
+export type LightingBrakeScalarFieldEnum = (typeof LightingBrakeScalarFieldEnum)[keyof typeof LightingBrakeScalarFieldEnum]
+
+
+export const LightingTurnSignalScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  spacing: 'spacing',
+  distanceLeft: 'distanceLeft',
+  distanceRight: 'distanceRight',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  color: 'color',
+  approvalNumberInterSide: 'approvalNumberInterSide',
+  numberInterSide: 'numberInterSide',
+  angleHorizontalInterSide: 'angleHorizontalInterSide',
+  angleVerticalInterSide: 'angleVerticalInterSide',
+  notesIntermitentes: 'notesIntermitentes',
+  heightGroundInterSide: 'heightGroundInterSide'
+} as const
+
+export type LightingTurnSignalScalarFieldEnum = (typeof LightingTurnSignalScalarFieldEnum)[keyof typeof LightingTurnSignalScalarFieldEnum]
+
+
+export const LightingRearOutlineMarkerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes',
+  distanceLightPosicion: 'distanceLightPosicion',
+  distanceEdgeBodywork: 'distanceEdgeBodywork',
+  refInternal: 'refInternal',
+  refInterna2: 'refInterna2'
+} as const
+
+export type LightingRearOutlineMarkerScalarFieldEnum = (typeof LightingRearOutlineMarkerScalarFieldEnum)[keyof typeof LightingRearOutlineMarkerScalarFieldEnum]
+
+
+export const LightingFrontOutlineMarkerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes',
+  distanceEndsBodywork: 'distanceEndsBodywork',
+  refInternal: 'refInternal'
+} as const
+
+export type LightingFrontOutlineMarkerScalarFieldEnum = (typeof LightingFrontOutlineMarkerScalarFieldEnum)[keyof typeof LightingFrontOutlineMarkerScalarFieldEnum]
+
+
+export const LightingPlateScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  spacing: 'spacing',
+  optionMounting: 'optionMounting',
+  notes: 'notes',
+  refInternal: 'refInternal'
+} as const
+
+export type LightingPlateScalarFieldEnum = (typeof LightingPlateScalarFieldEnum)[keyof typeof LightingPlateScalarFieldEnum]
+
+
+export const LightingReverseScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeUpper: 'heightEdgeUpper',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  color: 'color',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal',
+  notes: 'notes'
+} as const
+
+export type LightingReverseScalarFieldEnum = (typeof LightingReverseScalarFieldEnum)[keyof typeof LightingReverseScalarFieldEnum]
+
+
+export const LightingFogScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeUpper: 'heightEdgeUpper',
+  count: 'count',
+  approvalNumber: 'approvalNumber',
+  angleVertical: 'angleVertical',
+  angleHorizontal: 'angleHorizontal'
+} as const
+
+export type LightingFogScalarFieldEnum = (typeof LightingFogScalarFieldEnum)[keyof typeof LightingFogScalarFieldEnum]
 
 
 export const SortOrder = {
