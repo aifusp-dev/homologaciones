@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  SUPER_ADMIN
+  COMPANY_ADMIN
+  OPERATOR
+}
+
+// Un tenant = un taller/carrocero cliente ("empresa").
+model Company {
+  id        String   @id @default(cuid())
+  name      String
+  // TODO fase 5: logo/CIF/dirección para membrete de los PDF generados.
+  createdAt DateTime @default(now())
+
+  users       User[]
+  invitations Invitation[]
+
+  @@map("companies")
+}
+
+// Sin contraseña: la identidad viene siempre de Google. SUPER_ADMIN no
+// pertenece a ninguna empresa (companyId null); todos los demás roles sí.
+model User {
+  id        String   @id @default(cuid())
+  companyId String?
+  googleId  String   @unique
+  email     String   @unique
+  name      String
+  role      Role
+  createdAt DateTime @default(now())
+
+  company Company? @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId])
+  @@map("users")
+}
+
+// Alta pendiente: una fila por email invitado a una empresa con un rol,
+// hasta que esa persona hace login con Google por primera vez y se
+// vincula sola (ver src/app/actions/auth.ts).
+model Invitation {
+  id         String    @id @default(cuid())
+  companyId  String
+  email      String
+  role       Role
+  createdAt  DateTime  @default(now())
+  consumedAt DateTime?
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@unique([companyId, email])
+  @@index([email])
+  @@map("invitations")
+}
