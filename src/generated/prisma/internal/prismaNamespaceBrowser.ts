@@ -57,7 +57,8 @@ export const ModelName = {
   Dossier: 'Dossier',
   Customer: 'Customer',
   Dealer: 'Dealer',
-  Coc: 'Coc'
+  Coc: 'Coc',
+  Bodywork: 'Bodywork'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -286,6 +287,79 @@ export const CocScalarFieldEnum = {
 } as const
 
 export type CocScalarFieldEnum = (typeof CocScalarFieldEnum)[keyof typeof CocScalarFieldEnum]
+
+
+export const BodyworkScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  bodyType: 'bodyType',
+  floorType: 'floorType',
+  floorThickness: 'floorThickness',
+  floorWeightPerM2: 'floorWeightPerM2',
+  sideColor: 'sideColor',
+  roofMaterial: 'roofMaterial',
+  roofMaterialWeightPerM2: 'roofMaterialWeightPerM2',
+  sideMaterial: 'sideMaterial',
+  sideMaterialWeightPerM2: 'sideMaterialWeightPerM2',
+  sideStructureMaterial: 'sideStructureMaterial',
+  sideStructureTubeWeightPerMeter: 'sideStructureTubeWeightPerMeter',
+  skirtSheet: 'skirtSheet',
+  skirtWeightPerM2: 'skirtWeightPerM2',
+  subchassisProfile: 'subchassisProfile',
+  subchassisMaterialWeightPerMeter: 'subchassisMaterialWeightPerMeter',
+  windDeflector: 'windDeflector',
+  windDeflectorHeight: 'windDeflectorHeight',
+  liftPlatformType: 'liftPlatformType',
+  liftPlatformCapacity: 'liftPlatformCapacity',
+  liftPlatformVoltage: 'liftPlatformVoltage',
+  liftPlatformBrand: 'liftPlatformBrand',
+  exteriorLength: 'exteriorLength',
+  interiorLength: 'interiorLength',
+  exteriorWidth: 'exteriorWidth',
+  interiorWidth: 'interiorWidth',
+  interiorHeight: 'interiorHeight',
+  sidePitch: 'sidePitch',
+  roofStructureMaterial: 'roofStructureMaterial',
+  roofStructureMaterialWeightPerMeter: 'roofStructureMaterialWeightPerMeter',
+  trimMaterial: 'trimMaterial',
+  trimWeightPerMeter: 'trimWeightPerMeter',
+  tieDownMaterial: 'tieDownMaterial',
+  tieDownCount: 'tieDownCount',
+  tieDownWeightPerMeter: 'tieDownWeightPerMeter',
+  baseMaterial: 'baseMaterial',
+  baseMaterialWeightPerMeter: 'baseMaterialWeightPerMeter',
+  doorLined: 'doorLined',
+  doorLatchCount: 'doorLatchCount',
+  hingesPerDoor: 'hingesPerDoor',
+  hardwareMaterial: 'hardwareMaterial',
+  doorType: 'doorType',
+  doorFiberWeightPerM2: 'doorFiberWeightPerM2',
+  windDeflectorWeight: 'windDeflectorWeight',
+  liftPlatformWeight: 'liftPlatformWeight',
+  liftPlatformFitted: 'liftPlatformFitted',
+  otherAccessories: 'otherAccessories',
+  otherAccessoriesWeight: 'otherAccessoriesWeight',
+  toolBox: 'toolBox',
+  extinguisherBox: 'extinguisherBox',
+  toolBoxWeight: 'toolBoxWeight',
+  extinguisherBoxWeight: 'extinguisherBoxWeight',
+  doorLatchUnitWeight: 'doorLatchUnitWeight',
+  hingeUnitWeight: 'hingeUnitWeight',
+  couplingDevice: 'couplingDevice',
+  couplingDeviceBrand: 'couplingDeviceBrand',
+  rearProtectionBrand: 'rearProtectionBrand',
+  rearProtection: 'rearProtection',
+  rearProtectionModel: 'rearProtectionModel',
+  rearProtectionApprovalNumber: 'rearProtectionApprovalNumber',
+  couplingDeviceSerialNumber: 'couplingDeviceSerialNumber',
+  otherElectricalEquipment: 'otherElectricalEquipment',
+  leafSpringReinforcement: 'leafSpringReinforcement',
+  leafSpringReinforcementWeight: 'leafSpringReinforcementWeight',
+  interiorLight: 'interiorLight',
+  toolBoxSize: 'toolBoxSize'
+} as const
+
+export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
 
 
 export const SortOrder = {

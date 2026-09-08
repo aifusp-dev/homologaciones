@@ -93,6 +93,7 @@ model Dossier {
   customer Customer?
   dealer   Dealer?
   coc      Coc?
+  bodywork Bodywork?
 
   @@unique([companyId, number])
   @@index([companyId])
@@ -539,4 +540,215 @@ model Coc {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("cocs")
+}
+
+// "Carrozado" — antes tabla CARROZADO. Dimensiones y materiales de la caja
+// fabricada, entrada manual. Los ~30 campos calculados de peso/material
+// (Metros_lineales_*, Peso_total_*, etc.) NO se guardan como columnas — se
+// derivan en src/lib/calculations/bodywork.ts (ver Mejoras #1 y sección
+// "Motor de cálculo" del documento de diseño).
+model Bodywork {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// CARROZADO::Tipo_carrozado
+  bodyType String?
+
+  /// CARROZADO::Tipo_de_piso
+  floorType String?
+
+  /// CARROZADO::Espesor_piso
+  floorThickness Float?
+
+  /// CARROZADO::Peso_piso
+  floorWeightPerM2 Float?
+
+  /// CARROZADO::Color_laterales
+  sideColor String?
+
+  /// CARROZADO::Material_techo
+  roofMaterial String?
+
+  /// CARROZADO::Peso_material_techo
+  roofMaterialWeightPerM2 Float?
+
+  /// CARROZADO::Material_lateral
+  sideMaterial String?
+
+  /// CARROZADO::Peso_M2_material_lateral
+  sideMaterialWeightPerM2 Float?
+
+  /// CARROZADO::Material_estrucctura_lateral
+  sideStructureMaterial Int?
+
+  /// CARROZADO::Peso_Mlineal_tubo_estructura_laterales
+  sideStructureTubeWeightPerMeter Float?
+
+  /// CARROZADO::Zocalo_chapa
+  skirtSheet String?
+
+  /// CARROZADO::Pesom2_zocalo
+  skirtWeightPerM2 Float?
+
+  /// CARROZADO::Perfil_subchasis
+  subchassisProfile String?
+
+  /// CARROZADO::Peso_Mlineal_material_subchasis
+  subchassisMaterialWeightPerMeter Float?
+
+  /// CARROZADO::Cortavientos
+  windDeflector String?
+
+  /// CARROZADO::Alto_cortavientos
+  windDeflectorHeight Float?
+
+  /// CARROZADO::Tipo_Plataforma_elevadora
+  liftPlatformType String?
+
+  /// CARROZADO::Capacidad_plataforma_elevadora
+  liftPlatformCapacity Float?
+
+  /// CARROZADO::Tension_plataforma_elevadora
+  liftPlatformVoltage Float?
+
+  /// CARROZADO::Marca_plataforma_elevadora
+  liftPlatformBrand String?
+
+  /// CARROZADO::Largo_exterior
+  exteriorLength Float?
+
+  /// CARROZADO::Largo_interior
+  interiorLength Float?
+
+  /// CARROZADO::Ancho_exterior
+  exteriorWidth Float?
+
+  /// CARROZADO::Ancho_interior
+  interiorWidth Float?
+
+  /// CARROZADO::Alto_interior
+  interiorHeight Float?
+
+  /// CARROZADO::Paso lateral
+  sidePitch Float?
+
+  /// CARROZADO::Material_estructura_techo
+  roofStructureMaterial Int?
+
+  /// CARROZADO::Peso_material_Estructura_techo
+  roofStructureMaterialWeightPerMeter Float?
+
+  /// CARROZADO::Material_de_recerco
+  trimMaterial String?
+
+  /// CARROZADO::Peso_metro_lineal_recerco
+  trimWeightPerMeter Float?
+
+  /// CARROZADO::Material_amarre_interior
+  tieDownMaterial String?
+
+  /// CARROZADO::Numero_de_amarres
+  tieDownCount Int?
+
+  /// CARROZADO::Peso_metrolineal_amarre
+  tieDownWeightPerMeter Float?
+
+  /// CARROZADO::Material_base
+  /// TEXT en el origen (CARROZADO::Material_base) pero se usa en aritmética
+  /// en Metros_interior_base — corregido a numérico (ver Mejoras #3).
+  baseMaterial Int?
+
+  /// CARROZADO::Peso_metro_lineal_material_base
+  baseMaterialWeightPerMeter Float?
+
+  /// CARROZADO::Forrado_interior_puertas
+  doorLined Boolean?
+
+  /// CARROZADO::Numero_fallebas_puertas
+  doorLatchCount Int?
+
+  /// CARROZADO::Numero_bisagras_por_puerta
+  hingesPerDoor Int?
+
+  /// CARROZADO::Material_herrajes
+  hardwareMaterial String?
+
+  /// CARROZADO::Puerta_porton
+  doorType String?
+
+  /// CARROZADO::Peso_M2_fibra_puertas
+  doorFiberWeightPerM2 Float?
+
+  /// CARROZADO::Peso_cortavientos
+  windDeflectorWeight Float?
+
+  /// CARROZADO::Peso_plataformalevadora
+  liftPlatformWeight Float?
+
+  /// CARROZADO::Plataforma_elevadora
+  liftPlatformFitted String?
+
+  /// CARROZADO::Otros_Accesorios
+  otherAccessories String?
+
+  /// CARROZADO::Peso_otros_accesorios
+  otherAccessoriesWeight Float?
+
+  /// CARROZADO::Cajon_herramientas
+  toolBox String?
+
+  /// CARROZADO::Cajon_extintor
+  extinguisherBox String?
+
+  /// CARROZADO::Peso_Cajon_herramientas
+  toolBoxWeight Float?
+
+  /// CARROZADO::Peso_cajon_extintor
+  extinguisherBoxWeight Float?
+
+  /// CARROZADO::Peso_falleba_unidad
+  doorLatchUnitWeight Float?
+
+  /// CARROZADO::Peso_bisagra_unidad
+  hingeUnitWeight Float?
+
+  /// CARROZADO::Dispositivo_acoplamiento
+  couplingDevice String?
+
+  /// CARROZADO::Marca_disp_acoplamiento
+  couplingDeviceBrand String?
+
+  /// CARROZADO::Marca_prot_trasera
+  rearProtectionBrand String?
+
+  /// CARROZADO::Prot_trasera
+  rearProtection String?
+
+  /// CARROZADO::Modelo_prot_trasera
+  rearProtectionModel String?
+
+  /// CARROZADO::Contraseña_prot_trasera
+  rearProtectionApprovalNumber String?
+
+  /// CARROZADO::Nserie_disp_acoplamiento
+  couplingDeviceSerialNumber String?
+
+  /// CARROZADO::Otros equipos electricos_electronicos
+  otherElectricalEquipment String?
+
+  /// CARROZADO::Refuerzoballesta
+  leafSpringReinforcement String?
+
+  /// CARROZADO::Peso_refuerzo_ballesta
+  leafSpringReinforcementWeight Float?
+
+  /// CARROZADO::Luzinterior
+  interiorLight String?
+
+  /// CARROZADO::Tam_cajon_herramientas
+  toolBoxSize String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("bodyworks")
 }

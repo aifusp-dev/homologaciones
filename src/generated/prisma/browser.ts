@@ -52,3 +52,8 @@ export type Dealer = Prisma.DealerModel
  * 
  */
 export type Coc = Prisma.CocModel
+/**
+ * Model Bodywork
+ * 
+ */
+export type Bodywork = Prisma.BodyworkModel

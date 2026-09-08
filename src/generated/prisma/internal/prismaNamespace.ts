@@ -403,7 +403,8 @@ export const ModelName = {
   Dossier: 'Dossier',
   Customer: 'Customer',
   Dealer: 'Dealer',
-  Coc: 'Coc'
+  Coc: 'Coc',
+  Bodywork: 'Bodywork'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -419,7 +420,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "customer" | "dealer" | "coc"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "customer" | "dealer" | "coc" | "bodywork"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -941,6 +942,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Bodywork: {
+      payload: Prisma.$BodyworkPayload<ExtArgs>
+      fields: Prisma.BodyworkFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.BodyworkFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.BodyworkFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        findFirst: {
+          args: Prisma.BodyworkFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.BodyworkFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        findMany: {
+          args: Prisma.BodyworkFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>[]
+        }
+        create: {
+          args: Prisma.BodyworkCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        createMany: {
+          args: Prisma.BodyworkCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.BodyworkCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>[]
+        }
+        delete: {
+          args: Prisma.BodyworkDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        update: {
+          args: Prisma.BodyworkUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        deleteMany: {
+          args: Prisma.BodyworkDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.BodyworkUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.BodyworkUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>[]
+        }
+        upsert: {
+          args: Prisma.BodyworkUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BodyworkPayload>
+        }
+        aggregate: {
+          args: Prisma.BodyworkAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBodywork>
+        }
+        groupBy: {
+          args: Prisma.BodyworkGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BodyworkGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.BodyworkCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BodyworkCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1192,6 +1267,79 @@ export const CocScalarFieldEnum = {
 export type CocScalarFieldEnum = (typeof CocScalarFieldEnum)[keyof typeof CocScalarFieldEnum]
 
 
+export const BodyworkScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  bodyType: 'bodyType',
+  floorType: 'floorType',
+  floorThickness: 'floorThickness',
+  floorWeightPerM2: 'floorWeightPerM2',
+  sideColor: 'sideColor',
+  roofMaterial: 'roofMaterial',
+  roofMaterialWeightPerM2: 'roofMaterialWeightPerM2',
+  sideMaterial: 'sideMaterial',
+  sideMaterialWeightPerM2: 'sideMaterialWeightPerM2',
+  sideStructureMaterial: 'sideStructureMaterial',
+  sideStructureTubeWeightPerMeter: 'sideStructureTubeWeightPerMeter',
+  skirtSheet: 'skirtSheet',
+  skirtWeightPerM2: 'skirtWeightPerM2',
+  subchassisProfile: 'subchassisProfile',
+  subchassisMaterialWeightPerMeter: 'subchassisMaterialWeightPerMeter',
+  windDeflector: 'windDeflector',
+  windDeflectorHeight: 'windDeflectorHeight',
+  liftPlatformType: 'liftPlatformType',
+  liftPlatformCapacity: 'liftPlatformCapacity',
+  liftPlatformVoltage: 'liftPlatformVoltage',
+  liftPlatformBrand: 'liftPlatformBrand',
+  exteriorLength: 'exteriorLength',
+  interiorLength: 'interiorLength',
+  exteriorWidth: 'exteriorWidth',
+  interiorWidth: 'interiorWidth',
+  interiorHeight: 'interiorHeight',
+  sidePitch: 'sidePitch',
+  roofStructureMaterial: 'roofStructureMaterial',
+  roofStructureMaterialWeightPerMeter: 'roofStructureMaterialWeightPerMeter',
+  trimMaterial: 'trimMaterial',
+  trimWeightPerMeter: 'trimWeightPerMeter',
+  tieDownMaterial: 'tieDownMaterial',
+  tieDownCount: 'tieDownCount',
+  tieDownWeightPerMeter: 'tieDownWeightPerMeter',
+  baseMaterial: 'baseMaterial',
+  baseMaterialWeightPerMeter: 'baseMaterialWeightPerMeter',
+  doorLined: 'doorLined',
+  doorLatchCount: 'doorLatchCount',
+  hingesPerDoor: 'hingesPerDoor',
+  hardwareMaterial: 'hardwareMaterial',
+  doorType: 'doorType',
+  doorFiberWeightPerM2: 'doorFiberWeightPerM2',
+  windDeflectorWeight: 'windDeflectorWeight',
+  liftPlatformWeight: 'liftPlatformWeight',
+  liftPlatformFitted: 'liftPlatformFitted',
+  otherAccessories: 'otherAccessories',
+  otherAccessoriesWeight: 'otherAccessoriesWeight',
+  toolBox: 'toolBox',
+  extinguisherBox: 'extinguisherBox',
+  toolBoxWeight: 'toolBoxWeight',
+  extinguisherBoxWeight: 'extinguisherBoxWeight',
+  doorLatchUnitWeight: 'doorLatchUnitWeight',
+  hingeUnitWeight: 'hingeUnitWeight',
+  couplingDevice: 'couplingDevice',
+  couplingDeviceBrand: 'couplingDeviceBrand',
+  rearProtectionBrand: 'rearProtectionBrand',
+  rearProtection: 'rearProtection',
+  rearProtectionModel: 'rearProtectionModel',
+  rearProtectionApprovalNumber: 'rearProtectionApprovalNumber',
+  couplingDeviceSerialNumber: 'couplingDeviceSerialNumber',
+  otherElectricalEquipment: 'otherElectricalEquipment',
+  leafSpringReinforcement: 'leafSpringReinforcement',
+  leafSpringReinforcementWeight: 'leafSpringReinforcementWeight',
+  interiorLight: 'interiorLight',
+  toolBoxSize: 'toolBoxSize'
+} as const
+
+export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1289,6 +1437,13 @@ export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, '
  * Reference to a field of type 'Float[]'
  */
 export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Boolean'
+ */
+export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 /**
@@ -1449,6 +1604,7 @@ export type GlobalOmitConfig = {
   customer?: Prisma.CustomerOmit
   dealer?: Prisma.DealerOmit
   coc?: Prisma.CocOmit
+  bodywork?: Prisma.BodyworkOmit
 }
 
 /* Types for Logging */
