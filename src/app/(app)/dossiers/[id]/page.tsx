@@ -18,6 +18,7 @@ import { BodyworkForm } from "./bodywork-form";
 import { MassesForm } from "./masses-form";
 import { DocumentsSection } from "./documents-section";
 import { DevicesSection } from "./devices-section";
+import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
 import { detectVehicleConfig } from "@/lib/vehicleConfig";
 import type { DiagramData } from "./masses-diagram";
@@ -59,6 +60,19 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     },
   });
   if (!dossier) notFound();
+
+  const hReports = await prisma.hReport.findMany({ where: { companyId: user.companyId } });
+  const hReportsByCategory: Record<string, { id: string; number: string; issuer: string | null }[]> = {
+    LIGHTING: [],
+    SPRAY_SUPPRESSION: [],
+    MASSES: [],
+    REAR_PLATE: [],
+    REAR_PROTECTION: [],
+    EMC: [],
+  };
+  for (const r of hReports) {
+    hReportsByCategory[r.category]?.push({ id: r.id, number: r.number, issuer: r.issuer });
+  }
 
   const power = fiscalHorsepower(dossier.coc?.displacement, dossier.coc?.cylinderCount);
   const bodyworkComputed = calculateBodywork({
@@ -258,32 +272,38 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       label: "Dispositivos y señalización",
       icon: <Wrench size={16} strokeWidth={1.9} className="shrink-0" />,
       content: (
-        <DevicesSection
-          dossierId={dossier.id}
-          records={{
-            couplingDevice: dossier.couplingDevice,
-            spraySuppression: dossier.spraySuppression,
-            electromagneticCompatibility: dossier.electromagneticCompatibility,
-            lateralProtection: dossier.lateralProtection,
-            rearProtection: dossier.rearProtection,
-            lateralMarking: dossier.lateralMarking,
-            lightingSide: dossier.lightingSide,
-            lightingPosition: dossier.lightingPosition,
-            lightingReflector: dossier.lightingReflector,
-            lightingBrake: dossier.lightingBrake,
-            lightingTurnSignal: dossier.lightingTurnSignal,
-            lightingRearOutlineMarker: dossier.lightingRearOutlineMarker,
-            lightingFrontOutlineMarker: dossier.lightingFrontOutlineMarker,
-            lightingPlate: dossier.lightingPlate,
-            lightingReverse: dossier.lightingReverse,
-            lightingFog: dossier.lightingFog,
-            lightingMaterialChecklist: dossier.lightingMaterialChecklist,
-            regulatoryActNumbers: dossier.regulatoryActNumbers,
-            copCoverSheet: dossier.copCoverSheet,
-            registrationPlates: dossier.registrationPlates,
-            platesInscriptions: dossier.platesInscriptions,
-          }}
-        />
+        <div className="space-y-3">
+          <DevicesSection
+            dossierId={dossier.id}
+            records={{
+              couplingDevice: dossier.couplingDevice,
+              spraySuppression: dossier.spraySuppression,
+              electromagneticCompatibility: dossier.electromagneticCompatibility,
+              lateralProtection: dossier.lateralProtection,
+              rearProtection: dossier.rearProtection,
+              lateralMarking: dossier.lateralMarking,
+              lightingSide: dossier.lightingSide,
+              lightingPosition: dossier.lightingPosition,
+              lightingReflector: dossier.lightingReflector,
+              lightingBrake: dossier.lightingBrake,
+              lightingTurnSignal: dossier.lightingTurnSignal,
+              lightingRearOutlineMarker: dossier.lightingRearOutlineMarker,
+              lightingFrontOutlineMarker: dossier.lightingFrontOutlineMarker,
+              lightingPlate: dossier.lightingPlate,
+              lightingReverse: dossier.lightingReverse,
+              lightingFog: dossier.lightingFog,
+              lightingMaterialChecklist: dossier.lightingMaterialChecklist,
+              copCoverSheet: dossier.copCoverSheet,
+              registrationPlates: dossier.registrationPlates,
+              platesInscriptions: dossier.platesInscriptions,
+            }}
+          />
+          <RegulatoryActNumbersForm
+            dossierId={dossier.id}
+            current={dossier.regulatoryActNumbers}
+            catalog={hReportsByCategory}
+          />
+        </div>
       ),
     },
     {

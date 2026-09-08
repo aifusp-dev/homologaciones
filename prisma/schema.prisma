@@ -33,6 +33,7 @@ model Company {
   users       User[]
   invitations Invitation[]
   dossiers    Dossier[]
+  hReports    HReport[]
 
   @@map("companies")
 }
@@ -2109,35 +2110,77 @@ model LightingMaterialChecklist {
   @@map("lighting_material_checklists")
 }
 
+// Catálogo de Informes H (Nota H, RD 2028/1986) que el taller ya tiene en
+// vigor, uno o varios por área reglamentaria afectada por su proceso de
+// carrozado. Sustituye el texto libre que antes se tecleaba a mano en cada
+// expediente (ver RegulatoryActNumbers) por un catálogo real por empresa
+// que se elige por desplegable.
+//
+// Futuro "¿dónde se usa?": findMany en RegulatoryActNumbers con OR sobre
+// los 6 *HReportId, include dossier — ya disponible gratis gracias a la FK
+// real, sin tocar el esquema otra vez (trazabilidad DGT, pendiente).
+model HReport {
+  id        String          @id @default(cuid())
+  companyId String
+  category  HReportCategory
+  number    String
+  issuer    String? // Laboratorio/entidad que lo emite
+  filePath  String? // Ruta relativa al PDF subido, ver src/lib/storage.ts
+  notes     String?
+  createdAt DateTime        @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  lightingActNumbers         RegulatoryActNumbers[] @relation("LightingHReport")
+  spraySuppressionActNumbers RegulatoryActNumbers[] @relation("SpraySuppressionHReport")
+  massesActNumbers           RegulatoryActNumbers[] @relation("MassesHReport")
+  rearPlateActNumbers        RegulatoryActNumbers[] @relation("RearPlateHReport")
+  rearProtectionActNumbers   RegulatoryActNumbers[] @relation("RearProtectionHReport")
+  emcActNumbers              RegulatoryActNumbers[] @relation("EmcHReport")
+
+  @@index([companyId])
+  @@index([companyId, category])
+  @@map("h_reports")
+}
+
+enum HReportCategory {
+  LIGHTING // Alumbrado y señalización 48R08
+  SPRAY_SUPPRESSION // Dispositivos antiproyección UE 109/2011
+  MASSES // Masas y dimensiones UE 1230/2012
+  REAR_PLATE // Placas de matrícula traseras UE 1003/2010
+  REAR_PROTECTION // Protección trasera 58R03
+  EMC // Compatibilidad electromagnética 10R06
+}
+
 // "Actos reglamentarios / Informes H" — sin tabla de origen directa (en
 // FileMaker estos números iban escritos a mano en el propio layout PDF de
-// cada certificado). Aquí se guardan una vez por expediente y se muestran
-// en todas las cajas "Actos reglamentarios" de Informe Previo, Orden de
-// Fabricación, Certificado de Carrozado, Certificado parte 2 y Registro
-// COP — cada caja solo pinta las líneas que tengan valor.
+// cada certificado). Aquí cada área referencia un HReport del catálogo de
+// la propia empresa (antes era texto libre) y se muestran en todas las
+// cajas "Actos reglamentarios" de Informe Previo, Orden de Fabricación,
+// Certificado de Carrozado, Certificado parte 2 y Registro COP — cada caja
+// solo pinta las líneas que tengan valor.
 model RegulatoryActNumbers {
   id        String @id @default(cuid())
   dossierId String @unique
 
-  /// Alumbrado y señalización 48R08
-  lightingActNumber String?
-
-  /// Dispositivos antiproyección UE 109/2011
-  spraySuppressionActNumber String?
-
-  /// Masas y dimensiones UE 1230/2012
-  massesActNumber String?
-
-  /// Placas de matrícula traseras UE 1003/2010
-  rearPlateActNumber String?
-
-  /// Protección trasera 58R03
-  rearProtectionActNumber String?
-
-  /// Compatibilidad electromagnética 10R06
-  emcActNumber String?
+  lightingHReportId         String?
+  spraySuppressionHReportId String?
+  massesHReportId           String?
+  rearPlateHReportId        String?
+  rearProtectionHReportId   String?
+  emcHReportId              String?
 
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  // onDelete explícito a Restrict (el default de Prisma para relaciones
+  // opcionales es SetNull, no Restrict) — borrar un Informe H que sigue
+  // asignado a un expediente debe fallar, no desvincularlo en silencio.
+  lightingHReport         HReport? @relation("LightingHReport", fields: [lightingHReportId], references: [id], onDelete: Restrict)
+  spraySuppressionHReport HReport? @relation("SpraySuppressionHReport", fields: [spraySuppressionHReportId], references: [id], onDelete: Restrict)
+  massesHReport           HReport? @relation("MassesHReport", fields: [massesHReportId], references: [id], onDelete: Restrict)
+  rearPlateHReport        HReport? @relation("RearPlateHReport", fields: [rearPlateHReportId], references: [id], onDelete: Restrict)
+  rearProtectionHReport   HReport? @relation("RearProtectionHReport", fields: [rearProtectionHReportId], references: [id], onDelete: Restrict)
+  emcHReport              HReport? @relation("EmcHReport", fields: [emcHReportId], references: [id], onDelete: Restrict)
 
   @@map("regulatory_act_numbers")
 }

@@ -425,6 +425,7 @@ export const ModelName = {
   LightingReverse: 'LightingReverse',
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
+  HReport: 'HReport',
   RegulatoryActNumbers: 'RegulatoryActNumbers',
   CopCoverSheet: 'CopCoverSheet',
   RegistrationPlates: 'RegistrationPlates',
@@ -444,7 +445,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
+    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2520,6 +2521,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    HReport: {
+      payload: Prisma.$HReportPayload<ExtArgs>
+      fields: Prisma.HReportFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.HReportFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.HReportFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        findFirst: {
+          args: Prisma.HReportFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.HReportFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        findMany: {
+          args: Prisma.HReportFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>[]
+        }
+        create: {
+          args: Prisma.HReportCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        createMany: {
+          args: Prisma.HReportCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.HReportCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>[]
+        }
+        delete: {
+          args: Prisma.HReportDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        update: {
+          args: Prisma.HReportUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        deleteMany: {
+          args: Prisma.HReportDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.HReportUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.HReportUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>[]
+        }
+        upsert: {
+          args: Prisma.HReportUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportPayload>
+        }
+        aggregate: {
+          args: Prisma.HReportAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHReport>
+        }
+        groupBy: {
+          args: Prisma.HReportGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HReportGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.HReportCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HReportCountAggregateOutputType> | number
+        }
+      }
+    }
     RegulatoryActNumbers: {
       payload: Prisma.$RegulatoryActNumbersPayload<ExtArgs>
       fields: Prisma.RegulatoryActNumbersFieldRefs
@@ -3665,15 +3740,29 @@ export const LightingMaterialChecklistScalarFieldEnum = {
 export type LightingMaterialChecklistScalarFieldEnum = (typeof LightingMaterialChecklistScalarFieldEnum)[keyof typeof LightingMaterialChecklistScalarFieldEnum]
 
 
+export const HReportScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  category: 'category',
+  number: 'number',
+  issuer: 'issuer',
+  filePath: 'filePath',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type HReportScalarFieldEnum = (typeof HReportScalarFieldEnum)[keyof typeof HReportScalarFieldEnum]
+
+
 export const RegulatoryActNumbersScalarFieldEnum = {
   id: 'id',
   dossierId: 'dossierId',
-  lightingActNumber: 'lightingActNumber',
-  spraySuppressionActNumber: 'spraySuppressionActNumber',
-  massesActNumber: 'massesActNumber',
-  rearPlateActNumber: 'rearPlateActNumber',
-  rearProtectionActNumber: 'rearProtectionActNumber',
-  emcActNumber: 'emcActNumber'
+  lightingHReportId: 'lightingHReportId',
+  spraySuppressionHReportId: 'spraySuppressionHReportId',
+  massesHReportId: 'massesHReportId',
+  rearPlateHReportId: 'rearPlateHReportId',
+  rearProtectionHReportId: 'rearProtectionHReportId',
+  emcHReportId: 'emcHReportId'
 } as const
 
 export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]
@@ -3838,6 +3927,20 @@ export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMode
  * Reference to a field of type 'Boolean'
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+/**
+ * Reference to a field of type 'HReportCategory'
+ */
+export type EnumHReportCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HReportCategory'>
+    
+
+
+/**
+ * Reference to a field of type 'HReportCategory[]'
+ */
+export type ListEnumHReportCategoryFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HReportCategory[]'>
     
 
 /**
@@ -4019,6 +4122,7 @@ export type GlobalOmitConfig = {
   lightingReverse?: Prisma.LightingReverseOmit
   lightingFog?: Prisma.LightingFogOmit
   lightingMaterialChecklist?: Prisma.LightingMaterialChecklistOmit
+  hReport?: Prisma.HReportOmit
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersOmit
   copCoverSheet?: Prisma.CopCoverSheetOmit
   registrationPlates?: Prisma.RegistrationPlatesOmit

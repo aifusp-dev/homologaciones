@@ -27,34 +27,34 @@ export type AggregateRegulatoryActNumbers = {
 export type RegulatoryActNumbersMinAggregateOutputType = {
   id: string | null
   dossierId: string | null
-  lightingActNumber: string | null
-  spraySuppressionActNumber: string | null
-  massesActNumber: string | null
-  rearPlateActNumber: string | null
-  rearProtectionActNumber: string | null
-  emcActNumber: string | null
+  lightingHReportId: string | null
+  spraySuppressionHReportId: string | null
+  massesHReportId: string | null
+  rearPlateHReportId: string | null
+  rearProtectionHReportId: string | null
+  emcHReportId: string | null
 }
 
 export type RegulatoryActNumbersMaxAggregateOutputType = {
   id: string | null
   dossierId: string | null
-  lightingActNumber: string | null
-  spraySuppressionActNumber: string | null
-  massesActNumber: string | null
-  rearPlateActNumber: string | null
-  rearProtectionActNumber: string | null
-  emcActNumber: string | null
+  lightingHReportId: string | null
+  spraySuppressionHReportId: string | null
+  massesHReportId: string | null
+  rearPlateHReportId: string | null
+  rearProtectionHReportId: string | null
+  emcHReportId: string | null
 }
 
 export type RegulatoryActNumbersCountAggregateOutputType = {
   id: number
   dossierId: number
-  lightingActNumber: number
-  spraySuppressionActNumber: number
-  massesActNumber: number
-  rearPlateActNumber: number
-  rearProtectionActNumber: number
-  emcActNumber: number
+  lightingHReportId: number
+  spraySuppressionHReportId: number
+  massesHReportId: number
+  rearPlateHReportId: number
+  rearProtectionHReportId: number
+  emcHReportId: number
   _all: number
 }
 
@@ -62,34 +62,34 @@ export type RegulatoryActNumbersCountAggregateOutputType = {
 export type RegulatoryActNumbersMinAggregateInputType = {
   id?: true
   dossierId?: true
-  lightingActNumber?: true
-  spraySuppressionActNumber?: true
-  massesActNumber?: true
-  rearPlateActNumber?: true
-  rearProtectionActNumber?: true
-  emcActNumber?: true
+  lightingHReportId?: true
+  spraySuppressionHReportId?: true
+  massesHReportId?: true
+  rearPlateHReportId?: true
+  rearProtectionHReportId?: true
+  emcHReportId?: true
 }
 
 export type RegulatoryActNumbersMaxAggregateInputType = {
   id?: true
   dossierId?: true
-  lightingActNumber?: true
-  spraySuppressionActNumber?: true
-  massesActNumber?: true
-  rearPlateActNumber?: true
-  rearProtectionActNumber?: true
-  emcActNumber?: true
+  lightingHReportId?: true
+  spraySuppressionHReportId?: true
+  massesHReportId?: true
+  rearPlateHReportId?: true
+  rearProtectionHReportId?: true
+  emcHReportId?: true
 }
 
 export type RegulatoryActNumbersCountAggregateInputType = {
   id?: true
   dossierId?: true
-  lightingActNumber?: true
-  spraySuppressionActNumber?: true
-  massesActNumber?: true
-  rearPlateActNumber?: true
-  rearProtectionActNumber?: true
-  emcActNumber?: true
+  lightingHReportId?: true
+  spraySuppressionHReportId?: true
+  massesHReportId?: true
+  rearPlateHReportId?: true
+  rearProtectionHReportId?: true
+  emcHReportId?: true
   _all?: true
 }
 
@@ -168,12 +168,12 @@ export type RegulatoryActNumbersGroupByArgs<ExtArgs extends runtime.Types.Extens
 export type RegulatoryActNumbersGroupByOutputType = {
   id: string
   dossierId: string
-  lightingActNumber: string | null
-  spraySuppressionActNumber: string | null
-  massesActNumber: string | null
-  rearPlateActNumber: string | null
-  rearProtectionActNumber: string | null
-  emcActNumber: string | null
+  lightingHReportId: string | null
+  spraySuppressionHReportId: string | null
+  massesHReportId: string | null
+  rearPlateHReportId: string | null
+  rearProtectionHReportId: string | null
+  emcHReportId: string | null
   _count: RegulatoryActNumbersCountAggregateOutputType | null
   _min: RegulatoryActNumbersMinAggregateOutputType | null
   _max: RegulatoryActNumbersMaxAggregateOutputType | null
@@ -200,25 +200,37 @@ export type RegulatoryActNumbersWhereInput = {
   NOT?: Prisma.RegulatoryActNumbersWhereInput | Prisma.RegulatoryActNumbersWhereInput[]
   id?: Prisma.StringFilter<"RegulatoryActNumbers"> | string
   dossierId?: Prisma.StringFilter<"RegulatoryActNumbers"> | string
-  lightingActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  spraySuppressionActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  massesActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  rearPlateActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  rearProtectionActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  emcActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  lightingHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  spraySuppressionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  massesHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearPlateHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearProtectionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  emcHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
   dossier?: Prisma.XOR<Prisma.DossierScalarRelationFilter, Prisma.DossierWhereInput>
+  lightingHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  spraySuppressionHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  massesHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  rearPlateHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  rearProtectionHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  emcHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
 }
 
 export type RegulatoryActNumbersOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  lightingActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  spraySuppressionActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  massesActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  rearPlateActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  rearProtectionActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  emcActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  lightingHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  spraySuppressionHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  massesHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rearPlateHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rearProtectionHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  emcHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
   dossier?: Prisma.DossierOrderByWithRelationInput
+  lightingHReport?: Prisma.HReportOrderByWithRelationInput
+  spraySuppressionHReport?: Prisma.HReportOrderByWithRelationInput
+  massesHReport?: Prisma.HReportOrderByWithRelationInput
+  rearPlateHReport?: Prisma.HReportOrderByWithRelationInput
+  rearProtectionHReport?: Prisma.HReportOrderByWithRelationInput
+  emcHReport?: Prisma.HReportOrderByWithRelationInput
 }
 
 export type RegulatoryActNumbersWhereUniqueInput = Prisma.AtLeast<{
@@ -227,24 +239,30 @@ export type RegulatoryActNumbersWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.RegulatoryActNumbersWhereInput | Prisma.RegulatoryActNumbersWhereInput[]
   OR?: Prisma.RegulatoryActNumbersWhereInput[]
   NOT?: Prisma.RegulatoryActNumbersWhereInput | Prisma.RegulatoryActNumbersWhereInput[]
-  lightingActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  spraySuppressionActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  massesActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  rearPlateActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  rearProtectionActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
-  emcActNumber?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  lightingHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  spraySuppressionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  massesHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearPlateHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearProtectionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  emcHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
   dossier?: Prisma.XOR<Prisma.DossierScalarRelationFilter, Prisma.DossierWhereInput>
+  lightingHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  spraySuppressionHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  massesHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  rearPlateHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  rearProtectionHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
+  emcHReport?: Prisma.XOR<Prisma.HReportNullableScalarRelationFilter, Prisma.HReportWhereInput> | null
 }, "id" | "dossierId">
 
 export type RegulatoryActNumbersOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  lightingActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  spraySuppressionActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  massesActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  rearPlateActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  rearProtectionActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
-  emcActNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  lightingHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  spraySuppressionHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  massesHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rearPlateHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  rearProtectionHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
+  emcHReportId?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.RegulatoryActNumbersCountOrderByAggregateInput
   _max?: Prisma.RegulatoryActNumbersMaxOrderByAggregateInput
   _min?: Prisma.RegulatoryActNumbersMinOrderByAggregateInput
@@ -256,88 +274,82 @@ export type RegulatoryActNumbersScalarWhereWithAggregatesInput = {
   NOT?: Prisma.RegulatoryActNumbersScalarWhereWithAggregatesInput | Prisma.RegulatoryActNumbersScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"RegulatoryActNumbers"> | string
   dossierId?: Prisma.StringWithAggregatesFilter<"RegulatoryActNumbers"> | string
-  lightingActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
-  spraySuppressionActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
-  massesActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
-  rearPlateActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
-  rearProtectionActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
-  emcActNumber?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  lightingHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  spraySuppressionHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  massesHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  rearPlateHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  rearProtectionHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
+  emcHReportId?: Prisma.StringNullableWithAggregatesFilter<"RegulatoryActNumbers"> | string | null
 }
 
 export type RegulatoryActNumbersCreateInput = {
   id?: string
-  lightingActNumber?: string | null
-  spraySuppressionActNumber?: string | null
-  massesActNumber?: string | null
-  rearPlateActNumber?: string | null
-  rearProtectionActNumber?: string | null
-  emcActNumber?: string | null
   dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
 }
 
 export type RegulatoryActNumbersUncheckedCreateInput = {
   id?: string
   dossierId: string
-  lightingActNumber?: string | null
-  spraySuppressionActNumber?: string | null
-  massesActNumber?: string | null
-  rearPlateActNumber?: string | null
-  rearProtectionActNumber?: string | null
-  emcActNumber?: string | null
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
 }
 
 export type RegulatoryActNumbersUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
 }
 
 export type RegulatoryActNumbersUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type RegulatoryActNumbersCreateManyInput = {
   id?: string
   dossierId: string
-  lightingActNumber?: string | null
-  spraySuppressionActNumber?: string | null
-  massesActNumber?: string | null
-  rearPlateActNumber?: string | null
-  rearProtectionActNumber?: string | null
-  emcActNumber?: string | null
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
 }
 
 export type RegulatoryActNumbersUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type RegulatoryActNumbersUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type RegulatoryActNumbersNullableScalarRelationFilter = {
@@ -345,37 +357,47 @@ export type RegulatoryActNumbersNullableScalarRelationFilter = {
   isNot?: Prisma.RegulatoryActNumbersWhereInput | null
 }
 
+export type RegulatoryActNumbersListRelationFilter = {
+  every?: Prisma.RegulatoryActNumbersWhereInput
+  some?: Prisma.RegulatoryActNumbersWhereInput
+  none?: Prisma.RegulatoryActNumbersWhereInput
+}
+
+export type RegulatoryActNumbersOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
 export type RegulatoryActNumbersCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  lightingActNumber?: Prisma.SortOrder
-  spraySuppressionActNumber?: Prisma.SortOrder
-  massesActNumber?: Prisma.SortOrder
-  rearPlateActNumber?: Prisma.SortOrder
-  rearProtectionActNumber?: Prisma.SortOrder
-  emcActNumber?: Prisma.SortOrder
+  lightingHReportId?: Prisma.SortOrder
+  spraySuppressionHReportId?: Prisma.SortOrder
+  massesHReportId?: Prisma.SortOrder
+  rearPlateHReportId?: Prisma.SortOrder
+  rearProtectionHReportId?: Prisma.SortOrder
+  emcHReportId?: Prisma.SortOrder
 }
 
 export type RegulatoryActNumbersMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  lightingActNumber?: Prisma.SortOrder
-  spraySuppressionActNumber?: Prisma.SortOrder
-  massesActNumber?: Prisma.SortOrder
-  rearPlateActNumber?: Prisma.SortOrder
-  rearProtectionActNumber?: Prisma.SortOrder
-  emcActNumber?: Prisma.SortOrder
+  lightingHReportId?: Prisma.SortOrder
+  spraySuppressionHReportId?: Prisma.SortOrder
+  massesHReportId?: Prisma.SortOrder
+  rearPlateHReportId?: Prisma.SortOrder
+  rearProtectionHReportId?: Prisma.SortOrder
+  emcHReportId?: Prisma.SortOrder
 }
 
 export type RegulatoryActNumbersMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  lightingActNumber?: Prisma.SortOrder
-  spraySuppressionActNumber?: Prisma.SortOrder
-  massesActNumber?: Prisma.SortOrder
-  rearPlateActNumber?: Prisma.SortOrder
-  rearProtectionActNumber?: Prisma.SortOrder
-  emcActNumber?: Prisma.SortOrder
+  lightingHReportId?: Prisma.SortOrder
+  spraySuppressionHReportId?: Prisma.SortOrder
+  massesHReportId?: Prisma.SortOrder
+  rearPlateHReportId?: Prisma.SortOrder
+  rearProtectionHReportId?: Prisma.SortOrder
+  emcHReportId?: Prisma.SortOrder
 }
 
 export type RegulatoryActNumbersCreateNestedOneWithoutDossierInput = {
@@ -410,24 +432,276 @@ export type RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.RegulatoryActNumbersUpdateToOneWithWhereWithoutDossierInput, Prisma.RegulatoryActNumbersUpdateWithoutDossierInput>, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutDossierInput>
 }
 
+export type RegulatoryActNumbersCreateNestedManyWithoutLightingHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyLightingHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersCreateNestedManyWithoutSpraySuppressionHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersCreateNestedManyWithoutMassesHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyMassesHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyEmcHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutLightingHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyLightingHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutSpraySuppressionHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutMassesHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyMassesHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyEmcHReportInputEnvelope
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutLightingHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutLightingHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyLightingHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutLightingHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutLightingHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutSpraySuppressionHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutSpraySuppressionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutSpraySuppressionHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutSpraySuppressionHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutMassesHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutMassesHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyMassesHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutMassesHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutMassesHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearPlateHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearPlateHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearPlateHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearProtectionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearProtectionHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearProtectionHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutEmcHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyEmcHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutEmcHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutEmcHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutLightingHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutLightingHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyLightingHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutLightingHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutLightingHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutLightingHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutSpraySuppressionHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutSpraySuppressionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutSpraySuppressionHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutSpraySuppressionHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutSpraySuppressionHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutMassesHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyMassesHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutMassesHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutMassesHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutMassesHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearPlateHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearPlateHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearPlateHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearPlateHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearProtectionHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearProtectionHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearProtectionHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutRearProtectionHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput = {
+  create?: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput> | Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput[] | Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput[]
+  connectOrCreate?: Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput | Prisma.RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput[]
+  upsert?: Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpsertWithWhereUniqueWithoutEmcHReportInput[]
+  createMany?: Prisma.RegulatoryActNumbersCreateManyEmcHReportInputEnvelope
+  set?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  disconnect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  delete?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  connect?: Prisma.RegulatoryActNumbersWhereUniqueInput | Prisma.RegulatoryActNumbersWhereUniqueInput[]
+  update?: Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpdateWithWhereUniqueWithoutEmcHReportInput[]
+  updateMany?: Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutEmcHReportInput | Prisma.RegulatoryActNumbersUpdateManyWithWhereWithoutEmcHReportInput[]
+  deleteMany?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+}
+
 export type RegulatoryActNumbersCreateWithoutDossierInput = {
   id?: string
-  lightingActNumber?: string | null
-  spraySuppressionActNumber?: string | null
-  massesActNumber?: string | null
-  rearPlateActNumber?: string | null
-  rearProtectionActNumber?: string | null
-  emcActNumber?: string | null
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
 }
 
 export type RegulatoryActNumbersUncheckedCreateWithoutDossierInput = {
   id?: string
-  lightingActNumber?: string | null
-  spraySuppressionActNumber?: string | null
-  massesActNumber?: string | null
-  rearPlateActNumber?: string | null
-  rearProtectionActNumber?: string | null
-  emcActNumber?: string | null
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
 }
 
 export type RegulatoryActNumbersCreateOrConnectWithoutDossierInput = {
@@ -448,22 +722,552 @@ export type RegulatoryActNumbersUpdateToOneWithWhereWithoutDossierInput = {
 
 export type RegulatoryActNumbersUpdateWithoutDossierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
 }
 
 export type RegulatoryActNumbersUncheckedUpdateWithoutDossierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  lightingActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  spraySuppressionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  massesActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearPlateActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  rearProtectionActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  emcActNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersCreateWithoutLightingHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput = {
+  id?: string
+  dossierId: string
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutLightingHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyLightingHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManyLightingHReportInput | Prisma.RegulatoryActNumbersCreateManyLightingHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutSpraySuppressionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManySpraySuppressionHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInput | Prisma.RegulatoryActNumbersCreateManySpraySuppressionHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersCreateWithoutMassesHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutMassesHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyMassesHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManyMassesHReportInput | Prisma.RegulatoryActNumbersCreateManyMassesHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersCreateWithoutRearPlateHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutRearPlateHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyRearPlateHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInput | Prisma.RegulatoryActNumbersCreateManyRearPlateHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersCreateWithoutRearProtectionHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  emcHReport?: Prisma.HReportCreateNestedOneWithoutEmcActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutRearProtectionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyRearProtectionHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInput | Prisma.RegulatoryActNumbersCreateManyRearProtectionHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersCreateWithoutEmcHReportInput = {
+  id?: string
+  dossier: Prisma.DossierCreateNestedOneWithoutRegulatoryActNumbersInput
+  lightingHReport?: Prisma.HReportCreateNestedOneWithoutLightingActNumbersInput
+  spraySuppressionHReport?: Prisma.HReportCreateNestedOneWithoutSpraySuppressionActNumbersInput
+  massesHReport?: Prisma.HReportCreateNestedOneWithoutMassesActNumbersInput
+  rearPlateHReport?: Prisma.HReportCreateNestedOneWithoutRearPlateActNumbersInput
+  rearProtectionHReport?: Prisma.HReportCreateNestedOneWithoutRearProtectionActNumbersInput
+}
+
+export type RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateOrConnectWithoutEmcHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyEmcHReportInputEnvelope = {
+  data: Prisma.RegulatoryActNumbersCreateManyEmcHReportInput | Prisma.RegulatoryActNumbersCreateManyEmcHReportInput[]
+  skipDuplicates?: boolean
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutLightingHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutLightingHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutLightingHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutLightingHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutLightingHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutLightingHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutLightingHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutLightingHReportInput>
+}
+
+export type RegulatoryActNumbersScalarWhereInput = {
+  AND?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+  OR?: Prisma.RegulatoryActNumbersScalarWhereInput[]
+  NOT?: Prisma.RegulatoryActNumbersScalarWhereInput | Prisma.RegulatoryActNumbersScalarWhereInput[]
+  id?: Prisma.StringFilter<"RegulatoryActNumbers"> | string
+  dossierId?: Prisma.StringFilter<"RegulatoryActNumbers"> | string
+  lightingHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  spraySuppressionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  massesHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearPlateHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  rearProtectionHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+  emcHReportId?: Prisma.StringNullableFilter<"RegulatoryActNumbers"> | string | null
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutSpraySuppressionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutSpraySuppressionHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutSpraySuppressionHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutSpraySuppressionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutSpraySuppressionHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutSpraySuppressionHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutSpraySuppressionHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutSpraySuppressionHReportInput>
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutMassesHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutMassesHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutMassesHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutMassesHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutMassesHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutMassesHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutMassesHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportInput>
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearPlateHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutRearPlateHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearPlateHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearPlateHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutRearPlateHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutRearPlateHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutRearPlateHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportInput>
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutRearProtectionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutRearProtectionHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutRearProtectionHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutRearProtectionHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutRearProtectionHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutRearProtectionHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutRearProtectionHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportInput>
+}
+
+export type RegulatoryActNumbersUpsertWithWhereUniqueWithoutEmcHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  update: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutEmcHReportInput>
+  create: Prisma.XOR<Prisma.RegulatoryActNumbersCreateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedCreateWithoutEmcHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateWithWhereUniqueWithoutEmcHReportInput = {
+  where: Prisma.RegulatoryActNumbersWhereUniqueInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateWithoutEmcHReportInput, Prisma.RegulatoryActNumbersUncheckedUpdateWithoutEmcHReportInput>
+}
+
+export type RegulatoryActNumbersUpdateManyWithWhereWithoutEmcHReportInput = {
+  where: Prisma.RegulatoryActNumbersScalarWhereInput
+  data: Prisma.XOR<Prisma.RegulatoryActNumbersUpdateManyMutationInput, Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportInput>
+}
+
+export type RegulatoryActNumbersCreateManyLightingHReportInput = {
+  id?: string
+  dossierId: string
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateManySpraySuppressionHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateManyMassesHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateManyRearPlateHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearProtectionHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateManyRearProtectionHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  emcHReportId?: string | null
+}
+
+export type RegulatoryActNumbersCreateManyEmcHReportInput = {
+  id?: string
+  dossierId: string
+  lightingHReportId?: string | null
+  spraySuppressionHReportId?: string | null
+  massesHReportId?: string | null
+  rearPlateHReportId?: string | null
+  rearProtectionHReportId?: string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutLightingHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutLightingHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutLightingHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutSpraySuppressionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutSpraySuppressionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutSpraySuppressionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutMassesHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutMassesHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutRearPlateHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutRearPlateHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutRearProtectionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  emcHReport?: Prisma.HReportUpdateOneWithoutEmcActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutRearProtectionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  emcHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUpdateWithoutEmcHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossier?: Prisma.DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput
+  lightingHReport?: Prisma.HReportUpdateOneWithoutLightingActNumbersNestedInput
+  spraySuppressionHReport?: Prisma.HReportUpdateOneWithoutSpraySuppressionActNumbersNestedInput
+  massesHReport?: Prisma.HReportUpdateOneWithoutMassesActNumbersNestedInput
+  rearPlateHReport?: Prisma.HReportUpdateOneWithoutRearPlateActNumbersNestedInput
+  rearProtectionHReport?: Prisma.HReportUpdateOneWithoutRearProtectionActNumbersNestedInput
+}
+
+export type RegulatoryActNumbersUncheckedUpdateWithoutEmcHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  dossierId?: Prisma.StringFieldUpdateOperationsInput | string
+  lightingHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  spraySuppressionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  massesHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearPlateHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rearProtectionHReportId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -471,93 +1275,117 @@ export type RegulatoryActNumbersUncheckedUpdateWithoutDossierInput = {
 export type RegulatoryActNumbersSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   dossierId?: boolean
-  lightingActNumber?: boolean
-  spraySuppressionActNumber?: boolean
-  massesActNumber?: boolean
-  rearPlateActNumber?: boolean
-  rearProtectionActNumber?: boolean
-  emcActNumber?: boolean
+  lightingHReportId?: boolean
+  spraySuppressionHReportId?: boolean
+  massesHReportId?: boolean
+  rearPlateHReportId?: boolean
+  rearProtectionHReportId?: boolean
+  emcHReportId?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }, ExtArgs["result"]["regulatoryActNumbers"]>
 
 export type RegulatoryActNumbersSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   dossierId?: boolean
-  lightingActNumber?: boolean
-  spraySuppressionActNumber?: boolean
-  massesActNumber?: boolean
-  rearPlateActNumber?: boolean
-  rearProtectionActNumber?: boolean
-  emcActNumber?: boolean
+  lightingHReportId?: boolean
+  spraySuppressionHReportId?: boolean
+  massesHReportId?: boolean
+  rearPlateHReportId?: boolean
+  rearProtectionHReportId?: boolean
+  emcHReportId?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }, ExtArgs["result"]["regulatoryActNumbers"]>
 
 export type RegulatoryActNumbersSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   dossierId?: boolean
-  lightingActNumber?: boolean
-  spraySuppressionActNumber?: boolean
-  massesActNumber?: boolean
-  rearPlateActNumber?: boolean
-  rearProtectionActNumber?: boolean
-  emcActNumber?: boolean
+  lightingHReportId?: boolean
+  spraySuppressionHReportId?: boolean
+  massesHReportId?: boolean
+  rearPlateHReportId?: boolean
+  rearProtectionHReportId?: boolean
+  emcHReportId?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }, ExtArgs["result"]["regulatoryActNumbers"]>
 
 export type RegulatoryActNumbersSelectScalar = {
   id?: boolean
   dossierId?: boolean
-  lightingActNumber?: boolean
-  spraySuppressionActNumber?: boolean
-  massesActNumber?: boolean
-  rearPlateActNumber?: boolean
-  rearProtectionActNumber?: boolean
-  emcActNumber?: boolean
+  lightingHReportId?: boolean
+  spraySuppressionHReportId?: boolean
+  massesHReportId?: boolean
+  rearPlateHReportId?: boolean
+  rearProtectionHReportId?: boolean
+  emcHReportId?: boolean
 }
 
-export type RegulatoryActNumbersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "lightingActNumber" | "spraySuppressionActNumber" | "massesActNumber" | "rearPlateActNumber" | "rearProtectionActNumber" | "emcActNumber", ExtArgs["result"]["regulatoryActNumbers"]>
+export type RegulatoryActNumbersOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "lightingHReportId" | "spraySuppressionHReportId" | "massesHReportId" | "rearPlateHReportId" | "rearProtectionHReportId" | "emcHReportId", ExtArgs["result"]["regulatoryActNumbers"]>
 export type RegulatoryActNumbersInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }
 export type RegulatoryActNumbersIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }
 export type RegulatoryActNumbersIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
+  lightingHReport?: boolean | Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>
+  spraySuppressionHReport?: boolean | Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>
+  massesHReport?: boolean | Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>
+  rearPlateHReport?: boolean | Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>
+  rearProtectionHReport?: boolean | Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>
+  emcHReport?: boolean | Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>
 }
 
 export type $RegulatoryActNumbersPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "RegulatoryActNumbers"
   objects: {
     dossier: Prisma.$DossierPayload<ExtArgs>
+    lightingHReport: Prisma.$HReportPayload<ExtArgs> | null
+    spraySuppressionHReport: Prisma.$HReportPayload<ExtArgs> | null
+    massesHReport: Prisma.$HReportPayload<ExtArgs> | null
+    rearPlateHReport: Prisma.$HReportPayload<ExtArgs> | null
+    rearProtectionHReport: Prisma.$HReportPayload<ExtArgs> | null
+    emcHReport: Prisma.$HReportPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     dossierId: string
-    /**
-     * Alumbrado y señalización 48R08
-     */
-    lightingActNumber: string | null
-    /**
-     * Dispositivos antiproyección UE 109/2011
-     */
-    spraySuppressionActNumber: string | null
-    /**
-     * Masas y dimensiones UE 1230/2012
-     */
-    massesActNumber: string | null
-    /**
-     * Placas de matrícula traseras UE 1003/2010
-     */
-    rearPlateActNumber: string | null
-    /**
-     * Protección trasera 58R03
-     */
-    rearProtectionActNumber: string | null
-    /**
-     * Compatibilidad electromagnética 10R06
-     */
-    emcActNumber: string | null
+    lightingHReportId: string | null
+    spraySuppressionHReportId: string | null
+    massesHReportId: string | null
+    rearPlateHReportId: string | null
+    rearProtectionHReportId: string | null
+    emcHReportId: string | null
   }, ExtArgs["result"]["regulatoryActNumbers"]>
   composites: {}
 }
@@ -953,6 +1781,12 @@ readonly fields: RegulatoryActNumbersFieldRefs;
 export interface Prisma__RegulatoryActNumbersClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   dossier<T extends Prisma.DossierDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DossierDefaultArgs<ExtArgs>>): Prisma.Prisma__DossierClient<runtime.Types.Result.GetResult<Prisma.$DossierPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  lightingHReport<T extends Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$lightingHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  spraySuppressionHReport<T extends Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  massesHReport<T extends Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$massesHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  rearPlateHReport<T extends Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  rearProtectionHReport<T extends Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  emcHReport<T extends Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RegulatoryActNumbers$emcHReportArgs<ExtArgs>>): Prisma.Prisma__HReportClient<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -984,12 +1818,12 @@ export interface Prisma__RegulatoryActNumbersClient<T, Null = never, ExtArgs ext
 export interface RegulatoryActNumbersFieldRefs {
   readonly id: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
   readonly dossierId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly lightingActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly spraySuppressionActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly massesActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly rearPlateActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly rearProtectionActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
-  readonly emcActNumber: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly lightingHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly spraySuppressionHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly massesHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly rearPlateHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly rearProtectionHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
+  readonly emcHReportId: Prisma.FieldRef<"RegulatoryActNumbers", 'String'>
 }
     
 
@@ -1388,6 +2222,120 @@ export type RegulatoryActNumbersDeleteManyArgs<ExtArgs extends runtime.Types.Ext
    * Limit how many RegulatoryActNumbers to delete.
    */
   limit?: number
+}
+
+/**
+ * RegulatoryActNumbers.lightingHReport
+ */
+export type RegulatoryActNumbers$lightingHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
+}
+
+/**
+ * RegulatoryActNumbers.spraySuppressionHReport
+ */
+export type RegulatoryActNumbers$spraySuppressionHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
+}
+
+/**
+ * RegulatoryActNumbers.massesHReport
+ */
+export type RegulatoryActNumbers$massesHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
+}
+
+/**
+ * RegulatoryActNumbers.rearPlateHReport
+ */
+export type RegulatoryActNumbers$rearPlateHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
+}
+
+/**
+ * RegulatoryActNumbers.rearProtectionHReport
+ */
+export type RegulatoryActNumbers$rearProtectionHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
+}
+
+/**
+ * RegulatoryActNumbers.emcHReport
+ */
+export type RegulatoryActNumbers$emcHReportArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReport
+   */
+  select?: Prisma.HReportSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReport
+   */
+  omit?: Prisma.HReportOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportInclude<ExtArgs> | null
+  where?: Prisma.HReportWhereInput
 }
 
 /**

@@ -34,7 +34,16 @@ async function loadDossierData(dossierId: string, companyId: string) {
       bodywork: true,
       massesDimensions: true,
       company: true,
-      regulatoryActNumbers: true,
+      regulatoryActNumbers: {
+        include: {
+          lightingHReport: true,
+          spraySuppressionHReport: true,
+          massesHReport: true,
+          rearPlateHReport: true,
+          rearProtectionHReport: true,
+          emcHReport: true,
+        },
+      },
       lightingMaterialChecklist: true,
       copCoverSheet: true,
       registrationPlates: true,
@@ -132,12 +141,12 @@ export async function generateDocument(_state: FormState, formData: FormData): P
 
   const actNumbers = dossier.regulatoryActNumbers
     ? {
-        lightingActNumber: dossier.regulatoryActNumbers.lightingActNumber,
-        spraySuppressionActNumber: dossier.regulatoryActNumbers.spraySuppressionActNumber,
-        massesActNumber: dossier.regulatoryActNumbers.massesActNumber,
-        rearPlateActNumber: dossier.regulatoryActNumbers.rearPlateActNumber,
-        rearProtectionActNumber: dossier.regulatoryActNumbers.rearProtectionActNumber,
-        emcActNumber: dossier.regulatoryActNumbers.emcActNumber,
+        lightingActNumber: dossier.regulatoryActNumbers.lightingHReport?.number ?? null,
+        spraySuppressionActNumber: dossier.regulatoryActNumbers.spraySuppressionHReport?.number ?? null,
+        massesActNumber: dossier.regulatoryActNumbers.massesHReport?.number ?? null,
+        rearPlateActNumber: dossier.regulatoryActNumbers.rearPlateHReport?.number ?? null,
+        rearProtectionActNumber: dossier.regulatoryActNumbers.rearProtectionHReport?.number ?? null,
+        emcActNumber: dossier.regulatoryActNumbers.emcHReport?.number ?? null,
       }
     : null;
 

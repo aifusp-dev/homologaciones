@@ -79,6 +79,7 @@ export const ModelName = {
   LightingReverse: 'LightingReverse',
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
+  HReport: 'HReport',
   RegulatoryActNumbers: 'RegulatoryActNumbers',
   CopCoverSheet: 'CopCoverSheet',
   RegistrationPlates: 'RegistrationPlates',
@@ -911,15 +912,29 @@ export const LightingMaterialChecklistScalarFieldEnum = {
 export type LightingMaterialChecklistScalarFieldEnum = (typeof LightingMaterialChecklistScalarFieldEnum)[keyof typeof LightingMaterialChecklistScalarFieldEnum]
 
 
+export const HReportScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  category: 'category',
+  number: 'number',
+  issuer: 'issuer',
+  filePath: 'filePath',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type HReportScalarFieldEnum = (typeof HReportScalarFieldEnum)[keyof typeof HReportScalarFieldEnum]
+
+
 export const RegulatoryActNumbersScalarFieldEnum = {
   id: 'id',
   dossierId: 'dossierId',
-  lightingActNumber: 'lightingActNumber',
-  spraySuppressionActNumber: 'spraySuppressionActNumber',
-  massesActNumber: 'massesActNumber',
-  rearPlateActNumber: 'rearPlateActNumber',
-  rearProtectionActNumber: 'rearProtectionActNumber',
-  emcActNumber: 'emcActNumber'
+  lightingHReportId: 'lightingHReportId',
+  spraySuppressionHReportId: 'spraySuppressionHReportId',
+  massesHReportId: 'massesHReportId',
+  rearPlateHReportId: 'rearPlateHReportId',
+  rearProtectionHReportId: 'rearProtectionHReportId',
+  emcHReportId: 'emcHReportId'
 } as const
 
 export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]

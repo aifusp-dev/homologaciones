@@ -25,7 +25,6 @@ const LIGHTING_GROUP: DeviceTableKey[] = [
 
 const DOCUMENTATION_GROUP: DeviceTableKey[] = [
   "lightingMaterialChecklist",
-  "regulatoryActNumbers",
   "copCoverSheet",
   "registrationPlates",
   "platesInscriptions",

@@ -27,3 +27,15 @@ export const DocumentType = {
 } as const
 
 export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType]
+
+
+export const HReportCategory = {
+  LIGHTING: 'LIGHTING',
+  SPRAY_SUPPRESSION: 'SPRAY_SUPPRESSION',
+  MASSES: 'MASSES',
+  REAR_PLATE: 'REAR_PLATE',
+  REAR_PROTECTION: 'REAR_PROTECTION',
+  EMC: 'EMC'
+} as const
+
+export type HReportCategory = (typeof HReportCategory)[keyof typeof HReportCategory]

@@ -158,6 +158,11 @@ export type LightingFog = Prisma.LightingFogModel
  */
 export type LightingMaterialChecklist = Prisma.LightingMaterialChecklistModel
 /**
+ * Model HReport
+ * 
+ */
+export type HReport = Prisma.HReportModel
+/**
  * Model RegulatoryActNumbers
  * 
  */

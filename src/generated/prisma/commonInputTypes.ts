@@ -263,6 +263,23 @@ export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
 }
 
+export type EnumHReportCategoryFilter<$PrismaModel = never> = {
+  equals?: $Enums.HReportCategory | Prisma.EnumHReportCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel> | $Enums.HReportCategory
+}
+
+export type EnumHReportCategoryWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HReportCategory | Prisma.EnumHReportCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHReportCategoryWithAggregatesFilter<$PrismaModel> | $Enums.HReportCategory
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel>
+}
+
 export type NestedStringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -512,6 +529,23 @@ export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedBoolNullableFilter<$PrismaModel>
   _max?: Prisma.NestedBoolNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumHReportCategoryFilter<$PrismaModel = never> = {
+  equals?: $Enums.HReportCategory | Prisma.EnumHReportCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel> | $Enums.HReportCategory
+}
+
+export type NestedEnumHReportCategoryWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HReportCategory | Prisma.EnumHReportCategoryFieldRefInput<$PrismaModel>
+  in?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HReportCategory[] | Prisma.ListEnumHReportCategoryFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHReportCategoryWithAggregatesFilter<$PrismaModel> | $Enums.HReportCategory
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHReportCategoryFilter<$PrismaModel>
 }
 
 

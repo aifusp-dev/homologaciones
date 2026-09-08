@@ -43,7 +43,6 @@ const delegates: Record<DeviceTableKey, { upsert: (args: any) => Promise<unknown
   lightingReverse: prisma.lightingReverse,
   lightingFog: prisma.lightingFog,
   lightingMaterialChecklist: prisma.lightingMaterialChecklist,
-  regulatoryActNumbers: prisma.regulatoryActNumbers,
   copCoverSheet: prisma.copCoverSheet,
   registrationPlates: prisma.registrationPlates,
   platesInscriptions: prisma.platesInscriptions,

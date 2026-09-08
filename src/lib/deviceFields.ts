@@ -20,7 +20,6 @@ export type DeviceTableKey =
   | "lightingReverse"
   | "lightingFog"
   | "lightingMaterialChecklist"
-  | "regulatoryActNumbers"
   | "copCoverSheet"
   | "registrationPlates"
   | "platesInscriptions";
@@ -411,17 +410,6 @@ export const DEVICE_TABLES: Record<DeviceTableKey, { label: string; fields: { na
       { name: "lateralProtectionMaterial", label: "Protección lateral", type: "text" },
       { name: "manufacturingOrderDate", label: "Fecha orden de fabricación", type: "text" },
       { name: "manufacturingOrderRemarks", label: "Observaciones orden de fabricación", type: "text" }
-    ],
-  },
-  regulatoryActNumbers: {
-    label: "Actos reglamentarios / Informes H",
-    fields: [
-      { name: "lightingActNumber", label: "Alumbrado y señalización 48R08", type: "text" },
-      { name: "spraySuppressionActNumber", label: "Dispositivos antiproyección UE 109/2011", type: "text" },
-      { name: "massesActNumber", label: "Masas y dimensiones UE 1230/2012", type: "text" },
-      { name: "rearPlateActNumber", label: "Placas de matrícula traseras UE 1003/2010", type: "text" },
-      { name: "rearProtectionActNumber", label: "Protección trasera 58R03", type: "text" },
-      { name: "emcActNumber", label: "Compatibilidad electromagnética 10R06", type: "text" }
     ],
   },
   copCoverSheet: {
