@@ -55,6 +55,7 @@ export const ModelName = {
   User: 'User',
   Invitation: 'Invitation',
   Dossier: 'Dossier',
+  GeneratedDocument: 'GeneratedDocument',
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
@@ -81,6 +82,9 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  logoUrl: 'logoUrl',
+  taxId: 'taxId',
+  address: 'address',
   createdAt: 'createdAt',
   nextDossierNumber: 'nextDossierNumber'
 } as const
@@ -122,6 +126,17 @@ export const DossierScalarFieldEnum = {
 } as const
 
 export type DossierScalarFieldEnum = (typeof DossierScalarFieldEnum)[keyof typeof DossierScalarFieldEnum]
+
+
+export const GeneratedDocumentScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  type: 'type',
+  filePath: 'filePath',
+  createdAt: 'createdAt'
+} as const
+
+export type GeneratedDocumentScalarFieldEnum = (typeof GeneratedDocumentScalarFieldEnum)[keyof typeof GeneratedDocumentScalarFieldEnum]
 
 
 export const CustomerScalarFieldEnum = {

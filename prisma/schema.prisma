@@ -19,7 +19,10 @@ enum Role {
 model Company {
   id        String   @id @default(cuid())
   name      String
-  // TODO fase 5: logo/CIF/dirección para membrete de los PDF generados.
+  // Membrete de los PDF generados.
+  logoUrl   String?
+  taxId     String? // CIF/NIF
+  address   String?
   createdAt DateTime @default(now())
 
   // Correlativo de numeración de expediente, propio de esta empresa (no
@@ -89,16 +92,43 @@ model Dossier {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  company          Company           @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  company          Company             @relation(fields: [companyId], references: [id], onDelete: Cascade)
   customer         Customer?
   dealer           Dealer?
   coc              Coc?
   bodywork         Bodywork?
   massesDimensions MassesDimensions?
+  documents        GeneratedDocument[]
 
   @@unique([companyId, number])
   @@index([companyId])
   @@map("dossiers")
+}
+
+enum DocumentType {
+  PRELIMINARY_REPORT // Informe previo
+  MANUFACTURING_ORDER // Orden de fabricación
+  BODYWORK_CERTIFICATE // Certificado de carrozado
+  BODYWORK_CERTIFICATE_PART2 // Certificado de carrozado, parte 2
+  REDUCED_DATASHEET // Ficha reducida
+  COP_REGISTER // Registro COP
+}
+
+// Histórico de PDF generados — antes FileMaker solo los dejaba sueltos en
+// el escritorio del PC (ver "Guardar registros como PDF" en los scripts
+// originales). Aquí queda ligado al expediente, con fecha y ruta en el
+// volumen persistente, para poder volver a descargarlo sin regenerar.
+model GeneratedDocument {
+  id        String       @id @default(cuid())
+  dossierId String
+  type      DocumentType
+  filePath  String
+  createdAt DateTime     @default(now())
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@index([dossierId])
+  @@map("generated_documents")
 }
 
 // "Cliente" — antes tabla CLIENTE.

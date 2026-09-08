@@ -62,6 +62,11 @@ export type Invitation = Prisma.InvitationModel
  */
 export type Dossier = Prisma.DossierModel
 /**
+ * Model GeneratedDocument
+ * 
+ */
+export type GeneratedDocument = Prisma.GeneratedDocumentModel
+/**
  * Model Customer
  * 
  */

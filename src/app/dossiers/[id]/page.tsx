@@ -15,6 +15,7 @@ import { DealerForm } from "./dealer-form";
 import { CocForm } from "./coc-form";
 import { BodyworkForm } from "./bodywork-form";
 import { MassesForm } from "./masses-form";
+import { DocumentsSection } from "./documents-section";
 
 export default async function DossierPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -22,7 +23,14 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
 
   const dossier = await prisma.dossier.findFirst({
     where: { id, companyId: user.companyId },
-    include: { customer: true, dealer: true, coc: true, bodywork: true, massesDimensions: true },
+    include: {
+      customer: true,
+      dealer: true,
+      coc: true,
+      bodywork: true,
+      massesDimensions: true,
+      documents: { orderBy: { createdAt: "desc" } },
+    },
   });
   if (!dossier) notFound();
 
@@ -61,7 +69,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     axleDistance0to1: dossier.coc?.axleDistance0to1 ?? null,
     axleDistance1to2: dossier.coc?.axleDistance1to2 ?? null,
     axleDistance2to3: dossier.coc?.axleDistance2to3 ?? null,
-    staticCouplingPointMass: null, // COC::_19, aun no mapeado en el modelo Coc (fase futura)
+    staticCouplingPointMass: dossier.coc?.staticCouplingPointMass ?? null,
     maxTechnicallyPermissibleMass: dossier.coc?.maxTechnicallyPermissibleMass ?? null,
     maxTechnicallyPermissibleMassRequested: dossier.coc?.maxTechnicallyPermissibleMassRequested ?? null,
     maxTechnicallyPermissibleMassAxle1: dossier.coc?.maxTechnicallyPermissibleMassAxle1 ?? null,
@@ -154,6 +162,11 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
           Masas y dimensiones <span className="text-neutral-600 normal-case">— vehículo 2 ejes</span>
         </h2>
         <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
+      </section>
+
+      <section className="space-y-3">
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">Documentos</h2>
+        <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />
       </section>
     </div>
   );

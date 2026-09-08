@@ -15,3 +15,15 @@ export const Role = {
 } as const
 
 export type Role = (typeof Role)[keyof typeof Role]
+
+
+export const DocumentType = {
+  PRELIMINARY_REPORT: 'PRELIMINARY_REPORT',
+  MANUFACTURING_ORDER: 'MANUFACTURING_ORDER',
+  BODYWORK_CERTIFICATE: 'BODYWORK_CERTIFICATE',
+  BODYWORK_CERTIFICATE_PART2: 'BODYWORK_CERTIFICATE_PART2',
+  REDUCED_DATASHEET: 'REDUCED_DATASHEET',
+  COP_REGISTER: 'COP_REGISTER'
+} as const
+
+export type DocumentType = (typeof DocumentType)[keyof typeof DocumentType]

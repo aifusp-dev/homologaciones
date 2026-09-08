@@ -410,10 +410,6 @@ export type CustomerUncheckedUpdateOneWithoutDossierNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CustomerUpdateToOneWithWhereWithoutDossierInput, Prisma.CustomerUpdateWithoutDossierInput>, Prisma.CustomerUncheckedUpdateWithoutDossierInput>
 }
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null
-}
-
 export type CustomerCreateWithoutDossierInput = {
   id?: string
   name?: string | null

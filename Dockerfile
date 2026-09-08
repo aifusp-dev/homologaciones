@@ -23,5 +23,13 @@ COPY --from=builder /app/next.config.ts ./
 COPY start.sh ./start.sh
 RUN chmod +x ./start.sh
 
+# Chromium para generar los PDF de homologación (src/lib/pdf) — --with-deps
+# instala también las librerías de sistema que necesita en Debian bookworm.
+RUN npx playwright install --with-deps chromium
+
+# Volumen persistente donde se guardan los PDF ya generados (GeneratedDocument.filePath).
+RUN mkdir -p /data/documents
+ENV DOCUMENTS_DIR=/data/documents
+
 EXPOSE 3000
 CMD ["./start.sh"]

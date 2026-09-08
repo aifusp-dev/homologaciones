@@ -401,6 +401,7 @@ export const ModelName = {
   User: 'User',
   Invitation: 'Invitation',
   Dossier: 'Dossier',
+  GeneratedDocument: 'GeneratedDocument',
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
@@ -421,7 +422,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -718,6 +719,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.DossierCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.DossierCountAggregateOutputType> | number
+        }
+      }
+    }
+    GeneratedDocument: {
+      payload: Prisma.$GeneratedDocumentPayload<ExtArgs>
+      fields: Prisma.GeneratedDocumentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.GeneratedDocumentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.GeneratedDocumentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        findFirst: {
+          args: Prisma.GeneratedDocumentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.GeneratedDocumentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        findMany: {
+          args: Prisma.GeneratedDocumentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>[]
+        }
+        create: {
+          args: Prisma.GeneratedDocumentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        createMany: {
+          args: Prisma.GeneratedDocumentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.GeneratedDocumentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>[]
+        }
+        delete: {
+          args: Prisma.GeneratedDocumentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        update: {
+          args: Prisma.GeneratedDocumentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        deleteMany: {
+          args: Prisma.GeneratedDocumentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.GeneratedDocumentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.GeneratedDocumentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>[]
+        }
+        upsert: {
+          args: Prisma.GeneratedDocumentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GeneratedDocumentPayload>
+        }
+        aggregate: {
+          args: Prisma.GeneratedDocumentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGeneratedDocument>
+        }
+        groupBy: {
+          args: Prisma.GeneratedDocumentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GeneratedDocumentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.GeneratedDocumentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GeneratedDocumentCountAggregateOutputType> | number
         }
       }
     }
@@ -1133,6 +1208,9 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  logoUrl: 'logoUrl',
+  taxId: 'taxId',
+  address: 'address',
   createdAt: 'createdAt',
   nextDossierNumber: 'nextDossierNumber'
 } as const
@@ -1174,6 +1252,17 @@ export const DossierScalarFieldEnum = {
 } as const
 
 export type DossierScalarFieldEnum = (typeof DossierScalarFieldEnum)[keyof typeof DossierScalarFieldEnum]
+
+
+export const GeneratedDocumentScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  type: 'type',
+  filePath: 'filePath',
+  createdAt: 'createdAt'
+} as const
+
+export type GeneratedDocumentScalarFieldEnum = (typeof GeneratedDocumentScalarFieldEnum)[keyof typeof GeneratedDocumentScalarFieldEnum]
 
 
 export const CustomerScalarFieldEnum = {
@@ -1558,6 +1647,20 @@ export type ListEnumRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
+ * Reference to a field of type 'DocumentType'
+ */
+export type EnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentType'>
+    
+
+
+/**
+ * Reference to a field of type 'DocumentType[]'
+ */
+export type ListEnumDocumentTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DocumentType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1732,6 +1835,7 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   invitation?: Prisma.InvitationOmit
   dossier?: Prisma.DossierOmit
+  generatedDocument?: Prisma.GeneratedDocumentOmit
   customer?: Prisma.CustomerOmit
   dealer?: Prisma.DealerOmit
   coc?: Prisma.CocOmit
