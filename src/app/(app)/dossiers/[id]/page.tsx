@@ -227,7 +227,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
           cargoLength: dossier.bodywork?.interiorLength ?? dossier.bodywork?.exteriorLength ?? null,
           height: m?.maxHeightFromGround ?? null,
           width: dossier.bodywork?.exteriorWidth ?? null,
-          hasCrane: m?.craneMass != null,
+          hasCrane: (m?.craneMass ?? 0) > 0,
         };
 
   const tabs: DossierTab[] = [
