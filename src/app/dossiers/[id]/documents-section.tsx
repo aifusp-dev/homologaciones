@@ -7,7 +7,7 @@ const DOCUMENT_TYPES: { type: string; label: string; available: boolean }[] = [
   { type: "PRELIMINARY_REPORT", label: "Informe previo", available: true },
   { type: "MANUFACTURING_ORDER", label: "Orden de fabricación", available: true },
   { type: "BODYWORK_CERTIFICATE", label: "Certificado de carrozado", available: true },
-  { type: "BODYWORK_CERTIFICATE_PART2", label: "Certificado de carrozado (parte 2)", available: false },
+  { type: "BODYWORK_CERTIFICATE_PART2", label: "Certificado de carrozado (parte 2)", available: true },
   { type: "REDUCED_DATASHEET", label: "Ficha reducida", available: true },
   { type: "COP_REGISTER", label: "Registro COP", available: true },
 ];

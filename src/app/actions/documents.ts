@@ -9,6 +9,7 @@ import { renderManufacturingOrder } from "@/lib/pdf/templates/manufacturingOrder
 import { renderBodyworkCertificate } from "@/lib/pdf/templates/bodyworkCertificate";
 import { renderCopRegister } from "@/lib/pdf/templates/copRegister";
 import { renderReducedDatasheet, tireSpec } from "@/lib/pdf/templates/reducedDatasheet";
+import { renderBodyworkCertificatePart2 } from "@/lib/pdf/templates/bodyworkCertificatePart2";
 import { calculateBaseMasses } from "@/lib/calculations/masses";
 import { fiscalHorsepower } from "@/lib/calculations/coc";
 import { fmt } from "@/lib/pdf/layout";
@@ -388,6 +389,75 @@ export async function generateDocument(_state: FormState, formData: FormData): P
       responsibleName: user.name,
     });
     fileName = `Ficha_Reducida_${dossier.number}.pdf`;
+  } else if (type === "BODYWORK_CERTIFICATE_PART2") {
+    html = renderBodyworkCertificatePart2({
+      companyName: dossier.company.name,
+      logoUrl: dossier.company.logoUrl,
+      dossierNumber: dossier.number,
+      vin: dossier.coc?.vin ?? null,
+      category: dossier.coc?.vehicleCategory ?? null,
+      axleCount: dossier.coc?.axleCount ?? null,
+      wheelCount: dossier.coc?.wheelCount ?? null,
+      dualWheelAxlePosition: dossier.coc?.dualWheelAxlePosition ?? null,
+      dualWheelAxleCount: dossier.coc?.dualWheelAxleCount ?? null,
+      drivenAxleCount: dossier.coc?.drivenAxleCount ?? null,
+      drivenAxleLocation: dossier.coc?.drivenAxleLocation ?? null,
+      drivenAxleInterconnection: dossier.coc?.drivenAxleInterconnection ?? null,
+      axleDistance1to2: dossier.coc?.axleDistance1to2 ?? null,
+      axleDistance2to3: dossier.coc?.axleDistance2to3 ?? null,
+      totalLength: masses.totalLength,
+      width: dossier.bodywork?.exteriorWidth ?? null,
+      heightFromGround: dossier.massesDimensions?.maxHeightFromGround ?? null,
+      loadZoneLength: dossier.bodywork?.interiorLength ?? null,
+      momIncompleteVehicle: dossier.coc?.momIncompleteVehicle ?? null,
+      maxTechnicallyPermissibleMass: dossier.coc?.maxTechnicallyPermissibleMass ?? null,
+      maxTechnicallyPermissibleMassAxle1: dossier.coc?.maxTechnicallyPermissibleMassAxle1 ?? null,
+      maxTechnicallyPermissibleMassAxle2: dossier.coc?.maxTechnicallyPermissibleMassAxle2 ?? null,
+      maxTechnicallyPermissibleMassCombination: dossier.coc?.maxTechnicallyPermissibleMassCombination ?? null,
+      drawBarTrailerMass: dossier.coc?.drawBarTrailerMass ?? null,
+      semiTrailerMass: dossier.coc?.semiTrailerMass ?? null,
+      centreAxleTrailerMass: dossier.coc?.centreAxleTrailerMass ?? null,
+      unbrakedTrailerMass: dossier.coc?.unbrakedTrailerMass ?? null,
+      staticCouplingPointMass: dossier.coc?.staticCouplingPointMass ?? null,
+      engineManufacturer: dossier.coc?.engineManufacturer ?? null,
+      engineMarkingCode: dossier.coc?.engineMarkingCode ?? null,
+      operatingPrinciple: dossier.coc?.operatingPrinciple ?? null,
+      pureElectric: dossier.coc?.pureElectric ?? null,
+      hybrid: dossier.coc?.hybrid ?? null,
+      cylinderCount: dossier.coc?.cylinderCount ?? null,
+      cylinderArrangement: dossier.coc?.cylinderArrangement ?? null,
+      displacement: dossier.coc?.displacement ?? null,
+      fuelType: dossier.coc?.fuelType ?? null,
+      singleFuel: dossier.coc?.singleFuel ?? null,
+      maxNetPower: dossier.coc?.maxNetPower ?? null,
+      maxNetPowerRpm: dossier.coc?.ratedPowerRpm ?? null,
+      gearboxType: dossier.coc?.gearboxType ?? null,
+      maxSpeed: dossier.coc?.maxSpeed ?? null,
+      trackWidthAxle1: dossier.coc?.trackWidthAxle1 ?? null,
+      tireRimCombination: tireSpec(
+        dossier.coc?.tireWidthAxle1 ?? null,
+        dossier.coc?.tireAspectRatioAxle1 ?? null,
+        dossier.coc?.rimDiameterAxle1 ?? null,
+        dossier.coc?.loadIndexAxle1 ?? null,
+        dossier.coc?.speedRatingAxle1 ?? null
+      ),
+      bodyType: dossier.bodywork?.bodyType ?? null,
+      color: dossier.bodywork?.sideColor ?? null,
+      doorCountAndArrangement: dossier.coc?.doorCountAndArrangement ?? null,
+      seatCount: dossier.coc?.seatCount ?? null,
+      couplingDeviceApprovalNumber: dossier.coc?.couplingDeviceApprovalNumber ?? null,
+      valueD: dossier.coc?.valueD ?? null,
+      valueV: dossier.coc?.valueV ?? null,
+      valueS: dossier.coc?.valueS ?? null,
+      stationaryNoiseLevel: dossier.coc?.stationaryNoiseLevel ?? null,
+      stationaryNoiseLevelRpm: dossier.coc?.stationaryNoiseLevelRpm ?? null,
+      drivingNoiseLevel: dossier.coc?.drivingNoiseLevel ?? null,
+      emissionsLevel: dossier.coc?.emissionsLevel ?? null,
+      specificCo2Emissions: dossier.coc?.specificCo2Emissions ?? null,
+      remarks: dossier.coc?.remarks ?? null,
+      responsibleName: user.name,
+    });
+    fileName = `Certificado_Carrozado_Parte2_${dossier.number}.pdf`;
   } else {
     return { message: `${DOCUMENT_LABELS[type]} todavía no está disponible.` };
   }
