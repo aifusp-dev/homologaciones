@@ -1,10 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
 import { updateMasses } from "@/app/actions/masses";
 import { MASSES_FIELDS } from "@/lib/massesFields";
 import { MassesDiagram, type DiagramData } from "./masses-diagram";
-import { MassesVerificationPanel } from "./masses-verification-panel";
+import { MassesSandbox } from "./masses-sandbox";
 import type { VehicleConfig } from "@/lib/vehicleConfig";
 import type { MassesInputs } from "@/lib/calculations/masses";
 
@@ -66,6 +66,7 @@ export function MassesForm({
   massesInputs: MassesInputs;
 }) {
   const [state, action, pending] = useActionState(updateMasses, undefined);
+  const formRef = useRef<HTMLFormElement>(null);
   const resultEntries = Object.entries(RESULT_LABELS).filter(([key]) => computed[key] != null);
   const hiddenCount = MASSES_FIELDS.filter((f) => {
     const axleIndex = axleIndexOf(f.name);
@@ -73,12 +74,23 @@ export function MassesForm({
   }).length;
 
   return (
-    <form action={action} className="space-y-3">
+    <form ref={formRef} action={action} className="space-y-3">
       <input type="hidden" name="dossierId" value={dossierId} />
 
-      <MassesDiagram variant={vehicleConfig} data={diagramData} />
-
-      {vehicleConfig === "base" && <MassesVerificationPanel inputs={massesInputs} />}
+      {vehicleConfig === "base" ? (
+        <MassesSandbox
+          initial={massesInputs}
+          diagramStatic={{
+            cargoLength: diagramData.cargoLength,
+            width: diagramData.width,
+            height: diagramData.height,
+            hasCrane: diagramData.hasCrane,
+          }}
+          formRef={formRef}
+        />
+      ) : (
+        <MassesDiagram variant={vehicleConfig} data={diagramData} />
+      )}
 
       {resultEntries.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
