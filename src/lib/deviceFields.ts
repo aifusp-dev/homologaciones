@@ -20,7 +20,10 @@ export type DeviceTableKey =
   | "lightingReverse"
   | "lightingFog"
   | "lightingMaterialChecklist"
-  | "regulatoryActNumbers";
+  | "regulatoryActNumbers"
+  | "copCoverSheet"
+  | "registrationPlates"
+  | "platesInscriptions";
 
 export const DEVICE_TABLES: Record<DeviceTableKey, { label: string; fields: { name: string; label: string; type: DeviceFieldType }[] }> = {
   couplingDevice: {
@@ -419,6 +422,38 @@ export const DEVICE_TABLES: Record<DeviceTableKey, { label: string; fields: { na
       { name: "rearPlateActNumber", label: "Placas de matrícula traseras UE 1003/2010", type: "text" },
       { name: "rearProtectionActNumber", label: "Protección trasera 58R03", type: "text" },
       { name: "emcActNumber", label: "Compatibilidad electromagnética 10R06", type: "text" }
+    ],
+  },
+  copCoverSheet: {
+    label: "Portada del Registro COP",
+    fields: [
+      { name: "dataCollectionOperator", label: "Operario que realiza la toma de datos", type: "text" },
+      { name: "dataCollectionDate", label: "Fecha de toma de datos", type: "text" },
+      { name: "measurementEquipmentReviewDate", label: "Fecha última revisión equipos de medida", type: "text" }
+    ],
+  },
+  registrationPlates: {
+    label: "Placas de matrícula",
+    fields: [
+      { name: "heightEdgeLower", label: "Altura borde inferior respecto del suelo", type: "float" },
+      { name: "heightEdgeUpper", label: "Altura borde superior respecto del suelo", type: "float" },
+      { name: "locationDimensions", label: "Dimensiones del emplazamiento", type: "text" },
+      { name: "longitudinalPlaneLocation", label: "Emplazamiento centro placa / plano longitudinal medio", type: "text" },
+      { name: "verticalAngleGround", label: "Ángulo vertical de la placa respecto del suelo", type: "text" },
+      { name: "verticalVisionAngle", label: "Cumple ángulo de visión vertical >15º", type: "text" },
+      { name: "horizontalVisionAngle", label: "Cumple ángulo de visión horizontal >30º", type: "text" },
+      { name: "inspectionDate", label: "Fecha inspección", type: "text" },
+      { name: "measurementEquipment", label: "Equipo de medida", type: "text" },
+      { name: "notes", label: "Observaciones / Exenciones", type: "text" }
+    ],
+  },
+  platesInscriptions: {
+    label: "Placas e inscripciones",
+    fields: [
+      { name: "plateType", label: "Placa metálica / etiqueta adhesiva antimanipulación 2ª fase", type: "text" },
+      { name: "plateContent", label: "Contenido de la placa de fabricante 2ª fase", type: "text" },
+      { name: "characterHeight", label: "Altura de caracteres (≥4mm)", type: "text" },
+      { name: "notes", label: "Observaciones / Exenciones", type: "text" }
     ],
   },
 };

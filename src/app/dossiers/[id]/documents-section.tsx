@@ -9,7 +9,7 @@ const DOCUMENT_TYPES: { type: string; label: string; available: boolean }[] = [
   { type: "BODYWORK_CERTIFICATE", label: "Certificado de carrozado", available: true },
   { type: "BODYWORK_CERTIFICATE_PART2", label: "Certificado de carrozado (parte 2)", available: false },
   { type: "REDUCED_DATASHEET", label: "Ficha reducida", available: false },
-  { type: "COP_REGISTER", label: "Registro COP", available: false },
+  { type: "COP_REGISTER", label: "Registro COP", available: true },
 ];
 
 const DOCUMENT_LABELS: Record<string, string> = Object.fromEntries(

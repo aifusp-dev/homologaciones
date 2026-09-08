@@ -78,7 +78,10 @@ export const ModelName = {
   LightingReverse: 'LightingReverse',
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
-  RegulatoryActNumbers: 'RegulatoryActNumbers'
+  RegulatoryActNumbers: 'RegulatoryActNumbers',
+  CopCoverSheet: 'CopCoverSheet',
+  RegistrationPlates: 'RegistrationPlates',
+  PlatesInscriptions: 'PlatesInscriptions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -906,6 +909,47 @@ export const RegulatoryActNumbersScalarFieldEnum = {
 } as const
 
 export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]
+
+
+export const CopCoverSheetScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  dataCollectionOperator: 'dataCollectionOperator',
+  dataCollectionDate: 'dataCollectionDate',
+  measurementEquipmentReviewDate: 'measurementEquipmentReviewDate'
+} as const
+
+export type CopCoverSheetScalarFieldEnum = (typeof CopCoverSheetScalarFieldEnum)[keyof typeof CopCoverSheetScalarFieldEnum]
+
+
+export const RegistrationPlatesScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  locationDimensions: 'locationDimensions',
+  longitudinalPlaneLocation: 'longitudinalPlaneLocation',
+  verticalAngleGround: 'verticalAngleGround',
+  verticalVisionAngle: 'verticalVisionAngle',
+  horizontalVisionAngle: 'horizontalVisionAngle',
+  inspectionDate: 'inspectionDate',
+  measurementEquipment: 'measurementEquipment',
+  notes: 'notes'
+} as const
+
+export type RegistrationPlatesScalarFieldEnum = (typeof RegistrationPlatesScalarFieldEnum)[keyof typeof RegistrationPlatesScalarFieldEnum]
+
+
+export const PlatesInscriptionsScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  plateType: 'plateType',
+  plateContent: 'plateContent',
+  characterHeight: 'characterHeight',
+  notes: 'notes'
+} as const
+
+export type PlatesInscriptionsScalarFieldEnum = (typeof PlatesInscriptionsScalarFieldEnum)[keyof typeof PlatesInscriptionsScalarFieldEnum]
 
 
 export const SortOrder = {

@@ -23,7 +23,13 @@ const LIGHTING_GROUP: DeviceTableKey[] = [
   "lightingFog",
 ];
 
-const DOCUMENTATION_GROUP: DeviceTableKey[] = ["lightingMaterialChecklist", "regulatoryActNumbers"];
+const DOCUMENTATION_GROUP: DeviceTableKey[] = [
+  "lightingMaterialChecklist",
+  "regulatoryActNumbers",
+  "copCoverSheet",
+  "registrationPlates",
+  "platesInscriptions",
+];
 
 type DeviceRecordMap = Partial<Record<DeviceTableKey, Record<string, string | number | null> | null>>;
 

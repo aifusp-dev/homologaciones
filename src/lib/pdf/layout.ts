@@ -38,6 +38,10 @@ export function documentHead(): string {
   .box { border: 1px solid #1a1a1a; padding: 8px 12px; margin-bottom: 10px; }
   .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px 16px; }
   .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 16px; }
+  .kv-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px 20px; margin-bottom: 10px; }
+  .kv-list div { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px dotted #ccc; padding: 1px 0; font-size: 9.5pt; }
+  .kv-list b { text-align: right; }
+  .page-break { page-break-before: always; }
   footer.doc { position: fixed; bottom: 8mm; left: 14mm; right: 14mm; font-size: 8pt; color: #666; display: flex; justify-content: space-between; }
 </style>`;
 }
@@ -61,6 +65,16 @@ export function documentHeader(opts: {
     </div>
     <div style="width:40px"></div>
   </header>`;
+}
+
+// Pinta una lista label:valor a partir de metadatos tipo DEVICE_TABLES —
+// usado por Registro COP para reusar las 16+ tablas de la Fase 4 sin
+// replicar el maquetado con diagramas del PDF original de FileMaker (ver
+// comentario en copRegister.ts).
+export function fieldList(fields: { name: string; label: string }[], data: Record<string, unknown> | null | undefined): string {
+  const entries = fields.filter((f) => data?.[f.name] != null && data[f.name] !== "");
+  if (entries.length === 0) return `<p style="color:#888;font-size:9.5pt">Sin datos registrados.</p>`;
+  return `<div class="kv-list">${entries.map((f) => `<div><span>${f.label}</span><b>${esc(data?.[f.name] as string | number)}</b></div>`).join("")}</div>`;
 }
 
 export function documentShell(headHtml: string, bodyHtml: string): string {

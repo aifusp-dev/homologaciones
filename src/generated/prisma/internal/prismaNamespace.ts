@@ -424,7 +424,10 @@ export const ModelName = {
   LightingReverse: 'LightingReverse',
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
-  RegulatoryActNumbers: 'RegulatoryActNumbers'
+  RegulatoryActNumbers: 'RegulatoryActNumbers',
+  CopCoverSheet: 'CopCoverSheet',
+  RegistrationPlates: 'RegistrationPlates',
+  PlatesInscriptions: 'PlatesInscriptions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -440,7 +443,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2516,6 +2519,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    CopCoverSheet: {
+      payload: Prisma.$CopCoverSheetPayload<ExtArgs>
+      fields: Prisma.CopCoverSheetFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CopCoverSheetFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CopCoverSheetFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        findFirst: {
+          args: Prisma.CopCoverSheetFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CopCoverSheetFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        findMany: {
+          args: Prisma.CopCoverSheetFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>[]
+        }
+        create: {
+          args: Prisma.CopCoverSheetCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        createMany: {
+          args: Prisma.CopCoverSheetCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CopCoverSheetCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>[]
+        }
+        delete: {
+          args: Prisma.CopCoverSheetDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        update: {
+          args: Prisma.CopCoverSheetUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        deleteMany: {
+          args: Prisma.CopCoverSheetDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CopCoverSheetUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CopCoverSheetUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>[]
+        }
+        upsert: {
+          args: Prisma.CopCoverSheetUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CopCoverSheetPayload>
+        }
+        aggregate: {
+          args: Prisma.CopCoverSheetAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCopCoverSheet>
+        }
+        groupBy: {
+          args: Prisma.CopCoverSheetGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CopCoverSheetGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CopCoverSheetCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CopCoverSheetCountAggregateOutputType> | number
+        }
+      }
+    }
+    RegistrationPlates: {
+      payload: Prisma.$RegistrationPlatesPayload<ExtArgs>
+      fields: Prisma.RegistrationPlatesFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RegistrationPlatesFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RegistrationPlatesFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        findFirst: {
+          args: Prisma.RegistrationPlatesFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RegistrationPlatesFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        findMany: {
+          args: Prisma.RegistrationPlatesFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>[]
+        }
+        create: {
+          args: Prisma.RegistrationPlatesCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        createMany: {
+          args: Prisma.RegistrationPlatesCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RegistrationPlatesCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>[]
+        }
+        delete: {
+          args: Prisma.RegistrationPlatesDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        update: {
+          args: Prisma.RegistrationPlatesUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        deleteMany: {
+          args: Prisma.RegistrationPlatesDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RegistrationPlatesUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RegistrationPlatesUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>[]
+        }
+        upsert: {
+          args: Prisma.RegistrationPlatesUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegistrationPlatesPayload>
+        }
+        aggregate: {
+          args: Prisma.RegistrationPlatesAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRegistrationPlates>
+        }
+        groupBy: {
+          args: Prisma.RegistrationPlatesGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegistrationPlatesGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RegistrationPlatesCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegistrationPlatesCountAggregateOutputType> | number
+        }
+      }
+    }
+    PlatesInscriptions: {
+      payload: Prisma.$PlatesInscriptionsPayload<ExtArgs>
+      fields: Prisma.PlatesInscriptionsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PlatesInscriptionsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PlatesInscriptionsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        findFirst: {
+          args: Prisma.PlatesInscriptionsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PlatesInscriptionsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        findMany: {
+          args: Prisma.PlatesInscriptionsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>[]
+        }
+        create: {
+          args: Prisma.PlatesInscriptionsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        createMany: {
+          args: Prisma.PlatesInscriptionsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PlatesInscriptionsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>[]
+        }
+        delete: {
+          args: Prisma.PlatesInscriptionsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        update: {
+          args: Prisma.PlatesInscriptionsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        deleteMany: {
+          args: Prisma.PlatesInscriptionsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PlatesInscriptionsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PlatesInscriptionsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>[]
+        }
+        upsert: {
+          args: Prisma.PlatesInscriptionsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PlatesInscriptionsPayload>
+        }
+        aggregate: {
+          args: Prisma.PlatesInscriptionsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePlatesInscriptions>
+        }
+        groupBy: {
+          args: Prisma.PlatesInscriptionsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatesInscriptionsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PlatesInscriptionsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PlatesInscriptionsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -3366,6 +3591,47 @@ export const RegulatoryActNumbersScalarFieldEnum = {
 export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]
 
 
+export const CopCoverSheetScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  dataCollectionOperator: 'dataCollectionOperator',
+  dataCollectionDate: 'dataCollectionDate',
+  measurementEquipmentReviewDate: 'measurementEquipmentReviewDate'
+} as const
+
+export type CopCoverSheetScalarFieldEnum = (typeof CopCoverSheetScalarFieldEnum)[keyof typeof CopCoverSheetScalarFieldEnum]
+
+
+export const RegistrationPlatesScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  heightEdgeLower: 'heightEdgeLower',
+  heightEdgeUpper: 'heightEdgeUpper',
+  locationDimensions: 'locationDimensions',
+  longitudinalPlaneLocation: 'longitudinalPlaneLocation',
+  verticalAngleGround: 'verticalAngleGround',
+  verticalVisionAngle: 'verticalVisionAngle',
+  horizontalVisionAngle: 'horizontalVisionAngle',
+  inspectionDate: 'inspectionDate',
+  measurementEquipment: 'measurementEquipment',
+  notes: 'notes'
+} as const
+
+export type RegistrationPlatesScalarFieldEnum = (typeof RegistrationPlatesScalarFieldEnum)[keyof typeof RegistrationPlatesScalarFieldEnum]
+
+
+export const PlatesInscriptionsScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  plateType: 'plateType',
+  plateContent: 'plateContent',
+  characterHeight: 'characterHeight',
+  notes: 'notes'
+} as const
+
+export type PlatesInscriptionsScalarFieldEnum = (typeof PlatesInscriptionsScalarFieldEnum)[keyof typeof PlatesInscriptionsScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -3665,6 +3931,9 @@ export type GlobalOmitConfig = {
   lightingFog?: Prisma.LightingFogOmit
   lightingMaterialChecklist?: Prisma.LightingMaterialChecklistOmit
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersOmit
+  copCoverSheet?: Prisma.CopCoverSheetOmit
+  registrationPlates?: Prisma.RegistrationPlatesOmit
+  platesInscriptions?: Prisma.PlatesInscriptionsOmit
 }
 
 /* Types for Logging */

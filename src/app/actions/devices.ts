@@ -44,6 +44,9 @@ const delegates: Record<DeviceTableKey, { upsert: (args: any) => Promise<unknown
   lightingFog: prisma.lightingFog,
   lightingMaterialChecklist: prisma.lightingMaterialChecklist,
   regulatoryActNumbers: prisma.regulatoryActNumbers,
+  copCoverSheet: prisma.copCoverSheet,
+  registrationPlates: prisma.registrationPlates,
+  platesInscriptions: prisma.platesInscriptions,
 };
 
 export async function updateDevice(_state: FormState, formData: FormData): Promise<FormState> {

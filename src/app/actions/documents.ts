@@ -7,7 +7,9 @@ import { renderHtmlToPdfBuffer, saveGeneratedPdf } from "@/lib/pdf/render";
 import { renderPreliminaryReport } from "@/lib/pdf/templates/preliminaryReport";
 import { renderManufacturingOrder } from "@/lib/pdf/templates/manufacturingOrder";
 import { renderBodyworkCertificate } from "@/lib/pdf/templates/bodyworkCertificate";
+import { renderCopRegister } from "@/lib/pdf/templates/copRegister";
 import { calculateBaseMasses } from "@/lib/calculations/masses";
+import { fmt } from "@/lib/pdf/layout";
 import type { FormState } from "@/lib/definitions";
 import type { DocumentType } from "@/generated/prisma/enums";
 
@@ -30,6 +32,25 @@ async function loadDossierData(dossierId: string, companyId: string) {
       company: true,
       regulatoryActNumbers: true,
       lightingMaterialChecklist: true,
+      copCoverSheet: true,
+      registrationPlates: true,
+      platesInscriptions: true,
+      couplingDevice: true,
+      spraySuppression: true,
+      electromagneticCompatibility: true,
+      lateralProtection: true,
+      rearProtection: true,
+      lateralMarking: true,
+      lightingSide: true,
+      lightingPosition: true,
+      lightingReflector: true,
+      lightingBrake: true,
+      lightingTurnSignal: true,
+      lightingRearOutlineMarker: true,
+      lightingFrontOutlineMarker: true,
+      lightingPlate: true,
+      lightingReverse: true,
+      lightingFog: true,
     },
   });
   if (!dossier) return null;
@@ -208,6 +229,68 @@ export async function generateDocument(_state: FormState, formData: FormData): P
       responsibleName: user.name,
     });
     fileName = `Certificado_Carrozado_${dossier.number}.pdf`;
+  } else if (type === "COP_REGISTER") {
+    const massesSummary = [
+      { label: "Longitud total (mm)", value: fmt(masses.totalLength) },
+      { label: "Anchura (mm)", value: fmt(dossier.bodywork?.exteriorWidth ?? null) },
+      { label: "Altura desde el suelo (mm)", value: fmt(dossier.massesDimensions?.maxHeightFromGround ?? null) },
+      {
+        label: "Distancia entre ejes 0-1 / 1-2 / 2-3 (mm)",
+        value: `${fmt(dossier.coc?.axleDistance0to1 ?? null)} / ${fmt(dossier.coc?.axleDistance1to2 ?? null)} / ${fmt(dossier.coc?.axleDistance2to3 ?? null)}`,
+      },
+      { label: "Voladizo posterior (mm)", value: fmt(masses.rearOverhang) },
+      { label: "MMTA / MMA (kg)", value: `${fmt(dossier.coc?.maxTechnicallyPermissibleMassRequested ?? null)} / ${fmt(dossier.coc?.maxLadenMassRegistration ?? null)}` },
+      {
+        label: "MMTA por ejes 1º/2º/3º (kg)",
+        value: `${fmt(dossier.coc?.maxTechnicallyPermissibleMassAxle1 ?? null)} / ${fmt(dossier.coc?.maxTechnicallyPermissibleMassAxle2 ?? null)} / ${fmt(dossier.coc?.maxTechnicallyPermissibleMassAxle3 ?? null)}`,
+      },
+      {
+        label: "MMA por ejes 1º/2º/3º (kg)",
+        value: `${fmt(dossier.coc?.maxLadenMassRegistrationAxle1 ?? null)} / ${fmt(dossier.coc?.maxLadenMassRegistrationAxle2 ?? null)} / ${fmt(dossier.coc?.maxLadenMassRegistrationAxle3 ?? null)}`,
+      },
+      { label: "MMTAC / MMAC del conjunto (kg)", value: `${fmt(dossier.coc?.maxTechnicallyPermissibleMassCombination ?? null)} / ${fmt(dossier.coc?.maxLadenMassRegistrationCombination ?? null)}` },
+      { label: "MOM (kg)", value: fmt(masses.mom) },
+    ];
+
+    html = renderCopRegister({
+      companyName: dossier.company.name,
+      logoUrl: dossier.company.logoUrl,
+      dossierNumber: dossier.number,
+      vin: dossier.coc?.vin ?? null,
+      brand: dossier.coc?.brand ?? null,
+      bodyType: dossier.bodywork?.bodyType ?? null,
+      category: dossier.coc?.vehicleCategory ?? null,
+      mmta: dossier.coc?.maxTechnicallyPermissibleMassRequested ?? null,
+      totalLength: masses.totalLength,
+      width: dossier.bodywork?.exteriorWidth ?? null,
+      responsibleName: user.name,
+      actNumbers,
+      coverSheet: dossier.copCoverSheet,
+      vinLocation: dossier.coc?.vinLocation ?? null,
+      firstStagePlateLocation: dossier.coc?.platesLocation ?? null,
+      finalStagePlateLocation: dossier.bodywork?.finalStagePlateLocation ?? null,
+      platesInscriptions: dossier.platesInscriptions,
+      registrationPlates: dossier.registrationPlates,
+      massesSummary,
+      deviceRecords: {
+        couplingDevice: dossier.couplingDevice,
+        spraySuppression: dossier.spraySuppression,
+        electromagneticCompatibility: dossier.electromagneticCompatibility,
+        lateralProtection: dossier.lateralProtection,
+        rearProtection: dossier.rearProtection,
+        lightingSide: dossier.lightingSide,
+        lightingPosition: dossier.lightingPosition,
+        lightingReflector: dossier.lightingReflector,
+        lightingBrake: dossier.lightingBrake,
+        lightingTurnSignal: dossier.lightingTurnSignal,
+        lightingRearOutlineMarker: dossier.lightingRearOutlineMarker,
+        lightingFrontOutlineMarker: dossier.lightingFrontOutlineMarker,
+        lightingPlate: dossier.lightingPlate,
+        lightingReverse: dossier.lightingReverse,
+        lightingFog: dossier.lightingFog,
+      },
+    });
+    fileName = `Registro_COP_${dossier.number}.pdf`;
   } else {
     return { message: `${DOCUMENT_LABELS[type]} todavía no está disponible.` };
   }

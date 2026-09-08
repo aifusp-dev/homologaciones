@@ -181,3 +181,18 @@ export type LightingMaterialChecklist = Prisma.LightingMaterialChecklistModel
  * 
  */
 export type RegulatoryActNumbers = Prisma.RegulatoryActNumbersModel
+/**
+ * Model CopCoverSheet
+ * 
+ */
+export type CopCoverSheet = Prisma.CopCoverSheetModel
+/**
+ * Model RegistrationPlates
+ * 
+ */
+export type RegistrationPlates = Prisma.RegistrationPlatesModel
+/**
+ * Model PlatesInscriptions
+ * 
+ */
+export type PlatesInscriptions = Prisma.PlatesInscriptionsModel

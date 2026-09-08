@@ -119,6 +119,9 @@ model Dossier {
 
   lightingMaterialChecklist LightingMaterialChecklist?
   regulatoryActNumbers      RegulatoryActNumbers?
+  copCoverSheet             CopCoverSheet?
+  registrationPlates        RegistrationPlates?
+  platesInscriptions        PlatesInscriptions?
 
   @@unique([companyId, number])
   @@index([companyId])
@@ -2115,4 +2118,97 @@ model RegulatoryActNumbers {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("regulatory_act_numbers")
+}
+
+// ---------------------------------------------------------------------
+// Fase 5 (parcial): 3 tablas de apoyo para Registro COP, mismo patrón
+// manual sin cálculos. Solo lo que no vivía ya en Coc/Bodywork —
+// Ubicación del VIN y de las placas de fabricante ya estaban portadas
+// (Coc.vinLocation/platesLocation, Bodywork.finalStagePlateLocation), la
+// plantilla del documento las reusa directamente en vez de duplicarlas.
+// ---------------------------------------------------------------------
+
+// Portada del Registro COP — sin tabla de origen directa en FileMaker (los
+// datos de operario/fecha se escribían a mano en el propio PDF cada vez).
+model CopCoverSheet {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// Operario que realiza la toma de datos
+  dataCollectionOperator String?
+
+  /// Fecha de toma de datos
+  dataCollectionDate String?
+
+  /// Fecha última revisión equipos de medida
+  measurementEquipmentReviewDate String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("cop_cover_sheets")
+}
+
+// "Placas de matrícula" — antes tabla MATRICULA.
+model RegistrationPlates {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// MATRICULA::Altura_borde_inferior
+  heightEdgeLower Float?
+
+  /// MATRICULA::Altura_borde_superior
+  heightEdgeUpper Float?
+
+  /// MATRICULA::Dimensiones_emplazamiento
+  locationDimensions String?
+
+  /// MATRICULA::Emplazamiento_plano_longitudinal
+  longitudinalPlaneLocation String?
+
+  /// MATRICULA::Angulo_suelo_vertical
+  verticalAngleGround String?
+
+  /// MATRICULA::Angulo_vision_vertical
+  verticalVisionAngle String?
+
+  /// MATRICULA::Angulo_vision_horizontal
+  horizontalVisionAngle String?
+
+  /// MATRICULA::Fecha_inspeccion
+  inspectionDate String?
+
+  /// MATRICULA::Equipo_medida
+  measurementEquipment String?
+
+  /// MATRICULA::Observaciones_matricula
+  notes String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("registration_plates")
+}
+
+// "Placas e inscripciones" — antes tabla Placas_INSCRIPCIONES. La
+// ubicación del VIN y de la placa de fabricante de 1ª/2ª fase NO se
+// repiten aquí — ya viven en Coc.vinLocation/platesLocation y
+// Bodywork.finalStagePlateLocation, la plantilla las reusa directamente.
+model PlatesInscriptions {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// Placas_INSCRIPCIONES::Tipo_placa
+  plateType String?
+
+  /// Placas_INSCRIPCIONES::Contenido_placa
+  plateContent String?
+
+  /// Placas_INSCRIPCIONES::Altura_caracteres_placa
+  characterHeight String?
+
+  /// Placas_INSCRIPCIONES::Observaciones
+  notes String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("plates_inscriptions")
 }
