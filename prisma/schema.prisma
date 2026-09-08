@@ -122,6 +122,7 @@ model Dossier {
   bodywork         Bodywork?
   massesDimensions MassesDimensions?
   documents        GeneratedDocument[]
+  attachmentFolders AttachmentFolder[]
 
   couplingDevice               CouplingDevice?
   spraySuppression             SpraySuppression?
@@ -175,6 +176,38 @@ model GeneratedDocument {
 
   @@index([dossierId])
   @@map("generated_documents")
+}
+
+// Almacén libre por expediente, sin lógica de homologación — carpetas que el
+// propio taller crea para guardar evidencias (fotos, etc.) y cualquier otro
+// archivo suelto. Mismo volumen persistente que GeneratedDocument/HReport,
+// ver src/lib/storage.ts.
+model AttachmentFolder {
+  id        String   @id @default(cuid())
+  dossierId String
+  name      String
+  createdAt DateTime @default(now())
+
+  dossier     Dossier      @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+  attachments Attachment[]
+
+  @@index([dossierId])
+  @@map("attachment_folders")
+}
+
+model Attachment {
+  id        String   @id @default(cuid())
+  folderId  String
+  fileName  String
+  filePath  String
+  fileSize  Int
+  mimeType  String
+  createdAt DateTime @default(now())
+
+  folder AttachmentFolder @relation(fields: [folderId], references: [id], onDelete: Cascade)
+
+  @@index([folderId])
+  @@map("attachments")
 }
 
 // "Cliente" — antes tabla CLIENTE.

@@ -48,6 +48,16 @@ export type Dossier = Prisma.DossierModel
  */
 export type GeneratedDocument = Prisma.GeneratedDocumentModel
 /**
+ * Model AttachmentFolder
+ * 
+ */
+export type AttachmentFolder = Prisma.AttachmentFolderModel
+/**
+ * Model Attachment
+ * 
+ */
+export type Attachment = Prisma.AttachmentModel
+/**
  * Model Customer
  * 
  */

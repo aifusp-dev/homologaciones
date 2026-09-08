@@ -403,6 +403,8 @@ export const ModelName = {
   Invitation: 'Invitation',
   Dossier: 'Dossier',
   GeneratedDocument: 'GeneratedDocument',
+  AttachmentFolder: 'AttachmentFolder',
+  Attachment: 'Attachment',
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
@@ -445,7 +447,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
+    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -890,6 +892,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GeneratedDocumentCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GeneratedDocumentCountAggregateOutputType> | number
+        }
+      }
+    }
+    AttachmentFolder: {
+      payload: Prisma.$AttachmentFolderPayload<ExtArgs>
+      fields: Prisma.AttachmentFolderFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AttachmentFolderFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AttachmentFolderFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        findFirst: {
+          args: Prisma.AttachmentFolderFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AttachmentFolderFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        findMany: {
+          args: Prisma.AttachmentFolderFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>[]
+        }
+        create: {
+          args: Prisma.AttachmentFolderCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        createMany: {
+          args: Prisma.AttachmentFolderCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AttachmentFolderCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>[]
+        }
+        delete: {
+          args: Prisma.AttachmentFolderDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        update: {
+          args: Prisma.AttachmentFolderUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        deleteMany: {
+          args: Prisma.AttachmentFolderDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AttachmentFolderUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AttachmentFolderUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>[]
+        }
+        upsert: {
+          args: Prisma.AttachmentFolderUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentFolderPayload>
+        }
+        aggregate: {
+          args: Prisma.AttachmentFolderAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAttachmentFolder>
+        }
+        groupBy: {
+          args: Prisma.AttachmentFolderGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AttachmentFolderGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AttachmentFolderCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AttachmentFolderCountAggregateOutputType> | number
+        }
+      }
+    }
+    Attachment: {
+      payload: Prisma.$AttachmentPayload<ExtArgs>
+      fields: Prisma.AttachmentFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AttachmentFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AttachmentFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        findFirst: {
+          args: Prisma.AttachmentFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AttachmentFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        findMany: {
+          args: Prisma.AttachmentFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>[]
+        }
+        create: {
+          args: Prisma.AttachmentCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        createMany: {
+          args: Prisma.AttachmentCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AttachmentCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>[]
+        }
+        delete: {
+          args: Prisma.AttachmentDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        update: {
+          args: Prisma.AttachmentUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        deleteMany: {
+          args: Prisma.AttachmentDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AttachmentUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AttachmentUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>[]
+        }
+        upsert: {
+          args: Prisma.AttachmentUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AttachmentPayload>
+        }
+        aggregate: {
+          args: Prisma.AttachmentAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAttachment>
+        }
+        groupBy: {
+          args: Prisma.AttachmentGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AttachmentGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AttachmentCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AttachmentCountAggregateOutputType> | number
         }
       }
     }
@@ -3003,6 +3153,29 @@ export const GeneratedDocumentScalarFieldEnum = {
 export type GeneratedDocumentScalarFieldEnum = (typeof GeneratedDocumentScalarFieldEnum)[keyof typeof GeneratedDocumentScalarFieldEnum]
 
 
+export const AttachmentFolderScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  name: 'name',
+  createdAt: 'createdAt'
+} as const
+
+export type AttachmentFolderScalarFieldEnum = (typeof AttachmentFolderScalarFieldEnum)[keyof typeof AttachmentFolderScalarFieldEnum]
+
+
+export const AttachmentScalarFieldEnum = {
+  id: 'id',
+  folderId: 'folderId',
+  fileName: 'fileName',
+  filePath: 'filePath',
+  fileSize: 'fileSize',
+  mimeType: 'mimeType',
+  createdAt: 'createdAt'
+} as const
+
+export type AttachmentScalarFieldEnum = (typeof AttachmentScalarFieldEnum)[keyof typeof AttachmentScalarFieldEnum]
+
+
 export const CustomerScalarFieldEnum = {
   id: 'id',
   dossierId: 'dossierId',
@@ -4100,6 +4273,8 @@ export type GlobalOmitConfig = {
   invitation?: Prisma.InvitationOmit
   dossier?: Prisma.DossierOmit
   generatedDocument?: Prisma.GeneratedDocumentOmit
+  attachmentFolder?: Prisma.AttachmentFolderOmit
+  attachment?: Prisma.AttachmentOmit
   customer?: Prisma.CustomerOmit
   dealer?: Prisma.DealerOmit
   coc?: Prisma.CocOmit

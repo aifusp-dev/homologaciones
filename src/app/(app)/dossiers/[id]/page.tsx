@@ -18,6 +18,7 @@ import { CocForm } from "./coc-form";
 import { BodyworkForm } from "./bodywork-form";
 import { MassesForm } from "./masses-form";
 import { DocumentsSection } from "./documents-section";
+import { AttachmentsSection } from "./attachments-section";
 import { DevicesSection } from "./devices-section";
 import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
@@ -37,6 +38,10 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       bodywork: true,
       massesDimensions: true,
       documents: { orderBy: { createdAt: "desc" } },
+      attachmentFolders: {
+        orderBy: { createdAt: "asc" },
+        include: { attachments: { orderBy: { createdAt: "desc" } } },
+      },
       couplingDevice: true,
       spraySuppression: true,
       electromagneticCompatibility: true,
@@ -312,7 +317,12 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       id: "documentos",
       label: "Documentos",
       icon: <FileText size={16} strokeWidth={1.9} className="shrink-0" />,
-      content: <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />,
+      content: (
+        <div className="space-y-6">
+          <DocumentsSection dossierId={dossier.id} documents={dossier.documents} />
+          <AttachmentsSection dossierId={dossier.id} folders={dossier.attachmentFolders} />
+        </div>
+      ),
     },
   ];
 

@@ -57,6 +57,8 @@ export const ModelName = {
   Invitation: 'Invitation',
   Dossier: 'Dossier',
   GeneratedDocument: 'GeneratedDocument',
+  AttachmentFolder: 'AttachmentFolder',
+  Attachment: 'Attachment',
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
@@ -173,6 +175,29 @@ export const GeneratedDocumentScalarFieldEnum = {
 } as const
 
 export type GeneratedDocumentScalarFieldEnum = (typeof GeneratedDocumentScalarFieldEnum)[keyof typeof GeneratedDocumentScalarFieldEnum]
+
+
+export const AttachmentFolderScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  name: 'name',
+  createdAt: 'createdAt'
+} as const
+
+export type AttachmentFolderScalarFieldEnum = (typeof AttachmentFolderScalarFieldEnum)[keyof typeof AttachmentFolderScalarFieldEnum]
+
+
+export const AttachmentScalarFieldEnum = {
+  id: 'id',
+  folderId: 'folderId',
+  fileName: 'fileName',
+  filePath: 'filePath',
+  fileSize: 'fileSize',
+  mimeType: 'mimeType',
+  createdAt: 'createdAt'
+} as const
+
+export type AttachmentScalarFieldEnum = (typeof AttachmentScalarFieldEnum)[keyof typeof AttachmentScalarFieldEnum]
 
 
 export const CustomerScalarFieldEnum = {
