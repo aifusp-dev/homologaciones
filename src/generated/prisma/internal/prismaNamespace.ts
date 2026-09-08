@@ -399,6 +399,7 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Company: 'Company',
   User: 'User',
+  LoginToken: 'LoginToken',
   Invitation: 'Invitation',
   Dossier: 'Dossier',
   GeneratedDocument: 'GeneratedDocument',
@@ -443,7 +444,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
+    modelProps: "company" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -592,6 +593,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.UserCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.UserCountAggregateOutputType> | number
+        }
+      }
+    }
+    LoginToken: {
+      payload: Prisma.$LoginTokenPayload<ExtArgs>
+      fields: Prisma.LoginTokenFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LoginTokenFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LoginTokenFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        findFirst: {
+          args: Prisma.LoginTokenFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LoginTokenFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        findMany: {
+          args: Prisma.LoginTokenFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>[]
+        }
+        create: {
+          args: Prisma.LoginTokenCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        createMany: {
+          args: Prisma.LoginTokenCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LoginTokenCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>[]
+        }
+        delete: {
+          args: Prisma.LoginTokenDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        update: {
+          args: Prisma.LoginTokenUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        deleteMany: {
+          args: Prisma.LoginTokenDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LoginTokenUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LoginTokenUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>[]
+        }
+        upsert: {
+          args: Prisma.LoginTokenUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LoginTokenPayload>
+        }
+        aggregate: {
+          args: Prisma.LoginTokenAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLoginToken>
+        }
+        groupBy: {
+          args: Prisma.LoginTokenGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LoginTokenGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LoginTokenCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LoginTokenCountAggregateOutputType> | number
         }
       }
     }
@@ -2806,6 +2881,18 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+export const LoginTokenScalarFieldEnum = {
+  id: 'id',
+  email: 'email',
+  tokenHash: 'tokenHash',
+  expiresAt: 'expiresAt',
+  consumedAt: 'consumedAt',
+  createdAt: 'createdAt'
+} as const
+
+export type LoginTokenScalarFieldEnum = (typeof LoginTokenScalarFieldEnum)[keyof typeof LoginTokenScalarFieldEnum]
+
+
 export const InvitationScalarFieldEnum = {
   id: 'id',
   companyId: 'companyId',
@@ -3905,6 +3992,7 @@ export type PrismaClientOptions = PrismaClientOptionsWithAccelerateUrl | PrismaC
 export type GlobalOmitConfig = {
   company?: Prisma.CompanyOmit
   user?: Prisma.UserOmit
+  loginToken?: Prisma.LoginTokenOmit
   invitation?: Prisma.InvitationOmit
   dossier?: Prisma.DossierOmit
   generatedDocument?: Prisma.GeneratedDocumentOmit

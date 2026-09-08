@@ -387,10 +387,6 @@ export type InvitationUncheckedUpdateManyWithoutCompanyNestedInput = {
   deleteMany?: Prisma.InvitationScalarWhereInput | Prisma.InvitationScalarWhereInput[]
 }
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
-}
-
 export type InvitationCreateWithoutCompanyInput = {
   id?: string
   email: string

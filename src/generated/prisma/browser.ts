@@ -28,6 +28,11 @@ export type Company = Prisma.CompanyModel
  */
 export type User = Prisma.UserModel
 /**
+ * Model LoginToken
+ * 
+ */
+export type LoginToken = Prisma.LoginTokenModel
+/**
  * Model Invitation
  * 
  */

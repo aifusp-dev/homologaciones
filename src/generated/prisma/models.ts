@@ -10,6 +10,7 @@
  */
 export type * from './models/Company'
 export type * from './models/User'
+export type * from './models/LoginToken'
 export type * from './models/Invitation'
 export type * from './models/Dossier'
 export type * from './models/GeneratedDocument'
