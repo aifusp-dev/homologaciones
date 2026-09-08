@@ -58,7 +58,8 @@ export const ModelName = {
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
-  Bodywork: 'Bodywork'
+  Bodywork: 'Bodywork',
+  MassesDimensions: 'MassesDimensions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -360,6 +361,62 @@ export const BodyworkScalarFieldEnum = {
 } as const
 
 export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
+
+
+export const MassesDimensionsScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  firstAxleToBodyDistance: 'firstAxleToBodyDistance',
+  frontOverhang: 'frontOverhang',
+  maxVehicleWidth: 'maxVehicleWidth',
+  maxHeightFromGround: 'maxHeightFromGround',
+  reeferUnitCentreOfGravity: 'reeferUnitCentreOfGravity',
+  reeferUnitMass: 'reeferUnitMass',
+  liftPlatformCentreOfGravity: 'liftPlatformCentreOfGravity',
+  liftPlatformMass: 'liftPlatformMass',
+  hookCentreOfGravity: 'hookCentreOfGravity',
+  couplingPointMass: 'couplingPointMass',
+  seatsCentreOfGravity: 'seatsCentreOfGravity',
+  seatsMass: 'seatsMass',
+  seats2Mass: 'seats2Mass',
+  seats2CentreOfGravity: 'seats2CentreOfGravity',
+  fuelCentreOfGravity: 'fuelCentreOfGravity',
+  fuelCapacity: 'fuelCapacity',
+  chassisCabTareAxle1: 'chassisCabTareAxle1',
+  chassisCabTareAxle2: 'chassisCabTareAxle2',
+  tareAxle1: 'tareAxle1',
+  tareAxle2: 'tareAxle2',
+  tareAxle3: 'tareAxle3',
+  centreAxleTrailerMass: 'centreAxleTrailerMass',
+  semiTrailerTotalLength: 'semiTrailerTotalLength',
+  semiTrailerBodyLength: 'semiTrailerBodyLength',
+  semiTrailerTare: 'semiTrailerTare',
+  theoreticalBodyTare: 'theoreticalBodyTare',
+  chassisWeighbridgeTareAxle1: 'chassisWeighbridgeTareAxle1',
+  chassisWeighbridgeTareAxle2: 'chassisWeighbridgeTareAxle2',
+  legacyUnusedNote: 'legacyUnusedNote',
+  craneCentreOfGravity: 'craneCentreOfGravity',
+  craneMass: 'craneMass',
+  copRemarks: 'copRemarks',
+  craneBoxCentreOfGravity: 'craneBoxCentreOfGravity',
+  boxMass: 'boxMass',
+  semiTrailer3AxleVd: 'semiTrailer3AxleVd',
+  semiTrailer3AxleVdAccessory: 'semiTrailer3AxleVdAccessory',
+  semiTrailer3AxleMaxPermissibleVd: 'semiTrailer3AxleMaxPermissibleVd',
+  semiTrailer3AxleVp: 'semiTrailer3AxleVp',
+  semiTrailer3AxleLt: 'semiTrailer3AxleLt',
+  semiTrailer3AxleLc: 'semiTrailer3AxleLc',
+  semiTrailer3AxleBodyWeight: 'semiTrailer3AxleBodyWeight',
+  semiTrailer3AxleTareWithBody: 'semiTrailer3AxleTareWithBody',
+  semiTrailer3AxleChassisCgHeight: 'semiTrailer3AxleChassisCgHeight',
+  semiTrailer3AxleCompletedCgHeight: 'semiTrailer3AxleCompletedCgHeight',
+  semiTrailer3AxleMinCompletedCgHeight: 'semiTrailer3AxleMinCompletedCgHeight',
+  semiTrailer3AxleCoveredFloorArea: 'semiTrailer3AxleCoveredFloorArea',
+  semiTrailer3AxleMmaCouplingPoint: 'semiTrailer3AxleMmaCouplingPoint',
+  semiTrailer3AxleMmaCouplingPointRequested: 'semiTrailer3AxleMmaCouplingPointRequested'
+} as const
+
+export type MassesDimensionsScalarFieldEnum = (typeof MassesDimensionsScalarFieldEnum)[keyof typeof MassesDimensionsScalarFieldEnum]
 
 
 export const SortOrder = {

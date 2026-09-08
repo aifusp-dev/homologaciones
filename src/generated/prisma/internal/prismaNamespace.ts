@@ -404,7 +404,8 @@ export const ModelName = {
   Customer: 'Customer',
   Dealer: 'Dealer',
   Coc: 'Coc',
-  Bodywork: 'Bodywork'
+  Bodywork: 'Bodywork',
+  MassesDimensions: 'MassesDimensions'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -420,7 +421,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "customer" | "dealer" | "coc" | "bodywork"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1016,6 +1017,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    MassesDimensions: {
+      payload: Prisma.$MassesDimensionsPayload<ExtArgs>
+      fields: Prisma.MassesDimensionsFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.MassesDimensionsFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.MassesDimensionsFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        findFirst: {
+          args: Prisma.MassesDimensionsFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.MassesDimensionsFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        findMany: {
+          args: Prisma.MassesDimensionsFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>[]
+        }
+        create: {
+          args: Prisma.MassesDimensionsCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        createMany: {
+          args: Prisma.MassesDimensionsCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.MassesDimensionsCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>[]
+        }
+        delete: {
+          args: Prisma.MassesDimensionsDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        update: {
+          args: Prisma.MassesDimensionsUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        deleteMany: {
+          args: Prisma.MassesDimensionsDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.MassesDimensionsUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.MassesDimensionsUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>[]
+        }
+        upsert: {
+          args: Prisma.MassesDimensionsUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$MassesDimensionsPayload>
+        }
+        aggregate: {
+          args: Prisma.MassesDimensionsAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateMassesDimensions>
+        }
+        groupBy: {
+          args: Prisma.MassesDimensionsGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MassesDimensionsGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.MassesDimensionsCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.MassesDimensionsCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1340,6 +1415,62 @@ export const BodyworkScalarFieldEnum = {
 export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
 
 
+export const MassesDimensionsScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  firstAxleToBodyDistance: 'firstAxleToBodyDistance',
+  frontOverhang: 'frontOverhang',
+  maxVehicleWidth: 'maxVehicleWidth',
+  maxHeightFromGround: 'maxHeightFromGround',
+  reeferUnitCentreOfGravity: 'reeferUnitCentreOfGravity',
+  reeferUnitMass: 'reeferUnitMass',
+  liftPlatformCentreOfGravity: 'liftPlatformCentreOfGravity',
+  liftPlatformMass: 'liftPlatformMass',
+  hookCentreOfGravity: 'hookCentreOfGravity',
+  couplingPointMass: 'couplingPointMass',
+  seatsCentreOfGravity: 'seatsCentreOfGravity',
+  seatsMass: 'seatsMass',
+  seats2Mass: 'seats2Mass',
+  seats2CentreOfGravity: 'seats2CentreOfGravity',
+  fuelCentreOfGravity: 'fuelCentreOfGravity',
+  fuelCapacity: 'fuelCapacity',
+  chassisCabTareAxle1: 'chassisCabTareAxle1',
+  chassisCabTareAxle2: 'chassisCabTareAxle2',
+  tareAxle1: 'tareAxle1',
+  tareAxle2: 'tareAxle2',
+  tareAxle3: 'tareAxle3',
+  centreAxleTrailerMass: 'centreAxleTrailerMass',
+  semiTrailerTotalLength: 'semiTrailerTotalLength',
+  semiTrailerBodyLength: 'semiTrailerBodyLength',
+  semiTrailerTare: 'semiTrailerTare',
+  theoreticalBodyTare: 'theoreticalBodyTare',
+  chassisWeighbridgeTareAxle1: 'chassisWeighbridgeTareAxle1',
+  chassisWeighbridgeTareAxle2: 'chassisWeighbridgeTareAxle2',
+  legacyUnusedNote: 'legacyUnusedNote',
+  craneCentreOfGravity: 'craneCentreOfGravity',
+  craneMass: 'craneMass',
+  copRemarks: 'copRemarks',
+  craneBoxCentreOfGravity: 'craneBoxCentreOfGravity',
+  boxMass: 'boxMass',
+  semiTrailer3AxleVd: 'semiTrailer3AxleVd',
+  semiTrailer3AxleVdAccessory: 'semiTrailer3AxleVdAccessory',
+  semiTrailer3AxleMaxPermissibleVd: 'semiTrailer3AxleMaxPermissibleVd',
+  semiTrailer3AxleVp: 'semiTrailer3AxleVp',
+  semiTrailer3AxleLt: 'semiTrailer3AxleLt',
+  semiTrailer3AxleLc: 'semiTrailer3AxleLc',
+  semiTrailer3AxleBodyWeight: 'semiTrailer3AxleBodyWeight',
+  semiTrailer3AxleTareWithBody: 'semiTrailer3AxleTareWithBody',
+  semiTrailer3AxleChassisCgHeight: 'semiTrailer3AxleChassisCgHeight',
+  semiTrailer3AxleCompletedCgHeight: 'semiTrailer3AxleCompletedCgHeight',
+  semiTrailer3AxleMinCompletedCgHeight: 'semiTrailer3AxleMinCompletedCgHeight',
+  semiTrailer3AxleCoveredFloorArea: 'semiTrailer3AxleCoveredFloorArea',
+  semiTrailer3AxleMmaCouplingPoint: 'semiTrailer3AxleMmaCouplingPoint',
+  semiTrailer3AxleMmaCouplingPointRequested: 'semiTrailer3AxleMmaCouplingPointRequested'
+} as const
+
+export type MassesDimensionsScalarFieldEnum = (typeof MassesDimensionsScalarFieldEnum)[keyof typeof MassesDimensionsScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1605,6 +1736,7 @@ export type GlobalOmitConfig = {
   dealer?: Prisma.DealerOmit
   coc?: Prisma.CocOmit
   bodywork?: Prisma.BodyworkOmit
+  massesDimensions?: Prisma.MassesDimensionsOmit
 }
 
 /* Types for Logging */

@@ -81,3 +81,8 @@ export type Coc = Prisma.CocModel
  * 
  */
 export type Bodywork = Prisma.BodyworkModel
+/**
+ * Model MassesDimensions
+ * 
+ */
+export type MassesDimensions = Prisma.MassesDimensionsModel

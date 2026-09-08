@@ -187,6 +187,7 @@ export type DossierWhereInput = {
   dealer?: Prisma.XOR<Prisma.DealerNullableScalarRelationFilter, Prisma.DealerWhereInput> | null
   coc?: Prisma.XOR<Prisma.CocNullableScalarRelationFilter, Prisma.CocWhereInput> | null
   bodywork?: Prisma.XOR<Prisma.BodyworkNullableScalarRelationFilter, Prisma.BodyworkWhereInput> | null
+  massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
 }
 
 export type DossierOrderByWithRelationInput = {
@@ -200,6 +201,7 @@ export type DossierOrderByWithRelationInput = {
   dealer?: Prisma.DealerOrderByWithRelationInput
   coc?: Prisma.CocOrderByWithRelationInput
   bodywork?: Prisma.BodyworkOrderByWithRelationInput
+  massesDimensions?: Prisma.MassesDimensionsOrderByWithRelationInput
 }
 
 export type DossierWhereUniqueInput = Prisma.AtLeast<{
@@ -217,6 +219,7 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   dealer?: Prisma.XOR<Prisma.DealerNullableScalarRelationFilter, Prisma.DealerWhereInput> | null
   coc?: Prisma.XOR<Prisma.CocNullableScalarRelationFilter, Prisma.CocWhereInput> | null
   bodywork?: Prisma.XOR<Prisma.BodyworkNullableScalarRelationFilter, Prisma.BodyworkWhereInput> | null
+  massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
 }, "id" | "companyId_number">
 
 export type DossierOrderByWithAggregationInput = {
@@ -251,6 +254,7 @@ export type DossierCreateInput = {
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateInput = {
@@ -263,6 +267,7 @@ export type DossierUncheckedCreateInput = {
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUpdateInput = {
@@ -275,6 +280,7 @@ export type DossierUpdateInput = {
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateInput = {
@@ -287,6 +293,7 @@ export type DossierUncheckedUpdateInput = {
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyInput = {
@@ -454,6 +461,20 @@ export type DossierUpdateOneRequiredWithoutBodyworkNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutBodyworkInput, Prisma.DossierUpdateWithoutBodyworkInput>, Prisma.DossierUncheckedUpdateWithoutBodyworkInput>
 }
 
+export type DossierCreateNestedOneWithoutMassesDimensionsInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutMassesDimensionsInput, Prisma.DossierUncheckedCreateWithoutMassesDimensionsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutMassesDimensionsInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutMassesDimensionsNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutMassesDimensionsInput, Prisma.DossierUncheckedCreateWithoutMassesDimensionsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutMassesDimensionsInput
+  upsert?: Prisma.DossierUpsertWithoutMassesDimensionsInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutMassesDimensionsInput, Prisma.DossierUpdateWithoutMassesDimensionsInput>, Prisma.DossierUncheckedUpdateWithoutMassesDimensionsInput>
+}
+
 export type DossierCreateWithoutCompanyInput = {
   id?: string
   number: string
@@ -463,6 +484,7 @@ export type DossierCreateWithoutCompanyInput = {
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCompanyInput = {
@@ -474,6 +496,7 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCompanyInput = {
@@ -522,6 +545,7 @@ export type DossierCreateWithoutCustomerInput = {
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCustomerInput = {
@@ -533,6 +557,7 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCustomerInput = {
@@ -560,6 +585,7 @@ export type DossierUpdateWithoutCustomerInput = {
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCustomerInput = {
@@ -571,6 +597,7 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutDealerInput = {
@@ -582,6 +609,7 @@ export type DossierCreateWithoutDealerInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutDealerInput = {
@@ -593,6 +621,7 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutDealerInput = {
@@ -620,6 +649,7 @@ export type DossierUpdateWithoutDealerInput = {
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutDealerInput = {
@@ -631,6 +661,7 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCocInput = {
@@ -642,6 +673,7 @@ export type DossierCreateWithoutCocInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCocInput = {
@@ -653,6 +685,7 @@ export type DossierUncheckedCreateWithoutCocInput = {
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCocInput = {
@@ -680,6 +713,7 @@ export type DossierUpdateWithoutCocInput = {
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCocInput = {
@@ -691,6 +725,7 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutBodyworkInput = {
@@ -702,6 +737,7 @@ export type DossierCreateWithoutBodyworkInput = {
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutBodyworkInput = {
@@ -713,6 +749,7 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutBodyworkInput = {
@@ -740,6 +777,7 @@ export type DossierUpdateWithoutBodyworkInput = {
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutBodyworkInput = {
@@ -751,6 +789,71 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutMassesDimensionsInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutMassesDimensionsInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutMassesDimensionsInput, Prisma.DossierUncheckedCreateWithoutMassesDimensionsInput>
+}
+
+export type DossierUpsertWithoutMassesDimensionsInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutMassesDimensionsInput, Prisma.DossierUncheckedUpdateWithoutMassesDimensionsInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutMassesDimensionsInput, Prisma.DossierUncheckedCreateWithoutMassesDimensionsInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutMassesDimensionsInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutMassesDimensionsInput, Prisma.DossierUncheckedUpdateWithoutMassesDimensionsInput>
+}
+
+export type DossierUpdateWithoutMassesDimensionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyCompanyInput = {
@@ -769,6 +872,7 @@ export type DossierUpdateWithoutCompanyInput = {
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCompanyInput = {
@@ -780,6 +884,7 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateManyWithoutCompanyInput = {
@@ -802,6 +907,7 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   dealer?: boolean | Prisma.Dossier$dealerArgs<ExtArgs>
   coc?: boolean | Prisma.Dossier$cocArgs<ExtArgs>
   bodywork?: boolean | Prisma.Dossier$bodyworkArgs<ExtArgs>
+  massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
 export type DossierSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -837,6 +943,7 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   dealer?: boolean | Prisma.Dossier$dealerArgs<ExtArgs>
   coc?: boolean | Prisma.Dossier$cocArgs<ExtArgs>
   bodywork?: boolean | Prisma.Dossier$bodyworkArgs<ExtArgs>
+  massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
 }
 export type DossierIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
@@ -853,6 +960,7 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     dealer: Prisma.$DealerPayload<ExtArgs> | null
     coc: Prisma.$CocPayload<ExtArgs> | null
     bodywork: Prisma.$BodyworkPayload<ExtArgs> | null
+    massesDimensions: Prisma.$MassesDimensionsPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1263,6 +1371,7 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   dealer<T extends Prisma.Dossier$dealerArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$dealerArgs<ExtArgs>>): Prisma.Prisma__DealerClient<runtime.Types.Result.GetResult<Prisma.$DealerPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   coc<T extends Prisma.Dossier$cocArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$cocArgs<ExtArgs>>): Prisma.Prisma__CocClient<runtime.Types.Result.GetResult<Prisma.$CocPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   bodywork<T extends Prisma.Dossier$bodyworkArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$bodyworkArgs<ExtArgs>>): Prisma.Prisma__BodyworkClient<runtime.Types.Result.GetResult<Prisma.$BodyworkPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  massesDimensions<T extends Prisma.Dossier$massesDimensionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$massesDimensionsArgs<ExtArgs>>): Prisma.Prisma__MassesDimensionsClient<runtime.Types.Result.GetResult<Prisma.$MassesDimensionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1771,6 +1880,25 @@ export type Dossier$bodyworkArgs<ExtArgs extends runtime.Types.Extensions.Intern
    */
   include?: Prisma.BodyworkInclude<ExtArgs> | null
   where?: Prisma.BodyworkWhereInput
+}
+
+/**
+ * Dossier.massesDimensions
+ */
+export type Dossier$massesDimensionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MassesDimensions
+   */
+  select?: Prisma.MassesDimensionsSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MassesDimensions
+   */
+  omit?: Prisma.MassesDimensionsOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MassesDimensionsInclude<ExtArgs> | null
+  where?: Prisma.MassesDimensionsWhereInput
 }
 
 /**

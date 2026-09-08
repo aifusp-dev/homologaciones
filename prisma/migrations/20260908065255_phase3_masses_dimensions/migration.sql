@@ -1,0 +1,61 @@
+-- CreateTable
+CREATE TABLE "masses_dimensions" (
+    "id" TEXT NOT NULL,
+    "dossierId" TEXT NOT NULL,
+    "firstAxleToBodyDistance" DOUBLE PRECISION,
+    "frontOverhang" DOUBLE PRECISION,
+    "maxVehicleWidth" DOUBLE PRECISION,
+    "maxHeightFromGround" DOUBLE PRECISION,
+    "reeferUnitCentreOfGravity" DOUBLE PRECISION,
+    "reeferUnitMass" DOUBLE PRECISION,
+    "liftPlatformCentreOfGravity" DOUBLE PRECISION,
+    "liftPlatformMass" DOUBLE PRECISION,
+    "hookCentreOfGravity" DOUBLE PRECISION,
+    "couplingPointMass" DOUBLE PRECISION,
+    "seatsCentreOfGravity" DOUBLE PRECISION,
+    "seatsMass" DOUBLE PRECISION,
+    "seats2Mass" DOUBLE PRECISION,
+    "seats2CentreOfGravity" DOUBLE PRECISION,
+    "fuelCentreOfGravity" DOUBLE PRECISION,
+    "fuelCapacity" DOUBLE PRECISION,
+    "chassisCabTareAxle1" DOUBLE PRECISION,
+    "chassisCabTareAxle2" DOUBLE PRECISION,
+    "tareAxle1" DOUBLE PRECISION,
+    "tareAxle2" DOUBLE PRECISION,
+    "tareAxle3" DOUBLE PRECISION,
+    "centreAxleTrailerMass" DOUBLE PRECISION,
+    "semiTrailerTotalLength" DOUBLE PRECISION,
+    "semiTrailerBodyLength" DOUBLE PRECISION,
+    "semiTrailerTare" DOUBLE PRECISION,
+    "theoreticalBodyTare" DOUBLE PRECISION,
+    "chassisWeighbridgeTareAxle1" DOUBLE PRECISION,
+    "chassisWeighbridgeTareAxle2" DOUBLE PRECISION,
+    "legacyUnusedNote" TEXT,
+    "craneCentreOfGravity" DOUBLE PRECISION,
+    "craneMass" DOUBLE PRECISION,
+    "copRemarks" TEXT,
+    "craneBoxCentreOfGravity" DOUBLE PRECISION,
+    "boxMass" DOUBLE PRECISION,
+    "semiTrailer3AxleVd" DOUBLE PRECISION,
+    "semiTrailer3AxleVdAccessory" DOUBLE PRECISION,
+    "semiTrailer3AxleMaxPermissibleVd" DOUBLE PRECISION,
+    "semiTrailer3AxleVp" DOUBLE PRECISION,
+    "semiTrailer3AxleLt" DOUBLE PRECISION,
+    "semiTrailer3AxleLc" DOUBLE PRECISION,
+    "semiTrailer3AxleBodyWeight" DOUBLE PRECISION,
+    "semiTrailer3AxleTareWithBody" DOUBLE PRECISION,
+    "semiTrailer3AxleChassisCgHeight" DOUBLE PRECISION,
+    "semiTrailer3AxleCompletedCgHeight" DOUBLE PRECISION,
+    "semiTrailer3AxleMinCompletedCgHeight" DOUBLE PRECISION,
+    "semiTrailer3AxleCoveredFloorArea" DOUBLE PRECISION,
+    "semiTrailer3AxleMmaCouplingPoint" DOUBLE PRECISION,
+    "semiTrailer3AxleMmaCouplingPointRequested" DOUBLE PRECISION,
+
+    CONSTRAINT "masses_dimensions_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateIndex
+CREATE UNIQUE INDEX "masses_dimensions_dossierId_key" ON "masses_dimensions"("dossierId");
+
+-- AddForeignKey
+ALTER TABLE "masses_dimensions" ADD CONSTRAINT "masses_dimensions_dossierId_fkey" FOREIGN KEY ("dossierId") REFERENCES "dossiers"("id") ON DELETE CASCADE ON UPDATE CASCADE;

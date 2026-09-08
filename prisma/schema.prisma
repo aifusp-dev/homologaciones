@@ -89,11 +89,12 @@ model Dossier {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  company  Company   @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  customer Customer?
-  dealer   Dealer?
-  coc      Coc?
-  bodywork Bodywork?
+  company          Company           @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customer         Customer?
+  dealer           Dealer?
+  coc              Coc?
+  bodywork         Bodywork?
+  massesDimensions MassesDimensions?
 
   @@unique([companyId, number])
   @@index([companyId])
@@ -751,4 +752,175 @@ model Bodywork {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("bodyworks")
+}
+
+// "Masas y dimensiones" — antes tabla MASASYDIMENSIONES. El motor final:
+// cruza los datos de Coc con la tara ya calculada de Bodywork para
+// repartir masas por eje, MMA/MMTA, kingpin y centros de gravedad. Es lo
+// que se firma en la documentación oficial (Ficha Reducida, Registro COP).
+//
+// Cubre 4 configuraciones de vehículo en paralelo, fieles al origen (ver
+// Mejoras #1 del documento de diseño — la normalización a una tabla única
+// "por eje" no se aplicó aquí: las 4 configuraciones no son la misma
+// fórmula parametrizada por número de ejes, tienen lógica de reparto
+// distinta — ver comentario largo al principio de calculations/masses.ts):
+//   - Base (2 ejes, con frío/plataforma/plazas/combustible/gancho)
+//   - 3 ejes + grúa opcional
+//   - Semirremolque O4 (2 ejes)
+//   - Semirremolque O4 de 3 ejes (kingpin)
+//
+// Solo los 48 campos manuales (centros de gravedad, masas y taras de
+// entrada) son columnas — las 234 fórmulas están en
+// src/lib/calculations/masses.ts, ninguna se guarda.
+model MassesDimensions {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// MASASYDIMENSIONES::De_1eje_a_caja
+  firstAxleToBodyDistance Float?
+
+  /// MASASYDIMENSIONES::Voladizo_delantero
+  frontOverhang Float?
+
+  /// MASASYDIMENSIONES::Ancho_maximo_vehículo
+  maxVehicleWidth Float?
+
+  /// MASASYDIMENSIONES::Altura_maxima_desde_el_suelo
+  maxHeightFromGround Float?
+
+  /// MASASYDIMENSIONES::Cdg_maq_frio
+  reeferUnitCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_maq_frio
+  reeferUnitMass Float?
+
+  /// MASASYDIMENSIONES::Cdg_plataforma_elevadora
+  liftPlatformCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_plataforma_elevadora
+  liftPlatformMass Float?
+
+  /// MASASYDIMENSIONES::Cdg_gancho
+  hookCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_punto_acoplamiento
+  couplingPointMass Float?
+
+  /// MASASYDIMENSIONES::Cdg_plazas
+  seatsCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_plazas
+  seatsMass Float?
+
+  /// MASASYDIMENSIONES::Masa_plazas_2
+  seats2Mass Float?
+
+  /// MASASYDIMENSIONES::Cdg_plazas2
+  seats2CentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Cdg_combustible
+  fuelCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Capacidad_combustible
+  fuelCapacity Float?
+
+  /// MASASYDIMENSIONES::Tara_1eje_chasis_cabina
+  chassisCabTareAxle1 Float?
+
+  /// MASASYDIMENSIONES::Tara_2eje_chasis_cabina
+  chassisCabTareAxle2 Float?
+
+  /// MASASYDIMENSIONES::Tara_1_eje
+  tareAxle1 Float?
+
+  /// MASASYDIMENSIONES::Tara_2_eje
+  tareAxle2 Float?
+
+  /// MASASYDIMENSIONES::Tara_3_eje
+  tareAxle3 Float?
+
+  /// MASASYDIMENSIONES::Masa_remolque_ejes_centrales
+  centreAxleTrailerMass Float?
+
+  /// MASASYDIMENSIONES::Largo_total_O4
+  semiTrailerTotalLength Float?
+
+  /// MASASYDIMENSIONES::Largo_carrozado_O4
+  semiTrailerBodyLength Float?
+
+  /// MASASYDIMENSIONES::TARA_O4
+  semiTrailerTare Float?
+
+  /// MASASYDIMENSIONES::Tara_teorica_carrozado
+  theoreticalBodyTare Float?
+
+  /// MASASYDIMENSIONES::Tara_chasiseje1_bascula
+  chassisWeighbridgeTareAxle1 Float?
+
+  /// MASASYDIMENSIONES::Tara_chasis_eje2_bascula
+  chassisWeighbridgeTareAxle2 Float?
+
+  /// MASASYDIMENSIONES::Total_MMTA_eje2_con gancho_menos el valor
+  legacyUnusedNote String?
+
+  /// MASASYDIMENSIONES::Cdg_GRUA
+  craneCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_grua
+  craneMass Float?
+
+  /// MASASYDIMENSIONES::Observaciones_para_RCOP
+  copRemarks String?
+
+  /// MASASYDIMENSIONES::Cdg_cajon_grua
+  craneBoxCentreOfGravity Float?
+
+  /// MASASYDIMENSIONES::Masa_cajon
+  boxMass Float?
+
+  /// MASASYDIMENSIONES::O4semi_3VD
+  semiTrailer3AxleVd Float?
+
+  /// MASASYDIMENSIONES::O4semi3_VD_accesorio
+  semiTrailer3AxleVdAccessory Float?
+
+  /// MASASYDIMENSIONES::O4semi3_VD_maximo_Admisible
+  semiTrailer3AxleMaxPermissibleVd Float?
+
+  /// MASASYDIMENSIONES::O4semi_3VP
+  semiTrailer3AxleVp Float?
+
+  /// MASASYDIMENSIONES::O4semi_3LT
+  semiTrailer3AxleLt Float?
+
+  /// MASASYDIMENSIONES::O4semi_3LC
+  semiTrailer3AxleLc Float?
+
+  /// MASASYDIMENSIONES::O4semi_3_peso_carrozado
+  semiTrailer3AxleBodyWeight Float?
+
+  /// MASASYDIMENSIONES::O4semi_3_tara_con carrozado
+  semiTrailer3AxleTareWithBody Float?
+
+  /// MASASYDIMENSIONES::O4semi3_altura_cdg_chasis
+  semiTrailer3AxleChassisCgHeight Float?
+
+  /// MASASYDIMENSIONES::O4semi3_altura_cdg_completado
+  semiTrailer3AxleCompletedCgHeight Float?
+
+  /// MASASYDIMENSIONES::O4semi3_altura_minima_cdg_completado
+  semiTrailer3AxleMinCompletedCgHeight Float?
+
+  /// MASASYDIMENSIONES::O4semi3_superficie_suelo_cubierta
+  semiTrailer3AxleCoveredFloorArea Float?
+
+  /// MASASYDIMENSIONES::O4semi3_MMApuntoacoplamiento
+  semiTrailer3AxleMmaCouplingPoint Float?
+
+  /// MASASYDIMENSIONES::O4semi3_MMApuntoacoplamiento_solicitado
+  semiTrailer3AxleMmaCouplingPointRequested Float?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("masses_dimensions")
 }
