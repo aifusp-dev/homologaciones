@@ -12,6 +12,7 @@ import { renderReducedDatasheet, tireSpec } from "@/lib/pdf/templates/reducedDat
 import { renderBodyworkCertificatePart2 } from "@/lib/pdf/templates/bodyworkCertificatePart2";
 import { calculateBaseMasses } from "@/lib/calculations/masses";
 import { fiscalHorsepower } from "@/lib/calculations/coc";
+import { detectVehicleConfig } from "@/lib/vehicleConfig";
 import { fmt } from "@/lib/pdf/layout";
 import type { FormState } from "@/lib/definitions";
 import type { DocumentType } from "@/generated/prisma/enums";
@@ -201,10 +202,13 @@ export async function generateDocument(_state: FormState, formData: FormData): P
     });
     fileName = `Orden_Fabricacion_${dossier.number}.pdf`;
   } else if (type === "BODYWORK_CERTIFICATE") {
-    const isSemiTrailer =
-      dossier.coc?.staticKingpinMass != null ||
-      dossier.coc?.kingpinToRearEdgeDistance != null ||
-      (dossier.coc?.vehicleCategory ?? "").toUpperCase().startsWith("O");
+    const vehicleConfig = detectVehicleConfig({
+      axleCount: dossier.coc?.axleCount,
+      staticKingpinMass: dossier.coc?.staticKingpinMass,
+      kingpinToRearEdgeDistance: dossier.coc?.kingpinToRearEdgeDistance,
+      vehicleCategory: dossier.coc?.vehicleCategory,
+    });
+    const isSemiTrailer = vehicleConfig.startsWith("semi");
     html = renderBodyworkCertificate({
       companyName: dossier.company.name,
       logoUrl: dossier.company.logoUrl,

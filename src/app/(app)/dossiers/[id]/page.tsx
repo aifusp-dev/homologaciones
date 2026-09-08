@@ -19,6 +19,8 @@ import { MassesForm } from "./masses-form";
 import { DocumentsSection } from "./documents-section";
 import { DevicesSection } from "./devices-section";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
+import { detectVehicleConfig } from "@/lib/vehicleConfig";
+import type { DiagramData } from "./masses-diagram";
 
 export default async function DossierPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
@@ -150,6 +152,64 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     ...calculateSemiO4ThreeAxleMasses(massesInputs),
   };
 
+  // Sin selector explícito de configuración de vehículo en el modelo (ver
+  // conversación) — se infiere de datos ya reales, centralizado en
+  // detectVehicleConfig() para no duplicar la heurística que ya usan las
+  // plantillas de PDF.
+  const vehicleConfig = detectVehicleConfig({
+    axleCount: dossier.coc?.axleCount,
+    staticKingpinMass: dossier.coc?.staticKingpinMass,
+    kingpinToRearEdgeDistance: dossier.coc?.kingpinToRearEdgeDistance,
+    vehicleCategory: dossier.coc?.vehicleCategory,
+  });
+
+  const VEHICLE_CONFIG_LABEL: Record<typeof vehicleConfig, string> = {
+    base: "Vehículo 2 ejes",
+    triaxle: "Vehículo 3 ejes",
+    semi2: "Semirremolque 2 ejes",
+    semi3: "Semirremolque 3 ejes",
+  };
+
+  const diagramData: DiagramData =
+    vehicleConfig === "semi2" || vehicleConfig === "semi3"
+      ? {
+          totalLength: vehicleConfig === "semi3" ? (m?.semiTrailer3AxleLt ?? null) : (m?.semiTrailerTotalLength ?? null),
+          cargoLength: vehicleConfig === "semi3" ? (m?.semiTrailer3AxleLc ?? null) : (m?.semiTrailerBodyLength ?? null),
+          frontOverhang: null,
+          rearOverhang: null,
+          wheelbase: null,
+          wheelbase2: null,
+          firstAxleToBodyDistance: null,
+          height: m?.maxHeightFromGround ?? null,
+          width: dossier.bodywork?.exteriorWidth ?? null,
+          hasCrane: false,
+        }
+      : {
+          // Para TRIAXLE no hay un totalLength3Axle exportado por el
+          // motor de cálculo (no hacía falta para las 234 fórmulas
+          // originales) — se deriva aquí con la misma suma que usa BASE,
+          // solo que con un tramo de eje más. Puro cálculo de
+          // visualización, no toca calculations/masses.ts.
+          totalLength:
+            vehicleConfig === "triaxle"
+              ? m?.frontOverhang != null &&
+                massesComputed.rearOverhang3Axle != null &&
+                dossier.coc?.axleDistance1to2 != null &&
+                dossier.coc?.axleDistance2to3 != null
+                ? m.frontOverhang + massesComputed.rearOverhang3Axle + dossier.coc.axleDistance1to2 + dossier.coc.axleDistance2to3
+                : null
+              : (massesComputed.totalLength ?? null),
+          frontOverhang: m?.frontOverhang ?? null,
+          rearOverhang: vehicleConfig === "triaxle" ? (massesComputed.rearOverhang3Axle ?? null) : (massesComputed.rearOverhang ?? null),
+          wheelbase: dossier.coc?.axleDistance1to2 ?? null,
+          wheelbase2: vehicleConfig === "triaxle" ? (dossier.coc?.axleDistance2to3 ?? null) : null,
+          firstAxleToBodyDistance: m?.firstAxleToBodyDistance ?? null,
+          cargoLength: dossier.bodywork?.interiorLength ?? dossier.bodywork?.exteriorLength ?? null,
+          height: m?.maxHeightFromGround ?? null,
+          width: dossier.bodywork?.exteriorWidth ?? null,
+          hasCrane: m?.craneMass != null,
+        };
+
   const tabs: DossierTab[] = [
     {
       id: "cliente",
@@ -181,15 +241,14 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       icon: <Scale size={16} strokeWidth={1.9} className="shrink-0" />,
       content: (
         <div className="space-y-3">
-          <p className="text-xs text-ink-faint">Vehículo 2 ejes</p>
+          <p className="text-xs text-ink-faint">{VEHICLE_CONFIG_LABEL[vehicleConfig]}</p>
           <MassesForm
             dossierId={dossier.id}
             masses={dossier.massesDimensions}
             computed={massesComputed}
             axleCount={dossier.coc?.axleCount ?? null}
-            wheelbase={dossier.coc?.axleDistance1to2 ?? null}
-            cargoLength={dossier.bodywork?.interiorLength ?? dossier.bodywork?.exteriorLength ?? null}
-            exteriorWidth={dossier.bodywork?.exteriorWidth ?? null}
+            vehicleConfig={vehicleConfig}
+            diagramData={diagramData}
           />
         </div>
       ),
