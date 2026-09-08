@@ -135,6 +135,7 @@ export const COC_FIELDS: { name: string; label: string; type: CocFieldType; sect
   { name: "specificCo2Emissions", label: "Emisiones especificas CO2", type: "float", section: "medioambiental", clause: "49.5" },
   { name: "remarks", label: "Observaciones", type: "text", section: "varios", clause: "52" },
   { name: "vehicleEquippedWith", label: "Vehiculo equipado con", type: "text", section: "varios", clause: "54" },
+  { name: "seatCount", label: "Número de plazas de asiento", type: "int", section: "ficha_reducida", clause: "42" },
   { name: "gearCount", label: "Número de marchas", type: "text", section: "ficha_reducida", clause: "FR" },
   { name: "frontSuspension", label: "Suspension delantera", type: "text", section: "ficha_reducida", clause: "FR" },
   { name: "rearSuspension", label: "Suspension trasera", type: "text", section: "ficha_reducida", clause: "FR" },

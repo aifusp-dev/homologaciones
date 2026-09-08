@@ -171,3 +171,13 @@ export type LightingReverse = Prisma.LightingReverseModel
  * 
  */
 export type LightingFog = Prisma.LightingFogModel
+/**
+ * Model LightingMaterialChecklist
+ * 
+ */
+export type LightingMaterialChecklist = Prisma.LightingMaterialChecklistModel
+/**
+ * Model RegulatoryActNumbers
+ * 
+ */
+export type RegulatoryActNumbers = Prisma.RegulatoryActNumbersModel

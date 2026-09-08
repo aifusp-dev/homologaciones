@@ -170,6 +170,9 @@ export type BodyworkMinAggregateOutputType = {
   leafSpringReinforcementWeight: number | null
   interiorLight: string | null
   toolBoxSize: string | null
+  finalStagePlateLocation: string | null
+  completedApprovalNumber: string | null
+  completedApprovalDate: string | null
 }
 
 export type BodyworkMaxAggregateOutputType = {
@@ -240,6 +243,9 @@ export type BodyworkMaxAggregateOutputType = {
   leafSpringReinforcementWeight: number | null
   interiorLight: string | null
   toolBoxSize: string | null
+  finalStagePlateLocation: string | null
+  completedApprovalNumber: string | null
+  completedApprovalDate: string | null
 }
 
 export type BodyworkCountAggregateOutputType = {
@@ -310,6 +316,9 @@ export type BodyworkCountAggregateOutputType = {
   leafSpringReinforcementWeight: number
   interiorLight: number
   toolBoxSize: number
+  finalStagePlateLocation: number
+  completedApprovalNumber: number
+  completedApprovalDate: number
   _all: number
 }
 
@@ -458,6 +467,9 @@ export type BodyworkMinAggregateInputType = {
   leafSpringReinforcementWeight?: true
   interiorLight?: true
   toolBoxSize?: true
+  finalStagePlateLocation?: true
+  completedApprovalNumber?: true
+  completedApprovalDate?: true
 }
 
 export type BodyworkMaxAggregateInputType = {
@@ -528,6 +540,9 @@ export type BodyworkMaxAggregateInputType = {
   leafSpringReinforcementWeight?: true
   interiorLight?: true
   toolBoxSize?: true
+  finalStagePlateLocation?: true
+  completedApprovalNumber?: true
+  completedApprovalDate?: true
 }
 
 export type BodyworkCountAggregateInputType = {
@@ -598,6 +613,9 @@ export type BodyworkCountAggregateInputType = {
   leafSpringReinforcementWeight?: true
   interiorLight?: true
   toolBoxSize?: true
+  finalStagePlateLocation?: true
+  completedApprovalNumber?: true
+  completedApprovalDate?: true
   _all?: true
 }
 
@@ -755,6 +773,9 @@ export type BodyworkGroupByOutputType = {
   leafSpringReinforcementWeight: number | null
   interiorLight: string | null
   toolBoxSize: string | null
+  finalStagePlateLocation: string | null
+  completedApprovalNumber: string | null
+  completedApprovalDate: string | null
   _count: BodyworkCountAggregateOutputType | null
   _avg: BodyworkAvgAggregateOutputType | null
   _sum: BodyworkSumAggregateOutputType | null
@@ -848,6 +869,9 @@ export type BodyworkWhereInput = {
   leafSpringReinforcementWeight?: Prisma.FloatNullableFilter<"Bodywork"> | number | null
   interiorLight?: Prisma.StringNullableFilter<"Bodywork"> | string | null
   toolBoxSize?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  finalStagePlateLocation?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  completedApprovalNumber?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  completedApprovalDate?: Prisma.StringNullableFilter<"Bodywork"> | string | null
   dossier?: Prisma.XOR<Prisma.DossierScalarRelationFilter, Prisma.DossierWhereInput>
 }
 
@@ -919,6 +943,9 @@ export type BodyworkOrderByWithRelationInput = {
   leafSpringReinforcementWeight?: Prisma.SortOrderInput | Prisma.SortOrder
   interiorLight?: Prisma.SortOrderInput | Prisma.SortOrder
   toolBoxSize?: Prisma.SortOrderInput | Prisma.SortOrder
+  finalStagePlateLocation?: Prisma.SortOrderInput | Prisma.SortOrder
+  completedApprovalNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  completedApprovalDate?: Prisma.SortOrderInput | Prisma.SortOrder
   dossier?: Prisma.DossierOrderByWithRelationInput
 }
 
@@ -993,6 +1020,9 @@ export type BodyworkWhereUniqueInput = Prisma.AtLeast<{
   leafSpringReinforcementWeight?: Prisma.FloatNullableFilter<"Bodywork"> | number | null
   interiorLight?: Prisma.StringNullableFilter<"Bodywork"> | string | null
   toolBoxSize?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  finalStagePlateLocation?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  completedApprovalNumber?: Prisma.StringNullableFilter<"Bodywork"> | string | null
+  completedApprovalDate?: Prisma.StringNullableFilter<"Bodywork"> | string | null
   dossier?: Prisma.XOR<Prisma.DossierScalarRelationFilter, Prisma.DossierWhereInput>
 }, "id" | "dossierId">
 
@@ -1064,6 +1094,9 @@ export type BodyworkOrderByWithAggregationInput = {
   leafSpringReinforcementWeight?: Prisma.SortOrderInput | Prisma.SortOrder
   interiorLight?: Prisma.SortOrderInput | Prisma.SortOrder
   toolBoxSize?: Prisma.SortOrderInput | Prisma.SortOrder
+  finalStagePlateLocation?: Prisma.SortOrderInput | Prisma.SortOrder
+  completedApprovalNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  completedApprovalDate?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.BodyworkCountOrderByAggregateInput
   _avg?: Prisma.BodyworkAvgOrderByAggregateInput
   _max?: Prisma.BodyworkMaxOrderByAggregateInput
@@ -1142,6 +1175,9 @@ export type BodyworkScalarWhereWithAggregatesInput = {
   leafSpringReinforcementWeight?: Prisma.FloatNullableWithAggregatesFilter<"Bodywork"> | number | null
   interiorLight?: Prisma.StringNullableWithAggregatesFilter<"Bodywork"> | string | null
   toolBoxSize?: Prisma.StringNullableWithAggregatesFilter<"Bodywork"> | string | null
+  finalStagePlateLocation?: Prisma.StringNullableWithAggregatesFilter<"Bodywork"> | string | null
+  completedApprovalNumber?: Prisma.StringNullableWithAggregatesFilter<"Bodywork"> | string | null
+  completedApprovalDate?: Prisma.StringNullableWithAggregatesFilter<"Bodywork"> | string | null
 }
 
 export type BodyworkCreateInput = {
@@ -1211,6 +1247,9 @@ export type BodyworkCreateInput = {
   leafSpringReinforcementWeight?: number | null
   interiorLight?: string | null
   toolBoxSize?: string | null
+  finalStagePlateLocation?: string | null
+  completedApprovalNumber?: string | null
+  completedApprovalDate?: string | null
   dossier: Prisma.DossierCreateNestedOneWithoutBodyworkInput
 }
 
@@ -1282,6 +1321,9 @@ export type BodyworkUncheckedCreateInput = {
   leafSpringReinforcementWeight?: number | null
   interiorLight?: string | null
   toolBoxSize?: string | null
+  finalStagePlateLocation?: string | null
+  completedApprovalNumber?: string | null
+  completedApprovalDate?: string | null
 }
 
 export type BodyworkUpdateInput = {
@@ -1351,6 +1393,9 @@ export type BodyworkUpdateInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dossier?: Prisma.DossierUpdateOneRequiredWithoutBodyworkNestedInput
 }
 
@@ -1422,6 +1467,9 @@ export type BodyworkUncheckedUpdateInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BodyworkCreateManyInput = {
@@ -1492,6 +1540,9 @@ export type BodyworkCreateManyInput = {
   leafSpringReinforcementWeight?: number | null
   interiorLight?: string | null
   toolBoxSize?: string | null
+  finalStagePlateLocation?: string | null
+  completedApprovalNumber?: string | null
+  completedApprovalDate?: string | null
 }
 
 export type BodyworkUpdateManyMutationInput = {
@@ -1561,6 +1612,9 @@ export type BodyworkUpdateManyMutationInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BodyworkUncheckedUpdateManyInput = {
@@ -1631,6 +1685,9 @@ export type BodyworkUncheckedUpdateManyInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BodyworkNullableScalarRelationFilter = {
@@ -1706,6 +1763,9 @@ export type BodyworkCountOrderByAggregateInput = {
   leafSpringReinforcementWeight?: Prisma.SortOrder
   interiorLight?: Prisma.SortOrder
   toolBoxSize?: Prisma.SortOrder
+  finalStagePlateLocation?: Prisma.SortOrder
+  completedApprovalNumber?: Prisma.SortOrder
+  completedApprovalDate?: Prisma.SortOrder
 }
 
 export type BodyworkAvgOrderByAggregateInput = {
@@ -1814,6 +1874,9 @@ export type BodyworkMaxOrderByAggregateInput = {
   leafSpringReinforcementWeight?: Prisma.SortOrder
   interiorLight?: Prisma.SortOrder
   toolBoxSize?: Prisma.SortOrder
+  finalStagePlateLocation?: Prisma.SortOrder
+  completedApprovalNumber?: Prisma.SortOrder
+  completedApprovalDate?: Prisma.SortOrder
 }
 
 export type BodyworkMinOrderByAggregateInput = {
@@ -1884,6 +1947,9 @@ export type BodyworkMinOrderByAggregateInput = {
   leafSpringReinforcementWeight?: Prisma.SortOrder
   interiorLight?: Prisma.SortOrder
   toolBoxSize?: Prisma.SortOrder
+  finalStagePlateLocation?: Prisma.SortOrder
+  completedApprovalNumber?: Prisma.SortOrder
+  completedApprovalDate?: Prisma.SortOrder
 }
 
 export type BodyworkSumOrderByAggregateInput = {
@@ -2027,6 +2093,9 @@ export type BodyworkCreateWithoutDossierInput = {
   leafSpringReinforcementWeight?: number | null
   interiorLight?: string | null
   toolBoxSize?: string | null
+  finalStagePlateLocation?: string | null
+  completedApprovalNumber?: string | null
+  completedApprovalDate?: string | null
 }
 
 export type BodyworkUncheckedCreateWithoutDossierInput = {
@@ -2096,6 +2165,9 @@ export type BodyworkUncheckedCreateWithoutDossierInput = {
   leafSpringReinforcementWeight?: number | null
   interiorLight?: string | null
   toolBoxSize?: string | null
+  finalStagePlateLocation?: string | null
+  completedApprovalNumber?: string | null
+  completedApprovalDate?: string | null
 }
 
 export type BodyworkCreateOrConnectWithoutDossierInput = {
@@ -2181,6 +2253,9 @@ export type BodyworkUpdateWithoutDossierInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 export type BodyworkUncheckedUpdateWithoutDossierInput = {
@@ -2250,6 +2325,9 @@ export type BodyworkUncheckedUpdateWithoutDossierInput = {
   leafSpringReinforcementWeight?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
   interiorLight?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   toolBoxSize?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  finalStagePlateLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  completedApprovalDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
 
@@ -2322,6 +2400,9 @@ export type BodyworkSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   leafSpringReinforcementWeight?: boolean
   interiorLight?: boolean
   toolBoxSize?: boolean
+  finalStagePlateLocation?: boolean
+  completedApprovalNumber?: boolean
+  completedApprovalDate?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bodywork"]>
 
@@ -2393,6 +2474,9 @@ export type BodyworkSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   leafSpringReinforcementWeight?: boolean
   interiorLight?: boolean
   toolBoxSize?: boolean
+  finalStagePlateLocation?: boolean
+  completedApprovalNumber?: boolean
+  completedApprovalDate?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bodywork"]>
 
@@ -2464,6 +2548,9 @@ export type BodyworkSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   leafSpringReinforcementWeight?: boolean
   interiorLight?: boolean
   toolBoxSize?: boolean
+  finalStagePlateLocation?: boolean
+  completedApprovalNumber?: boolean
+  completedApprovalDate?: boolean
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bodywork"]>
 
@@ -2535,9 +2622,12 @@ export type BodyworkSelectScalar = {
   leafSpringReinforcementWeight?: boolean
   interiorLight?: boolean
   toolBoxSize?: boolean
+  finalStagePlateLocation?: boolean
+  completedApprovalNumber?: boolean
+  completedApprovalDate?: boolean
 }
 
-export type BodyworkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "bodyType" | "floorType" | "floorThickness" | "floorWeightPerM2" | "sideColor" | "roofMaterial" | "roofMaterialWeightPerM2" | "sideMaterial" | "sideMaterialWeightPerM2" | "sideStructureMaterial" | "sideStructureTubeWeightPerMeter" | "skirtSheet" | "skirtWeightPerM2" | "subchassisProfile" | "subchassisMaterialWeightPerMeter" | "windDeflector" | "windDeflectorHeight" | "liftPlatformType" | "liftPlatformCapacity" | "liftPlatformVoltage" | "liftPlatformBrand" | "exteriorLength" | "interiorLength" | "exteriorWidth" | "interiorWidth" | "interiorHeight" | "sidePitch" | "roofStructureMaterial" | "roofStructureMaterialWeightPerMeter" | "trimMaterial" | "trimWeightPerMeter" | "tieDownMaterial" | "tieDownCount" | "tieDownWeightPerMeter" | "baseMaterial" | "baseMaterialWeightPerMeter" | "doorLined" | "doorLatchCount" | "hingesPerDoor" | "hardwareMaterial" | "doorType" | "doorFiberWeightPerM2" | "windDeflectorWeight" | "liftPlatformWeight" | "liftPlatformFitted" | "otherAccessories" | "otherAccessoriesWeight" | "toolBox" | "extinguisherBox" | "toolBoxWeight" | "extinguisherBoxWeight" | "doorLatchUnitWeight" | "hingeUnitWeight" | "couplingDevice" | "couplingDeviceBrand" | "rearProtectionBrand" | "rearProtection" | "rearProtectionModel" | "rearProtectionApprovalNumber" | "couplingDeviceSerialNumber" | "otherElectricalEquipment" | "leafSpringReinforcement" | "leafSpringReinforcementWeight" | "interiorLight" | "toolBoxSize", ExtArgs["result"]["bodywork"]>
+export type BodyworkOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "bodyType" | "floorType" | "floorThickness" | "floorWeightPerM2" | "sideColor" | "roofMaterial" | "roofMaterialWeightPerM2" | "sideMaterial" | "sideMaterialWeightPerM2" | "sideStructureMaterial" | "sideStructureTubeWeightPerMeter" | "skirtSheet" | "skirtWeightPerM2" | "subchassisProfile" | "subchassisMaterialWeightPerMeter" | "windDeflector" | "windDeflectorHeight" | "liftPlatformType" | "liftPlatformCapacity" | "liftPlatformVoltage" | "liftPlatformBrand" | "exteriorLength" | "interiorLength" | "exteriorWidth" | "interiorWidth" | "interiorHeight" | "sidePitch" | "roofStructureMaterial" | "roofStructureMaterialWeightPerMeter" | "trimMaterial" | "trimWeightPerMeter" | "tieDownMaterial" | "tieDownCount" | "tieDownWeightPerMeter" | "baseMaterial" | "baseMaterialWeightPerMeter" | "doorLined" | "doorLatchCount" | "hingesPerDoor" | "hardwareMaterial" | "doorType" | "doorFiberWeightPerM2" | "windDeflectorWeight" | "liftPlatformWeight" | "liftPlatformFitted" | "otherAccessories" | "otherAccessoriesWeight" | "toolBox" | "extinguisherBox" | "toolBoxWeight" | "extinguisherBoxWeight" | "doorLatchUnitWeight" | "hingeUnitWeight" | "couplingDevice" | "couplingDeviceBrand" | "rearProtectionBrand" | "rearProtection" | "rearProtectionModel" | "rearProtectionApprovalNumber" | "couplingDeviceSerialNumber" | "otherElectricalEquipment" | "leafSpringReinforcement" | "leafSpringReinforcementWeight" | "interiorLight" | "toolBoxSize" | "finalStagePlateLocation" | "completedApprovalNumber" | "completedApprovalDate", ExtArgs["result"]["bodywork"]>
 export type BodyworkInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
 }
@@ -2818,6 +2908,23 @@ export type $BodyworkPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
      * CARROZADO::Tam_cajon_herramientas
      */
     toolBoxSize: string | null
+    /**
+     * Nuevo, no existía en CARROZADO original — Ficha Reducida / Certificado
+     * de Carrozado necesitan el emplazamiento de la placa de última fase y
+     * los datos de homologación CE del vehículo ya completado (distintos de
+     * los del vehículo base, que sí están en Coc).
+     */
+    finalStagePlateLocation: string | null
+    /**
+     * Nuevo — número de homologación CE del vehículo completado
+     */
+    completedApprovalNumber: string | null
+    /**
+     * Nuevo — fecha de homologación CE del vehículo completado (texto
+     * libre, no DateTime, para no romper el tipado genérico de
+     * BodyworkForm que asume Record<string, string|number|boolean|null>)
+     */
+    completedApprovalDate: string | null
   }, ExtArgs["result"]["bodywork"]>
   composites: {}
 }
@@ -3309,6 +3416,9 @@ export interface BodyworkFieldRefs {
   readonly leafSpringReinforcementWeight: Prisma.FieldRef<"Bodywork", 'Float'>
   readonly interiorLight: Prisma.FieldRef<"Bodywork", 'String'>
   readonly toolBoxSize: Prisma.FieldRef<"Bodywork", 'String'>
+  readonly finalStagePlateLocation: Prisma.FieldRef<"Bodywork", 'String'>
+  readonly completedApprovalNumber: Prisma.FieldRef<"Bodywork", 'String'>
+  readonly completedApprovalDate: Prisma.FieldRef<"Bodywork", 'String'>
 }
     
 

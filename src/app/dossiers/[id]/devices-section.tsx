@@ -23,6 +23,8 @@ const LIGHTING_GROUP: DeviceTableKey[] = [
   "lightingFog",
 ];
 
+const DOCUMENTATION_GROUP: DeviceTableKey[] = ["lightingMaterialChecklist", "regulatoryActNumbers"];
+
 type DeviceRecordMap = Partial<Record<DeviceTableKey, Record<string, string | number | null> | null>>;
 
 export function DevicesSection({ dossierId, records }: { dossierId: string; records: DeviceRecordMap }) {
@@ -45,6 +47,17 @@ export function DevicesSection({ dossierId, records }: { dossierId: string; reco
         </h3>
         <div className="space-y-2">
           {LIGHTING_GROUP.map((key) => (
+            <DeviceForm key={key} dossierId={dossierId} tableKey={key} data={records[key] ?? null} />
+          ))}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        <h3 className="text-xs font-semibold uppercase tracking-wide text-neutral-500">
+          Documentación y actos reglamentarios
+        </h3>
+        <div className="space-y-2">
+          {DOCUMENTATION_GROUP.map((key) => (
             <DeviceForm key={key} dossierId={dossierId} tableKey={key} data={records[key] ?? null} />
           ))}
         </div>

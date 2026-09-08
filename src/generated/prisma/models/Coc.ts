@@ -100,6 +100,7 @@ export type CocAvgAggregateOutputType = {
   loadIndexAxle2: number | null
   loadIndexAxle3: number | null
   brakingPressure: number | null
+  seatCount: number | null
   valueDc: number | null
   valueV: number | null
   valueD: number | null
@@ -184,6 +185,7 @@ export type CocSumAggregateOutputType = {
   loadIndexAxle2: number | null
   loadIndexAxle3: number | null
   brakingPressure: number | null
+  seatCount: number | null
   valueDc: number | null
   valueV: number | null
   valueD: number | null
@@ -299,6 +301,7 @@ export type CocMinAggregateOutputType = {
   loadIndexAxle3: number | null
   trailerBrakeConnectionType: string | null
   brakingPressure: number | null
+  seatCount: number | null
   couplingDeviceApprovalNumber: string | null
   couplingDeviceBrand: string | null
   installableCouplingDevices: string | null
@@ -433,6 +436,7 @@ export type CocMaxAggregateOutputType = {
   loadIndexAxle3: number | null
   trailerBrakeConnectionType: string | null
   brakingPressure: number | null
+  seatCount: number | null
   couplingDeviceApprovalNumber: string | null
   couplingDeviceBrand: string | null
   installableCouplingDevices: string | null
@@ -567,6 +571,7 @@ export type CocCountAggregateOutputType = {
   loadIndexAxle3: number
   trailerBrakeConnectionType: number
   brakingPressure: number
+  seatCount: number
   couplingDeviceApprovalNumber: number
   couplingDeviceBrand: number
   installableCouplingDevices: number
@@ -672,6 +677,7 @@ export type CocAvgAggregateInputType = {
   loadIndexAxle2?: true
   loadIndexAxle3?: true
   brakingPressure?: true
+  seatCount?: true
   valueDc?: true
   valueV?: true
   valueD?: true
@@ -756,6 +762,7 @@ export type CocSumAggregateInputType = {
   loadIndexAxle2?: true
   loadIndexAxle3?: true
   brakingPressure?: true
+  seatCount?: true
   valueDc?: true
   valueV?: true
   valueD?: true
@@ -871,6 +878,7 @@ export type CocMinAggregateInputType = {
   loadIndexAxle3?: true
   trailerBrakeConnectionType?: true
   brakingPressure?: true
+  seatCount?: true
   couplingDeviceApprovalNumber?: true
   couplingDeviceBrand?: true
   installableCouplingDevices?: true
@@ -1005,6 +1013,7 @@ export type CocMaxAggregateInputType = {
   loadIndexAxle3?: true
   trailerBrakeConnectionType?: true
   brakingPressure?: true
+  seatCount?: true
   couplingDeviceApprovalNumber?: true
   couplingDeviceBrand?: true
   installableCouplingDevices?: true
@@ -1139,6 +1148,7 @@ export type CocCountAggregateInputType = {
   loadIndexAxle3?: true
   trailerBrakeConnectionType?: true
   brakingPressure?: true
+  seatCount?: true
   couplingDeviceApprovalNumber?: true
   couplingDeviceBrand?: true
   installableCouplingDevices?: true
@@ -1360,6 +1370,7 @@ export type CocGroupByOutputType = {
   loadIndexAxle3: number | null
   trailerBrakeConnectionType: string | null
   brakingPressure: number | null
+  seatCount: number | null
   couplingDeviceApprovalNumber: string | null
   couplingDeviceBrand: string | null
   installableCouplingDevices: string | null
@@ -1517,6 +1528,7 @@ export type CocWhereInput = {
   loadIndexAxle3?: Prisma.IntNullableFilter<"Coc"> | number | null
   trailerBrakeConnectionType?: Prisma.StringNullableFilter<"Coc"> | string | null
   brakingPressure?: Prisma.FloatNullableFilter<"Coc"> | number | null
+  seatCount?: Prisma.IntNullableFilter<"Coc"> | number | null
   couplingDeviceApprovalNumber?: Prisma.StringNullableFilter<"Coc"> | string | null
   couplingDeviceBrand?: Prisma.StringNullableFilter<"Coc"> | string | null
   installableCouplingDevices?: Prisma.StringNullableFilter<"Coc"> | string | null
@@ -1652,6 +1664,7 @@ export type CocOrderByWithRelationInput = {
   loadIndexAxle3?: Prisma.SortOrderInput | Prisma.SortOrder
   trailerBrakeConnectionType?: Prisma.SortOrderInput | Prisma.SortOrder
   brakingPressure?: Prisma.SortOrderInput | Prisma.SortOrder
+  seatCount?: Prisma.SortOrderInput | Prisma.SortOrder
   couplingDeviceApprovalNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   couplingDeviceBrand?: Prisma.SortOrderInput | Prisma.SortOrder
   installableCouplingDevices?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -1790,6 +1803,7 @@ export type CocWhereUniqueInput = Prisma.AtLeast<{
   loadIndexAxle3?: Prisma.IntNullableFilter<"Coc"> | number | null
   trailerBrakeConnectionType?: Prisma.StringNullableFilter<"Coc"> | string | null
   brakingPressure?: Prisma.FloatNullableFilter<"Coc"> | number | null
+  seatCount?: Prisma.IntNullableFilter<"Coc"> | number | null
   couplingDeviceApprovalNumber?: Prisma.StringNullableFilter<"Coc"> | string | null
   couplingDeviceBrand?: Prisma.StringNullableFilter<"Coc"> | string | null
   installableCouplingDevices?: Prisma.StringNullableFilter<"Coc"> | string | null
@@ -1925,6 +1939,7 @@ export type CocOrderByWithAggregationInput = {
   loadIndexAxle3?: Prisma.SortOrderInput | Prisma.SortOrder
   trailerBrakeConnectionType?: Prisma.SortOrderInput | Prisma.SortOrder
   brakingPressure?: Prisma.SortOrderInput | Prisma.SortOrder
+  seatCount?: Prisma.SortOrderInput | Prisma.SortOrder
   couplingDeviceApprovalNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   couplingDeviceBrand?: Prisma.SortOrderInput | Prisma.SortOrder
   installableCouplingDevices?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -2067,6 +2082,7 @@ export type CocScalarWhereWithAggregatesInput = {
   loadIndexAxle3?: Prisma.IntNullableWithAggregatesFilter<"Coc"> | number | null
   trailerBrakeConnectionType?: Prisma.StringNullableWithAggregatesFilter<"Coc"> | string | null
   brakingPressure?: Prisma.FloatNullableWithAggregatesFilter<"Coc"> | number | null
+  seatCount?: Prisma.IntNullableWithAggregatesFilter<"Coc"> | number | null
   couplingDeviceApprovalNumber?: Prisma.StringNullableWithAggregatesFilter<"Coc"> | string | null
   couplingDeviceBrand?: Prisma.StringNullableWithAggregatesFilter<"Coc"> | string | null
   installableCouplingDevices?: Prisma.StringNullableWithAggregatesFilter<"Coc"> | string | null
@@ -2200,6 +2216,7 @@ export type CocCreateInput = {
   loadIndexAxle3?: number | null
   trailerBrakeConnectionType?: string | null
   brakingPressure?: number | null
+  seatCount?: number | null
   couplingDeviceApprovalNumber?: string | null
   couplingDeviceBrand?: string | null
   installableCouplingDevices?: string | null
@@ -2335,6 +2352,7 @@ export type CocUncheckedCreateInput = {
   loadIndexAxle3?: number | null
   trailerBrakeConnectionType?: string | null
   brakingPressure?: number | null
+  seatCount?: number | null
   couplingDeviceApprovalNumber?: string | null
   couplingDeviceBrand?: string | null
   installableCouplingDevices?: string | null
@@ -2468,6 +2486,7 @@ export type CocUpdateInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2603,6 +2622,7 @@ export type CocUncheckedUpdateInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -2737,6 +2757,7 @@ export type CocCreateManyInput = {
   loadIndexAxle3?: number | null
   trailerBrakeConnectionType?: string | null
   brakingPressure?: number | null
+  seatCount?: number | null
   couplingDeviceApprovalNumber?: string | null
   couplingDeviceBrand?: string | null
   installableCouplingDevices?: string | null
@@ -2870,6 +2891,7 @@ export type CocUpdateManyMutationInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3004,6 +3026,7 @@ export type CocUncheckedUpdateManyInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -3143,6 +3166,7 @@ export type CocCountOrderByAggregateInput = {
   loadIndexAxle3?: Prisma.SortOrder
   trailerBrakeConnectionType?: Prisma.SortOrder
   brakingPressure?: Prisma.SortOrder
+  seatCount?: Prisma.SortOrder
   couplingDeviceApprovalNumber?: Prisma.SortOrder
   couplingDeviceBrand?: Prisma.SortOrder
   installableCouplingDevices?: Prisma.SortOrder
@@ -3246,6 +3270,7 @@ export type CocAvgOrderByAggregateInput = {
   loadIndexAxle2?: Prisma.SortOrder
   loadIndexAxle3?: Prisma.SortOrder
   brakingPressure?: Prisma.SortOrder
+  seatCount?: Prisma.SortOrder
   valueDc?: Prisma.SortOrder
   valueV?: Prisma.SortOrder
   valueD?: Prisma.SortOrder
@@ -3361,6 +3386,7 @@ export type CocMaxOrderByAggregateInput = {
   loadIndexAxle3?: Prisma.SortOrder
   trailerBrakeConnectionType?: Prisma.SortOrder
   brakingPressure?: Prisma.SortOrder
+  seatCount?: Prisma.SortOrder
   couplingDeviceApprovalNumber?: Prisma.SortOrder
   couplingDeviceBrand?: Prisma.SortOrder
   installableCouplingDevices?: Prisma.SortOrder
@@ -3495,6 +3521,7 @@ export type CocMinOrderByAggregateInput = {
   loadIndexAxle3?: Prisma.SortOrder
   trailerBrakeConnectionType?: Prisma.SortOrder
   brakingPressure?: Prisma.SortOrder
+  seatCount?: Prisma.SortOrder
   couplingDeviceApprovalNumber?: Prisma.SortOrder
   couplingDeviceBrand?: Prisma.SortOrder
   installableCouplingDevices?: Prisma.SortOrder
@@ -3598,6 +3625,7 @@ export type CocSumOrderByAggregateInput = {
   loadIndexAxle2?: Prisma.SortOrder
   loadIndexAxle3?: Prisma.SortOrder
   brakingPressure?: Prisma.SortOrder
+  seatCount?: Prisma.SortOrder
   valueDc?: Prisma.SortOrder
   valueV?: Prisma.SortOrder
   valueD?: Prisma.SortOrder
@@ -3760,6 +3788,7 @@ export type CocCreateWithoutDossierInput = {
   loadIndexAxle3?: number | null
   trailerBrakeConnectionType?: string | null
   brakingPressure?: number | null
+  seatCount?: number | null
   couplingDeviceApprovalNumber?: string | null
   couplingDeviceBrand?: string | null
   installableCouplingDevices?: string | null
@@ -3893,6 +3922,7 @@ export type CocUncheckedCreateWithoutDossierInput = {
   loadIndexAxle3?: number | null
   trailerBrakeConnectionType?: string | null
   brakingPressure?: number | null
+  seatCount?: number | null
   couplingDeviceApprovalNumber?: string | null
   couplingDeviceBrand?: string | null
   installableCouplingDevices?: string | null
@@ -4042,6 +4072,7 @@ export type CocUpdateWithoutDossierInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -4175,6 +4206,7 @@ export type CocUncheckedUpdateWithoutDossierInput = {
   loadIndexAxle3?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   trailerBrakeConnectionType?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   brakingPressure?: Prisma.NullableFloatFieldUpdateOperationsInput | number | null
+  seatCount?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   couplingDeviceApprovalNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   couplingDeviceBrand?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   installableCouplingDevices?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -4311,6 +4343,7 @@ export type CocSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = ru
   loadIndexAxle3?: boolean
   trailerBrakeConnectionType?: boolean
   brakingPressure?: boolean
+  seatCount?: boolean
   couplingDeviceApprovalNumber?: boolean
   couplingDeviceBrand?: boolean
   installableCouplingDevices?: boolean
@@ -4446,6 +4479,7 @@ export type CocSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extension
   loadIndexAxle3?: boolean
   trailerBrakeConnectionType?: boolean
   brakingPressure?: boolean
+  seatCount?: boolean
   couplingDeviceApprovalNumber?: boolean
   couplingDeviceBrand?: boolean
   installableCouplingDevices?: boolean
@@ -4581,6 +4615,7 @@ export type CocSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extension
   loadIndexAxle3?: boolean
   trailerBrakeConnectionType?: boolean
   brakingPressure?: boolean
+  seatCount?: boolean
   couplingDeviceApprovalNumber?: boolean
   couplingDeviceBrand?: boolean
   installableCouplingDevices?: boolean
@@ -4716,6 +4751,7 @@ export type CocSelectScalar = {
   loadIndexAxle3?: boolean
   trailerBrakeConnectionType?: boolean
   brakingPressure?: boolean
+  seatCount?: boolean
   couplingDeviceApprovalNumber?: boolean
   couplingDeviceBrand?: boolean
   installableCouplingDevices?: boolean
@@ -4745,7 +4781,7 @@ export type CocSelectScalar = {
   typeApprovalOptions?: boolean
 }
 
-export type CocOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "vin" | "vehicleCategory" | "brand" | "type" | "variant" | "version" | "commercialName" | "manufacturerName" | "manufacturerAddress" | "vinLocation" | "platesAttachmentMethod" | "platesLocation" | "approvalDate" | "manufactureDate" | "approvalNumber" | "wheelCount" | "axleCount" | "dualWheelAxlePosition" | "dualWheelAxleCount" | "steeredAxlePosition" | "steeredAxleCount" | "drivenAxleCount" | "drivenAxleLocation" | "drivenAxleInterconnection" | "axleDistance0to1" | "axleDistance1to2" | "axleDistance2to3" | "maxPermissibleLength" | "maxPermissibleWidth" | "maxPermissibleHeight" | "pivotToRearEdgeDistance" | "kingpinToRearEdgeDistance" | "maxPermissibleRearOverhang" | "momIncompleteVehicle" | "momIncompleteAxle3" | "momIncompleteAxle2" | "momIncompleteAxle1" | "currentIncompleteVehicleMass" | "minCompletedMass" | "minCompletedMassDistributionAxle1" | "minCompletedMassDistributionAxle2" | "minCompletedMassDistributionAxle3" | "maxTechnicallyPermissibleMass" | "maxTechnicallyPermissibleMassRequested" | "maxTechnicallyPermissibleMassAxleGroup2" | "maxTechnicallyPermissibleMassAxleGroup1" | "maxTechnicallyPermissibleMassAxle3" | "maxTechnicallyPermissibleMassAxle2" | "maxTechnicallyPermissibleMassAxle1" | "maxTechnicallyPermissibleMassCombination" | "maxLadenMassRegistration" | "maxLadenMassRegistrationAxle3" | "maxLadenMassRegistrationAxle2" | "maxLadenMassRegistrationAxle1" | "maxLadenMassRegistrationAxleGroup1" | "maxLadenMassRegistrationCombination" | "semiTrailerMass" | "drawBarTrailerMass" | "centreAxleTrailerMass" | "rigidDrawBarTrailerMass" | "unbrakedTrailerMass" | "staticCouplingPointMass" | "staticKingpinMass" | "engineManufacturer" | "engineMarkingCode" | "operatingPrinciple" | "pureElectric" | "hybrid" | "cylinderCount" | "cylinderArrangement" | "displacement" | "fuelType" | "singleFuel" | "ratedPower" | "ratedPowerRpm" | "maxNetPower" | "gearboxType" | "maxSpeed" | "trackWidthAxle1" | "trackWidthAxle2" | "trackWidthAxle3" | "retractableAxlePosition" | "liftableAxlePosition" | "pneumaticSteeredAxles" | "tireCount" | "tireWidthAxle1" | "tireWidthAxle2" | "tireWidthAxle3" | "tireAspectRatioAxle1" | "tireAspectRatioAxle2" | "tireAspectRatioAxle3" | "rimDiameterAxle1" | "rimDiameterAxle2" | "rimDiameterAxle3" | "speedRatingAxle1" | "speedRatingAxle2" | "speedRatingAxle3" | "loadIndexAxle1" | "loadIndexAxle2" | "loadIndexAxle3" | "trailerBrakeConnectionType" | "brakingPressure" | "couplingDeviceApprovalNumber" | "couplingDeviceBrand" | "installableCouplingDevices" | "valueDc" | "valueV" | "valueD" | "valueS" | "stationaryNoiseLevel" | "stationaryNoiseLevelRpm" | "drivingNoiseLevel" | "emissionsLevel" | "specificCo2Emissions" | "remarks" | "vehicleEquippedWith" | "gearCount" | "frontSuspension" | "rearSuspension" | "steeringMethod" | "serviceBraking" | "secondaryBraking" | "parkingBraking" | "abs" | "indirectVision" | "doorCountAndArrangement" | "frontProtection" | "cabDeflector" | "typeApprovalOptions", ExtArgs["result"]["coc"]>
+export type CocOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dossierId" | "vin" | "vehicleCategory" | "brand" | "type" | "variant" | "version" | "commercialName" | "manufacturerName" | "manufacturerAddress" | "vinLocation" | "platesAttachmentMethod" | "platesLocation" | "approvalDate" | "manufactureDate" | "approvalNumber" | "wheelCount" | "axleCount" | "dualWheelAxlePosition" | "dualWheelAxleCount" | "steeredAxlePosition" | "steeredAxleCount" | "drivenAxleCount" | "drivenAxleLocation" | "drivenAxleInterconnection" | "axleDistance0to1" | "axleDistance1to2" | "axleDistance2to3" | "maxPermissibleLength" | "maxPermissibleWidth" | "maxPermissibleHeight" | "pivotToRearEdgeDistance" | "kingpinToRearEdgeDistance" | "maxPermissibleRearOverhang" | "momIncompleteVehicle" | "momIncompleteAxle3" | "momIncompleteAxle2" | "momIncompleteAxle1" | "currentIncompleteVehicleMass" | "minCompletedMass" | "minCompletedMassDistributionAxle1" | "minCompletedMassDistributionAxle2" | "minCompletedMassDistributionAxle3" | "maxTechnicallyPermissibleMass" | "maxTechnicallyPermissibleMassRequested" | "maxTechnicallyPermissibleMassAxleGroup2" | "maxTechnicallyPermissibleMassAxleGroup1" | "maxTechnicallyPermissibleMassAxle3" | "maxTechnicallyPermissibleMassAxle2" | "maxTechnicallyPermissibleMassAxle1" | "maxTechnicallyPermissibleMassCombination" | "maxLadenMassRegistration" | "maxLadenMassRegistrationAxle3" | "maxLadenMassRegistrationAxle2" | "maxLadenMassRegistrationAxle1" | "maxLadenMassRegistrationAxleGroup1" | "maxLadenMassRegistrationCombination" | "semiTrailerMass" | "drawBarTrailerMass" | "centreAxleTrailerMass" | "rigidDrawBarTrailerMass" | "unbrakedTrailerMass" | "staticCouplingPointMass" | "staticKingpinMass" | "engineManufacturer" | "engineMarkingCode" | "operatingPrinciple" | "pureElectric" | "hybrid" | "cylinderCount" | "cylinderArrangement" | "displacement" | "fuelType" | "singleFuel" | "ratedPower" | "ratedPowerRpm" | "maxNetPower" | "gearboxType" | "maxSpeed" | "trackWidthAxle1" | "trackWidthAxle2" | "trackWidthAxle3" | "retractableAxlePosition" | "liftableAxlePosition" | "pneumaticSteeredAxles" | "tireCount" | "tireWidthAxle1" | "tireWidthAxle2" | "tireWidthAxle3" | "tireAspectRatioAxle1" | "tireAspectRatioAxle2" | "tireAspectRatioAxle3" | "rimDiameterAxle1" | "rimDiameterAxle2" | "rimDiameterAxle3" | "speedRatingAxle1" | "speedRatingAxle2" | "speedRatingAxle3" | "loadIndexAxle1" | "loadIndexAxle2" | "loadIndexAxle3" | "trailerBrakeConnectionType" | "brakingPressure" | "seatCount" | "couplingDeviceApprovalNumber" | "couplingDeviceBrand" | "installableCouplingDevices" | "valueDc" | "valueV" | "valueD" | "valueS" | "stationaryNoiseLevel" | "stationaryNoiseLevelRpm" | "drivingNoiseLevel" | "emissionsLevel" | "specificCo2Emissions" | "remarks" | "vehicleEquippedWith" | "gearCount" | "frontSuspension" | "rearSuspension" | "steeringMethod" | "serviceBraking" | "secondaryBraking" | "parkingBraking" | "abs" | "indirectVision" | "doorCountAndArrangement" | "frontProtection" | "cabDeflector" | "typeApprovalOptions", ExtArgs["result"]["coc"]>
 export type CocInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
 }
@@ -5172,6 +5208,10 @@ export type $CocPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
      * 37 · COC::_37_Presion_frenado
      */
     brakingPressure: number | null
+    /**
+     * 42 · nuevo, no existía en COC original — necesario para Ficha Reducida
+     */
+    seatCount: number | null
     /**
      * 44 · COC::_44_Nhomologacion_dispositivo_acoplamiento
      */
@@ -5808,6 +5848,7 @@ export interface CocFieldRefs {
   readonly loadIndexAxle3: Prisma.FieldRef<"Coc", 'Int'>
   readonly trailerBrakeConnectionType: Prisma.FieldRef<"Coc", 'String'>
   readonly brakingPressure: Prisma.FieldRef<"Coc", 'Float'>
+  readonly seatCount: Prisma.FieldRef<"Coc", 'Int'>
   readonly couplingDeviceApprovalNumber: Prisma.FieldRef<"Coc", 'String'>
   readonly couplingDeviceBrand: Prisma.FieldRef<"Coc", 'String'>
   readonly installableCouplingDevices: Prisma.FieldRef<"Coc", 'String'>

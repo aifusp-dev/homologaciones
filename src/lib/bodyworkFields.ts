@@ -86,4 +86,7 @@ export const BODYWORK_FIELDS: { name: string; label: string; type: BodyworkField
   { name: "leafSpringReinforcement", label: "Refuerzoballesta", type: "text", section: "otros" },
   { name: "leafSpringReinforcementWeight", label: "Peso refuerzo ballesta", type: "float", section: "otros" },
   { name: "interiorLight", label: "Luzinterior", type: "text", section: "otros" },
+  { name: "finalStagePlateLocation", label: "Emplazamiento placa fabricante última fase", type: "text", section: "otros" },
+  { name: "completedApprovalNumber", label: "Nº homologación CE vehículo completado", type: "text", section: "otros" },
+  { name: "completedApprovalDate", label: "Fecha homologación CE vehículo completado", type: "text", section: "otros" },
 ];

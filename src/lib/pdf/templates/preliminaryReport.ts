@@ -22,7 +22,24 @@ export type PreliminaryReportData = {
   heightFromGround: number | null;
   rearOverhang: number | null;
   responsibleName: string | null;
+  actNumbers: {
+    lightingActNumber: string | null;
+    spraySuppressionActNumber: string | null;
+    massesActNumber: string | null;
+    rearPlateActNumber: string | null;
+    rearProtectionActNumber: string | null;
+    emcActNumber: string | null;
+  } | null;
 };
+
+const ACT_LINES: { key: string; label: string }[] = [
+  { key: "lightingActNumber", label: "Alumbrado y señalización 48R08" },
+  { key: "spraySuppressionActNumber", label: "Dispositivos antiproyección UE 109/2011" },
+  { key: "massesActNumber", label: "Masas y dimensiones UE 1230/2012" },
+  { key: "rearPlateActNumber", label: "Placas de matrícula traseras UE 1003/2010" },
+  { key: "rearProtectionActNumber", label: "Protección trasera 58R03" },
+  { key: "emcActNumber", label: "Compatibilidad electromagnética 10R06" },
+];
 
 // Calca BackEnd/FrontEnd/PDF-INFORMEPREVIO.png. Los recuadros de "Actos
 // reglamentarios" y "Dispositivos que instala NO de 1ª fase" quedan en
@@ -53,7 +70,14 @@ export function renderPreliminaryReport(d: PreliminaryReportData): string {
     </tr></table>
 
     <h2 class="section">Actos reglamentarios / Informes H que le afectan y de los que disponemos:</h2>
-    <div class="box" style="min-height:90px"></div>
+    <div class="box" style="min-height:90px">
+      ${ACT_LINES.filter((l) => d.actNumbers?.[l.key as keyof NonNullable<typeof d.actNumbers>])
+        .map(
+          (l) =>
+            `<div style="display:flex;justify-content:space-between"><span>${l.label}:</span><i>${fmt(d.actNumbers?.[l.key as keyof NonNullable<typeof d.actNumbers>])}</i></div>`
+        )
+        .join("")}
+    </div>
 
     <h2 class="section">Dispositivos que instala NO de 1ª fase:</h2>
     <div class="box" style="min-height:70px"></div>

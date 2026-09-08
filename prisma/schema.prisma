@@ -117,6 +117,9 @@ model Dossier {
   lightingReverse              LightingReverse?
   lightingFog                  LightingFog?
 
+  lightingMaterialChecklist LightingMaterialChecklist?
+  regulatoryActNumbers      RegulatoryActNumbers?
+
   @@unique([companyId, number])
   @@index([companyId])
   @@map("dossiers")
@@ -504,6 +507,9 @@ model Coc {
   /// 37 · COC::_37_Presion_frenado
   brakingPressure Float?
 
+  /// 42 · nuevo, no existía en COC original — necesario para Ficha Reducida
+  seatCount Int?
+
   /// 44 · COC::_44_Nhomologacion_dispositivo_acoplamiento
   couplingDeviceApprovalNumber String?
 
@@ -795,6 +801,20 @@ model Bodywork {
 
   /// CARROZADO::Tam_cajon_herramientas
   toolBoxSize String?
+
+  /// Nuevo, no existía en CARROZADO original — Ficha Reducida / Certificado
+  /// de Carrozado necesitan el emplazamiento de la placa de última fase y
+  /// los datos de homologación CE del vehículo ya completado (distintos de
+  /// los del vehículo base, que sí están en Coc).
+  finalStagePlateLocation String?
+
+  /// Nuevo — número de homologación CE del vehículo completado
+  completedApprovalNumber String?
+
+  /// Nuevo — fecha de homologación CE del vehículo completado (texto
+  /// libre, no DateTime, para no romper el tipado genérico de
+  /// BodyworkForm que asume Record<string, string|number|boolean|null>)
+  completedApprovalDate String?
 
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
@@ -2002,4 +2022,97 @@ model LightingFog {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("lighting_fogs")
+}
+
+// ---------------------------------------------------------------------
+// Fase 5 (parcial): tablas de apoyo para las cajas de "Actos reglamentarios"
+// y "Material de alumbrado y señalización" que quedaban en blanco con TODO
+// en Informe Previo y Orden de Fabricación, y que también necesitan
+// Certificado de Carrozado / Registro COP. Mismo patrón manual sin cálculos
+// que las 16 tablas de la Fase 4 — entran en el mismo DEVICE_TABLES.
+// ---------------------------------------------------------------------
+
+// "Material de alumbrado y señalización" — antes tabla
+// Material_actosreglamentarios. Checklist de piezas físicas instaladas en
+// la orden de fabricación, todo texto libre (así estaba en origen, incluso
+// "fecha_orden_fabricacion" es texto libre, no fecha real).
+model LightingMaterialChecklist {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// Material_actosreglamentarios::Pilotogalibolateral
+  sideOutlineMarkerLamp String?
+
+  /// Material_actosreglamentarios::Pilotogalibotrasero
+  rearOutlineMarkerLamp String?
+
+  /// Material_actosreglamentarios::Pilotogalibodelantero
+  frontOutlineMarkerLamp String?
+
+  /// Material_actosreglamentarios::Pilotogalibotraserocolgante
+  rearHangingOutlineMarkerLamp String?
+
+  /// Material_actosreglamentarios::Luzmatricula
+  plateLight String?
+
+  /// Material_actosreglamentarios::Terceraluzfreno
+  thirdBrakeLight String?
+
+  /// Material_actosreglamentarios::V23roja
+  v23Red String?
+
+  /// Material_actosreglamentarios::V23blanca
+  v23White String?
+
+  /// Material_actosreglamentarios::Faldillaabsorbente
+  spraySuppressionFlap String?
+
+  /// Material_actosreglamentarios::Guardabarros
+  mudguard String?
+
+  /// Material_actosreglamentarios::Observaciones_ordenfabricacion
+  manufacturingOrderRemarks String?
+
+  /// Material_actosreglamentarios::fecha_orden_fabricacion
+  manufacturingOrderDate String?
+
+  /// Material_actosreglamentarios::Proteccionlateral
+  lateralProtectionMaterial String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("lighting_material_checklists")
+}
+
+// "Actos reglamentarios / Informes H" — sin tabla de origen directa (en
+// FileMaker estos números iban escritos a mano en el propio layout PDF de
+// cada certificado). Aquí se guardan una vez por expediente y se muestran
+// en todas las cajas "Actos reglamentarios" de Informe Previo, Orden de
+// Fabricación, Certificado de Carrozado, Certificado parte 2 y Registro
+// COP — cada caja solo pinta las líneas que tengan valor.
+model RegulatoryActNumbers {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// Alumbrado y señalización 48R08
+  lightingActNumber String?
+
+  /// Dispositivos antiproyección UE 109/2011
+  spraySuppressionActNumber String?
+
+  /// Masas y dimensiones UE 1230/2012
+  massesActNumber String?
+
+  /// Placas de matrícula traseras UE 1003/2010
+  rearPlateActNumber String?
+
+  /// Protección trasera 58R03
+  rearProtectionActNumber String?
+
+  /// Compatibilidad electromagnética 10R06
+  emcActNumber String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("regulatory_act_numbers")
 }

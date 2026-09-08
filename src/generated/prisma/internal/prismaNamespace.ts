@@ -422,7 +422,9 @@ export const ModelName = {
   LightingFrontOutlineMarker: 'LightingFrontOutlineMarker',
   LightingPlate: 'LightingPlate',
   LightingReverse: 'LightingReverse',
-  LightingFog: 'LightingFog'
+  LightingFog: 'LightingFog',
+  LightingMaterialChecklist: 'LightingMaterialChecklist',
+  RegulatoryActNumbers: 'RegulatoryActNumbers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -438,7 +440,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog"
+    modelProps: "company" | "user" | "invitation" | "dossier" | "generatedDocument" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "regulatoryActNumbers"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2366,6 +2368,154 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    LightingMaterialChecklist: {
+      payload: Prisma.$LightingMaterialChecklistPayload<ExtArgs>
+      fields: Prisma.LightingMaterialChecklistFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.LightingMaterialChecklistFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.LightingMaterialChecklistFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        findFirst: {
+          args: Prisma.LightingMaterialChecklistFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.LightingMaterialChecklistFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        findMany: {
+          args: Prisma.LightingMaterialChecklistFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>[]
+        }
+        create: {
+          args: Prisma.LightingMaterialChecklistCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        createMany: {
+          args: Prisma.LightingMaterialChecklistCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.LightingMaterialChecklistCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>[]
+        }
+        delete: {
+          args: Prisma.LightingMaterialChecklistDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        update: {
+          args: Prisma.LightingMaterialChecklistUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        deleteMany: {
+          args: Prisma.LightingMaterialChecklistDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.LightingMaterialChecklistUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.LightingMaterialChecklistUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>[]
+        }
+        upsert: {
+          args: Prisma.LightingMaterialChecklistUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$LightingMaterialChecklistPayload>
+        }
+        aggregate: {
+          args: Prisma.LightingMaterialChecklistAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateLightingMaterialChecklist>
+        }
+        groupBy: {
+          args: Prisma.LightingMaterialChecklistGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingMaterialChecklistGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.LightingMaterialChecklistCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.LightingMaterialChecklistCountAggregateOutputType> | number
+        }
+      }
+    }
+    RegulatoryActNumbers: {
+      payload: Prisma.$RegulatoryActNumbersPayload<ExtArgs>
+      fields: Prisma.RegulatoryActNumbersFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RegulatoryActNumbersFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RegulatoryActNumbersFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        findFirst: {
+          args: Prisma.RegulatoryActNumbersFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RegulatoryActNumbersFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        findMany: {
+          args: Prisma.RegulatoryActNumbersFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>[]
+        }
+        create: {
+          args: Prisma.RegulatoryActNumbersCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        createMany: {
+          args: Prisma.RegulatoryActNumbersCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RegulatoryActNumbersCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>[]
+        }
+        delete: {
+          args: Prisma.RegulatoryActNumbersDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        update: {
+          args: Prisma.RegulatoryActNumbersUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        deleteMany: {
+          args: Prisma.RegulatoryActNumbersDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RegulatoryActNumbersUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RegulatoryActNumbersUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>[]
+        }
+        upsert: {
+          args: Prisma.RegulatoryActNumbersUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryActNumbersPayload>
+        }
+        aggregate: {
+          args: Prisma.RegulatoryActNumbersAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRegulatoryActNumbers>
+        }
+        groupBy: {
+          args: Prisma.RegulatoryActNumbersGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegulatoryActNumbersGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RegulatoryActNumbersCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegulatoryActNumbersCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2599,6 +2749,7 @@ export const CocScalarFieldEnum = {
   loadIndexAxle3: 'loadIndexAxle3',
   trailerBrakeConnectionType: 'trailerBrakeConnectionType',
   brakingPressure: 'brakingPressure',
+  seatCount: 'seatCount',
   couplingDeviceApprovalNumber: 'couplingDeviceApprovalNumber',
   couplingDeviceBrand: 'couplingDeviceBrand',
   installableCouplingDevices: 'installableCouplingDevices',
@@ -2698,7 +2849,10 @@ export const BodyworkScalarFieldEnum = {
   leafSpringReinforcement: 'leafSpringReinforcement',
   leafSpringReinforcementWeight: 'leafSpringReinforcementWeight',
   interiorLight: 'interiorLight',
-  toolBoxSize: 'toolBoxSize'
+  toolBoxSize: 'toolBoxSize',
+  finalStagePlateLocation: 'finalStagePlateLocation',
+  completedApprovalNumber: 'completedApprovalNumber',
+  completedApprovalDate: 'completedApprovalDate'
 } as const
 
 export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
@@ -3177,6 +3331,41 @@ export const LightingFogScalarFieldEnum = {
 export type LightingFogScalarFieldEnum = (typeof LightingFogScalarFieldEnum)[keyof typeof LightingFogScalarFieldEnum]
 
 
+export const LightingMaterialChecklistScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  sideOutlineMarkerLamp: 'sideOutlineMarkerLamp',
+  rearOutlineMarkerLamp: 'rearOutlineMarkerLamp',
+  frontOutlineMarkerLamp: 'frontOutlineMarkerLamp',
+  rearHangingOutlineMarkerLamp: 'rearHangingOutlineMarkerLamp',
+  plateLight: 'plateLight',
+  thirdBrakeLight: 'thirdBrakeLight',
+  v23Red: 'v23Red',
+  v23White: 'v23White',
+  spraySuppressionFlap: 'spraySuppressionFlap',
+  mudguard: 'mudguard',
+  manufacturingOrderRemarks: 'manufacturingOrderRemarks',
+  manufacturingOrderDate: 'manufacturingOrderDate',
+  lateralProtectionMaterial: 'lateralProtectionMaterial'
+} as const
+
+export type LightingMaterialChecklistScalarFieldEnum = (typeof LightingMaterialChecklistScalarFieldEnum)[keyof typeof LightingMaterialChecklistScalarFieldEnum]
+
+
+export const RegulatoryActNumbersScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  lightingActNumber: 'lightingActNumber',
+  spraySuppressionActNumber: 'spraySuppressionActNumber',
+  massesActNumber: 'massesActNumber',
+  rearPlateActNumber: 'rearPlateActNumber',
+  rearProtectionActNumber: 'rearProtectionActNumber',
+  emcActNumber: 'emcActNumber'
+} as const
+
+export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -3474,6 +3663,8 @@ export type GlobalOmitConfig = {
   lightingPlate?: Prisma.LightingPlateOmit
   lightingReverse?: Prisma.LightingReverseOmit
   lightingFog?: Prisma.LightingFogOmit
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistOmit
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersOmit
 }
 
 /* Types for Logging */

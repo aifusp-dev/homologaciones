@@ -205,6 +205,8 @@ export type DossierWhereInput = {
   lightingPlate?: Prisma.XOR<Prisma.LightingPlateNullableScalarRelationFilter, Prisma.LightingPlateWhereInput> | null
   lightingReverse?: Prisma.XOR<Prisma.LightingReverseNullableScalarRelationFilter, Prisma.LightingReverseWhereInput> | null
   lightingFog?: Prisma.XOR<Prisma.LightingFogNullableScalarRelationFilter, Prisma.LightingFogWhereInput> | null
+  lightingMaterialChecklist?: Prisma.XOR<Prisma.LightingMaterialChecklistNullableScalarRelationFilter, Prisma.LightingMaterialChecklistWhereInput> | null
+  regulatoryActNumbers?: Prisma.XOR<Prisma.RegulatoryActNumbersNullableScalarRelationFilter, Prisma.RegulatoryActNumbersWhereInput> | null
 }
 
 export type DossierOrderByWithRelationInput = {
@@ -236,6 +238,8 @@ export type DossierOrderByWithRelationInput = {
   lightingPlate?: Prisma.LightingPlateOrderByWithRelationInput
   lightingReverse?: Prisma.LightingReverseOrderByWithRelationInput
   lightingFog?: Prisma.LightingFogOrderByWithRelationInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistOrderByWithRelationInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersOrderByWithRelationInput
 }
 
 export type DossierWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +275,8 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   lightingPlate?: Prisma.XOR<Prisma.LightingPlateNullableScalarRelationFilter, Prisma.LightingPlateWhereInput> | null
   lightingReverse?: Prisma.XOR<Prisma.LightingReverseNullableScalarRelationFilter, Prisma.LightingReverseWhereInput> | null
   lightingFog?: Prisma.XOR<Prisma.LightingFogNullableScalarRelationFilter, Prisma.LightingFogWhereInput> | null
+  lightingMaterialChecklist?: Prisma.XOR<Prisma.LightingMaterialChecklistNullableScalarRelationFilter, Prisma.LightingMaterialChecklistWhereInput> | null
+  regulatoryActNumbers?: Prisma.XOR<Prisma.RegulatoryActNumbersNullableScalarRelationFilter, Prisma.RegulatoryActNumbersWhereInput> | null
 }, "id" | "companyId_number">
 
 export type DossierOrderByWithAggregationInput = {
@@ -323,6 +329,8 @@ export type DossierCreateInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateInput = {
@@ -353,6 +361,8 @@ export type DossierUncheckedCreateInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUpdateInput = {
@@ -383,6 +393,8 @@ export type DossierUpdateInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateInput = {
@@ -413,6 +425,8 @@ export type DossierUncheckedUpdateInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyInput = {
@@ -832,6 +846,34 @@ export type DossierUpdateOneRequiredWithoutLightingFogNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingFogInput, Prisma.DossierUpdateWithoutLightingFogInput>, Prisma.DossierUncheckedUpdateWithoutLightingFogInput>
 }
 
+export type DossierCreateNestedOneWithoutLightingMaterialChecklistInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedCreateWithoutLightingMaterialChecklistInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingMaterialChecklistInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutLightingMaterialChecklistNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedCreateWithoutLightingMaterialChecklistInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutLightingMaterialChecklistInput
+  upsert?: Prisma.DossierUpsertWithoutLightingMaterialChecklistInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingMaterialChecklistInput, Prisma.DossierUpdateWithoutLightingMaterialChecklistInput>, Prisma.DossierUncheckedUpdateWithoutLightingMaterialChecklistInput>
+}
+
+export type DossierCreateNestedOneWithoutRegulatoryActNumbersInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedCreateWithoutRegulatoryActNumbersInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutRegulatoryActNumbersInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutRegulatoryActNumbersNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedCreateWithoutRegulatoryActNumbersInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutRegulatoryActNumbersInput
+  upsert?: Prisma.DossierUpsertWithoutRegulatoryActNumbersInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutRegulatoryActNumbersInput, Prisma.DossierUpdateWithoutRegulatoryActNumbersInput>, Prisma.DossierUncheckedUpdateWithoutRegulatoryActNumbersInput>
+}
+
 export type DossierCreateWithoutCompanyInput = {
   id?: string
   number: string
@@ -859,6 +901,8 @@ export type DossierCreateWithoutCompanyInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCompanyInput = {
@@ -888,6 +932,8 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCompanyInput = {
@@ -954,6 +1000,8 @@ export type DossierCreateWithoutDocumentsInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutDocumentsInput = {
@@ -983,6 +1031,8 @@ export type DossierUncheckedCreateWithoutDocumentsInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutDocumentsInput = {
@@ -1028,6 +1078,8 @@ export type DossierUpdateWithoutDocumentsInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutDocumentsInput = {
@@ -1057,6 +1109,8 @@ export type DossierUncheckedUpdateWithoutDocumentsInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCustomerInput = {
@@ -1086,6 +1140,8 @@ export type DossierCreateWithoutCustomerInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCustomerInput = {
@@ -1115,6 +1171,8 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCustomerInput = {
@@ -1160,6 +1218,8 @@ export type DossierUpdateWithoutCustomerInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCustomerInput = {
@@ -1189,6 +1249,8 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutDealerInput = {
@@ -1218,6 +1280,8 @@ export type DossierCreateWithoutDealerInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutDealerInput = {
@@ -1247,6 +1311,8 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutDealerInput = {
@@ -1292,6 +1358,8 @@ export type DossierUpdateWithoutDealerInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutDealerInput = {
@@ -1321,6 +1389,8 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCocInput = {
@@ -1350,6 +1420,8 @@ export type DossierCreateWithoutCocInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCocInput = {
@@ -1379,6 +1451,8 @@ export type DossierUncheckedCreateWithoutCocInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCocInput = {
@@ -1424,6 +1498,8 @@ export type DossierUpdateWithoutCocInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCocInput = {
@@ -1453,6 +1529,8 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutBodyworkInput = {
@@ -1482,6 +1560,8 @@ export type DossierCreateWithoutBodyworkInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutBodyworkInput = {
@@ -1511,6 +1591,8 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutBodyworkInput = {
@@ -1556,6 +1638,8 @@ export type DossierUpdateWithoutBodyworkInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutBodyworkInput = {
@@ -1585,6 +1669,8 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutMassesDimensionsInput = {
@@ -1614,6 +1700,8 @@ export type DossierCreateWithoutMassesDimensionsInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
@@ -1643,6 +1731,8 @@ export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutMassesDimensionsInput = {
@@ -1688,6 +1778,8 @@ export type DossierUpdateWithoutMassesDimensionsInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
@@ -1717,6 +1809,8 @@ export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutCouplingDeviceInput = {
@@ -1746,6 +1840,8 @@ export type DossierCreateWithoutCouplingDeviceInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
@@ -1775,6 +1871,8 @@ export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutCouplingDeviceInput = {
@@ -1820,6 +1918,8 @@ export type DossierUpdateWithoutCouplingDeviceInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
@@ -1849,6 +1949,8 @@ export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutSpraySuppressionInput = {
@@ -1878,6 +1980,8 @@ export type DossierCreateWithoutSpraySuppressionInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
@@ -1907,6 +2011,8 @@ export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutSpraySuppressionInput = {
@@ -1952,6 +2058,8 @@ export type DossierUpdateWithoutSpraySuppressionInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
@@ -1981,6 +2089,8 @@ export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutElectromagneticCompatibilityInput = {
@@ -2010,6 +2120,8 @@ export type DossierCreateWithoutElectromagneticCompatibilityInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
@@ -2039,6 +2151,8 @@ export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutElectromagneticCompatibilityInput = {
@@ -2084,6 +2198,8 @@ export type DossierUpdateWithoutElectromagneticCompatibilityInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
@@ -2113,6 +2229,8 @@ export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLateralProtectionInput = {
@@ -2142,6 +2260,8 @@ export type DossierCreateWithoutLateralProtectionInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLateralProtectionInput = {
@@ -2171,6 +2291,8 @@ export type DossierUncheckedCreateWithoutLateralProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLateralProtectionInput = {
@@ -2216,6 +2338,8 @@ export type DossierUpdateWithoutLateralProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
@@ -2245,6 +2369,8 @@ export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutRearProtectionInput = {
@@ -2274,6 +2400,8 @@ export type DossierCreateWithoutRearProtectionInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutRearProtectionInput = {
@@ -2303,6 +2431,8 @@ export type DossierUncheckedCreateWithoutRearProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutRearProtectionInput = {
@@ -2348,6 +2478,8 @@ export type DossierUpdateWithoutRearProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutRearProtectionInput = {
@@ -2377,6 +2509,8 @@ export type DossierUncheckedUpdateWithoutRearProtectionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLateralMarkingInput = {
@@ -2406,6 +2540,8 @@ export type DossierCreateWithoutLateralMarkingInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLateralMarkingInput = {
@@ -2435,6 +2571,8 @@ export type DossierUncheckedCreateWithoutLateralMarkingInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLateralMarkingInput = {
@@ -2480,6 +2618,8 @@ export type DossierUpdateWithoutLateralMarkingInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
@@ -2509,6 +2649,8 @@ export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingSideInput = {
@@ -2538,6 +2680,8 @@ export type DossierCreateWithoutLightingSideInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingSideInput = {
@@ -2567,6 +2711,8 @@ export type DossierUncheckedCreateWithoutLightingSideInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingSideInput = {
@@ -2612,6 +2758,8 @@ export type DossierUpdateWithoutLightingSideInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingSideInput = {
@@ -2641,6 +2789,8 @@ export type DossierUncheckedUpdateWithoutLightingSideInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingPositionInput = {
@@ -2670,6 +2820,8 @@ export type DossierCreateWithoutLightingPositionInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingPositionInput = {
@@ -2699,6 +2851,8 @@ export type DossierUncheckedCreateWithoutLightingPositionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingPositionInput = {
@@ -2744,6 +2898,8 @@ export type DossierUpdateWithoutLightingPositionInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingPositionInput = {
@@ -2773,6 +2929,8 @@ export type DossierUncheckedUpdateWithoutLightingPositionInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingReflectorInput = {
@@ -2802,6 +2960,8 @@ export type DossierCreateWithoutLightingReflectorInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingReflectorInput = {
@@ -2831,6 +2991,8 @@ export type DossierUncheckedCreateWithoutLightingReflectorInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingReflectorInput = {
@@ -2876,6 +3038,8 @@ export type DossierUpdateWithoutLightingReflectorInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
@@ -2905,6 +3069,8 @@ export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingBrakeInput = {
@@ -2934,6 +3100,8 @@ export type DossierCreateWithoutLightingBrakeInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingBrakeInput = {
@@ -2963,6 +3131,8 @@ export type DossierUncheckedCreateWithoutLightingBrakeInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingBrakeInput = {
@@ -3008,6 +3178,8 @@ export type DossierUpdateWithoutLightingBrakeInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
@@ -3037,6 +3209,8 @@ export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingTurnSignalInput = {
@@ -3066,6 +3240,8 @@ export type DossierCreateWithoutLightingTurnSignalInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
@@ -3095,6 +3271,8 @@ export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingTurnSignalInput = {
@@ -3140,6 +3318,8 @@ export type DossierUpdateWithoutLightingTurnSignalInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
@@ -3169,6 +3349,8 @@ export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
@@ -3198,6 +3380,8 @@ export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
@@ -3227,6 +3411,8 @@ export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingRearOutlineMarkerInput = {
@@ -3272,6 +3458,8 @@ export type DossierUpdateWithoutLightingRearOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
@@ -3301,6 +3489,8 @@ export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
@@ -3330,6 +3520,8 @@ export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
@@ -3359,6 +3551,8 @@ export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingFrontOutlineMarkerInput = {
@@ -3404,6 +3598,8 @@ export type DossierUpdateWithoutLightingFrontOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
@@ -3433,6 +3629,8 @@ export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingPlateInput = {
@@ -3462,6 +3660,8 @@ export type DossierCreateWithoutLightingPlateInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingPlateInput = {
@@ -3491,6 +3691,8 @@ export type DossierUncheckedCreateWithoutLightingPlateInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingPlateInput = {
@@ -3536,6 +3738,8 @@ export type DossierUpdateWithoutLightingPlateInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingPlateInput = {
@@ -3565,6 +3769,8 @@ export type DossierUncheckedUpdateWithoutLightingPlateInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingReverseInput = {
@@ -3594,6 +3800,8 @@ export type DossierCreateWithoutLightingReverseInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingReverseInput = {
@@ -3623,6 +3831,8 @@ export type DossierUncheckedCreateWithoutLightingReverseInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingReverseInput = {
@@ -3668,6 +3878,8 @@ export type DossierUpdateWithoutLightingReverseInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingReverseInput = {
@@ -3697,6 +3909,8 @@ export type DossierUncheckedUpdateWithoutLightingReverseInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateWithoutLightingFogInput = {
@@ -3726,6 +3940,8 @@ export type DossierCreateWithoutLightingFogInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
   lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
 }
 
 export type DossierUncheckedCreateWithoutLightingFogInput = {
@@ -3755,6 +3971,8 @@ export type DossierUncheckedCreateWithoutLightingFogInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
   lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
   lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
 }
 
 export type DossierCreateOrConnectWithoutLightingFogInput = {
@@ -3800,6 +4018,8 @@ export type DossierUpdateWithoutLightingFogInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutLightingFogInput = {
@@ -3829,6 +4049,288 @@ export type DossierUncheckedUpdateWithoutLightingFogInput = {
   lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutLightingMaterialChecklistInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutLightingMaterialChecklistInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutLightingMaterialChecklistInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedCreateWithoutLightingMaterialChecklistInput>
+}
+
+export type DossierUpsertWithoutLightingMaterialChecklistInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedUpdateWithoutLightingMaterialChecklistInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedCreateWithoutLightingMaterialChecklistInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutLightingMaterialChecklistInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutLightingMaterialChecklistInput, Prisma.DossierUncheckedUpdateWithoutLightingMaterialChecklistInput>
+}
+
+export type DossierUpdateWithoutLightingMaterialChecklistInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutLightingMaterialChecklistInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutRegulatoryActNumbersInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutRegulatoryActNumbersInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutRegulatoryActNumbersInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedCreateWithoutRegulatoryActNumbersInput>
+}
+
+export type DossierUpsertWithoutRegulatoryActNumbersInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedUpdateWithoutRegulatoryActNumbersInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedCreateWithoutRegulatoryActNumbersInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutRegulatoryActNumbersInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedUpdateWithoutRegulatoryActNumbersInput>
+}
+
+export type DossierUpdateWithoutRegulatoryActNumbersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutRegulatoryActNumbersInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierCreateManyCompanyInput = {
@@ -3865,6 +4367,8 @@ export type DossierUpdateWithoutCompanyInput = {
   lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateWithoutCompanyInput = {
@@ -3894,6 +4398,8 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
   lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
   lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
 }
 
 export type DossierUncheckedUpdateManyWithoutCompanyInput = {
@@ -3963,6 +4469,8 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   lightingPlate?: boolean | Prisma.Dossier$lightingPlateArgs<ExtArgs>
   lightingReverse?: boolean | Prisma.Dossier$lightingReverseArgs<ExtArgs>
   lightingFog?: boolean | Prisma.Dossier$lightingFogArgs<ExtArgs>
+  lightingMaterialChecklist?: boolean | Prisma.Dossier$lightingMaterialChecklistArgs<ExtArgs>
+  regulatoryActNumbers?: boolean | Prisma.Dossier$regulatoryActNumbersArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
@@ -4017,6 +4525,8 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   lightingPlate?: boolean | Prisma.Dossier$lightingPlateArgs<ExtArgs>
   lightingReverse?: boolean | Prisma.Dossier$lightingReverseArgs<ExtArgs>
   lightingFog?: boolean | Prisma.Dossier$lightingFogArgs<ExtArgs>
+  lightingMaterialChecklist?: boolean | Prisma.Dossier$lightingMaterialChecklistArgs<ExtArgs>
+  regulatoryActNumbers?: boolean | Prisma.Dossier$regulatoryActNumbersArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type DossierIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -4052,6 +4562,8 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     lightingPlate: Prisma.$LightingPlatePayload<ExtArgs> | null
     lightingReverse: Prisma.$LightingReversePayload<ExtArgs> | null
     lightingFog: Prisma.$LightingFogPayload<ExtArgs> | null
+    lightingMaterialChecklist: Prisma.$LightingMaterialChecklistPayload<ExtArgs> | null
+    regulatoryActNumbers: Prisma.$RegulatoryActNumbersPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -4480,6 +4992,8 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   lightingPlate<T extends Prisma.Dossier$lightingPlateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingPlateArgs<ExtArgs>>): Prisma.Prisma__LightingPlateClient<runtime.Types.Result.GetResult<Prisma.$LightingPlatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   lightingReverse<T extends Prisma.Dossier$lightingReverseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingReverseArgs<ExtArgs>>): Prisma.Prisma__LightingReverseClient<runtime.Types.Result.GetResult<Prisma.$LightingReversePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   lightingFog<T extends Prisma.Dossier$lightingFogArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingFogArgs<ExtArgs>>): Prisma.Prisma__LightingFogClient<runtime.Types.Result.GetResult<Prisma.$LightingFogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  lightingMaterialChecklist<T extends Prisma.Dossier$lightingMaterialChecklistArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$lightingMaterialChecklistArgs<ExtArgs>>): Prisma.Prisma__LightingMaterialChecklistClient<runtime.Types.Result.GetResult<Prisma.$LightingMaterialChecklistPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  regulatoryActNumbers<T extends Prisma.Dossier$regulatoryActNumbersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$regulatoryActNumbersArgs<ExtArgs>>): Prisma.Prisma__RegulatoryActNumbersClient<runtime.Types.Result.GetResult<Prisma.$RegulatoryActNumbersPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5335,6 +5849,44 @@ export type Dossier$lightingFogArgs<ExtArgs extends runtime.Types.Extensions.Int
    */
   include?: Prisma.LightingFogInclude<ExtArgs> | null
   where?: Prisma.LightingFogWhereInput
+}
+
+/**
+ * Dossier.lightingMaterialChecklist
+ */
+export type Dossier$lightingMaterialChecklistArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LightingMaterialChecklist
+   */
+  select?: Prisma.LightingMaterialChecklistSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the LightingMaterialChecklist
+   */
+  omit?: Prisma.LightingMaterialChecklistOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.LightingMaterialChecklistInclude<ExtArgs> | null
+  where?: Prisma.LightingMaterialChecklistWhereInput
+}
+
+/**
+ * Dossier.regulatoryActNumbers
+ */
+export type Dossier$regulatoryActNumbersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the RegulatoryActNumbers
+   */
+  select?: Prisma.RegulatoryActNumbersSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the RegulatoryActNumbers
+   */
+  omit?: Prisma.RegulatoryActNumbersOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RegulatoryActNumbersInclude<ExtArgs> | null
+  where?: Prisma.RegulatoryActNumbersWhereInput
 }
 
 /**

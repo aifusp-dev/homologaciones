@@ -47,6 +47,8 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       lightingPlate: true,
       lightingReverse: true,
       lightingFog: true,
+      lightingMaterialChecklist: true,
+      regulatoryActNumbers: true,
     },
   });
   if (!dossier) notFound();
@@ -204,6 +206,8 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             lightingPlate: dossier.lightingPlate,
             lightingReverse: dossier.lightingReverse,
             lightingFog: dossier.lightingFog,
+            lightingMaterialChecklist: dossier.lightingMaterialChecklist,
+            regulatoryActNumbers: dossier.regulatoryActNumbers,
           }}
         />
       </section>

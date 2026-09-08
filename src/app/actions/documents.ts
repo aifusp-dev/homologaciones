@@ -6,6 +6,7 @@ import { requireCompanyUser } from "@/lib/dal";
 import { renderHtmlToPdfBuffer, saveGeneratedPdf } from "@/lib/pdf/render";
 import { renderPreliminaryReport } from "@/lib/pdf/templates/preliminaryReport";
 import { renderManufacturingOrder } from "@/lib/pdf/templates/manufacturingOrder";
+import { renderBodyworkCertificate } from "@/lib/pdf/templates/bodyworkCertificate";
 import { calculateBaseMasses } from "@/lib/calculations/masses";
 import type { FormState } from "@/lib/definitions";
 import type { DocumentType } from "@/generated/prisma/enums";
@@ -22,7 +23,14 @@ const DOCUMENT_LABELS: Record<DocumentType, string> = {
 async function loadDossierData(dossierId: string, companyId: string) {
   const dossier = await prisma.dossier.findFirst({
     where: { id: dossierId, companyId },
-    include: { coc: true, bodywork: true, massesDimensions: true, company: true },
+    include: {
+      coc: true,
+      bodywork: true,
+      massesDimensions: true,
+      company: true,
+      regulatoryActNumbers: true,
+      lightingMaterialChecklist: true,
+    },
   });
   if (!dossier) return null;
 
@@ -97,6 +105,17 @@ export async function generateDocument(_state: FormState, formData: FormData): P
   let html: string;
   let fileName: string;
 
+  const actNumbers = dossier.regulatoryActNumbers
+    ? {
+        lightingActNumber: dossier.regulatoryActNumbers.lightingActNumber,
+        spraySuppressionActNumber: dossier.regulatoryActNumbers.spraySuppressionActNumber,
+        massesActNumber: dossier.regulatoryActNumbers.massesActNumber,
+        rearPlateActNumber: dossier.regulatoryActNumbers.rearPlateActNumber,
+        rearProtectionActNumber: dossier.regulatoryActNumbers.rearProtectionActNumber,
+        emcActNumber: dossier.regulatoryActNumbers.emcActNumber,
+      }
+    : null;
+
   if (type === "PRELIMINARY_REPORT") {
     html = renderPreliminaryReport({
       companyName: dossier.company.name,
@@ -120,6 +139,7 @@ export async function generateDocument(_state: FormState, formData: FormData): P
       heightFromGround: dossier.massesDimensions?.maxHeightFromGround ?? null,
       rearOverhang: masses.rearOverhang,
       responsibleName: user.name,
+      actNumbers,
     });
     fileName = `Informe_Previo_${dossier.number}.pdf`;
   } else if (type === "MANUFACTURING_ORDER") {
@@ -138,8 +158,56 @@ export async function generateDocument(_state: FormState, formData: FormData): P
       rearProtectionBrand: dossier.bodywork?.rearProtectionBrand ?? null,
       rearProtectionModel: dossier.bodywork?.rearProtectionModel ?? null,
       couplingDeviceBrand: dossier.bodywork?.couplingDeviceBrand ?? null,
+      actNumbers,
+      lightingMaterial: dossier.lightingMaterialChecklist
+        ? {
+            sideOutlineMarkerLamp: dossier.lightingMaterialChecklist.sideOutlineMarkerLamp,
+            rearOutlineMarkerLamp: dossier.lightingMaterialChecklist.rearOutlineMarkerLamp,
+            frontOutlineMarkerLamp: dossier.lightingMaterialChecklist.frontOutlineMarkerLamp,
+            rearHangingOutlineMarkerLamp: dossier.lightingMaterialChecklist.rearHangingOutlineMarkerLamp,
+            plateLight: dossier.lightingMaterialChecklist.plateLight,
+            thirdBrakeLight: dossier.lightingMaterialChecklist.thirdBrakeLight,
+            v23Red: dossier.lightingMaterialChecklist.v23Red,
+            v23White: dossier.lightingMaterialChecklist.v23White,
+            spraySuppressionFlap: dossier.lightingMaterialChecklist.spraySuppressionFlap,
+            mudguard: dossier.lightingMaterialChecklist.mudguard,
+            lateralProtectionMaterial: dossier.lightingMaterialChecklist.lateralProtectionMaterial,
+          }
+        : null,
     });
     fileName = `Orden_Fabricacion_${dossier.number}.pdf`;
+  } else if (type === "BODYWORK_CERTIFICATE") {
+    const isSemiTrailer =
+      dossier.coc?.staticKingpinMass != null ||
+      dossier.coc?.kingpinToRearEdgeDistance != null ||
+      (dossier.coc?.vehicleCategory ?? "").toUpperCase().startsWith("O");
+    html = renderBodyworkCertificate({
+      companyName: dossier.company.name,
+      logoUrl: dossier.company.logoUrl,
+      dossierNumber: dossier.number,
+      vin: dossier.coc?.vin ?? null,
+      brand: dossier.coc?.brand ?? null,
+      type: dossier.coc?.type ?? null,
+      variant: dossier.coc?.variant ?? null,
+      version: dossier.coc?.version ?? null,
+      commercialName: dossier.coc?.commercialName ?? null,
+      approvalNumber: dossier.coc?.approvalNumber ?? null,
+      bodyType: dossier.bodywork?.bodyType ?? null,
+      isSemiTrailer,
+      heightFromGround: dossier.massesDimensions?.maxHeightFromGround ?? null,
+      width: dossier.bodywork?.exteriorWidth ?? null,
+      totalLength: masses.totalLength,
+      rearOverhang: masses.rearOverhang,
+      mom: masses.mom,
+      mma: dossier.coc?.maxLadenMassRegistration ?? null,
+      mmaCouplingPoint: dossier.coc?.staticCouplingPointMass ?? null,
+      mmtaRequested: dossier.coc?.maxTechnicallyPermissibleMassRequested ?? null,
+      actNumbers,
+      rearProtectionBrand: dossier.bodywork?.rearProtectionBrand ?? null,
+      rearProtectionModel: dossier.bodywork?.rearProtectionModel ?? null,
+      responsibleName: user.name,
+    });
+    fileName = `Certificado_Carrozado_${dossier.number}.pdf`;
   } else {
     return { message: `${DOCUMENT_LABELS[type]} todavía no está disponible.` };
   }

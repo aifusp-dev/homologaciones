@@ -76,7 +76,9 @@ export const ModelName = {
   LightingFrontOutlineMarker: 'LightingFrontOutlineMarker',
   LightingPlate: 'LightingPlate',
   LightingReverse: 'LightingReverse',
-  LightingFog: 'LightingFog'
+  LightingFog: 'LightingFog',
+  LightingMaterialChecklist: 'LightingMaterialChecklist',
+  RegulatoryActNumbers: 'RegulatoryActNumbers'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -289,6 +291,7 @@ export const CocScalarFieldEnum = {
   loadIndexAxle3: 'loadIndexAxle3',
   trailerBrakeConnectionType: 'trailerBrakeConnectionType',
   brakingPressure: 'brakingPressure',
+  seatCount: 'seatCount',
   couplingDeviceApprovalNumber: 'couplingDeviceApprovalNumber',
   couplingDeviceBrand: 'couplingDeviceBrand',
   installableCouplingDevices: 'installableCouplingDevices',
@@ -388,7 +391,10 @@ export const BodyworkScalarFieldEnum = {
   leafSpringReinforcement: 'leafSpringReinforcement',
   leafSpringReinforcementWeight: 'leafSpringReinforcementWeight',
   interiorLight: 'interiorLight',
-  toolBoxSize: 'toolBoxSize'
+  toolBoxSize: 'toolBoxSize',
+  finalStagePlateLocation: 'finalStagePlateLocation',
+  completedApprovalNumber: 'completedApprovalNumber',
+  completedApprovalDate: 'completedApprovalDate'
 } as const
 
 export type BodyworkScalarFieldEnum = (typeof BodyworkScalarFieldEnum)[keyof typeof BodyworkScalarFieldEnum]
@@ -865,6 +871,41 @@ export const LightingFogScalarFieldEnum = {
 } as const
 
 export type LightingFogScalarFieldEnum = (typeof LightingFogScalarFieldEnum)[keyof typeof LightingFogScalarFieldEnum]
+
+
+export const LightingMaterialChecklistScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  sideOutlineMarkerLamp: 'sideOutlineMarkerLamp',
+  rearOutlineMarkerLamp: 'rearOutlineMarkerLamp',
+  frontOutlineMarkerLamp: 'frontOutlineMarkerLamp',
+  rearHangingOutlineMarkerLamp: 'rearHangingOutlineMarkerLamp',
+  plateLight: 'plateLight',
+  thirdBrakeLight: 'thirdBrakeLight',
+  v23Red: 'v23Red',
+  v23White: 'v23White',
+  spraySuppressionFlap: 'spraySuppressionFlap',
+  mudguard: 'mudguard',
+  manufacturingOrderRemarks: 'manufacturingOrderRemarks',
+  manufacturingOrderDate: 'manufacturingOrderDate',
+  lateralProtectionMaterial: 'lateralProtectionMaterial'
+} as const
+
+export type LightingMaterialChecklistScalarFieldEnum = (typeof LightingMaterialChecklistScalarFieldEnum)[keyof typeof LightingMaterialChecklistScalarFieldEnum]
+
+
+export const RegulatoryActNumbersScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  lightingActNumber: 'lightingActNumber',
+  spraySuppressionActNumber: 'spraySuppressionActNumber',
+  massesActNumber: 'massesActNumber',
+  rearPlateActNumber: 'rearPlateActNumber',
+  rearProtectionActNumber: 'rearProtectionActNumber',
+  emcActNumber: 'emcActNumber'
+} as const
+
+export type RegulatoryActNumbersScalarFieldEnum = (typeof RegulatoryActNumbersScalarFieldEnum)[keyof typeof RegulatoryActNumbersScalarFieldEnum]
 
 
 export const SortOrder = {
