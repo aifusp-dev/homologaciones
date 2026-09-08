@@ -2,6 +2,7 @@ import Link from "next/link";
 import { requireCompanyUser, getIdentity } from "@/lib/dal";
 import { prisma } from "@/lib/db";
 import { logout } from "@/app/actions/auth";
+import { createDossier } from "@/app/actions/dossiers";
 import { InviteForm } from "./invite-form";
 
 const ROLE_LABEL: Record<string, string> = {
@@ -17,6 +18,10 @@ export default async function DashboardPage() {
     include: {
       users: { select: { id: true, name: true, email: true, role: true } },
       invitations: { where: { consumedAt: null }, select: { id: true, email: true, role: true } },
+      dossiers: {
+        orderBy: { createdAt: "desc" },
+        include: { customer: { select: { name: true } } },
+      },
     },
   });
 
@@ -45,12 +50,32 @@ export default async function DashboardPage() {
       </header>
 
       <section className="space-y-3">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
-          Expedientes
-        </h2>
-        <p className="text-sm text-neutral-500">
-          Todavía no hay nada aquí — la gestión de expedientes llega en la Fase 1.
-        </p>
+        <div className="flex items-center justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-neutral-400">
+            Expedientes
+          </h2>
+          <form action={createDossier}>
+            <button className="bg-white text-black font-semibold rounded-lg px-3.5 py-1.5 text-sm hover:opacity-90 transition-opacity">
+              Nuevo expediente
+            </button>
+          </form>
+        </div>
+        <ul className="space-y-1.5">
+          {company.dossiers.map((d) => (
+            <li key={d.id}>
+              <Link
+                href={`/dossiers/${d.id}`}
+                className="flex justify-between items-baseline border border-neutral-800 rounded-lg px-4 py-3 text-sm hover:border-neutral-600 transition-colors"
+              >
+                <span className="font-mono font-medium">{d.number}</span>
+                <span className="text-neutral-500">{d.customer?.name ?? "Sin cliente"}</span>
+              </Link>
+            </li>
+          ))}
+          {company.dossiers.length === 0 && (
+            <p className="text-sm text-neutral-500">Todavía no hay ningún expediente.</p>
+          )}
+        </ul>
       </section>
 
       <section className="space-y-4">

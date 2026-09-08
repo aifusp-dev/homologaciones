@@ -11,4 +11,8 @@
 export type * from './models/Company'
 export type * from './models/User'
 export type * from './models/Invitation'
+export type * from './models/Dossier'
+export type * from './models/Customer'
+export type * from './models/Dealer'
+export type * from './models/Coc'
 export type * from './commonInputTypes'

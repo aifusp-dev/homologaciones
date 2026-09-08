@@ -53,7 +53,11 @@ export const AnyNull = runtime.AnyNull
 export const ModelName = {
   Company: 'Company',
   User: 'User',
-  Invitation: 'Invitation'
+  Invitation: 'Invitation',
+  Dossier: 'Dossier',
+  Customer: 'Customer',
+  Dealer: 'Dealer',
+  Coc: 'Coc'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -75,7 +79,8 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const CompanyScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  nextDossierNumber: 'nextDossierNumber'
 } as const
 
 export type CompanyScalarFieldEnum = (typeof CompanyScalarFieldEnum)[keyof typeof CompanyScalarFieldEnum]
@@ -104,6 +109,183 @@ export const InvitationScalarFieldEnum = {
 } as const
 
 export type InvitationScalarFieldEnum = (typeof InvitationScalarFieldEnum)[keyof typeof InvitationScalarFieldEnum]
+
+
+export const DossierScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  number: 'number',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type DossierScalarFieldEnum = (typeof DossierScalarFieldEnum)[keyof typeof DossierScalarFieldEnum]
+
+
+export const CustomerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  contactName: 'contactName',
+  contactPhone: 'contactPhone',
+  notes: 'notes'
+} as const
+
+export type CustomerScalarFieldEnum = (typeof CustomerScalarFieldEnum)[keyof typeof CustomerScalarFieldEnum]
+
+
+export const DealerScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  name: 'name',
+  phone: 'phone',
+  email: 'email',
+  contactName: 'contactName',
+  contactPhone: 'contactPhone',
+  contactEmail: 'contactEmail',
+  notes: 'notes'
+} as const
+
+export type DealerScalarFieldEnum = (typeof DealerScalarFieldEnum)[keyof typeof DealerScalarFieldEnum]
+
+
+export const CocScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  vin: 'vin',
+  vehicleCategory: 'vehicleCategory',
+  brand: 'brand',
+  type: 'type',
+  variant: 'variant',
+  version: 'version',
+  commercialName: 'commercialName',
+  manufacturerName: 'manufacturerName',
+  manufacturerAddress: 'manufacturerAddress',
+  vinLocation: 'vinLocation',
+  platesAttachmentMethod: 'platesAttachmentMethod',
+  platesLocation: 'platesLocation',
+  approvalDate: 'approvalDate',
+  manufactureDate: 'manufactureDate',
+  approvalNumber: 'approvalNumber',
+  wheelCount: 'wheelCount',
+  axleCount: 'axleCount',
+  dualWheelAxlePosition: 'dualWheelAxlePosition',
+  dualWheelAxleCount: 'dualWheelAxleCount',
+  steeredAxlePosition: 'steeredAxlePosition',
+  steeredAxleCount: 'steeredAxleCount',
+  drivenAxleCount: 'drivenAxleCount',
+  drivenAxleLocation: 'drivenAxleLocation',
+  drivenAxleInterconnection: 'drivenAxleInterconnection',
+  axleDistance0to1: 'axleDistance0to1',
+  axleDistance1to2: 'axleDistance1to2',
+  axleDistance2to3: 'axleDistance2to3',
+  maxPermissibleLength: 'maxPermissibleLength',
+  maxPermissibleWidth: 'maxPermissibleWidth',
+  maxPermissibleHeight: 'maxPermissibleHeight',
+  pivotToRearEdgeDistance: 'pivotToRearEdgeDistance',
+  kingpinToRearEdgeDistance: 'kingpinToRearEdgeDistance',
+  maxPermissibleRearOverhang: 'maxPermissibleRearOverhang',
+  momIncompleteVehicle: 'momIncompleteVehicle',
+  momIncompleteAxle3: 'momIncompleteAxle3',
+  momIncompleteAxle2: 'momIncompleteAxle2',
+  momIncompleteAxle1: 'momIncompleteAxle1',
+  currentIncompleteVehicleMass: 'currentIncompleteVehicleMass',
+  minCompletedMass: 'minCompletedMass',
+  minCompletedMassDistributionAxle1: 'minCompletedMassDistributionAxle1',
+  minCompletedMassDistributionAxle2: 'minCompletedMassDistributionAxle2',
+  minCompletedMassDistributionAxle3: 'minCompletedMassDistributionAxle3',
+  maxTechnicallyPermissibleMass: 'maxTechnicallyPermissibleMass',
+  maxTechnicallyPermissibleMassRequested: 'maxTechnicallyPermissibleMassRequested',
+  maxTechnicallyPermissibleMassAxleGroup2: 'maxTechnicallyPermissibleMassAxleGroup2',
+  maxTechnicallyPermissibleMassAxleGroup1: 'maxTechnicallyPermissibleMassAxleGroup1',
+  maxTechnicallyPermissibleMassAxle3: 'maxTechnicallyPermissibleMassAxle3',
+  maxTechnicallyPermissibleMassAxle2: 'maxTechnicallyPermissibleMassAxle2',
+  maxTechnicallyPermissibleMassAxle1: 'maxTechnicallyPermissibleMassAxle1',
+  maxTechnicallyPermissibleMassCombination: 'maxTechnicallyPermissibleMassCombination',
+  maxLadenMassRegistration: 'maxLadenMassRegistration',
+  maxLadenMassRegistrationAxle3: 'maxLadenMassRegistrationAxle3',
+  maxLadenMassRegistrationAxle2: 'maxLadenMassRegistrationAxle2',
+  maxLadenMassRegistrationAxle1: 'maxLadenMassRegistrationAxle1',
+  maxLadenMassRegistrationAxleGroup1: 'maxLadenMassRegistrationAxleGroup1',
+  maxLadenMassRegistrationCombination: 'maxLadenMassRegistrationCombination',
+  semiTrailerMass: 'semiTrailerMass',
+  drawBarTrailerMass: 'drawBarTrailerMass',
+  centreAxleTrailerMass: 'centreAxleTrailerMass',
+  rigidDrawBarTrailerMass: 'rigidDrawBarTrailerMass',
+  unbrakedTrailerMass: 'unbrakedTrailerMass',
+  staticCouplingPointMass: 'staticCouplingPointMass',
+  staticKingpinMass: 'staticKingpinMass',
+  engineManufacturer: 'engineManufacturer',
+  engineMarkingCode: 'engineMarkingCode',
+  operatingPrinciple: 'operatingPrinciple',
+  pureElectric: 'pureElectric',
+  hybrid: 'hybrid',
+  cylinderCount: 'cylinderCount',
+  cylinderArrangement: 'cylinderArrangement',
+  displacement: 'displacement',
+  fuelType: 'fuelType',
+  singleFuel: 'singleFuel',
+  ratedPower: 'ratedPower',
+  ratedPowerRpm: 'ratedPowerRpm',
+  maxNetPower: 'maxNetPower',
+  gearboxType: 'gearboxType',
+  maxSpeed: 'maxSpeed',
+  trackWidthAxle1: 'trackWidthAxle1',
+  trackWidthAxle2: 'trackWidthAxle2',
+  trackWidthAxle3: 'trackWidthAxle3',
+  retractableAxlePosition: 'retractableAxlePosition',
+  liftableAxlePosition: 'liftableAxlePosition',
+  pneumaticSteeredAxles: 'pneumaticSteeredAxles',
+  tireCount: 'tireCount',
+  tireWidthAxle1: 'tireWidthAxle1',
+  tireWidthAxle2: 'tireWidthAxle2',
+  tireWidthAxle3: 'tireWidthAxle3',
+  tireAspectRatioAxle1: 'tireAspectRatioAxle1',
+  tireAspectRatioAxle2: 'tireAspectRatioAxle2',
+  tireAspectRatioAxle3: 'tireAspectRatioAxle3',
+  rimDiameterAxle1: 'rimDiameterAxle1',
+  rimDiameterAxle2: 'rimDiameterAxle2',
+  rimDiameterAxle3: 'rimDiameterAxle3',
+  speedRatingAxle1: 'speedRatingAxle1',
+  speedRatingAxle2: 'speedRatingAxle2',
+  speedRatingAxle3: 'speedRatingAxle3',
+  loadIndexAxle1: 'loadIndexAxle1',
+  loadIndexAxle2: 'loadIndexAxle2',
+  loadIndexAxle3: 'loadIndexAxle3',
+  trailerBrakeConnectionType: 'trailerBrakeConnectionType',
+  brakingPressure: 'brakingPressure',
+  couplingDeviceApprovalNumber: 'couplingDeviceApprovalNumber',
+  couplingDeviceBrand: 'couplingDeviceBrand',
+  installableCouplingDevices: 'installableCouplingDevices',
+  valueDc: 'valueDc',
+  valueV: 'valueV',
+  valueD: 'valueD',
+  valueS: 'valueS',
+  stationaryNoiseLevel: 'stationaryNoiseLevel',
+  stationaryNoiseLevelRpm: 'stationaryNoiseLevelRpm',
+  drivingNoiseLevel: 'drivingNoiseLevel',
+  emissionsLevel: 'emissionsLevel',
+  specificCo2Emissions: 'specificCo2Emissions',
+  remarks: 'remarks',
+  vehicleEquippedWith: 'vehicleEquippedWith',
+  gearCount: 'gearCount',
+  frontSuspension: 'frontSuspension',
+  rearSuspension: 'rearSuspension',
+  steeringMethod: 'steeringMethod',
+  serviceBraking: 'serviceBraking',
+  secondaryBraking: 'secondaryBraking',
+  parkingBraking: 'parkingBraking',
+  abs: 'abs',
+  indirectVision: 'indirectVision',
+  doorCountAndArrangement: 'doorCountAndArrangement',
+  frontProtection: 'frontProtection',
+  cabDeflector: 'cabDeflector',
+  typeApprovalOptions: 'typeApprovalOptions'
+} as const
+
+export type CocScalarFieldEnum = (typeof CocScalarFieldEnum)[keyof typeof CocScalarFieldEnum]
 
 
 export const SortOrder = {

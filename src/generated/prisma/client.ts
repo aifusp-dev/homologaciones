@@ -56,3 +56,23 @@ export type User = Prisma.UserModel
  * 
  */
 export type Invitation = Prisma.InvitationModel
+/**
+ * Model Dossier
+ * 
+ */
+export type Dossier = Prisma.DossierModel
+/**
+ * Model Customer
+ * 
+ */
+export type Customer = Prisma.CustomerModel
+/**
+ * Model Dealer
+ * 
+ */
+export type Dealer = Prisma.DealerModel
+/**
+ * Model Coc
+ * 
+ */
+export type Coc = Prisma.CocModel
