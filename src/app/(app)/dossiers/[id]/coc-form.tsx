@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import { updateCoc } from "@/app/actions/coc";
 import { COC_FIELDS, COC_SECTIONS, type CocSection } from "@/lib/cocFields";
+import { parseEitvXml } from "@/lib/eitvImport";
 
 const inputClass =
   "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
@@ -41,12 +42,59 @@ export function CocForm({
   const [axleCount, setAxleCount] = useState<number | null>(
     typeof coc?.axleCount === "number" ? coc.axleCount : coc?.axleCount ? Number(coc.axleCount) : null
   );
+  const [importMessage, setImportMessage] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const sections = Object.keys(COC_SECTIONS) as CocSection[];
 
+  async function handleImportXml(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+
+    const text = await file.text();
+    const result = parseEitvXml(text, file.name);
+    if (!result.ok) {
+      setImportMessage(`No se pudo importar: ${result.error}`);
+      return;
+    }
+
+    const entries = Object.entries(result.values);
+    if (entries.length === 0) {
+      setImportMessage(`"${result.fileName}" no traía ningún campo reconocido.`);
+      return;
+    }
+
+    for (const [fieldName, value] of entries) {
+      const input = formRef.current?.elements.namedItem(fieldName);
+      if (input instanceof HTMLInputElement) {
+        input.value = value;
+        if (fieldName === "axleCount") setAxleCount(Number(value) || null);
+      }
+    }
+
+    // Abre la sección donde han caído los campos importados para que se
+    // vean sin tener que buscarlos.
+    const identificacion = formRef.current?.querySelector<HTMLDetailsElement>('details[data-section="identificacion"]');
+    if (identificacion) identificacion.open = true;
+
+    setImportMessage(`Importados ${entries.length} campos desde "${result.fileName}". Revisa y pulsa Guardar COC.`);
+  }
+
   return (
-    <form action={action} className="space-y-3">
+    <form ref={formRef} action={action} className="space-y-3">
       <input type="hidden" name="dossierId" value={dossierId} />
+
+      <div className="flex items-center gap-3 border border-border rounded-xl px-4 py-3 bg-panel/40">
+        <label className="text-sm font-medium text-ink shrink-0">Importar XML del fabricante</label>
+        <input
+          type="file"
+          accept=".xml,text/xml,application/xml"
+          onChange={handleImportXml}
+          className="text-xs text-ink-faint file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border file:border-border-strong file:bg-panel file:text-ink file:text-xs file:cursor-pointer"
+        />
+      </div>
+      {importMessage && <p className="text-sm text-ink-dim">{importMessage}</p>}
 
       {sections.map((section) => {
         const fields = COC_FIELDS.filter((f) => f.section === section);
@@ -55,7 +103,7 @@ export function CocForm({
           return axleIndex !== null && axleCount !== null && axleIndex > axleCount;
         }).length;
         return (
-          <details key={section} className="border border-border rounded-xl overflow-hidden group">
+          <details key={section} data-section={section} className="border border-border rounded-xl overflow-hidden group">
             <summary className="cursor-pointer select-none px-4 py-3 bg-panel text-sm font-medium flex items-center justify-between">
               {COC_SECTIONS[section]}
               <span className="text-ink-faint text-xs">
