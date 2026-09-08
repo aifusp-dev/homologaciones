@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { updateCoc } from "@/app/actions/coc";
 import { COC_FIELDS, COC_SECTIONS, type CocSection } from "@/lib/cocFields";
 
@@ -17,6 +17,17 @@ function toInputValue(value: unknown, type: string): string {
   return String(value);
 }
 
+// Campos "...Axle1/2/3" — con el nº de ejes ya sabemos cuáles no aplican
+// (ver conversación: menos ruido visual sin perder datos). Se ocultan con
+// CSS, nunca se quitan del formulario ni se deshabilitan: un input oculto
+// pero presente sigue viajando en el FormData al guardar, así que si ya
+// había un dato en el eje 3 y luego se pone el coche a 2 ejes, ese dato NO
+// se pierde — solo deja de mostrarse mientras el eje 3 no aplique.
+function axleIndexOf(fieldName: string): number | null {
+  const m = fieldName.match(/Axle([1-3])$/);
+  return m ? Number(m[1]) : null;
+}
+
 export function CocForm({
   dossierId,
   coc,
@@ -27,6 +38,9 @@ export function CocForm({
   fiscalHorsepower: number | null;
 }) {
   const [state, action, pending] = useActionState(updateCoc, undefined);
+  const [axleCount, setAxleCount] = useState<number | null>(
+    typeof coc?.axleCount === "number" ? coc.axleCount : coc?.axleCount ? Number(coc.axleCount) : null
+  );
 
   const sections = Object.keys(COC_SECTIONS) as CocSection[];
 
@@ -36,11 +50,18 @@ export function CocForm({
 
       {sections.map((section) => {
         const fields = COC_FIELDS.filter((f) => f.section === section);
+        const hiddenCount = fields.filter((f) => {
+          const axleIndex = axleIndexOf(f.name);
+          return axleIndex !== null && axleCount !== null && axleIndex > axleCount;
+        }).length;
         return (
           <details key={section} className="border border-border rounded-xl overflow-hidden group">
             <summary className="cursor-pointer select-none px-4 py-3 bg-panel text-sm font-medium flex items-center justify-between">
               {COC_SECTIONS[section]}
-              <span className="text-ink-faint text-xs">{fields.length} campos</span>
+              <span className="text-ink-faint text-xs">
+                {fields.length - hiddenCount} campos
+                {hiddenCount > 0 && ` · ${hiddenCount} ocultos (eje no aplicable)`}
+              </span>
             </summary>
             <div className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
               {section === "motor" && (
@@ -48,21 +69,29 @@ export function CocForm({
                   Potencia fiscal (calculada): <b className="text-ink">{fiscalHorsepower ?? "—"}</b> CV
                 </div>
               )}
-              {fields.map((field) => (
-                <div key={field.name} className="space-y-1">
-                  <label className={labelClass}>
-                    <span className="text-ink-faint mr-1">{field.clause}</span>
-                    {field.label}
-                  </label>
-                  <input
-                    name={field.name}
-                    type={field.type === "date" ? "date" : field.type === "text" ? "text" : "text"}
-                    inputMode={field.type === "int" || field.type === "float" ? "decimal" : undefined}
-                    defaultValue={toInputValue(coc?.[field.name], field.type)}
-                    className={inputClass}
-                  />
-                </div>
-              ))}
+              {fields.map((field) => {
+                const axleIndex = axleIndexOf(field.name);
+                const hiddenByAxleCount = axleIndex !== null && axleCount !== null && axleIndex > axleCount;
+                return (
+                  <div key={field.name} className={`space-y-1 ${hiddenByAxleCount ? "hidden" : ""}`}>
+                    <label className={labelClass}>
+                      <span className="text-ink-faint mr-1">{field.clause}</span>
+                      {field.label}
+                    </label>
+                    <input
+                      name={field.name}
+                      type={field.type === "date" ? "date" : field.type === "text" ? "text" : "text"}
+                      inputMode={field.type === "int" || field.type === "float" ? "decimal" : undefined}
+                      defaultValue={toInputValue(coc?.[field.name], field.type)}
+                      onChange={field.name === "axleCount" ? (e) => {
+                        const n = Number(e.target.value);
+                        setAxleCount(Number.isFinite(n) && e.target.value.trim() !== "" ? n : null);
+                      } : undefined}
+                      className={inputClass}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </details>
         );

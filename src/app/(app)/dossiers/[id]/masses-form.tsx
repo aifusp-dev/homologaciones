@@ -10,6 +10,15 @@ const labelClass = "text-xs text-ink-dim";
 
 type MassesValues = Record<string, string | number | null | undefined>;
 
+// Mismo criterio que CocForm: ocultar (no quitar) los campos "...Axle3"
+// cuando el vehículo tiene menos de 3 ejes, según el nº de ejes ya guardado
+// en el COC. Se pasa como prop porque Masas y dimensiones no tiene su
+// propio campo de nº de ejes — es el mismo vehículo que en COC.
+function axleIndexOf(fieldName: string): number | null {
+  const m = fieldName.match(/Axle([1-3])$/);
+  return m ? Number(m[1]) : null;
+}
+
 const RESULT_LABELS: Record<string, string> = {
   rearOverhang: "Voladizo trasero",
   totalLength: "Largo total",
@@ -39,13 +48,19 @@ export function MassesForm({
   dossierId,
   masses,
   computed,
+  axleCount,
 }: {
   dossierId: string;
   masses: MassesValues | null;
   computed: Record<string, number | null>;
+  axleCount: number | null;
 }) {
   const [state, action, pending] = useActionState(updateMasses, undefined);
   const resultEntries = Object.entries(RESULT_LABELS).filter(([key]) => computed[key] != null);
+  const hiddenCount = MASSES_FIELDS.filter((f) => {
+    const axleIndex = axleIndexOf(f.name);
+    return axleIndex !== null && axleCount !== null && axleIndex > axleCount;
+  }).length;
 
   return (
     <form action={action} className="space-y-3">
@@ -65,24 +80,31 @@ export function MassesForm({
       <details className="border border-border rounded-xl overflow-hidden" open={resultEntries.length === 0}>
         <summary className="cursor-pointer select-none px-4 py-3 bg-panel text-sm font-medium flex items-center justify-between">
           Datos de entrada (centros de gravedad, masas, taras)
-          <span className="text-ink-faint text-xs">{MASSES_FIELDS.length} campos</span>
+          <span className="text-ink-faint text-xs">
+            {MASSES_FIELDS.length - hiddenCount} campos
+            {hiddenCount > 0 && ` · ${hiddenCount} ocultos (eje no aplicable)`}
+          </span>
         </summary>
         <div className="p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-          {MASSES_FIELDS.map((field) => (
-            <div key={field.name} className="space-y-1">
-              <label className={labelClass}>{field.label}</label>
-              <input
-                name={field.name}
-                defaultValue={
-                  masses?.[field.name] === null || masses?.[field.name] === undefined
-                    ? ""
-                    : String(masses[field.name])
-                }
-                inputMode={field.type === "float" ? "decimal" : undefined}
-                className={inputClass}
-              />
-            </div>
-          ))}
+          {MASSES_FIELDS.map((field) => {
+            const axleIndex = axleIndexOf(field.name);
+            const hiddenByAxleCount = axleIndex !== null && axleCount !== null && axleIndex > axleCount;
+            return (
+              <div key={field.name} className={`space-y-1 ${hiddenByAxleCount ? "hidden" : ""}`}>
+                <label className={labelClass}>{field.label}</label>
+                <input
+                  name={field.name}
+                  defaultValue={
+                    masses?.[field.name] === null || masses?.[field.name] === undefined
+                      ? ""
+                      : String(masses[field.name])
+                  }
+                  inputMode={field.type === "float" ? "decimal" : undefined}
+                  className={inputClass}
+                />
+              </div>
+            );
+          })}
         </div>
       </details>
 

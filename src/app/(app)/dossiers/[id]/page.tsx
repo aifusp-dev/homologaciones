@@ -182,7 +182,12 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       content: (
         <div className="space-y-3">
           <p className="text-xs text-ink-faint">Vehículo 2 ejes</p>
-          <MassesForm dossierId={dossier.id} masses={dossier.massesDimensions} computed={massesComputed} />
+          <MassesForm
+            dossierId={dossier.id}
+            masses={dossier.massesDimensions}
+            computed={massesComputed}
+            axleCount={dossier.coc?.axleCount ?? null}
+          />
         </div>
       ),
     },
