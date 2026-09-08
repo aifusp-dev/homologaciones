@@ -66,6 +66,7 @@ export type MassesInputs = {
   // MassesDimensions (manual)
   firstAxleToBodyDistance: number | null; // De_1eje_a_caja
   frontOverhang: number | null; // Voladizo_delantero
+  maxVehicleWidth: number | null; // Ancho_maximo_vehículo
   reeferUnitCentreOfGravity: number | null;
   reeferUnitMass: number | null;
   liftPlatformCentreOfGravity: number | null;
@@ -1132,6 +1133,878 @@ export function couplingValueD(i: MassesInputs, semiTrailerCentreAxleMaxMass: nu
 export function manufacturerChassisTare(i: MassesInputs): number | null {
   if (i.momIncompleteAxle1 == null || i.momIncompleteAxle2 == null) return null;
   return i.momIncompleteAxle1 + i.momIncompleteAxle2;
+}
+
+// ============================================================
+// TRIAXLE — vehículo rígido de 3 ejes, con grúa opcional
+// ============================================================
+
+// DtcgMMTA_3ejes = Round((dist2y3*eje3_16.2)/(eje3_16.2+eje2_16.2);0)
+export function centreOfGravityDistanceMmta3Axle(i: MassesInputs): number | null {
+  if (
+    i.axleDistance2to3 == null ||
+    i.maxTechnicallyPermissibleMassAxle3 == null ||
+    i.maxTechnicallyPermissibleMassAxle2 == null
+  )
+    return null;
+  const denom = i.maxTechnicallyPermissibleMassAxle3 + i.maxTechnicallyPermissibleMassAxle2;
+  if (denom === 0) return null;
+  return r0((i.axleDistance2to3 * i.maxTechnicallyPermissibleMassAxle3) / denom);
+}
+// DtcgMMA_3ejes = Round((dist2y3*eje3_17.2)/(eje3_17.2+eje2_17.2);0)
+export function centreOfGravityDistanceMma3Axle(i: MassesInputs): number | null {
+  if (
+    i.axleDistance2to3 == null ||
+    i.maxLadenMassRegistrationAxle3 == null ||
+    i.maxLadenMassRegistrationAxle2 == null
+  )
+    return null;
+  const denom = i.maxLadenMassRegistrationAxle3 + i.maxLadenMassRegistrationAxle2;
+  if (denom === 0) return null;
+  return r0((i.axleDistance2to3 * i.maxLadenMassRegistrationAxle3) / denom);
+}
+// DEE_MTMA_3ejes = dist1y2 + DtcgMMTA_3ejes
+export function equivalentAxleDistanceMmta3Axle(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMmta3Axle(i);
+  if (i.axleDistance1to2 == null || d == null) return null;
+  return i.axleDistance1to2 + d;
+}
+// DEE_MMA_3ejes = dist1y2 + DtcgMMA_3ejes
+export function equivalentAxleDistanceMma3Axle(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMma3Axle(i);
+  if (i.axleDistance1to2 == null || d == null) return null;
+  return i.axleDistance1to2 + d;
+}
+
+// VPMTMA_3ejes = Round(Largo_exterior - (DEE_MTMA_3ejes - De_1eje_a_caja);0)
+export function pivotPointMmta3Axle(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.exteriorLength == null || dee == null || i.firstAxleToBodyDistance == null) return null;
+  return r0(i.exteriorLength - (dee - i.firstAxleToBodyDistance));
+}
+// VPMMA_3ejes = Round(Largo_exterior - (DEE_MMA_3ejes - De_1eje_a_caja);0)
+export function pivotPointMma3Axle(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.exteriorLength == null || dee == null || i.firstAxleToBodyDistance == null) return null;
+  return r0(i.exteriorLength - (dee - i.firstAxleToBodyDistance));
+}
+// Voladizo_trasero_3ejes = (De_1eje_a_caja + Largo_exterior) - (dist1y2 + dist2y3)
+export function rearOverhang3Axle(i: MassesInputs): number | null {
+  if (
+    i.firstAxleToBodyDistance == null ||
+    i.exteriorLength == null ||
+    i.axleDistance1to2 == null ||
+    i.axleDistance2to3 == null
+  )
+    return null;
+  return i.firstAxleToBodyDistance + i.exteriorLength - (i.axleDistance1to2 + i.axleDistance2to3);
+}
+
+// PL_MTMA_1eje_3ejes = Round(Masa_plazas*(DEE_MTMA_3ejes-Cdg_plazas)/DEE_MTMA_3ejes;0)
+export function seatsMmta3AxleAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.seatsMass == null || dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((i.seatsMass * (dee - i.seatsCentreOfGravity)) / dee);
+}
+// PL_MTMA_2eje_3ejes = Round(Masa_plazas*(DEE_MTMA_3ejes-(DEE_MTMA_3ejes-Cdg_plazas))/DEE_MTMA_3ejes;0)
+export function seatsMmta3AxleAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.seatsMass == null || dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((i.seatsMass * (dee - (dee - i.seatsCentreOfGravity))) / dee);
+}
+// PL_MMA_1eje_3ejes / PL_MMA_2eje_3ejes — igual que arriba con DEE_MMA_3ejes
+export function seatsMma3AxleAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.seatsMass == null || dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((i.seatsMass * (dee - i.seatsCentreOfGravity)) / dee);
+}
+export function seatsMma3AxleAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.seatsMass == null || dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((i.seatsMass * (dee - (dee - i.seatsCentreOfGravity))) / dee);
+}
+// PL_MOM_MMA_1eje_3ejes = Round(75*(DEE_MMA_3ejes-Cdg_plazas)/DEE_MMA_3ejes;0)
+export function driverMomMma3AxleAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((75 * (dee - i.seatsCentreOfGravity)) / dee);
+}
+// PL_MOM_MMA_2eje_3ejes = Round(75*(DEE_MMA_3ejes-(DEE_MMA_3ejes-Cdg_plazas))/DEE_MMA_3ejes;0)
+export function driverMomMma3AxleAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (dee == null || i.seatsCentreOfGravity == null || dee === 0) return null;
+  return r0((75 * (dee - (dee - i.seatsCentreOfGravity))) / dee);
+}
+// MOM_MMA_1PLAZA_eje1_3eje / eje2y3 = PL_MMA_.../ 2
+export function driverMom3AxleAxle1(i: MassesInputs): number | null {
+  const v = seatsMma3AxleAxle1(i);
+  return v == null ? null : v / 2;
+}
+export function driverMom3AxleAxle2y3(i: MassesInputs): number | null {
+  const v = seatsMma3AxleAxle2(i);
+  return v == null ? null : v / 2;
+}
+
+// Comb_MTMA_1eje_3ejes = Round(Capacidad_combustible*(DEE_MTMA_3ejes-Cdg_combustible)/DEE_MTMA_3ejes;0)
+export function fuelMmta3AxleAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.fuelCapacity == null || dee == null || i.fuelCentreOfGravity == null || dee === 0) return null;
+  return r0((i.fuelCapacity * (dee - i.fuelCentreOfGravity)) / dee);
+}
+export function fuelMmta3AxleAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.fuelCapacity == null || dee == null || i.fuelCentreOfGravity == null || dee === 0) return null;
+  return r0((i.fuelCapacity * (dee - (dee - i.fuelCentreOfGravity))) / dee);
+}
+export function fuelMma3AxleAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.fuelCapacity == null || dee == null || i.fuelCentreOfGravity == null || dee === 0) return null;
+  return r0((i.fuelCapacity * (dee - i.fuelCentreOfGravity)) / dee);
+}
+export function fuelMma3AxleAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.fuelCapacity == null || dee == null || i.fuelCentreOfGravity == null || dee === 0) return null;
+  return r0((i.fuelCapacity * (dee - (dee - i.fuelCentreOfGravity))) / dee);
+}
+
+// Grua_MTMA_1eje_3ejes = Round(Masa_grua*(DEE_MTMA_3ejes-Cdg_GRUA)/DEE_MTMA_3ejes;0)
+export function crane3AxleMmtaAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.craneMass == null || dee == null || i.craneCentreOfGravity == null || dee === 0) return null;
+  return r0((i.craneMass * (dee - i.craneCentreOfGravity)) / dee);
+}
+export function crane3AxleMmtaAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.craneMass == null || dee == null || i.craneCentreOfGravity == null || dee === 0) return null;
+  return r0((i.craneMass * (dee - (dee - i.craneCentreOfGravity))) / dee);
+}
+export function crane3AxleMmaAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.craneMass == null || dee == null || i.craneCentreOfGravity == null || dee === 0) return null;
+  return r0((i.craneMass * (dee - i.craneCentreOfGravity)) / dee);
+}
+export function crane3AxleMmaAxle2(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.craneMass == null || dee == null || i.craneCentreOfGravity == null || dee === 0) return null;
+  return r0((i.craneMass * (dee - (dee - i.craneCentreOfGravity))) / dee);
+}
+
+// Masacarga_MTMA_sin_gancho_3ejegrua = COC::_16.1.1 - (Masa_grua+Capacidad_combustible+Masa_plazas+Tara_inicial)
+export function craneLoadMmta3AxleNoHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  if (
+    i.maxTechnicallyPermissibleMassRequested == null ||
+    i.craneMass == null ||
+    i.fuelCapacity == null ||
+    i.seatsMass == null ||
+    tare == null
+  )
+    return null;
+  return i.maxTechnicallyPermissibleMassRequested - (i.craneMass + i.fuelCapacity + i.seatsMass + tare);
+}
+// Masacarga_MTMA_con_gancho_3ejegrua = ...- COC::_19
+export function craneLoadMmta3AxleWithHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  if (
+    i.maxTechnicallyPermissibleMassRequested == null ||
+    i.craneMass == null ||
+    i.fuelCapacity == null ||
+    i.seatsMass == null ||
+    tare == null ||
+    i.staticCouplingPointMass == null
+  )
+    return null;
+  return (
+    i.maxTechnicallyPermissibleMassRequested - (i.craneMass + i.fuelCapacity + i.seatsMass + tare + i.staticCouplingPointMass)
+  );
+}
+// Masacarga_MMA_sin_gancho_3ejegrua = COC::_17.1 - (Masa_grua+Capacidad_combustible+Masa_plazas+Tara_inicial)
+export function craneLoadMma3AxleNoHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  if (
+    i.maxLadenMassRegistration == null ||
+    i.craneMass == null ||
+    i.fuelCapacity == null ||
+    i.seatsMass == null ||
+    tare == null
+  )
+    return null;
+  return i.maxLadenMassRegistration - (i.craneMass + i.fuelCapacity + i.seatsMass + tare);
+}
+export function craneLoadMma3AxleWithHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  if (
+    i.maxLadenMassRegistration == null ||
+    i.craneMass == null ||
+    i.fuelCapacity == null ||
+    i.seatsMass == null ||
+    tare == null ||
+    i.staticCouplingPointMass == null
+  )
+    return null;
+  return i.maxLadenMassRegistration - (i.craneMass + i.fuelCapacity + i.seatsMass + tare + i.staticCouplingPointMass);
+}
+
+// RepartocargaMTMA_eje1_singancho_3ejes = Round(Masacarga_MTMA_sin_gancho_3ejegrua*((Largo_exterior/2)-VPMTMA_3ejes)/DEE_MTMA_3ejes;0)
+export function craneLoadMmta3AxleNoHookDistributionAxle1(i: MassesInputs): number | null {
+  const load = craneLoadMmta3AxleNoHook(i);
+  const vp = pivotPointMmta3Axle(i);
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (load == null || vp == null || dee == null || i.exteriorLength == null || dee === 0) return null;
+  return r0((load * (i.exteriorLength / 2 - vp)) / dee);
+}
+// RepartocargaMTMA_eje2_singancho_3ejes = Masacarga_MTMA_sin_gancho_3ejegrua - eje1
+export function craneLoadMmta3AxleNoHookDistributionAxle2(i: MassesInputs): number | null {
+  const load = craneLoadMmta3AxleNoHook(i);
+  const a1 = craneLoadMmta3AxleNoHookDistributionAxle1(i);
+  if (load == null || a1 == null) return null;
+  return r0(load - a1);
+}
+export function craneLoadMmta3AxleWithHookDistributionAxle1(i: MassesInputs): number | null {
+  const load = craneLoadMmta3AxleWithHook(i);
+  const vp = pivotPointMmta3Axle(i);
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (load == null || vp == null || dee == null || i.exteriorLength == null || dee === 0) return null;
+  return r0((load * (i.exteriorLength / 2 - vp)) / dee);
+}
+export function craneLoadMmta3AxleWithHookDistributionAxle2(i: MassesInputs): number | null {
+  const load = craneLoadMmta3AxleWithHook(i);
+  const a1 = craneLoadMmta3AxleWithHookDistributionAxle1(i);
+  if (load == null || a1 == null) return null;
+  return r0(load - a1);
+}
+export function craneLoadMma3AxleNoHookDistributionAxle1(i: MassesInputs): number | null {
+  const load = craneLoadMma3AxleNoHook(i);
+  const vp = pivotPointMma3Axle(i);
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (load == null || vp == null || dee == null || i.exteriorLength == null || dee === 0) return null;
+  return r0((load * (i.exteriorLength / 2 - vp)) / dee);
+}
+export function craneLoadMma3AxleNoHookDistributionAxle2(i: MassesInputs): number | null {
+  const load = craneLoadMma3AxleNoHook(i);
+  const a1 = craneLoadMma3AxleNoHookDistributionAxle1(i);
+  if (load == null || a1 == null) return null;
+  return r0(load - a1);
+}
+export function craneLoadMma3AxleWithHookDistributionAxle1(i: MassesInputs): number | null {
+  const load = craneLoadMma3AxleWithHook(i);
+  const vp = pivotPointMma3Axle(i);
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (load == null || vp == null || dee == null || i.exteriorLength == null || dee === 0) return null;
+  return r0((load * (i.exteriorLength / 2 - vp)) / dee);
+}
+export function craneLoadMma3AxleWithHookDistributionAxle2(i: MassesInputs): number | null {
+  const load = craneLoadMma3AxleWithHook(i);
+  const a1 = craneLoadMma3AxleWithHookDistributionAxle1(i);
+  if (load == null || a1 == null) return null;
+  return r0(load - a1);
+}
+
+// RepartoMMTA_gancho1eje_3eje = Round(COC::_19*(DEE_MTMA_3ejes-(DEE_MTMA_3ejes+Cdg_gancho))/DEE_MTMA_3ejes;0)
+export function hook3AxleMmtaDistributionAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMmta3Axle(i);
+  if (i.staticCouplingPointMass == null || dee == null || i.hookCentreOfGravity == null || dee === 0) return null;
+  return r0((i.staticCouplingPointMass * (dee - (dee + i.hookCentreOfGravity))) / dee);
+}
+// RepartoMMTA_gancho2eje_3eje = COC::_19 - eje1
+export function hook3AxleMmtaDistributionAxle2(i: MassesInputs): number | null {
+  const a1 = hook3AxleMmtaDistributionAxle1(i);
+  if (i.staticCouplingPointMass == null || a1 == null) return null;
+  return i.staticCouplingPointMass - a1;
+}
+export function hook3AxleMmaDistributionAxle1(i: MassesInputs): number | null {
+  const dee = equivalentAxleDistanceMma3Axle(i);
+  if (i.staticCouplingPointMass == null || dee == null || i.hookCentreOfGravity == null || dee === 0) return null;
+  return r0((i.staticCouplingPointMass * (dee - (dee + i.hookCentreOfGravity))) / dee);
+}
+export function hook3AxleMmaDistributionAxle2(i: MassesInputs): number | null {
+  const a1 = hook3AxleMmaDistributionAxle1(i);
+  if (i.staticCouplingPointMass == null || a1 == null) return null;
+  return i.staticCouplingPointMass - a1;
+}
+
+// TotalMMTA_eje1_singancho_3eje = Tara_1_eje + PL_MTMA_1eje_3ejes + Comb_MTMA_1eje_3ejes + Grua_MTMA_1eje_3ejes + RepartocargaMTMA_eje1_singancho_3ejes
+export function total3AxleMmtaNoHookAxle1(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle1,
+    seatsMmta3AxleAxle1(i),
+    fuelMmta3AxleAxle1(i),
+    crane3AxleMmtaAxle1(i),
+    craneLoadMmta3AxleNoHookDistributionAxle1(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+export function total3AxleMmtaNoHookAxle2(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle2,
+    seatsMmta3AxleAxle2(i),
+    fuelMmta3AxleAxle2(i),
+    crane3AxleMmtaAxle2(i),
+    craneLoadMmta3AxleNoHookDistributionAxle2(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+// TotalMMTA_singancho_3eje = Tara_inicial + Masa_plazas + Capacidad_combustible + Masacarga_MTMA_sin_gancho_3ejegrua + Masa_grua
+export function total3AxleMmtaNoHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  const load = craneLoadMmta3AxleNoHook(i);
+  if (tare == null || i.seatsMass == null || i.fuelCapacity == null || load == null || i.craneMass == null)
+    return null;
+  return tare + i.seatsMass + i.fuelCapacity + load + i.craneMass;
+}
+// TotalMMTA_congancho_3eje = Tara_inicial + Masa_plazas + Capacidad_combustible + Masa_grua + Masacarga_MTMA_con_gancho_3ejegrua + COC::_19
+export function total3AxleMmtaWithHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  const load = craneLoadMmta3AxleWithHook(i);
+  if (
+    tare == null ||
+    i.seatsMass == null ||
+    i.fuelCapacity == null ||
+    i.craneMass == null ||
+    load == null ||
+    i.staticCouplingPointMass == null
+  )
+    return null;
+  return tare + i.seatsMass + i.fuelCapacity + i.craneMass + load + i.staticCouplingPointMass;
+}
+export function total3AxleMmtaWithHookAxle1(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle1,
+    seatsMmta3AxleAxle1(i),
+    fuelMmta3AxleAxle1(i),
+    crane3AxleMmtaAxle1(i),
+    craneLoadMmta3AxleWithHookDistributionAxle1(i),
+    hook3AxleMmtaDistributionAxle1(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+export function total3AxleMmtaWithHookAxle2(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle2,
+    seatsMmta3AxleAxle2(i),
+    fuelMmta3AxleAxle2(i),
+    crane3AxleMmtaAxle2(i),
+    craneLoadMmta3AxleWithHookDistributionAxle2(i),
+    hook3AxleMmtaDistributionAxle2(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+
+export function total3AxleMmaNoHookAxle1(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle1,
+    seatsMma3AxleAxle1(i),
+    fuelMma3AxleAxle1(i),
+    crane3AxleMmaAxle1(i),
+    craneLoadMma3AxleNoHookDistributionAxle1(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+export function total3AxleMmaNoHookAxle2(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle2,
+    seatsMma3AxleAxle2(i),
+    fuelMma3AxleAxle2(i),
+    crane3AxleMmaAxle2(i),
+    craneLoadMma3AxleNoHookDistributionAxle2(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+export function total3AxleMmaWithHook(i: MassesInputs): number | null {
+  const tare = initialTareNoAccessories(i);
+  const load = craneLoadMma3AxleWithHook(i);
+  if (
+    tare == null ||
+    i.seatsMass == null ||
+    i.fuelCapacity == null ||
+    i.craneMass == null ||
+    load == null ||
+    i.staticCouplingPointMass == null
+  )
+    return null;
+  return tare + i.seatsMass + i.fuelCapacity + i.craneMass + load + i.staticCouplingPointMass;
+}
+export function total3AxleMmaWithHookAxle1(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle1,
+    seatsMma3AxleAxle1(i),
+    fuelMma3AxleAxle1(i),
+    crane3AxleMmaAxle1(i),
+    craneLoadMma3AxleWithHookDistributionAxle1(i),
+    hook3AxleMmaDistributionAxle1(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+export function total3AxleMmaWithHookAxle2(i: MassesInputs): number | null {
+  const parts = [
+    i.tareAxle2,
+    seatsMma3AxleAxle2(i),
+    fuelMma3AxleAxle2(i),
+    crane3AxleMmaAxle2(i),
+    craneLoadMma3AxleWithHookDistributionAxle2(i),
+    hook3AxleMmaDistributionAxle2(i),
+  ];
+  if (parts.some((p) => p == null)) return null;
+  return parts.reduce((s, p) => s! + p!, 0);
+}
+
+// MOM_MMA_1eje_3eje = Round(Tara_1_eje + PL_MOM_MMA_1eje_3ejes + Comb_MMA_1eje_3ejes + Grua_MMA_1eje_3ejes;0)
+export function mom3AxleAxle1(i: MassesInputs): number | null {
+  const parts = [i.tareAxle1, driverMomMma3AxleAxle1(i), fuelMma3AxleAxle1(i), crane3AxleMmaAxle1(i)];
+  if (parts.some((p) => p == null)) return null;
+  return r0(parts.reduce((s, p) => s! + p!, 0)!);
+}
+// MOM_MMA_suma2y3eje_3eje = Round(Tara_2_eje + PL_MOM_MMA_2eje_3ejes + Comb_MMA_2eje_3ejes + Grua_MMA_2eje_3ejes;0)
+export function mom3AxleAxle2and3(i: MassesInputs): number | null {
+  const parts = [i.tareAxle2, driverMomMma3AxleAxle2(i), fuelMma3AxleAxle2(i), crane3AxleMmaAxle2(i)];
+  if (parts.some((p) => p == null)) return null;
+  return r0(parts.reduce((s, p) => s! + p!, 0)!);
+}
+// MOM_MMA_3ejes = MOM_MMA_1eje_3eje + MOM_MMA_suma2y3eje_3eje
+export function mom3Axle(i: MassesInputs): number | null {
+  const a1 = mom3AxleAxle1(i);
+  const a23 = mom3AxleAxle2and3(i);
+  if (a1 == null || a23 == null) return null;
+  return a1 + a23;
+}
+
+// ============================================================
+// SEMI_O4 — semirremolque de 2 ejes (kingpin)
+// ============================================================
+
+// DtcgeT_O4 = Round((dist1y2*eje2_16.2)/(eje2_16.2+eje1_16.2);0)
+export function centreOfGravityDistanceMtO4(i: MassesInputs): number | null {
+  if (
+    i.axleDistance1to2 == null ||
+    i.maxTechnicallyPermissibleMassAxle2 == null ||
+    i.maxTechnicallyPermissibleMassAxle1 == null
+  )
+    return null;
+  const denom = i.maxTechnicallyPermissibleMassAxle2 + i.maxTechnicallyPermissibleMassAxle1;
+  if (denom === 0) return null;
+  return r0((i.axleDistance1to2 * i.maxTechnicallyPermissibleMassAxle2) / denom);
+}
+// DtcgeM_O4 = Round((dist1y2*eje2_17.2)/(eje2_17.2+eje1_17.2);0)
+export function centreOfGravityDistanceMmO4(i: MassesInputs): number | null {
+  if (
+    i.axleDistance1to2 == null ||
+    i.maxLadenMassRegistrationAxle2 == null ||
+    i.maxLadenMassRegistrationAxle1 == null
+  )
+    return null;
+  const denom = i.maxLadenMassRegistrationAxle2 + i.maxLadenMassRegistrationAxle1;
+  if (denom === 0) return null;
+  return r0((i.axleDistance1to2 * i.maxLadenMassRegistrationAxle2) / denom);
+}
+// DEET_O4 = Round(dist0_1 + DtcgeT_O4;0)
+export function equivalentDistanceMtO4(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMtO4(i);
+  if (i.axleDistance0to1 == null || d == null) return null;
+  return r0(i.axleDistance0to1 + d);
+}
+// DEEM_O4 = Round(dist0_1 + DtcgeM_O4;0)
+export function equivalentDistanceMmO4(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMmO4(i);
+  if (i.axleDistance0to1 == null || d == null) return null;
+  return r0(i.axleDistance0to1 + d);
+}
+// VPT_O4 = Round(Largo_carrozado_O4 - (dist0_1 + DtcgeT_O4 + Voladizo_delantero);0)
+export function pivotPointTO4(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMtO4(i);
+  if (i.semiTrailerBodyLength == null || i.axleDistance0to1 == null || d == null || i.frontOverhang == null)
+    return null;
+  return r0(i.semiTrailerBodyLength - (i.axleDistance0to1 + d + i.frontOverhang));
+}
+// VPM_O4 = Round(Largo_carrozado_O4 - (dist0_1 + DtcgeM_O4 + Voladizo_delantero);0)
+export function pivotPointMO4(i: MassesInputs): number | null {
+  const d = centreOfGravityDistanceMmO4(i);
+  if (i.semiTrailerBodyLength == null || i.axleDistance0to1 == null || d == null || i.frontOverhang == null)
+    return null;
+  return r0(i.semiTrailerBodyLength - (i.axleDistance0to1 + d + i.frontOverhang));
+}
+// VP_O4 = Round(Largo_total_O4 - (Voladizo_delantero + dist0_1 + dist1y2 + dist2y3);0)
+export function pivotPointO4(i: MassesInputs): number | null {
+  if (
+    i.semiTrailerTotalLength == null ||
+    i.frontOverhang == null ||
+    i.axleDistance0to1 == null ||
+    i.axleDistance1to2 == null ||
+    i.axleDistance2to3 == null
+  )
+    return null;
+  return r0(
+    i.semiTrailerTotalLength - (i.frontOverhang + i.axleDistance0to1 + i.axleDistance1to2 + i.axleDistance2to3)
+  );
+}
+
+// Superficie_suelo_cubierta_O4 = Round((Ancho_maximo_vehículo/1000)*(Largo_carrozado_O4/1000);0)
+export function coveredFloorAreaO4(i: MassesInputs): number | null {
+  if (i.maxVehicleWidth == null || i.semiTrailerBodyLength == null) return null;
+  return r0((i.maxVehicleWidth / 1000) * (i.semiTrailerBodyLength / 1000));
+}
+
+// Masa_Carga_MMTA_04 = COC::_16.1.1 - TARA_O4
+export function loadMassMmtaO4(i: MassesInputs): number | null {
+  if (i.maxTechnicallyPermissibleMassRequested == null || i.semiTrailerTare == null) return null;
+  return i.maxTechnicallyPermissibleMassRequested - i.semiTrailerTare;
+}
+// Masa_Carga_MMA_04 = COC::_17.1 - TARA_O4
+export function loadMassMmaO4(i: MassesInputs): number | null {
+  if (i.maxLadenMassRegistration == null || i.semiTrailerTare == null) return null;
+  return i.maxLadenMassRegistration - i.semiTrailerTare;
+}
+
+// Reparto_CARGA_MMTA_Kinby_O4 = Round(Masa_Carga_MMTA_04*((Largo_carrozado_O4/2)-VPT_O4)/DEET_O4;0)
+export function loadMmtaKingpinDistributionO4(i: MassesInputs): number | null {
+  const load = loadMassMmtaO4(i);
+  const vp = pivotPointTO4(i);
+  const dee = equivalentDistanceMtO4(i);
+  if (load == null || vp == null || dee == null || i.semiTrailerBodyLength == null || dee === 0) return null;
+  return r0((load * (i.semiTrailerBodyLength / 2 - vp)) / dee);
+}
+// Reparto_CARGA_MMTA_grupoejes_1_2_O4 = Masa_Carga_MMTA_04 - Reparto_CARGA_MMTA_Kinby_O4
+export function loadMmtaAxleGroupDistributionO4(i: MassesInputs): number | null {
+  const load = loadMassMmtaO4(i);
+  const kingpin = loadMmtaKingpinDistributionO4(i);
+  if (load == null || kingpin == null) return null;
+  return r0(load - kingpin);
+}
+// Reparto_CARGA_MMA_Kinby_O4 = Round(Masa_Carga_MMA_04*((Largo_carrozado_O4/2)-VPM_O4)/DEEM_O4;0)
+export function loadMmaKingpinDistributionO4(i: MassesInputs): number | null {
+  const load = loadMassMmaO4(i);
+  const vp = pivotPointMO4(i);
+  const dee = equivalentDistanceMmO4(i);
+  if (load == null || vp == null || dee == null || i.semiTrailerBodyLength == null || dee === 0) return null;
+  return r0((load * (i.semiTrailerBodyLength / 2 - vp)) / dee);
+}
+export function loadMmaAxleGroupDistributionO4(i: MassesInputs): number | null {
+  const load = loadMassMmaO4(i);
+  const kingpin = loadMmaKingpinDistributionO4(i);
+  if (load == null || kingpin == null) return null;
+  return r0(load - kingpin);
+}
+
+// Reparto_tara_Kinby_O4 = Round(TARA_O4*((Largo_carrozado_O4/2)-(VP_O4+((dist1y2+dist2y3)/2)))/(dist0_1+((dist1y2+dist2y3)/2));0)
+export function tareKingpinDistributionO4(i: MassesInputs): number | null {
+  const vp = pivotPointO4(i);
+  if (
+    i.semiTrailerTare == null ||
+    i.semiTrailerBodyLength == null ||
+    vp == null ||
+    i.axleDistance1to2 == null ||
+    i.axleDistance2to3 == null ||
+    i.axleDistance0to1 == null
+  )
+    return null;
+  const half = (i.axleDistance1to2 + i.axleDistance2to3) / 2;
+  const denom = i.axleDistance0to1 + half;
+  if (denom === 0) return null;
+  return r0((i.semiTrailerTare * (i.semiTrailerBodyLength / 2 - (vp + half))) / denom);
+}
+// Reparto_tara_eje1_eje2_O4 = Round(TARA_O4 - Reparto_tara_Kinby_O4;0)
+export function tareAxleGroupDistributionO4(i: MassesInputs): number | null {
+  const kingpin = tareKingpinDistributionO4(i);
+  if (i.semiTrailerTare == null || kingpin == null) return null;
+  return r0(i.semiTrailerTare - kingpin);
+}
+
+// Reparto_totalMMTA_kinby_O4 = Reparto_CARGA_MMTA_Kinby_O4 + Reparto_tara_Kinby_O4
+export function totalMmtaKingpinO4(i: MassesInputs): number | null {
+  const load = loadMmtaKingpinDistributionO4(i);
+  const tare = tareKingpinDistributionO4(i);
+  if (load == null || tare == null) return null;
+  return load + tare;
+}
+// Reparto_totalMMAT_ejes1_2_O4 = Reparto_CARGA_MMTA_grupoejes_1_2_O4 + Reparto_tara_eje1_eje2_O4
+export function totalMmtaAxleGroupO4(i: MassesInputs): number | null {
+  const load = loadMmtaAxleGroupDistributionO4(i);
+  const tare = tareAxleGroupDistributionO4(i);
+  if (load == null || tare == null) return null;
+  return load + tare;
+}
+// Reparto_totalMMA_kinby_O4 = Reparto_CARGA_MMA_Kinby_O4 + Reparto_tara_Kinby_O4
+export function totalMmaKingpinO4(i: MassesInputs): number | null {
+  const load = loadMmaKingpinDistributionO4(i);
+  const tare = tareKingpinDistributionO4(i);
+  if (load == null || tare == null) return null;
+  return load + tare;
+}
+// Reparto_totalMMA_ejes1_2_O4 = Reparto_tara_eje1_eje2_O4 + Reparto_CARGA_MMA_grupoejes_1_2_O4
+export function totalMmaAxleGroupO4(i: MassesInputs): number | null {
+  const load = loadMmaAxleGroupDistributionO4(i);
+  const tare = tareAxleGroupDistributionO4(i);
+  if (load == null || tare == null) return null;
+  return load + tare;
+}
+
+// Resto_kinby_MMTA = Round(COC::_19-(Reparto_CARGA_MMTA_Kinby_O4+Reparto_tara_Kinby_O4);0)
+export function remainingKingpinMmta(i: MassesInputs): number | null {
+  const total = totalMmtaKingpinO4(i);
+  if (i.staticCouplingPointMass == null || total == null) return null;
+  return r0(i.staticCouplingPointMass - total);
+}
+// Resto_kinby_MMA = Round(COC::_19-(Reparto_CARGA_MMA_Kinby_O4+Reparto_tara_Kinby_O4);0)
+export function remainingKingpinMma(i: MassesInputs): number | null {
+  const total = totalMmaKingpinO4(i);
+  if (i.staticCouplingPointMass == null || total == null) return null;
+  return r0(i.staticCouplingPointMass - total);
+}
+// Resto_ejes_MMTA_O4 = Round((eje1_16.2+eje2_16.2)-(Reparto_CARGA_MMTA_grupoejes_1_2_O4+Reparto_tara_eje1_eje2_O4);0)
+export function remainingAxleGroupMmta(i: MassesInputs): number | null {
+  const total = totalMmtaAxleGroupO4(i);
+  if (i.maxTechnicallyPermissibleMassAxle1 == null || i.maxTechnicallyPermissibleMassAxle2 == null || total == null)
+    return null;
+  return r0(i.maxTechnicallyPermissibleMassAxle1 + i.maxTechnicallyPermissibleMassAxle2 - total);
+}
+// Resto_ejes_MMA_O4 = Round((eje1_17.2+eje2_17.2)-(Reparto_CARGA_MMA_grupoejes_1_2_O4+Reparto_tara_eje1_eje2_O4);0)
+export function remainingAxleGroupMma(i: MassesInputs): number | null {
+  const total = totalMmaAxleGroupO4(i);
+  if (i.maxLadenMassRegistrationAxle1 == null || i.maxLadenMassRegistrationAxle2 == null || total == null)
+    return null;
+  return r0(i.maxLadenMassRegistrationAxle1 + i.maxLadenMassRegistrationAxle2 - total);
+}
+
+/** Calcula todo el bloque SEMI_O4 de una vez, para el formulario. */
+export function calculateSemiO4Masses(i: MassesInputs) {
+  return {
+    coveredFloorAreaO4: coveredFloorAreaO4(i),
+    loadMassMmtaO4: loadMassMmtaO4(i),
+    loadMassMmaO4: loadMassMmaO4(i),
+    totalMmtaKingpinO4: totalMmtaKingpinO4(i),
+    totalMmtaAxleGroupO4: totalMmtaAxleGroupO4(i),
+    totalMmaKingpinO4: totalMmaKingpinO4(i),
+    totalMmaAxleGroupO4: totalMmaAxleGroupO4(i),
+    remainingKingpinMmta: remainingKingpinMmta(i),
+    remainingKingpinMma: remainingKingpinMma(i),
+    remainingAxleGroupMmta: remainingAxleGroupMmta(i),
+    remainingAxleGroupMma: remainingAxleGroupMma(i),
+  };
+}
+
+// ============================================================
+// SEMI_O4_3AXLE — semirremolque de 3 ejes (kingpin + grupo de ejes)
+// ============================================================
+
+// O4semi_3_kingpin_a_centro_ejes = Round(dist0_1+((dist1y2+dist2y3)/2);0)
+export function kingpinToAxleCentre3Axle(i: MassesInputs): number | null {
+  if (i.axleDistance0to1 == null || i.axleDistance1to2 == null || i.axleDistance2to3 == null) return null;
+  return r0(i.axleDistance0to1 + (i.axleDistance1to2 + i.axleDistance2to3) / 2);
+}
+// O4semi_3_VP_a_centro_ejes = O4semi_3VP + ((dist1y2+dist2y3)/2)
+export function pivotToAxleCentre3Axle(i: MassesInputs): number | null {
+  if (i.semiTrailer3AxleVp == null || i.axleDistance1to2 == null || i.axleDistance2to3 == null) return null;
+  return i.semiTrailer3AxleVp + (i.axleDistance1to2 + i.axleDistance2to3) / 2;
+}
+// O4semi3_VD_diferentcia = O4semi3_VD_accesorio - O4semi_3VD
+export function vdDifference3Axle(i: MassesInputs): number | null {
+  if (i.semiTrailer3AxleVdAccessory == null || i.semiTrailer3AxleVd == null) return null;
+  return i.semiTrailer3AxleVdAccessory - i.semiTrailer3AxleVd;
+}
+
+// O4semi_3_tara_inicial = COC::_14_MOM_vehiculo_incompleto
+export function initialTare3AxleSemi(i: MassesInputs): number | null {
+  return i.momIncompleteVehicle;
+}
+// O4semi_3_tara_inicial_1eje/2eje/3eje = COC::_14.1_MOM_incompleto_ejeN (eje3 no está en Coc todavía — fase futura)
+export function initialTare3AxleSemiAxle1(i: MassesInputs): number | null {
+  return i.momIncompleteAxle1;
+}
+export function initialTare3AxleSemiAxle2(i: MassesInputs): number | null {
+  return i.momIncompleteAxle2;
+}
+// O4semi_3_tara_inicial_grupo_ejes123 = suma de los 3 ejes (eje3 pendiente de mapear en Coc, ver nota arriba)
+export function initialTareAxleGroup3Axle(i: MassesInputs): number | null {
+  const a1 = initialTare3AxleSemiAxle1(i);
+  const a2 = initialTare3AxleSemiAxle2(i);
+  if (a1 == null || a2 == null) return null;
+  return a1 + a2; // TODO: + eje3 cuando Coc tenga _14.1_MOM_incompleto_eje3
+}
+// O4semi_3_tara_inicial_kingpin = O4semi_3_tara_inicial - O4semi_3_tara_inicial_grupo_ejes123
+export function initialTareKingpin3Axle(i: MassesInputs): number | null {
+  const total = initialTare3AxleSemi(i);
+  const group = initialTareAxleGroup3Axle(i);
+  if (total == null || group == null) return null;
+  return total - group;
+}
+
+// O4semi_3_reparto_carrozado_ejes123 = Round(O4semi_3_peso_carrozado*(O4semi_3LC/2-O4semi_3VD)/O4semi_3_kingpin_a_centro_ejes;0)
+export function bodyDistributionAxleGroup3Axle(i: MassesInputs): number | null {
+  const centre = kingpinToAxleCentre3Axle(i);
+  if (
+    i.semiTrailer3AxleBodyWeight == null ||
+    i.semiTrailer3AxleLc == null ||
+    i.semiTrailer3AxleVd == null ||
+    centre == null ||
+    centre === 0
+  )
+    return null;
+  return r0((i.semiTrailer3AxleBodyWeight * (i.semiTrailer3AxleLc / 2 - i.semiTrailer3AxleVd)) / centre);
+}
+// O4semi_3_reparto_carrozado_kingpin = O4semi_3_peso_carrozado - O4semi_3_reparto_carrozado_ejes123
+export function bodyDistributionKingpin3Axle(i: MassesInputs): number | null {
+  const group = bodyDistributionAxleGroup3Axle(i);
+  if (i.semiTrailer3AxleBodyWeight == null || group == null) return null;
+  return i.semiTrailer3AxleBodyWeight - group;
+}
+// O4semi_3_masa_carrozado_ejeN = Round(O4semi_3_reparto_carrozado_ejes123/3;0)
+export function bodyMassPerAxle3Axle(i: MassesInputs): number | null {
+  const group = bodyDistributionAxleGroup3Axle(i);
+  if (group == null) return null;
+  return r0(group / 3);
+}
+
+// O4semi3_MOM = O4semi_3_tara_inicial + O4semi_3_peso_carrozado
+export function mom3AxleSemi(i: MassesInputs): number | null {
+  const tare = initialTare3AxleSemi(i);
+  if (tare == null || i.semiTrailer3AxleBodyWeight == null) return null;
+  return tare + i.semiTrailer3AxleBodyWeight;
+}
+
+// O4semi_3_caraga_MMA = Round(COC::_17.1 - (O4semi_3_tara_inicial+O4semi_3_peso_carrozado);0)
+export function loadMma3AxleSemi(i: MassesInputs): number | null {
+  const mom = mom3AxleSemi(i);
+  if (i.maxLadenMassRegistration == null || mom == null) return null;
+  return r0(i.maxLadenMassRegistration - mom);
+}
+// O4semi_3_caraga_MMA_grupo_ejes123 = Round(O4semi_3_caraga_MMA*(O4semi_3LC/2-O4semi_3VD)/O4semi_3_kingpin_a_centro_ejes;0)
+export function loadMmaAxleGroup3Axle(i: MassesInputs): number | null {
+  const load = loadMma3AxleSemi(i);
+  const centre = kingpinToAxleCentre3Axle(i);
+  if (load == null || i.semiTrailer3AxleLc == null || i.semiTrailer3AxleVd == null || centre == null || centre === 0)
+    return null;
+  return r0((load * (i.semiTrailer3AxleLc / 2 - i.semiTrailer3AxleVd)) / centre);
+}
+// O4semi_3_caraga_MMA_KINGPIN = O4semi_3_caraga_MMA - O4semi_3_caraga_MMA_grupo_ejes123
+export function loadMmaKingpin3Axle(i: MassesInputs): number | null {
+  const load = loadMma3AxleSemi(i);
+  const group = loadMmaAxleGroup3Axle(i);
+  if (load == null || group == null) return null;
+  return load - group;
+}
+// O4semi_3_cargaMMA_ejeN = Round(O4semi_3_caraga_MMA_grupo_ejes123/3;0)
+export function loadMmaPerAxle3Axle(i: MassesInputs): number | null {
+  const group = loadMmaAxleGroup3Axle(i);
+  if (group == null) return null;
+  return r0(group / 3);
+}
+// O4semi_3_MMA_total = Round(O4semi_3_tara_inicial+O4semi_3_peso_carrozado+O4semi_3_caraga_MMA;0)
+export function totalMma3AxleSemi(i: MassesInputs): number | null {
+  const mom = mom3AxleSemi(i);
+  const load = loadMma3AxleSemi(i);
+  if (mom == null || load == null) return null;
+  return r0(mom + load);
+}
+// O4semi_3_MMA_total_grupo123 = Round(tara_grupo+reparto_carrozado_grupo+carga_grupo;0)
+export function totalMmaAxleGroup3Axle(i: MassesInputs): number | null {
+  const tare = initialTareAxleGroup3Axle(i);
+  const body = bodyDistributionAxleGroup3Axle(i);
+  const load = loadMmaAxleGroup3Axle(i);
+  if (tare == null || body == null || load == null) return null;
+  return r0(tare + body + load);
+}
+// O4semi_3_MMA_total_ejeN = Round(O4semi_3_MMA_total_grupo123/3;0)
+export function totalMmaPerAxle3Axle(i: MassesInputs): number | null {
+  const group = totalMmaAxleGroup3Axle(i);
+  if (group == null) return null;
+  return r0(group / 3);
+}
+// O4semi_3_MMA_total_Kingpin = Round(tara_kingpin+reparto_carrozado_kingpin+carga_kingpin;0)
+export function totalMmaKingpin3Axle(i: MassesInputs): number | null {
+  const tare = initialTareKingpin3Axle(i);
+  const body = bodyDistributionKingpin3Axle(i);
+  const load = loadMmaKingpin3Axle(i);
+  if (tare == null || body == null || load == null) return null;
+  return r0(tare + body + load);
+}
+
+// O4semi_3_carga_MMTA = Round(COC::_16.1.1 - (O4semi_3_tara_inicial+O4semi_3_peso_carrozado);0)
+export function loadMmta3AxleSemi(i: MassesInputs): number | null {
+  const mom = mom3AxleSemi(i);
+  if (i.maxTechnicallyPermissibleMassRequested == null || mom == null) return null;
+  return r0(i.maxTechnicallyPermissibleMassRequested - mom);
+}
+// O4semi_3_carga_MMTA_grupo_ejes123 = Round(O4semi_3_carga_MMTA*(O4semi_3LC/2-O4semi_3VD)/O4semi_3_kingpin_a_centro_ejes;0)
+export function loadMmtaAxleGroup3Axle(i: MassesInputs): number | null {
+  const load = loadMmta3AxleSemi(i);
+  const centre = kingpinToAxleCentre3Axle(i);
+  if (load == null || i.semiTrailer3AxleLc == null || i.semiTrailer3AxleVd == null || centre == null || centre === 0)
+    return null;
+  return r0((load * (i.semiTrailer3AxleLc / 2 - i.semiTrailer3AxleVd)) / centre);
+}
+// O4semi_3_carga_MMTA_KINGPIN = O4semi_3_carga_MMTA - O4semi_3_carga_MMTA_grupo_ejes123
+export function loadMmtaKingpin3Axle(i: MassesInputs): number | null {
+  const load = loadMmta3AxleSemi(i);
+  const group = loadMmtaAxleGroup3Axle(i);
+  if (load == null || group == null) return null;
+  return load - group;
+}
+// O4semi_3_carga_MMTA_ejeN = Round(O4semi_3_carga_MMTA_grupo_ejes123/3;0)
+export function loadMmtaPerAxle3Axle(i: MassesInputs): number | null {
+  const group = loadMmtaAxleGroup3Axle(i);
+  if (group == null) return null;
+  return r0(group / 3);
+}
+// O4semi3_MMTA_total = Round(O4semi_3_tara_inicial+O4semi_3_peso_carrozado+O4semi_3_carga_MMTA;0)
+export function totalMmta3AxleSemi(i: MassesInputs): number | null {
+  const mom = mom3AxleSemi(i);
+  const load = loadMmta3AxleSemi(i);
+  if (mom == null || load == null) return null;
+  return r0(mom + load);
+}
+// O4semi3_MMTA_total_Kinping = Round(tara_kingpin+reparto_carrozado_kingpin+carga_MMTA_kingpin;0)
+export function totalMmtaKingpin3Axle(i: MassesInputs): number | null {
+  const tare = initialTareKingpin3Axle(i);
+  const body = bodyDistributionKingpin3Axle(i);
+  const load = loadMmtaKingpin3Axle(i);
+  if (tare == null || body == null || load == null) return null;
+  return r0(tare + body + load);
+}
+// O4semi3_MMTA_total_ejeN = Round(tara_ejeN+masa_carrozado_ejeN+carga_MMTA_ejeN;0) — usa las mismas taras/masas por eje que MMA (fieles al origen)
+export function totalMmtaPerAxle3Axle(i: MassesInputs): number | null {
+  const tare = initialTareAxleGroup3Axle(i);
+  const body = bodyMassPerAxle3Axle(i);
+  const load = loadMmtaPerAxle3Axle(i);
+  if (tare == null || body == null || load == null) return null;
+  return r0(tare / 3 + body + load);
+}
+
+/** Calcula todo el bloque SEMI_O4_3AXLE de una vez, para el formulario. */
+export function calculateSemiO4ThreeAxleMasses(i: MassesInputs) {
+  return {
+    mom3AxleSemi: mom3AxleSemi(i),
+    loadMma3AxleSemi: loadMma3AxleSemi(i),
+    loadMmta3AxleSemi: loadMmta3AxleSemi(i),
+    totalMma3AxleSemi: totalMma3AxleSemi(i),
+    totalMmta3AxleSemi: totalMmta3AxleSemi(i),
+    totalMmaKingpin3Axle: totalMmaKingpin3Axle(i),
+    totalMmtaKingpin3Axle: totalMmtaKingpin3Axle(i),
+    totalMmaPerAxle3Axle: totalMmaPerAxle3Axle(i),
+    vdDifference3Axle: vdDifference3Axle(i),
+  };
+}
+
+/** Calcula todo el bloque TRIAXLE de una vez, para el formulario. */
+export function calculateTriaxleMasses(i: MassesInputs) {
+  return {
+    rearOverhang3Axle: rearOverhang3Axle(i),
+    craneLoadMmta3AxleNoHook: craneLoadMmta3AxleNoHook(i),
+    craneLoadMma3AxleNoHook: craneLoadMma3AxleNoHook(i),
+    total3AxleMmtaNoHook: total3AxleMmtaNoHook(i),
+    total3AxleMmtaWithHook: total3AxleMmtaWithHook(i),
+    total3AxleMmaWithHook: total3AxleMmaWithHook(i),
+    mom3Axle: mom3Axle(i),
+    total3AxleMmtaNoHookAxle1: total3AxleMmtaNoHookAxle1(i),
+    total3AxleMmtaNoHookAxle2: total3AxleMmtaNoHookAxle2(i),
+    total3AxleMmaNoHookAxle1: total3AxleMmaNoHookAxle1(i),
+    total3AxleMmaNoHookAxle2: total3AxleMmaNoHookAxle2(i),
+  };
 }
 
 /** Calcula todo el bloque BASE de una vez, para el formulario. */

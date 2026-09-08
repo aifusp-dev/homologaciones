@@ -4,7 +4,12 @@ import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
 import { fiscalHorsepower } from "@/lib/calculations/coc";
 import { calculateBodywork } from "@/lib/calculations/bodywork";
-import { calculateBaseMasses } from "@/lib/calculations/masses";
+import {
+  calculateBaseMasses,
+  calculateTriaxleMasses,
+  calculateSemiO4Masses,
+  calculateSemiO4ThreeAxleMasses,
+} from "@/lib/calculations/masses";
 import { CustomerForm } from "./customer-form";
 import { DealerForm } from "./dealer-form";
 import { CocForm } from "./coc-form";
@@ -52,7 +57,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   });
 
   const m = dossier.massesDimensions;
-  const massesComputed = calculateBaseMasses({
+  const massesInputs = {
     axleDistance0to1: dossier.coc?.axleDistance0to1 ?? null,
     axleDistance1to2: dossier.coc?.axleDistance1to2 ?? null,
     axleDistance2to3: dossier.coc?.axleDistance2to3 ?? null,
@@ -73,6 +78,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     exteriorLength: dossier.bodywork?.exteriorLength ?? null,
     firstAxleToBodyDistance: m?.firstAxleToBodyDistance ?? null,
     frontOverhang: m?.frontOverhang ?? null,
+    maxVehicleWidth: m?.maxVehicleWidth ?? null,
     reeferUnitCentreOfGravity: m?.reeferUnitCentreOfGravity ?? null,
     reeferUnitMass: m?.reeferUnitMass ?? null,
     liftPlatformCentreOfGravity: m?.liftPlatformCentreOfGravity ?? null,
@@ -104,7 +110,13 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
     semiTrailer3AxleLt: m?.semiTrailer3AxleLt ?? null,
     semiTrailer3AxleLc: m?.semiTrailer3AxleLc ?? null,
     semiTrailer3AxleBodyWeight: m?.semiTrailer3AxleBodyWeight ?? null,
-  });
+  };
+  const massesComputed = {
+    ...calculateBaseMasses(massesInputs),
+    ...calculateTriaxleMasses(massesInputs),
+    ...calculateSemiO4Masses(massesInputs),
+    ...calculateSemiO4ThreeAxleMasses(massesInputs),
+  };
 
   return (
     <div className="min-h-screen max-w-3xl mx-auto px-6 py-10 space-y-8">

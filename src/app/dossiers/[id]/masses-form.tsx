@@ -23,6 +23,16 @@ const RESULT_LABELS: Record<string, string> = {
   loadMmtaDistributionAxle2: "Reparto carga MMTA eje 2",
   totalMassNoHook: "Total masa sin gancho",
   totalMmtaNoHook: "Total MMTA sin gancho",
+  // TRIAXLE
+  total3AxleMmtaNoHook: "MMTA sin gancho (3 ejes)",
+  total3AxleMmaWithHook: "MMA con gancho (3 ejes)",
+  mom3Axle: "MOM (3 ejes)",
+  // SEMI_O4
+  totalMmtaKingpinO4: "Total MMTA kingpin (semirremolque)",
+  totalMmaAxleGroupO4: "Total MMA grupo ejes (semirremolque)",
+  // SEMI_O4_3AXLE
+  totalMma3AxleSemi: "MMA total (semirremolque 3 ejes)",
+  totalMmta3AxleSemi: "MMTA total (semirremolque 3 ejes)",
 };
 
 export function MassesForm({
