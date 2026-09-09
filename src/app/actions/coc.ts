@@ -3,6 +3,7 @@
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import { COC_FIELDS } from "@/lib/cocFields";
 import type { FormState } from "@/lib/definitions";
 
@@ -44,10 +45,12 @@ export async function updateCoc(_state: FormState, formData: FormData): Promise<
     data[field.name] = parseByType(formData.get(field.name), field.type);
   }
 
-  await prisma.coc.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.coc,
+    dossierId,
+    tableName: "coc",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);

@@ -86,7 +86,9 @@ export const ModelName = {
   RegulatoryActNumbers: 'RegulatoryActNumbers',
   CopCoverSheet: 'CopCoverSheet',
   RegistrationPlates: 'RegistrationPlates',
-  PlatesInscriptions: 'PlatesInscriptions'
+  PlatesInscriptions: 'PlatesInscriptions',
+  AuditLog: 'AuditLog',
+  DossierVersion: 'DossierVersion'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1023,12 +1025,44 @@ export const PlatesInscriptionsScalarFieldEnum = {
 export type PlatesInscriptionsScalarFieldEnum = (typeof PlatesInscriptionsScalarFieldEnum)[keyof typeof PlatesInscriptionsScalarFieldEnum]
 
 
+export const AuditLogScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  actorEmail: 'actorEmail',
+  tableName: 'tableName',
+  action: 'action',
+  changes: 'changes',
+  createdAt: 'createdAt'
+} as const
+
+export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
+
+
+export const DossierVersionScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  label: 'label',
+  snapshot: 'snapshot',
+  createdAt: 'createdAt',
+  createdBy: 'createdBy'
+} as const
+
+export type DossierVersionScalarFieldEnum = (typeof DossierVersionScalarFieldEnum)[keyof typeof DossierVersionScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
 } as const
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
 
 
 export const QueryMode = {
@@ -1045,4 +1079,13 @@ export const NullsOrder = {
 } as const
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 

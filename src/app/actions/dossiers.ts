@@ -4,6 +4,7 @@ import { revalidatePath, refresh } from "next/cache";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import type { FormState } from "@/lib/definitions";
 
 /**
@@ -81,10 +82,12 @@ export async function updateCustomer(_state: FormState, formData: FormData): Pro
     notes: str(formData.get("notes")),
   };
 
-  await prisma.customer.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.customer,
+    dossierId,
+    tableName: "customer",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);
@@ -112,10 +115,12 @@ export async function updateDealer(_state: FormState, formData: FormData): Promi
     notes: str(formData.get("notes")),
   };
 
-  await prisma.dealer.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.dealer,
+    dossierId,
+    tableName: "dealer",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);

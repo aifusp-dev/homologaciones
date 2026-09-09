@@ -170,6 +170,9 @@ model Dossier {
   registrationPlates        RegistrationPlates?
   platesInscriptions        PlatesInscriptions?
 
+  auditLogs AuditLog[]
+  versions  DossierVersion[]
+
   @@unique([companyId, number])
   @@index([companyId])
   @@map("dossiers")
@@ -2332,4 +2335,49 @@ model PlatesInscriptions {
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
   @@map("plates_inscriptions")
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+}
+
+// Registro de auditoría campo a campo de las ~26 tablas de dominio de un
+// expediente (ver src/lib/dossierDomainTables.ts) — quién cambió qué y cuál
+// era el valor anterior. Se escribe desde src/lib/audit.ts, nunca a mano.
+model AuditLog {
+  id         String      @id @default(cuid())
+  dossierId  String
+  actorEmail String
+  /// Nombre de la relación de Prisma en Dossier ("coc", "bodywork",
+  /// "couplingDevice"...) o "dossier_version" para los eventos de
+  /// creación/restauración de versión.
+  tableName  String
+  action     AuditAction
+  /// { campo: { old, new } } — solo los campos que realmente cambiaron.
+  changes    Json
+  createdAt  DateTime    @default(now())
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@index([dossierId, createdAt])
+  @@map("audit_logs")
+}
+
+// Foto congelada de las ~26 tablas de dominio de un expediente en un
+// momento dado, para poder volver a ese estado cómodamente. `snapshot`
+// guarda un objeto { <tabla>: {...}|null } — ver DOSSIER_DOMAIN_TABLES.
+model DossierVersion {
+  id        String   @id @default(cuid())
+  dossierId String
+  label     String?
+  snapshot  Json
+  createdAt DateTime @default(now())
+  createdBy String
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@index([dossierId, createdAt])
+  @@map("dossier_versions")
 }

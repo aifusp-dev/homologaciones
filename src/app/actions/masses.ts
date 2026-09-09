@@ -3,6 +3,7 @@
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import { MASSES_FIELDS } from "@/lib/massesFields";
 import type { FormState } from "@/lib/definitions";
 
@@ -36,10 +37,12 @@ export async function updateMasses(_state: FormState, formData: FormData): Promi
     data[field.name] = parseByType(formData.get(field.name), field.type);
   }
 
-  await prisma.massesDimensions.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.massesDimensions,
+    dossierId,
+    tableName: "massesDimensions",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);

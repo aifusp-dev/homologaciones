@@ -39,3 +39,12 @@ export const HReportCategory = {
 } as const
 
 export type HReportCategory = (typeof HReportCategory)[keyof typeof HReportCategory]
+
+
+export const AuditAction = {
+  CREATE: 'CREATE',
+  UPDATE: 'UPDATE',
+  DELETE: 'DELETE'
+} as const
+
+export type AuditAction = (typeof AuditAction)[keyof typeof AuditAction]

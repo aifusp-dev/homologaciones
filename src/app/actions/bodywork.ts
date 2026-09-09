@@ -3,6 +3,7 @@
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import { BODYWORK_FIELDS } from "@/lib/bodyworkFields";
 import type { FormState } from "@/lib/definitions";
 
@@ -41,10 +42,12 @@ export async function updateBodywork(_state: FormState, formData: FormData): Pro
     data[field.name] = parseByType(formData.get(field.name), field.type);
   }
 
-  await prisma.bodywork.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.bodywork,
+    dossierId,
+    tableName: "bodywork",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);

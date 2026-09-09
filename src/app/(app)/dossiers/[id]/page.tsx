@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText } from "lucide-react";
+import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText, History } from "lucide-react";
 import { notFound } from "next/navigation";
 import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
+import { domainInclude } from "@/lib/dossierDomainTables";
 import { fiscalHorsepower } from "@/lib/calculations/coc";
 import { calculateBodywork } from "@/lib/calculations/bodywork";
 import {
@@ -21,6 +22,7 @@ import { DocumentsSection } from "./documents-section";
 import { AttachmentsSection } from "./attachments-section";
 import { DevicesSection } from "./devices-section";
 import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
+import { HistorySection } from "./history-section";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
 import { DossierArchiveButton } from "./dossier-archive-button";
 import { detectVehicleConfig } from "@/lib/vehicleConfig";
@@ -33,37 +35,12 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   const dossier = await prisma.dossier.findFirst({
     where: { id, companyId: user.companyId },
     include: {
-      customer: true,
-      dealer: true,
-      coc: true,
-      bodywork: true,
-      massesDimensions: true,
+      ...domainInclude(),
       documents: { orderBy: { createdAt: "desc" } },
       attachmentFolders: {
         orderBy: { createdAt: "asc" },
         include: { attachments: { orderBy: { createdAt: "desc" } } },
       },
-      couplingDevice: true,
-      spraySuppression: true,
-      electromagneticCompatibility: true,
-      lateralProtection: true,
-      rearProtection: true,
-      lateralMarking: true,
-      lightingSide: true,
-      lightingPosition: true,
-      lightingReflector: true,
-      lightingBrake: true,
-      lightingTurnSignal: true,
-      lightingRearOutlineMarker: true,
-      lightingFrontOutlineMarker: true,
-      lightingPlate: true,
-      lightingReverse: true,
-      lightingFog: true,
-      lightingMaterialChecklist: true,
-      regulatoryActNumbers: true,
-      copCoverSheet: true,
-      registrationPlates: true,
-      platesInscriptions: true,
     },
   });
   if (!dossier) notFound();
@@ -329,6 +306,12 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
           <AttachmentsSection dossierId={dossier.id} folders={dossier.attachmentFolders} />
         </div>
       ),
+    },
+    {
+      id: "historial",
+      label: "Historial",
+      icon: <History size={16} strokeWidth={1.9} className="shrink-0" />,
+      content: <HistorySection dossierId={dossier.id} />,
     },
   ];
 

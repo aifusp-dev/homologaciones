@@ -3,6 +3,7 @@
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import { DEVICE_TABLES, type DeviceTableKey } from "@/lib/deviceFields";
 import type { FormState } from "@/lib/definitions";
 
@@ -25,7 +26,10 @@ function parseByType(raw: FormDataEntryValue | null, type: string): unknown {
 // el tipado estricto de Prisma a propósito — la seguridad viene de que
 // `tableKey` solo puede ser una de las 16 claves reales (comprobado más
 // abajo contra DEVICE_TABLES), no de que TypeScript infiera las columnas.
-const delegates: Record<DeviceTableKey, { upsert: (args: any) => Promise<unknown> }> = {
+const delegates: Record<
+  DeviceTableKey,
+  { findUnique: (args: any) => Promise<any>; upsert: (args: any) => Promise<any> }
+> = {
   couplingDevice: prisma.couplingDevice,
   spraySuppression: prisma.spraySuppression,
   electromagneticCompatibility: prisma.electromagneticCompatibility,
@@ -67,10 +71,12 @@ export async function updateDevice(_state: FormState, formData: FormData): Promi
     data[field.name] = parseByType(formData.get(field.name), field.type);
   }
 
-  await delegates[tableKey].upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: delegates[tableKey],
+    dossierId,
+    tableName: tableKey,
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);

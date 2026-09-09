@@ -221,3 +221,13 @@ export type RegistrationPlates = Prisma.RegistrationPlatesModel
  * 
  */
 export type PlatesInscriptions = Prisma.PlatesInscriptionsModel
+/**
+ * Model AuditLog
+ * 
+ */
+export type AuditLog = Prisma.AuditLogModel
+/**
+ * Model DossierVersion
+ * 
+ */
+export type DossierVersion = Prisma.DossierVersionModel

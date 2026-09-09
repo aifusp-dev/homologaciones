@@ -3,6 +3,7 @@
 import { revalidatePath, refresh } from "next/cache";
 import { prisma } from "@/lib/db";
 import { requireCompanyUser } from "@/lib/dal";
+import { auditedUpsert } from "@/lib/audit";
 import type { FormState } from "@/lib/definitions";
 
 const FIELDS = [
@@ -39,10 +40,12 @@ export async function updateRegulatoryActNumbers(_state: FormState, formData: Fo
     if (count !== ids.length) return { message: "Informe H no válido." };
   }
 
-  await prisma.regulatoryActNumbers.upsert({
-    where: { dossierId },
-    update: data,
-    create: { dossierId, ...data },
+  await auditedUpsert({
+    delegate: prisma.regulatoryActNumbers,
+    dossierId,
+    tableName: "regulatoryActNumbers",
+    actorEmail: user.email,
+    data,
   });
 
   revalidatePath(`/dossiers/${dossierId}`);
