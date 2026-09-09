@@ -435,7 +435,8 @@ export const ModelName = {
   PlatesInscriptions: 'PlatesInscriptions',
   AuditLog: 'AuditLog',
   DossierVersion: 'DossierVersion',
-  EitvNationalData: 'EitvNationalData'
+  EitvNationalData: 'EitvNationalData',
+  RegulatoryUpdate: 'RegulatoryUpdate'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -451,7 +452,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData"
+    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData" | "regulatoryUpdate"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3341,6 +3342,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    RegulatoryUpdate: {
+      payload: Prisma.$RegulatoryUpdatePayload<ExtArgs>
+      fields: Prisma.RegulatoryUpdateFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.RegulatoryUpdateFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.RegulatoryUpdateFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        findFirst: {
+          args: Prisma.RegulatoryUpdateFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.RegulatoryUpdateFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        findMany: {
+          args: Prisma.RegulatoryUpdateFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>[]
+        }
+        create: {
+          args: Prisma.RegulatoryUpdateCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        createMany: {
+          args: Prisma.RegulatoryUpdateCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.RegulatoryUpdateCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>[]
+        }
+        delete: {
+          args: Prisma.RegulatoryUpdateDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        update: {
+          args: Prisma.RegulatoryUpdateUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        deleteMany: {
+          args: Prisma.RegulatoryUpdateDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.RegulatoryUpdateUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.RegulatoryUpdateUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>[]
+        }
+        upsert: {
+          args: Prisma.RegulatoryUpdateUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$RegulatoryUpdatePayload>
+        }
+        aggregate: {
+          args: Prisma.RegulatoryUpdateAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateRegulatoryUpdate>
+        }
+        groupBy: {
+          args: Prisma.RegulatoryUpdateGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegulatoryUpdateGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.RegulatoryUpdateCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.RegulatoryUpdateCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -4354,6 +4429,21 @@ export const EitvNationalDataScalarFieldEnum = {
 export type EitvNationalDataScalarFieldEnum = (typeof EitvNationalDataScalarFieldEnum)[keyof typeof EitvNationalDataScalarFieldEnum]
 
 
+export const RegulatoryUpdateScalarFieldEnum = {
+  id: 'id',
+  externalId: 'externalId',
+  title: 'title',
+  category: 'category',
+  status: 'status',
+  publishedAt: 'publishedAt',
+  summary: 'summary',
+  documents: 'documents',
+  detectedAt: 'detectedAt'
+} as const
+
+export type RegulatoryUpdateScalarFieldEnum = (typeof RegulatoryUpdateScalarFieldEnum)[keyof typeof RegulatoryUpdateScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4722,6 +4812,7 @@ export type GlobalOmitConfig = {
   auditLog?: Prisma.AuditLogOmit
   dossierVersion?: Prisma.DossierVersionOmit
   eitvNationalData?: Prisma.EitvNationalDataOmit
+  regulatoryUpdate?: Prisma.RegulatoryUpdateOmit
 }
 
 /* Types for Logging */

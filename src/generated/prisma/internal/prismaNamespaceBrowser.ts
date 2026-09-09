@@ -89,7 +89,8 @@ export const ModelName = {
   PlatesInscriptions: 'PlatesInscriptions',
   AuditLog: 'AuditLog',
   DossierVersion: 'DossierVersion',
-  EitvNationalData: 'EitvNationalData'
+  EitvNationalData: 'EitvNationalData',
+  RegulatoryUpdate: 'RegulatoryUpdate'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1080,6 +1081,21 @@ export const EitvNationalDataScalarFieldEnum = {
 } as const
 
 export type EitvNationalDataScalarFieldEnum = (typeof EitvNationalDataScalarFieldEnum)[keyof typeof EitvNationalDataScalarFieldEnum]
+
+
+export const RegulatoryUpdateScalarFieldEnum = {
+  id: 'id',
+  externalId: 'externalId',
+  title: 'title',
+  category: 'category',
+  status: 'status',
+  publishedAt: 'publishedAt',
+  summary: 'summary',
+  documents: 'documents',
+  detectedAt: 'detectedAt'
+} as const
+
+export type RegulatoryUpdateScalarFieldEnum = (typeof RegulatoryUpdateScalarFieldEnum)[keyof typeof RegulatoryUpdateScalarFieldEnum]
 
 
 export const SortOrder = {

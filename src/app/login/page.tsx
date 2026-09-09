@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GoogleSignInButton } from "./google-button";
 import { LoginCodeForm } from "./login-code-form";
 
@@ -29,6 +30,10 @@ export default function LoginPage() {
             <p className="text-sm text-danger">Falta configurar NEXT_PUBLIC_GOOGLE_CLIENT_ID.</p>
           )}
         </div>
+
+        <Link href="/normativa" className="block text-xs text-ink-faint hover:text-ink transition-colors">
+          Normativa DGT sobre homologación de vehículos →
+        </Link>
       </div>
     </div>
   );

@@ -2443,3 +2443,26 @@ model EitvNationalData {
 
   @@map("eitv_national_data")
 }
+
+// Instrucciones VEH de la DGT detectadas por el scraper de
+// src/lib/dgtWatch/scrapeInstrucciones.ts (vía src/app/api/cron/dgt-watch).
+// A diferencia de todo lo demás en este esquema, NO está scoped por
+// empresa — es información pública compartida, mostrada sin login en
+// src/app/normativa/page.tsx.
+model RegulatoryUpdate {
+  id     String @id @default(cuid())
+  /// El atributo data-elem de la DGT (ej. "/.content/NormasTrafico/NormasTrafico-00244.xml")
+  /// — identificador estable por instrucción, usado para deduplicar entre sondeos.
+  externalId String @unique
+
+  title       String
+  category    String
+  status      String?
+  publishedAt DateTime?
+  summary     String?
+  /// [{ label, url }]
+  documents   Json
+  detectedAt  DateTime @default(now())
+
+  @@map("regulatory_updates")
+}

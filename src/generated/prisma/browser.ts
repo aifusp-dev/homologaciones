@@ -212,3 +212,8 @@ export type DossierVersion = Prisma.DossierVersionModel
  * 
  */
 export type EitvNationalData = Prisma.EitvNationalDataModel
+/**
+ * Model RegulatoryUpdate
+ * 
+ */
+export type RegulatoryUpdate = Prisma.RegulatoryUpdateModel
