@@ -231,3 +231,8 @@ export type AuditLog = Prisma.AuditLogModel
  * 
  */
 export type DossierVersion = Prisma.DossierVersionModel
+/**
+ * Model EitvNationalData
+ * 
+ */
+export type EitvNationalData = Prisma.EitvNationalDataModel

@@ -169,6 +169,7 @@ model Dossier {
   copCoverSheet             CopCoverSheet?
   registrationPlates        RegistrationPlates?
   platesInscriptions        PlatesInscriptions?
+  eitvNationalData          EitvNationalData?
 
   auditLogs AuditLog[]
   versions  DossierVersion[]
@@ -2380,4 +2381,65 @@ model DossierVersion {
 
   @@index([dossierId, createdAt])
   @@map("dossier_versions")
+}
+
+// Campos manuales de DatosNacionales.xsd (Welcome Pack eITV/ECOC de la
+// DGT) sin correspondencia clara en Coc/Bodywork — el resto de campos del
+// XSD (bastidor, clasificacion, potencfiscal, mma+ejes, numhomovehicomp,
+// carrocero) se derivan en vivo de datos ya existentes, ver
+// src/lib/eitv/datosNacionalesXml.ts. Fase 1: solo genera el XML, no lo
+// firma ni lo envía (falta certificado X.509 + firma XAdES de la DGT).
+model EitvNationalData {
+  id        String @id @default(cuid())
+  dossierId String @unique
+
+  /// Remitente de Solicitud_Registro_Entrada — quien firmará el XML.
+  remitenteNombre    String?
+  remitenteApellidos String?
+  remitenteDocumento String?
+
+  /// DatosNacionales::tipodoc
+  tipodoc String?
+  /// DatosNacionales::tipodocvehicomp
+  tipodocvehicomp String?
+  /// DatosNacionales::docfabricante
+  docfabricante String?
+  /// DatosNacionales::docfabricantevehicomp
+  docfabricantevehicomp String?
+  /// DatosNacionales::tipotarjeta
+  tipotarjeta String?
+  /// DatosNacionales::autorizado
+  autorizado String?
+  /// DatosNacionales::numcertificado
+  numcertificado String?
+  /// DatosNacionales::codprocedencia (IM/EEE/N)
+  codprocedencia String?
+  /// DatosNacionales::textobservaciones
+  textobservaciones String?
+  /// DatosNacionales::relopciones
+  relopciones String?
+  /// DatosNacionales::lugarfirma
+  lugarfirma String?
+  /// DatosNacionales::fechafirma (AAAAMMDD, se formatea al generar el XML)
+  fechafirma String?
+  /// DatosNacionales::firmante
+  firmante String?
+  /// DatosNacionales::sociedadinscrita
+  sociedadinscrita String?
+  /// DatosNacionales::volumenbodega
+  volumenbodega String?
+  /// DatosNacionales::cinseguridad
+  cinseguridad String?
+  /// DatosNacionales::marcavb
+  marcavb String?
+  /// DatosNacionales::numcertitvvehibase
+  numcertitvvehibase String?
+  /// DatosNacionales::masamarchavb
+  masamarchavb String?
+  /// DatosNacionales::mmaeje4 (vehículos de 4 ejes, caso raro en esta app)
+  mmaeje4 String?
+
+  dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@map("eitv_national_data")
 }

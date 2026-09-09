@@ -2,6 +2,7 @@ import { COC_FIELDS } from "@/lib/cocFields";
 import { BODYWORK_FIELDS } from "@/lib/bodyworkFields";
 import { MASSES_FIELDS } from "@/lib/massesFields";
 import { DEVICE_TABLES, type DeviceTableKey } from "@/lib/deviceFields";
+import { EITV_FIELDS, EITV_REMITENTE_FIELDS } from "@/lib/eitvFields";
 import { TABLE_LABELS, type DossierDomainTable } from "@/lib/dossierDomainTables";
 
 // customer/dealer no tienen fichero de metadatos propio (son 6-7 campos
@@ -36,6 +37,9 @@ const FIELD_LABELS: Partial<Record<DossierDomainTable, Record<string, string>>> 
   coc: Object.fromEntries(COC_FIELDS.map((f) => [f.name, f.label])),
   bodywork: Object.fromEntries(BODYWORK_FIELDS.map((f) => [f.name, f.label])),
   massesDimensions: Object.fromEntries(MASSES_FIELDS.map((f) => [f.name, f.label])),
+  eitvNationalData: Object.fromEntries(
+    [...EITV_REMITENTE_FIELDS, ...EITV_FIELDS].map((f) => [f.name, f.label]),
+  ),
 };
 
 for (const key of Object.keys(DEVICE_TABLES) as DeviceTableKey[]) {

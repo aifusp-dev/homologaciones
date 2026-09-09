@@ -88,7 +88,8 @@ export const ModelName = {
   RegistrationPlates: 'RegistrationPlates',
   PlatesInscriptions: 'PlatesInscriptions',
   AuditLog: 'AuditLog',
-  DossierVersion: 'DossierVersion'
+  DossierVersion: 'DossierVersion',
+  EitvNationalData: 'EitvNationalData'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1048,6 +1049,37 @@ export const DossierVersionScalarFieldEnum = {
 } as const
 
 export type DossierVersionScalarFieldEnum = (typeof DossierVersionScalarFieldEnum)[keyof typeof DossierVersionScalarFieldEnum]
+
+
+export const EitvNationalDataScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  remitenteNombre: 'remitenteNombre',
+  remitenteApellidos: 'remitenteApellidos',
+  remitenteDocumento: 'remitenteDocumento',
+  tipodoc: 'tipodoc',
+  tipodocvehicomp: 'tipodocvehicomp',
+  docfabricante: 'docfabricante',
+  docfabricantevehicomp: 'docfabricantevehicomp',
+  tipotarjeta: 'tipotarjeta',
+  autorizado: 'autorizado',
+  numcertificado: 'numcertificado',
+  codprocedencia: 'codprocedencia',
+  textobservaciones: 'textobservaciones',
+  relopciones: 'relopciones',
+  lugarfirma: 'lugarfirma',
+  fechafirma: 'fechafirma',
+  firmante: 'firmante',
+  sociedadinscrita: 'sociedadinscrita',
+  volumenbodega: 'volumenbodega',
+  cinseguridad: 'cinseguridad',
+  marcavb: 'marcavb',
+  numcertitvvehibase: 'numcertitvvehibase',
+  masamarchavb: 'masamarchavb',
+  mmaeje4: 'mmaeje4'
+} as const
+
+export type EitvNationalDataScalarFieldEnum = (typeof EitvNationalDataScalarFieldEnum)[keyof typeof EitvNationalDataScalarFieldEnum]
 
 
 export const SortOrder = {

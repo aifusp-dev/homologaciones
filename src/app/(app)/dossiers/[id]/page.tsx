@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText, History } from "lucide-react";
+import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText, History, Send } from "lucide-react";
 import { notFound } from "next/navigation";
 import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
@@ -23,6 +23,7 @@ import { AttachmentsSection } from "./attachments-section";
 import { DevicesSection } from "./devices-section";
 import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
 import { HistorySection } from "./history-section";
+import { EitvSection } from "./eitv-section";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
 import { DossierArchiveButton } from "./dossier-archive-button";
 import { detectVehicleConfig } from "@/lib/vehicleConfig";
@@ -41,6 +42,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         orderBy: { createdAt: "asc" },
         include: { attachments: { orderBy: { createdAt: "desc" } } },
       },
+      company: { select: { taxId: true } },
     },
   });
   if (!dossier) notFound();
@@ -212,6 +214,23 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
           hasCrane: (m?.craneMass ?? 0) > 0,
         };
 
+  // Datos calculados para el generador de XML eITV (Datos Nacionales) —
+  // ver src/app/actions/eitv.ts, misma lógica de mapeo aplicada ahí.
+  const eitvComputed = {
+    bastidor: dossier.coc?.vin ?? null,
+    clasificacion: dossier.coc?.vehicleCategory ?? null,
+    potencfiscal: power,
+    mma: dossier.coc?.maxLadenMassRegistration ?? null,
+    mmaeje1: dossier.coc?.maxLadenMassRegistrationAxle1 ?? null,
+    mmaeje2: dossier.coc?.maxLadenMassRegistrationAxle2 ?? null,
+    mmaeje3: dossier.coc?.maxLadenMassRegistrationAxle3 ?? null,
+    numhomovehicomp: dossier.bodywork?.completedApprovalNumber ?? null,
+    carrocero: dossier.company.taxId ?? null,
+    homologacionE9: dossier.coc?.approvalNumber?.trim()
+      ? dossier.coc.approvalNumber.trim().toLowerCase().startsWith("e9")
+      : null,
+  };
+
   const tabs: DossierTab[] = [
     {
       id: "cliente",
@@ -312,6 +331,12 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       label: "Historial",
       icon: <History size={16} strokeWidth={1.9} className="shrink-0" />,
       content: <HistorySection dossierId={dossier.id} />,
+    },
+    {
+      id: "eitv",
+      label: "eITV",
+      icon: <Send size={16} strokeWidth={1.9} className="shrink-0" />,
+      content: <EitvSection dossierId={dossier.id} eitv={dossier.eitvNationalData} computed={eitvComputed} />,
     },
   ];
 

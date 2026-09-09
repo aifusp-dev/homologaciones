@@ -219,6 +219,7 @@ export type DossierWhereInput = {
   copCoverSheet?: Prisma.XOR<Prisma.CopCoverSheetNullableScalarRelationFilter, Prisma.CopCoverSheetWhereInput> | null
   registrationPlates?: Prisma.XOR<Prisma.RegistrationPlatesNullableScalarRelationFilter, Prisma.RegistrationPlatesWhereInput> | null
   platesInscriptions?: Prisma.XOR<Prisma.PlatesInscriptionsNullableScalarRelationFilter, Prisma.PlatesInscriptionsWhereInput> | null
+  eitvNationalData?: Prisma.XOR<Prisma.EitvNationalDataNullableScalarRelationFilter, Prisma.EitvNationalDataWhereInput> | null
   auditLogs?: Prisma.AuditLogListRelationFilter
   versions?: Prisma.DossierVersionListRelationFilter
 }
@@ -259,6 +260,7 @@ export type DossierOrderByWithRelationInput = {
   copCoverSheet?: Prisma.CopCoverSheetOrderByWithRelationInput
   registrationPlates?: Prisma.RegistrationPlatesOrderByWithRelationInput
   platesInscriptions?: Prisma.PlatesInscriptionsOrderByWithRelationInput
+  eitvNationalData?: Prisma.EitvNationalDataOrderByWithRelationInput
   auditLogs?: Prisma.AuditLogOrderByRelationAggregateInput
   versions?: Prisma.DossierVersionOrderByRelationAggregateInput
 }
@@ -303,6 +305,7 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   copCoverSheet?: Prisma.XOR<Prisma.CopCoverSheetNullableScalarRelationFilter, Prisma.CopCoverSheetWhereInput> | null
   registrationPlates?: Prisma.XOR<Prisma.RegistrationPlatesNullableScalarRelationFilter, Prisma.RegistrationPlatesWhereInput> | null
   platesInscriptions?: Prisma.XOR<Prisma.PlatesInscriptionsNullableScalarRelationFilter, Prisma.PlatesInscriptionsWhereInput> | null
+  eitvNationalData?: Prisma.XOR<Prisma.EitvNationalDataNullableScalarRelationFilter, Prisma.EitvNationalDataWhereInput> | null
   auditLogs?: Prisma.AuditLogListRelationFilter
   versions?: Prisma.DossierVersionListRelationFilter
 }, "id" | "companyId_number">
@@ -366,6 +369,7 @@ export type DossierCreateInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -405,6 +409,7 @@ export type DossierUncheckedCreateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -444,6 +449,7 @@ export type DossierUpdateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -483,6 +489,7 @@ export type DossierUncheckedUpdateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -1022,6 +1029,20 @@ export type DossierUpdateOneRequiredWithoutVersionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutVersionsInput, Prisma.DossierUpdateWithoutVersionsInput>, Prisma.DossierUncheckedUpdateWithoutVersionsInput>
 }
 
+export type DossierCreateNestedOneWithoutEitvNationalDataInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutEitvNationalDataInput, Prisma.DossierUncheckedCreateWithoutEitvNationalDataInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutEitvNationalDataInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutEitvNationalDataNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutEitvNationalDataInput, Prisma.DossierUncheckedCreateWithoutEitvNationalDataInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutEitvNationalDataInput
+  upsert?: Prisma.DossierUpsertWithoutEitvNationalDataInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutEitvNationalDataInput, Prisma.DossierUpdateWithoutEitvNationalDataInput>, Prisma.DossierUncheckedUpdateWithoutEitvNationalDataInput>
+}
+
 export type DossierCreateWithoutCompanyInput = {
   id?: string
   number: string
@@ -1056,6 +1077,7 @@ export type DossierCreateWithoutCompanyInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1094,6 +1116,7 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1170,6 +1193,7 @@ export type DossierCreateWithoutDocumentsInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1208,6 +1232,7 @@ export type DossierUncheckedCreateWithoutDocumentsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1262,6 +1287,7 @@ export type DossierUpdateWithoutDocumentsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -1300,6 +1326,7 @@ export type DossierUncheckedUpdateWithoutDocumentsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -1338,6 +1365,7 @@ export type DossierCreateWithoutAttachmentFoldersInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1376,6 +1404,7 @@ export type DossierUncheckedCreateWithoutAttachmentFoldersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1430,6 +1459,7 @@ export type DossierUpdateWithoutAttachmentFoldersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -1468,6 +1498,7 @@ export type DossierUncheckedUpdateWithoutAttachmentFoldersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -1506,6 +1537,7 @@ export type DossierCreateWithoutCustomerInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1544,6 +1576,7 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1598,6 +1631,7 @@ export type DossierUpdateWithoutCustomerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -1636,6 +1670,7 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -1674,6 +1709,7 @@ export type DossierCreateWithoutDealerInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1712,6 +1748,7 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1766,6 +1803,7 @@ export type DossierUpdateWithoutDealerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -1804,6 +1842,7 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -1842,6 +1881,7 @@ export type DossierCreateWithoutCocInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -1880,6 +1920,7 @@ export type DossierUncheckedCreateWithoutCocInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -1934,6 +1975,7 @@ export type DossierUpdateWithoutCocInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -1972,6 +2014,7 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2010,6 +2053,7 @@ export type DossierCreateWithoutBodyworkInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2048,6 +2092,7 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2102,6 +2147,7 @@ export type DossierUpdateWithoutBodyworkInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2140,6 +2186,7 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2178,6 +2225,7 @@ export type DossierCreateWithoutMassesDimensionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2216,6 +2264,7 @@ export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2270,6 +2319,7 @@ export type DossierUpdateWithoutMassesDimensionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2308,6 +2358,7 @@ export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2346,6 +2397,7 @@ export type DossierCreateWithoutCouplingDeviceInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2384,6 +2436,7 @@ export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2438,6 +2491,7 @@ export type DossierUpdateWithoutCouplingDeviceInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2476,6 +2530,7 @@ export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2514,6 +2569,7 @@ export type DossierCreateWithoutSpraySuppressionInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2552,6 +2608,7 @@ export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2606,6 +2663,7 @@ export type DossierUpdateWithoutSpraySuppressionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2644,6 +2702,7 @@ export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2682,6 +2741,7 @@ export type DossierCreateWithoutElectromagneticCompatibilityInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2720,6 +2780,7 @@ export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2774,6 +2835,7 @@ export type DossierUpdateWithoutElectromagneticCompatibilityInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2812,6 +2874,7 @@ export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -2850,6 +2913,7 @@ export type DossierCreateWithoutLateralProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -2888,6 +2952,7 @@ export type DossierUncheckedCreateWithoutLateralProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -2942,6 +3007,7 @@ export type DossierUpdateWithoutLateralProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -2980,6 +3046,7 @@ export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3018,6 +3085,7 @@ export type DossierCreateWithoutRearProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3056,6 +3124,7 @@ export type DossierUncheckedCreateWithoutRearProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3110,6 +3179,7 @@ export type DossierUpdateWithoutRearProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3148,6 +3218,7 @@ export type DossierUncheckedUpdateWithoutRearProtectionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3186,6 +3257,7 @@ export type DossierCreateWithoutLateralMarkingInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3224,6 +3296,7 @@ export type DossierUncheckedCreateWithoutLateralMarkingInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3278,6 +3351,7 @@ export type DossierUpdateWithoutLateralMarkingInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3316,6 +3390,7 @@ export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3354,6 +3429,7 @@ export type DossierCreateWithoutLightingSideInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3392,6 +3468,7 @@ export type DossierUncheckedCreateWithoutLightingSideInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3446,6 +3523,7 @@ export type DossierUpdateWithoutLightingSideInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3484,6 +3562,7 @@ export type DossierUncheckedUpdateWithoutLightingSideInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3522,6 +3601,7 @@ export type DossierCreateWithoutLightingPositionInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3560,6 +3640,7 @@ export type DossierUncheckedCreateWithoutLightingPositionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3614,6 +3695,7 @@ export type DossierUpdateWithoutLightingPositionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3652,6 +3734,7 @@ export type DossierUncheckedUpdateWithoutLightingPositionInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3690,6 +3773,7 @@ export type DossierCreateWithoutLightingReflectorInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3728,6 +3812,7 @@ export type DossierUncheckedCreateWithoutLightingReflectorInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3782,6 +3867,7 @@ export type DossierUpdateWithoutLightingReflectorInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3820,6 +3906,7 @@ export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -3858,6 +3945,7 @@ export type DossierCreateWithoutLightingBrakeInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -3896,6 +3984,7 @@ export type DossierUncheckedCreateWithoutLightingBrakeInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -3950,6 +4039,7 @@ export type DossierUpdateWithoutLightingBrakeInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -3988,6 +4078,7 @@ export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4026,6 +4117,7 @@ export type DossierCreateWithoutLightingTurnSignalInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4064,6 +4156,7 @@ export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4118,6 +4211,7 @@ export type DossierUpdateWithoutLightingTurnSignalInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4156,6 +4250,7 @@ export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4194,6 +4289,7 @@ export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4232,6 +4328,7 @@ export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4286,6 +4383,7 @@ export type DossierUpdateWithoutLightingRearOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4324,6 +4422,7 @@ export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4362,6 +4461,7 @@ export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4400,6 +4500,7 @@ export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4454,6 +4555,7 @@ export type DossierUpdateWithoutLightingFrontOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4492,6 +4594,7 @@ export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4530,6 +4633,7 @@ export type DossierCreateWithoutLightingPlateInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4568,6 +4672,7 @@ export type DossierUncheckedCreateWithoutLightingPlateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4622,6 +4727,7 @@ export type DossierUpdateWithoutLightingPlateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4660,6 +4766,7 @@ export type DossierUncheckedUpdateWithoutLightingPlateInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4698,6 +4805,7 @@ export type DossierCreateWithoutLightingReverseInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4736,6 +4844,7 @@ export type DossierUncheckedCreateWithoutLightingReverseInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4790,6 +4899,7 @@ export type DossierUpdateWithoutLightingReverseInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4828,6 +4938,7 @@ export type DossierUncheckedUpdateWithoutLightingReverseInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -4866,6 +4977,7 @@ export type DossierCreateWithoutLightingFogInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -4904,6 +5016,7 @@ export type DossierUncheckedCreateWithoutLightingFogInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -4958,6 +5071,7 @@ export type DossierUpdateWithoutLightingFogInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -4996,6 +5110,7 @@ export type DossierUncheckedUpdateWithoutLightingFogInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5034,6 +5149,7 @@ export type DossierCreateWithoutLightingMaterialChecklistInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -5072,6 +5188,7 @@ export type DossierUncheckedCreateWithoutLightingMaterialChecklistInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -5126,6 +5243,7 @@ export type DossierUpdateWithoutLightingMaterialChecklistInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -5164,6 +5282,7 @@ export type DossierUncheckedUpdateWithoutLightingMaterialChecklistInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5202,6 +5321,7 @@ export type DossierCreateWithoutRegulatoryActNumbersInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -5240,6 +5360,7 @@ export type DossierUncheckedCreateWithoutRegulatoryActNumbersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -5294,6 +5415,7 @@ export type DossierUpdateWithoutRegulatoryActNumbersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -5332,6 +5454,7 @@ export type DossierUncheckedUpdateWithoutRegulatoryActNumbersInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5370,6 +5493,7 @@ export type DossierCreateWithoutCopCoverSheetInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -5408,6 +5532,7 @@ export type DossierUncheckedCreateWithoutCopCoverSheetInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -5462,6 +5587,7 @@ export type DossierUpdateWithoutCopCoverSheetInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -5500,6 +5626,7 @@ export type DossierUncheckedUpdateWithoutCopCoverSheetInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5538,6 +5665,7 @@ export type DossierCreateWithoutRegistrationPlatesInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -5576,6 +5704,7 @@ export type DossierUncheckedCreateWithoutRegistrationPlatesInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -5630,6 +5759,7 @@ export type DossierUpdateWithoutRegistrationPlatesInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -5668,6 +5798,7 @@ export type DossierUncheckedUpdateWithoutRegistrationPlatesInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5706,6 +5837,7 @@ export type DossierCreateWithoutPlatesInscriptionsInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
@@ -5744,6 +5876,7 @@ export type DossierUncheckedCreateWithoutPlatesInscriptionsInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
@@ -5798,6 +5931,7 @@ export type DossierUpdateWithoutPlatesInscriptionsInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -5836,6 +5970,7 @@ export type DossierUncheckedUpdateWithoutPlatesInscriptionsInput = {
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -5875,6 +6010,7 @@ export type DossierCreateWithoutAuditLogsInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
 }
 
@@ -5913,6 +6049,7 @@ export type DossierUncheckedCreateWithoutAuditLogsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
 }
 
@@ -5967,6 +6104,7 @@ export type DossierUpdateWithoutAuditLogsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
 
@@ -6005,6 +6143,7 @@ export type DossierUncheckedUpdateWithoutAuditLogsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
 
@@ -6043,6 +6182,7 @@ export type DossierCreateWithoutVersionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
 }
 
@@ -6081,6 +6221,7 @@ export type DossierUncheckedCreateWithoutVersionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
   auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
 }
 
@@ -6135,6 +6276,7 @@ export type DossierUpdateWithoutVersionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
 }
 
@@ -6173,7 +6315,180 @@ export type DossierUncheckedUpdateWithoutVersionsInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
+}
+
+export type DossierCreateWithoutEitvNationalDataInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
+  copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
+  registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
+  platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
+  versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutEitvNationalDataInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
+  copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
+  registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
+  versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutEitvNationalDataInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutEitvNationalDataInput, Prisma.DossierUncheckedCreateWithoutEitvNationalDataInput>
+}
+
+export type DossierUpsertWithoutEitvNationalDataInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutEitvNationalDataInput, Prisma.DossierUncheckedUpdateWithoutEitvNationalDataInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutEitvNationalDataInput, Prisma.DossierUncheckedCreateWithoutEitvNationalDataInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutEitvNationalDataInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutEitvNationalDataInput, Prisma.DossierUncheckedUpdateWithoutEitvNationalDataInput>
+}
+
+export type DossierUpdateWithoutEitvNationalDataInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
+  copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
+  registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
+  versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutEitvNationalDataInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
+  copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
+  registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
+  versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
 
 export type DossierCreateManyCompanyInput = {
@@ -6218,6 +6533,7 @@ export type DossierUpdateWithoutCompanyInput = {
   copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
 }
@@ -6256,6 +6572,7 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
   registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
   platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
   auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
@@ -6362,6 +6679,7 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   copCoverSheet?: boolean | Prisma.Dossier$copCoverSheetArgs<ExtArgs>
   registrationPlates?: boolean | Prisma.Dossier$registrationPlatesArgs<ExtArgs>
   platesInscriptions?: boolean | Prisma.Dossier$platesInscriptionsArgs<ExtArgs>
+  eitvNationalData?: boolean | Prisma.Dossier$eitvNationalDataArgs<ExtArgs>
   auditLogs?: boolean | Prisma.Dossier$auditLogsArgs<ExtArgs>
   versions?: boolean | Prisma.Dossier$versionsArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
@@ -6427,6 +6745,7 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   copCoverSheet?: boolean | Prisma.Dossier$copCoverSheetArgs<ExtArgs>
   registrationPlates?: boolean | Prisma.Dossier$registrationPlatesArgs<ExtArgs>
   platesInscriptions?: boolean | Prisma.Dossier$platesInscriptionsArgs<ExtArgs>
+  eitvNationalData?: boolean | Prisma.Dossier$eitvNationalDataArgs<ExtArgs>
   auditLogs?: boolean | Prisma.Dossier$auditLogsArgs<ExtArgs>
   versions?: boolean | Prisma.Dossier$versionsArgs<ExtArgs>
   _count?: boolean | Prisma.DossierCountOutputTypeDefaultArgs<ExtArgs>
@@ -6470,6 +6789,7 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     copCoverSheet: Prisma.$CopCoverSheetPayload<ExtArgs> | null
     registrationPlates: Prisma.$RegistrationPlatesPayload<ExtArgs> | null
     platesInscriptions: Prisma.$PlatesInscriptionsPayload<ExtArgs> | null
+    eitvNationalData: Prisma.$EitvNationalDataPayload<ExtArgs> | null
     auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
     versions: Prisma.$DossierVersionPayload<ExtArgs>[]
   }
@@ -6907,6 +7227,7 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   copCoverSheet<T extends Prisma.Dossier$copCoverSheetArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$copCoverSheetArgs<ExtArgs>>): Prisma.Prisma__CopCoverSheetClient<runtime.Types.Result.GetResult<Prisma.$CopCoverSheetPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   registrationPlates<T extends Prisma.Dossier$registrationPlatesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$registrationPlatesArgs<ExtArgs>>): Prisma.Prisma__RegistrationPlatesClient<runtime.Types.Result.GetResult<Prisma.$RegistrationPlatesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   platesInscriptions<T extends Prisma.Dossier$platesInscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$platesInscriptionsArgs<ExtArgs>>): Prisma.Prisma__PlatesInscriptionsClient<runtime.Types.Result.GetResult<Prisma.$PlatesInscriptionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  eitvNationalData<T extends Prisma.Dossier$eitvNationalDataArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$eitvNationalDataArgs<ExtArgs>>): Prisma.Prisma__EitvNationalDataClient<runtime.Types.Result.GetResult<Prisma.$EitvNationalDataPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   auditLogs<T extends Prisma.Dossier$auditLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   versions<T extends Prisma.Dossier$versionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$versionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DossierVersionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -7884,6 +8205,25 @@ export type Dossier$platesInscriptionsArgs<ExtArgs extends runtime.Types.Extensi
    */
   include?: Prisma.PlatesInscriptionsInclude<ExtArgs> | null
   where?: Prisma.PlatesInscriptionsWhereInput
+}
+
+/**
+ * Dossier.eitvNationalData
+ */
+export type Dossier$eitvNationalDataArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EitvNationalData
+   */
+  select?: Prisma.EitvNationalDataSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EitvNationalData
+   */
+  omit?: Prisma.EitvNationalDataOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EitvNationalDataInclude<ExtArgs> | null
+  where?: Prisma.EitvNationalDataWhereInput
 }
 
 /**

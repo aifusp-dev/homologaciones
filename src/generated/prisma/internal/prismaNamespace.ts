@@ -434,7 +434,8 @@ export const ModelName = {
   RegistrationPlates: 'RegistrationPlates',
   PlatesInscriptions: 'PlatesInscriptions',
   AuditLog: 'AuditLog',
-  DossierVersion: 'DossierVersion'
+  DossierVersion: 'DossierVersion',
+  EitvNationalData: 'EitvNationalData'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -450,7 +451,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion"
+    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3266,6 +3267,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EitvNationalData: {
+      payload: Prisma.$EitvNationalDataPayload<ExtArgs>
+      fields: Prisma.EitvNationalDataFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EitvNationalDataFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EitvNationalDataFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        findFirst: {
+          args: Prisma.EitvNationalDataFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EitvNationalDataFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        findMany: {
+          args: Prisma.EitvNationalDataFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>[]
+        }
+        create: {
+          args: Prisma.EitvNationalDataCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        createMany: {
+          args: Prisma.EitvNationalDataCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EitvNationalDataCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>[]
+        }
+        delete: {
+          args: Prisma.EitvNationalDataDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        update: {
+          args: Prisma.EitvNationalDataUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        deleteMany: {
+          args: Prisma.EitvNationalDataDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EitvNationalDataUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EitvNationalDataUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>[]
+        }
+        upsert: {
+          args: Prisma.EitvNationalDataUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvNationalDataPayload>
+        }
+        aggregate: {
+          args: Prisma.EitvNationalDataAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEitvNationalData>
+        }
+        groupBy: {
+          args: Prisma.EitvNationalDataGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvNationalDataGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EitvNationalDataCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvNationalDataCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -4248,6 +4323,37 @@ export const DossierVersionScalarFieldEnum = {
 export type DossierVersionScalarFieldEnum = (typeof DossierVersionScalarFieldEnum)[keyof typeof DossierVersionScalarFieldEnum]
 
 
+export const EitvNationalDataScalarFieldEnum = {
+  id: 'id',
+  dossierId: 'dossierId',
+  remitenteNombre: 'remitenteNombre',
+  remitenteApellidos: 'remitenteApellidos',
+  remitenteDocumento: 'remitenteDocumento',
+  tipodoc: 'tipodoc',
+  tipodocvehicomp: 'tipodocvehicomp',
+  docfabricante: 'docfabricante',
+  docfabricantevehicomp: 'docfabricantevehicomp',
+  tipotarjeta: 'tipotarjeta',
+  autorizado: 'autorizado',
+  numcertificado: 'numcertificado',
+  codprocedencia: 'codprocedencia',
+  textobservaciones: 'textobservaciones',
+  relopciones: 'relopciones',
+  lugarfirma: 'lugarfirma',
+  fechafirma: 'fechafirma',
+  firmante: 'firmante',
+  sociedadinscrita: 'sociedadinscrita',
+  volumenbodega: 'volumenbodega',
+  cinseguridad: 'cinseguridad',
+  marcavb: 'marcavb',
+  numcertitvvehibase: 'numcertitvvehibase',
+  masamarchavb: 'masamarchavb',
+  mmaeje4: 'mmaeje4'
+} as const
+
+export type EitvNationalDataScalarFieldEnum = (typeof EitvNationalDataScalarFieldEnum)[keyof typeof EitvNationalDataScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -4615,6 +4721,7 @@ export type GlobalOmitConfig = {
   platesInscriptions?: Prisma.PlatesInscriptionsOmit
   auditLog?: Prisma.AuditLogOmit
   dossierVersion?: Prisma.DossierVersionOmit
+  eitvNationalData?: Prisma.EitvNationalDataOmit
 }
 
 /* Types for Logging */

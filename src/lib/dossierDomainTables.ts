@@ -31,6 +31,7 @@ export const DOSSIER_DOMAIN_TABLES = [
   "copCoverSheet",
   "registrationPlates",
   "platesInscriptions",
+  "eitvNationalData",
 ] as const;
 
 export type DossierDomainTable = (typeof DOSSIER_DOMAIN_TABLES)[number];
@@ -62,6 +63,7 @@ export const TABLE_LABELS: Record<DossierDomainTable, string> = {
   copCoverSheet: "Portada Registro COP",
   registrationPlates: "Placas de matrícula",
   platesInscriptions: "Placas e inscripciones",
+  eitvNationalData: "Datos Nacionales (eITV)",
 };
 
 /// Objeto {tabla: true, ...} listo para pasar como (parte de) un `include`
