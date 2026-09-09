@@ -263,6 +263,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
       id: "masas",
       label: "Masas y dimensiones",
       icon: <Scale size={16} strokeWidth={1.9} className="shrink-0" />,
+      wide: true,
       content: (
         <div className="space-y-3">
           <p className="text-xs text-ink-faint">{VEHICLE_CONFIG_LABEL[vehicleConfig]}</p>

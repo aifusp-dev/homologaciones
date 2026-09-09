@@ -7,6 +7,11 @@ export type DossierTab = {
   label: string;
   icon: ReactNode;
   content: ReactNode;
+  // Deja sin capar el ancho del panel de contenido para esta pestaña — usado
+  // por "Masas y dimensiones", cuyo sandbox de edición en caliente (esquema +
+  // verificación + panel de ajuste) necesita más espacio horizontal que el
+  // resto de formularios de la app.
+  wide?: boolean;
 };
 
 // Layout apaisado: sidebar de pestañas a la izquierda + panel de contenido
@@ -16,6 +21,7 @@ export type DossierTab = {
 // useActionState de cada formulario no se remonta al cambiar de pestaña.
 export function DossierTabs({ tabs }: { tabs: DossierTab[] }) {
   const [active, setActive] = useState(tabs[0]?.id);
+  const isWide = tabs.find((t) => t.id === active)?.wide ?? false;
 
   return (
     <div className="flex flex-col lg:flex-row gap-6 items-start">
@@ -37,7 +43,7 @@ export function DossierTabs({ tabs }: { tabs: DossierTab[] }) {
         ))}
       </nav>
 
-      <div className="flex-1 min-w-0 w-full max-w-4xl">
+      <div className={`flex-1 min-w-0 w-full ${isWide ? "max-w-none" : "max-w-4xl"}`}>
         {tabs.map((tab) => (
           <div key={tab.id} className={active === tab.id ? "" : "hidden"}>
             {tab.content}

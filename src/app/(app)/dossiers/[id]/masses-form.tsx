@@ -3,7 +3,7 @@
 import { useActionState, useRef } from "react";
 import { updateMasses } from "@/app/actions/masses";
 import { MASSES_FIELDS } from "@/lib/massesFields";
-import { MassesDiagram, type DiagramData } from "./masses-diagram";
+import type { DiagramData } from "./masses-diagram";
 import { MassesSandbox } from "./masses-sandbox";
 import type { VehicleConfig } from "@/lib/vehicleConfig";
 import type { MassesInputs } from "@/lib/calculations/masses";
@@ -77,20 +77,17 @@ export function MassesForm({
     <form ref={formRef} action={action} className="space-y-3">
       <input type="hidden" name="dossierId" value={dossierId} />
 
-      {vehicleConfig === "base" ? (
-        <MassesSandbox
-          initial={massesInputs}
-          diagramStatic={{
-            cargoLength: diagramData.cargoLength,
-            width: diagramData.width,
-            height: diagramData.height,
-            hasCrane: diagramData.hasCrane,
-          }}
-          formRef={formRef}
-        />
-      ) : (
-        <MassesDiagram variant={vehicleConfig} data={diagramData} />
-      )}
+      <MassesSandbox
+        vehicleConfig={vehicleConfig}
+        initial={massesInputs}
+        diagramStatic={{
+          cargoLength: diagramData.cargoLength,
+          width: diagramData.width,
+          height: diagramData.height,
+          hasCrane: diagramData.hasCrane,
+        }}
+        formRef={formRef}
+      />
 
       {resultEntries.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
