@@ -2,7 +2,7 @@
 
 import { useActionState, useRef, useState } from "react";
 import { updateCoc } from "@/app/actions/coc";
-import { COC_FIELDS, COC_SECTIONS, type CocSection } from "@/lib/cocFields";
+import { COC_FIELDS, COC_SECTIONS, VEHICLE_CATEGORY_OPTIONS, type CocSection } from "@/lib/cocFields";
 import { parseEitvXml } from "@/lib/eitvImport";
 
 const inputClass =
@@ -126,17 +126,32 @@ export function CocForm({
                       <span className="text-ink-faint mr-1">{field.clause}</span>
                       {field.label}
                     </label>
-                    <input
-                      name={field.name}
-                      type={field.type === "date" ? "date" : field.type === "text" ? "text" : "text"}
-                      inputMode={field.type === "int" || field.type === "float" ? "decimal" : undefined}
-                      defaultValue={toInputValue(coc?.[field.name], field.type)}
-                      onChange={field.name === "axleCount" ? (e) => {
-                        const n = Number(e.target.value);
-                        setAxleCount(Number.isFinite(n) && e.target.value.trim() !== "" ? n : null);
-                      } : undefined}
-                      className={inputClass}
-                    />
+                    {field.type === "select" ? (
+                      <select
+                        name={field.name}
+                        defaultValue={toInputValue(coc?.[field.name], field.type)}
+                        className={inputClass}
+                      >
+                        <option value="">—</option>
+                        {VEHICLE_CATEGORY_OPTIONS.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <input
+                        name={field.name}
+                        type={field.type === "date" ? "date" : "text"}
+                        inputMode={field.type === "int" || field.type === "float" ? "decimal" : undefined}
+                        defaultValue={toInputValue(coc?.[field.name], field.type)}
+                        onChange={field.name === "axleCount" ? (e) => {
+                          const n = Number(e.target.value);
+                          setAxleCount(Number.isFinite(n) && e.target.value.trim() !== "" ? n : null);
+                        } : undefined}
+                        className={inputClass}
+                      />
+                    )}
                   </div>
                 );
               })}

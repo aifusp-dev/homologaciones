@@ -1,4 +1,5 @@
 import type { VehicleConfig } from "@/lib/vehicleConfig";
+import { jumpToField } from "@/lib/fieldJump";
 
 // Dibujo lateral del vehículo — calca el espíritu de
 // BackEnd/FrontEnd/MASASYDIRECCIONES-*.png (esquema técnico con líneas de
@@ -90,6 +91,20 @@ function EmptyState({ text }: { text: React.ReactNode }) {
   );
 }
 
+// Salta directo al input real del campo (aunque esté en otra pestaña) en vez
+// de dejar que el usuario lo busque a mano — ver src/lib/fieldJump.ts.
+function FieldLink({ field, tab, children }: { field: string; tab?: string; children: React.ReactNode }) {
+  return (
+    <button
+      type="button"
+      onClick={() => jumpToField(field, tab)}
+      className="font-medium text-ink-dim underline decoration-dotted underline-offset-2 hover:text-accent"
+    >
+      {children}
+    </button>
+  );
+}
+
 function RigidDiagram({ variant, data }: { variant: "base" | "triaxle"; data: DiagramData }) {
   const { totalLength, frontOverhang, rearOverhang, wheelbase, wheelbase2, firstAxleToBodyDistance, cargoLength, height, width, hasCrane } = data;
 
@@ -98,9 +113,11 @@ function RigidDiagram({ variant, data }: { variant: "base" | "triaxle"; data: Di
       <EmptyState
         text={
           <>
-            Rellena al menos <b className="text-ink-dim">Largo total</b> (calculado),{" "}
-            <b className="text-ink-dim">Voladizo delantero</b> y la <b className="text-ink-dim">distancia entre ejes</b>{" "}
-            del COC para ver el dibujo del vehículo.
+            Rellena <FieldLink field="frontOverhang" tab="masas">voladizo delantero</FieldLink>,{" "}
+            <FieldLink field="firstAxleToBodyDistance" tab="masas">distancia 1er eje a caja</FieldLink> (pestaña
+            Masas), <FieldLink field="axleDistance1to2" tab="coc">distancia entre ejes</FieldLink> (pestaña COC) y{" "}
+            <FieldLink field="exteriorLength" tab="carrozado">largo exterior</FieldLink> (pestaña Carrozado) para ver
+            el dibujo del vehículo — el <b className="text-ink-dim">Largo total</b> se calcula solo con estos datos.
           </>
         }
       />
@@ -190,9 +207,11 @@ function SemiTrailerDiagram({ variant, data }: { variant: "semi2" | "semi3"; dat
       <EmptyState
         text={
           <>
-            Rellena <b className="text-ink-dim">Largo total O4</b>{" "}
-            {variant === "semi3" ? <>(o su equivalente de 3 ejes, "LT")</> : null} en Masas y dimensiones para ver el
-            dibujo del semirremolque.
+            Rellena{" "}
+            <FieldLink field={variant === "semi3" ? "semiTrailer3AxleLt" : "semiTrailerTotalLength"} tab="masas">
+              {variant === "semi3" ? 'largo total ("O4semi 3LT")' : "largo total O4"}
+            </FieldLink>{" "}
+            en Masas y dimensiones para ver el dibujo del semirremolque.
           </>
         }
       />

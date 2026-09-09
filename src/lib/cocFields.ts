@@ -1,6 +1,8 @@
 // Generado a partir de BackEnd/bbdd.xml — metadatos de UI para el formulario de COC.
 // No confundir con el esquema de Prisma: esto es solo label+tipo+sección para renderizar.
-export type CocFieldType = "text" | "int" | "float" | "date";
+export type CocFieldType = "text" | "int" | "float" | "date" | "select";
+
+export const VEHICLE_CATEGORY_OPTIONS = ["N1", "N2", "N3", "O1", "O2", "O3", "O4"] as const;
 
 export const COC_SECTIONS = {
   identificacion: "Identificación del vehículo",
@@ -20,7 +22,7 @@ export type CocSection = keyof typeof COC_SECTIONS;
 
 export const COC_FIELDS: { name: string; label: string; type: CocFieldType; section: CocSection; clause: string }[] = [
   { name: "vin", label: "VIN", type: "text", section: "identificacion", clause: "0.10" },
-  { name: "vehicleCategory", label: "Categoria vehiculo", type: "text", section: "identificacion", clause: "0.4" },
+  { name: "vehicleCategory", label: "Categoria vehiculo", type: "select", section: "identificacion", clause: "0.4" },
   { name: "brand", label: "Marca", type: "text", section: "identificacion", clause: "0.1" },
   { name: "type", label: "Tipo", type: "text", section: "identificacion", clause: "0.2" },
   { name: "variant", label: "Variante", type: "text", section: "identificacion", clause: "0.2" },
