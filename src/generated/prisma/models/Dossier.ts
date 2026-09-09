@@ -30,6 +30,7 @@ export type DossierMinAggregateOutputType = {
   number: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  archivedAt: Date | null
 }
 
 export type DossierMaxAggregateOutputType = {
@@ -38,6 +39,7 @@ export type DossierMaxAggregateOutputType = {
   number: string | null
   createdAt: Date | null
   updatedAt: Date | null
+  archivedAt: Date | null
 }
 
 export type DossierCountAggregateOutputType = {
@@ -46,6 +48,7 @@ export type DossierCountAggregateOutputType = {
   number: number
   createdAt: number
   updatedAt: number
+  archivedAt: number
   _all: number
 }
 
@@ -56,6 +59,7 @@ export type DossierMinAggregateInputType = {
   number?: true
   createdAt?: true
   updatedAt?: true
+  archivedAt?: true
 }
 
 export type DossierMaxAggregateInputType = {
@@ -64,6 +68,7 @@ export type DossierMaxAggregateInputType = {
   number?: true
   createdAt?: true
   updatedAt?: true
+  archivedAt?: true
 }
 
 export type DossierCountAggregateInputType = {
@@ -72,6 +77,7 @@ export type DossierCountAggregateInputType = {
   number?: true
   createdAt?: true
   updatedAt?: true
+  archivedAt?: true
   _all?: true
 }
 
@@ -153,6 +159,7 @@ export type DossierGroupByOutputType = {
   number: string
   createdAt: Date
   updatedAt: Date
+  archivedAt: Date | null
   _count: DossierCountAggregateOutputType | null
   _min: DossierMinAggregateOutputType | null
   _max: DossierMaxAggregateOutputType | null
@@ -182,6 +189,7 @@ export type DossierWhereInput = {
   number?: Prisma.StringFilter<"Dossier"> | string
   createdAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
+  archivedAt?: Prisma.DateTimeNullableFilter<"Dossier"> | Date | string | null
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
   customer?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   dealer?: Prisma.XOR<Prisma.DealerNullableScalarRelationFilter, Prisma.DealerWhereInput> | null
@@ -219,6 +227,7 @@ export type DossierOrderByWithRelationInput = {
   number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  archivedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   company?: Prisma.CompanyOrderByWithRelationInput
   customer?: Prisma.CustomerOrderByWithRelationInput
   dealer?: Prisma.DealerOrderByWithRelationInput
@@ -260,6 +269,7 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   number?: Prisma.StringFilter<"Dossier"> | string
   createdAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
+  archivedAt?: Prisma.DateTimeNullableFilter<"Dossier"> | Date | string | null
   company?: Prisma.XOR<Prisma.CompanyScalarRelationFilter, Prisma.CompanyWhereInput>
   customer?: Prisma.XOR<Prisma.CustomerNullableScalarRelationFilter, Prisma.CustomerWhereInput> | null
   dealer?: Prisma.XOR<Prisma.DealerNullableScalarRelationFilter, Prisma.DealerWhereInput> | null
@@ -297,6 +307,7 @@ export type DossierOrderByWithAggregationInput = {
   number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  archivedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.DossierCountOrderByAggregateInput
   _max?: Prisma.DossierMaxOrderByAggregateInput
   _min?: Prisma.DossierMinOrderByAggregateInput
@@ -311,6 +322,7 @@ export type DossierScalarWhereWithAggregatesInput = {
   number?: Prisma.StringWithAggregatesFilter<"Dossier"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Dossier"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Dossier"> | Date | string
+  archivedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Dossier"> | Date | string | null
 }
 
 export type DossierCreateInput = {
@@ -318,6 +330,7 @@ export type DossierCreateInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -355,6 +368,7 @@ export type DossierUncheckedCreateInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -390,6 +404,7 @@ export type DossierUpdateInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -427,6 +442,7 @@ export type DossierUncheckedUpdateInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -463,6 +479,7 @@ export type DossierCreateManyInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
 }
 
 export type DossierUpdateManyMutationInput = {
@@ -470,6 +487,7 @@ export type DossierUpdateManyMutationInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type DossierUncheckedUpdateManyInput = {
@@ -478,6 +496,7 @@ export type DossierUncheckedUpdateManyInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type DossierListRelationFilter = {
@@ -501,6 +520,7 @@ export type DossierCountOrderByAggregateInput = {
   number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  archivedAt?: Prisma.SortOrder
 }
 
 export type DossierMaxOrderByAggregateInput = {
@@ -509,6 +529,7 @@ export type DossierMaxOrderByAggregateInput = {
   number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  archivedAt?: Prisma.SortOrder
 }
 
 export type DossierMinOrderByAggregateInput = {
@@ -517,6 +538,7 @@ export type DossierMinOrderByAggregateInput = {
   number?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
+  archivedAt?: Prisma.SortOrder
 }
 
 export type DossierScalarRelationFilter = {
@@ -963,6 +985,7 @@ export type DossierCreateWithoutCompanyInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
@@ -998,6 +1021,7 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -1063,6 +1087,7 @@ export type DossierScalarWhereInput = {
   number?: Prisma.StringFilter<"Dossier"> | string
   createdAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Dossier"> | Date | string
+  archivedAt?: Prisma.DateTimeNullableFilter<"Dossier"> | Date | string | null
 }
 
 export type DossierCreateWithoutDocumentsInput = {
@@ -1070,6 +1095,7 @@ export type DossierCreateWithoutDocumentsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -1106,6 +1132,7 @@ export type DossierUncheckedCreateWithoutDocumentsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -1156,6 +1183,7 @@ export type DossierUpdateWithoutDocumentsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -1192,6 +1220,7 @@ export type DossierUncheckedUpdateWithoutDocumentsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -1226,6 +1255,7 @@ export type DossierCreateWithoutAttachmentFoldersInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -1262,6 +1292,7 @@ export type DossierUncheckedCreateWithoutAttachmentFoldersInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -1312,6 +1343,7 @@ export type DossierUpdateWithoutAttachmentFoldersInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -1348,6 +1380,7 @@ export type DossierUncheckedUpdateWithoutAttachmentFoldersInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -1382,6 +1415,7 @@ export type DossierCreateWithoutCustomerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
@@ -1418,6 +1452,7 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
@@ -1468,6 +1503,7 @@ export type DossierUpdateWithoutCustomerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
@@ -1504,6 +1540,7 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
@@ -1538,6 +1575,7 @@ export type DossierCreateWithoutDealerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocCreateNestedOneWithoutDossierInput
@@ -1574,6 +1612,7 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
@@ -1624,6 +1663,7 @@ export type DossierUpdateWithoutDealerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
@@ -1660,6 +1700,7 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
@@ -1694,6 +1735,7 @@ export type DossierCreateWithoutCocInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -1730,6 +1772,7 @@ export type DossierUncheckedCreateWithoutCocInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
@@ -1780,6 +1823,7 @@ export type DossierUpdateWithoutCocInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -1816,6 +1860,7 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
@@ -1850,6 +1895,7 @@ export type DossierCreateWithoutBodyworkInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -1886,6 +1932,7 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -1936,6 +1983,7 @@ export type DossierUpdateWithoutBodyworkInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -1972,6 +2020,7 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2006,6 +2055,7 @@ export type DossierCreateWithoutMassesDimensionsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2042,6 +2092,7 @@ export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2092,6 +2143,7 @@ export type DossierUpdateWithoutMassesDimensionsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2128,6 +2180,7 @@ export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2162,6 +2215,7 @@ export type DossierCreateWithoutCouplingDeviceInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2198,6 +2252,7 @@ export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2248,6 +2303,7 @@ export type DossierUpdateWithoutCouplingDeviceInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2284,6 +2340,7 @@ export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2318,6 +2375,7 @@ export type DossierCreateWithoutSpraySuppressionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2354,6 +2412,7 @@ export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2404,6 +2463,7 @@ export type DossierUpdateWithoutSpraySuppressionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2440,6 +2500,7 @@ export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2474,6 +2535,7 @@ export type DossierCreateWithoutElectromagneticCompatibilityInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2510,6 +2572,7 @@ export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2560,6 +2623,7 @@ export type DossierUpdateWithoutElectromagneticCompatibilityInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2596,6 +2660,7 @@ export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2630,6 +2695,7 @@ export type DossierCreateWithoutLateralProtectionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2666,6 +2732,7 @@ export type DossierUncheckedCreateWithoutLateralProtectionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2716,6 +2783,7 @@ export type DossierUpdateWithoutLateralProtectionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2752,6 +2820,7 @@ export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2786,6 +2855,7 @@ export type DossierCreateWithoutRearProtectionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2822,6 +2892,7 @@ export type DossierUncheckedCreateWithoutRearProtectionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -2872,6 +2943,7 @@ export type DossierUpdateWithoutRearProtectionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -2908,6 +2980,7 @@ export type DossierUncheckedUpdateWithoutRearProtectionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -2942,6 +3015,7 @@ export type DossierCreateWithoutLateralMarkingInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -2978,6 +3052,7 @@ export type DossierUncheckedCreateWithoutLateralMarkingInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3028,6 +3103,7 @@ export type DossierUpdateWithoutLateralMarkingInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3064,6 +3140,7 @@ export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3098,6 +3175,7 @@ export type DossierCreateWithoutLightingSideInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3134,6 +3212,7 @@ export type DossierUncheckedCreateWithoutLightingSideInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3184,6 +3263,7 @@ export type DossierUpdateWithoutLightingSideInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3220,6 +3300,7 @@ export type DossierUncheckedUpdateWithoutLightingSideInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3254,6 +3335,7 @@ export type DossierCreateWithoutLightingPositionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3290,6 +3372,7 @@ export type DossierUncheckedCreateWithoutLightingPositionInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3340,6 +3423,7 @@ export type DossierUpdateWithoutLightingPositionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3376,6 +3460,7 @@ export type DossierUncheckedUpdateWithoutLightingPositionInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3410,6 +3495,7 @@ export type DossierCreateWithoutLightingReflectorInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3446,6 +3532,7 @@ export type DossierUncheckedCreateWithoutLightingReflectorInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3496,6 +3583,7 @@ export type DossierUpdateWithoutLightingReflectorInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3532,6 +3620,7 @@ export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3566,6 +3655,7 @@ export type DossierCreateWithoutLightingBrakeInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3602,6 +3692,7 @@ export type DossierUncheckedCreateWithoutLightingBrakeInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3652,6 +3743,7 @@ export type DossierUpdateWithoutLightingBrakeInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3688,6 +3780,7 @@ export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3722,6 +3815,7 @@ export type DossierCreateWithoutLightingTurnSignalInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3758,6 +3852,7 @@ export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3808,6 +3903,7 @@ export type DossierUpdateWithoutLightingTurnSignalInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -3844,6 +3940,7 @@ export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -3878,6 +3975,7 @@ export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -3914,6 +4012,7 @@ export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -3964,6 +4063,7 @@ export type DossierUpdateWithoutLightingRearOutlineMarkerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4000,6 +4100,7 @@ export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4034,6 +4135,7 @@ export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4070,6 +4172,7 @@ export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4120,6 +4223,7 @@ export type DossierUpdateWithoutLightingFrontOutlineMarkerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4156,6 +4260,7 @@ export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4190,6 +4295,7 @@ export type DossierCreateWithoutLightingPlateInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4226,6 +4332,7 @@ export type DossierUncheckedCreateWithoutLightingPlateInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4276,6 +4383,7 @@ export type DossierUpdateWithoutLightingPlateInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4312,6 +4420,7 @@ export type DossierUncheckedUpdateWithoutLightingPlateInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4346,6 +4455,7 @@ export type DossierCreateWithoutLightingReverseInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4382,6 +4492,7 @@ export type DossierUncheckedCreateWithoutLightingReverseInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4432,6 +4543,7 @@ export type DossierUpdateWithoutLightingReverseInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4468,6 +4580,7 @@ export type DossierUncheckedUpdateWithoutLightingReverseInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4502,6 +4615,7 @@ export type DossierCreateWithoutLightingFogInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4538,6 +4652,7 @@ export type DossierUncheckedCreateWithoutLightingFogInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4588,6 +4703,7 @@ export type DossierUpdateWithoutLightingFogInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4624,6 +4740,7 @@ export type DossierUncheckedUpdateWithoutLightingFogInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4658,6 +4775,7 @@ export type DossierCreateWithoutLightingMaterialChecklistInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4694,6 +4812,7 @@ export type DossierUncheckedCreateWithoutLightingMaterialChecklistInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4744,6 +4863,7 @@ export type DossierUpdateWithoutLightingMaterialChecklistInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4780,6 +4900,7 @@ export type DossierUncheckedUpdateWithoutLightingMaterialChecklistInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4814,6 +4935,7 @@ export type DossierCreateWithoutRegulatoryActNumbersInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -4850,6 +4972,7 @@ export type DossierUncheckedCreateWithoutRegulatoryActNumbersInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -4900,6 +5023,7 @@ export type DossierUpdateWithoutRegulatoryActNumbersInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -4936,6 +5060,7 @@ export type DossierUncheckedUpdateWithoutRegulatoryActNumbersInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -4970,6 +5095,7 @@ export type DossierCreateWithoutCopCoverSheetInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -5006,6 +5132,7 @@ export type DossierUncheckedCreateWithoutCopCoverSheetInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -5056,6 +5183,7 @@ export type DossierUpdateWithoutCopCoverSheetInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -5092,6 +5220,7 @@ export type DossierUncheckedUpdateWithoutCopCoverSheetInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -5126,6 +5255,7 @@ export type DossierCreateWithoutRegistrationPlatesInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -5162,6 +5292,7 @@ export type DossierUncheckedCreateWithoutRegistrationPlatesInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -5212,6 +5343,7 @@ export type DossierUpdateWithoutRegistrationPlatesInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -5248,6 +5380,7 @@ export type DossierUncheckedUpdateWithoutRegistrationPlatesInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -5282,6 +5415,7 @@ export type DossierCreateWithoutPlatesInscriptionsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
   customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
@@ -5318,6 +5452,7 @@ export type DossierUncheckedCreateWithoutPlatesInscriptionsInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
   customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
   dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
   coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
@@ -5368,6 +5503,7 @@ export type DossierUpdateWithoutPlatesInscriptionsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
@@ -5404,6 +5540,7 @@ export type DossierUncheckedUpdateWithoutPlatesInscriptionsInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -5438,6 +5575,7 @@ export type DossierCreateManyCompanyInput = {
   number: string
   createdAt?: Date | string
   updatedAt?: Date | string
+  archivedAt?: Date | string | null
 }
 
 export type DossierUpdateWithoutCompanyInput = {
@@ -5445,6 +5583,7 @@ export type DossierUpdateWithoutCompanyInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
@@ -5480,6 +5619,7 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
   dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
   coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
@@ -5515,6 +5655,7 @@ export type DossierUncheckedUpdateManyWithoutCompanyInput = {
   number?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -5563,6 +5704,7 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   number?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  archivedAt?: boolean
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.Dossier$customerArgs<ExtArgs>
   dealer?: boolean | Prisma.Dossier$dealerArgs<ExtArgs>
@@ -5601,6 +5743,7 @@ export type DossierSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   number?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  archivedAt?: boolean
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
@@ -5610,6 +5753,7 @@ export type DossierSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   number?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  archivedAt?: boolean
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["dossier"]>
 
@@ -5619,9 +5763,10 @@ export type DossierSelectScalar = {
   number?: boolean
   createdAt?: boolean
   updatedAt?: boolean
+  archivedAt?: boolean
 }
 
-export type DossierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "number" | "createdAt" | "updatedAt", ExtArgs["result"]["dossier"]>
+export type DossierOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "companyId" | "number" | "createdAt" | "updatedAt" | "archivedAt", ExtArgs["result"]["dossier"]>
 export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   company?: boolean | Prisma.CompanyDefaultArgs<ExtArgs>
   customer?: boolean | Prisma.Dossier$customerArgs<ExtArgs>
@@ -5704,6 +5849,7 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     number: string
     createdAt: Date
     updatedAt: Date
+    archivedAt: Date | null
   }, ExtArgs["result"]["dossier"]>
   composites: {}
 }
@@ -6161,6 +6307,7 @@ export interface DossierFieldRefs {
   readonly number: Prisma.FieldRef<"Dossier", 'String'>
   readonly createdAt: Prisma.FieldRef<"Dossier", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Dossier", 'DateTime'>
+  readonly archivedAt: Prisma.FieldRef<"Dossier", 'DateTime'>
 }
     
 

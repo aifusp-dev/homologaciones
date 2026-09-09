@@ -22,6 +22,7 @@ import { AttachmentsSection } from "./attachments-section";
 import { DevicesSection } from "./devices-section";
 import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
+import { DossierArchiveButton } from "./dossier-archive-button";
 import { detectVehicleConfig } from "@/lib/vehicleConfig";
 import type { DiagramData } from "./masses-diagram";
 
@@ -337,7 +338,10 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
         <Link href="/dashboard" className="text-sm text-ink-faint hover:text-ink transition-colors">
           ← Volver
         </Link>
-        <h1 className="text-2xl font-bold tracking-tight font-mono">{dossier.number}</h1>
+        <div className="flex items-center justify-between flex-wrap gap-2">
+          <h1 className="text-2xl font-bold tracking-tight font-mono">{dossier.number}</h1>
+          <DossierArchiveButton dossierId={dossier.id} archived={Boolean(dossier.archivedAt)} />
+        </div>
       </header>
 
       <DossierTabs tabs={tabs} />

@@ -30,6 +30,38 @@ export async function createDossier() {
   redirect(`/dossiers/${dossier.id}`);
 }
 
+export async function archiveDossier(_state: FormState, formData: FormData): Promise<FormState> {
+  const user = await requireCompanyUser();
+  const dossierId = formData.get("dossierId");
+  if (typeof dossierId !== "string") return { message: "Expediente no válido." };
+
+  const dossier = await prisma.dossier.findFirst({ where: { id: dossierId, companyId: user.companyId } });
+  if (!dossier) return { message: "Expediente no encontrado." };
+
+  await prisma.dossier.update({ where: { id: dossierId }, data: { archivedAt: new Date() } });
+
+  revalidatePath("/dashboard");
+  revalidatePath(`/dossiers/${dossierId}`);
+  refresh();
+  return { message: "Expediente archivado." };
+}
+
+export async function unarchiveDossier(_state: FormState, formData: FormData): Promise<FormState> {
+  const user = await requireCompanyUser();
+  const dossierId = formData.get("dossierId");
+  if (typeof dossierId !== "string") return { message: "Expediente no válido." };
+
+  const dossier = await prisma.dossier.findFirst({ where: { id: dossierId, companyId: user.companyId } });
+  if (!dossier) return { message: "Expediente no encontrado." };
+
+  await prisma.dossier.update({ where: { id: dossierId }, data: { archivedAt: null } });
+
+  revalidatePath("/dashboard");
+  revalidatePath(`/dossiers/${dossierId}`);
+  refresh();
+  return { message: "Expediente reactivado." };
+}
+
 export async function updateCustomer(_state: FormState, formData: FormData): Promise<FormState> {
   const user = await requireCompanyUser();
   const dossierId = formData.get("dossierId");

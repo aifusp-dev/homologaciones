@@ -1,8 +1,9 @@
-import Link from "next/link";
 import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
 import { createDossier } from "@/app/actions/dossiers";
 import { InviteForm } from "./invite-form";
+import { DossierList, type DossierListItem, type HReportOption } from "./dossier-list";
+import { H_REPORT_FK_KEYS } from "@/lib/hReportKeys";
 
 const ROLE_LABEL: Record<string, string> = {
   COMPANY_ADMIN: "Gestor",
@@ -18,10 +19,39 @@ export default async function DashboardPage() {
       invitations: { where: { consumedAt: null }, select: { id: true, email: true, role: true } },
       dossiers: {
         orderBy: { createdAt: "desc" },
-        include: { customer: { select: { name: true } } },
+        include: {
+          customer: { select: { name: true } },
+          regulatoryActNumbers: {
+            select: {
+              lightingHReportId: true,
+              spraySuppressionHReportId: true,
+              massesHReportId: true,
+              rearPlateHReportId: true,
+              rearProtectionHReportId: true,
+              emcHReportId: true,
+            },
+          },
+        },
       },
     },
   });
+
+  const hReports = await prisma.hReport.findMany({
+    where: { companyId: user.companyId },
+    orderBy: { createdAt: "desc" },
+    select: { id: true, number: true, category: true },
+  });
+  const hReportOptions: HReportOption[] = hReports;
+
+  const dossierItems: DossierListItem[] = company.dossiers.map((d) => ({
+    id: d.id,
+    number: d.number,
+    customerName: d.customer?.name ?? null,
+    archivedAt: d.archivedAt ? d.archivedAt.toISOString() : null,
+    hReportIds: d.regulatoryActNumbers
+      ? H_REPORT_FK_KEYS.map((key) => d.regulatoryActNumbers![key]).filter((v): v is string => v != null)
+      : [],
+  }));
 
   return (
     <div className="space-y-6">
@@ -42,22 +72,7 @@ export default async function DashboardPage() {
               </button>
             </form>
           </div>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {company.dossiers.map((d) => (
-              <li key={d.id}>
-                <Link
-                  href={`/dossiers/${d.id}`}
-                  className="flex justify-between items-baseline border border-border rounded-xl px-4 py-3 text-sm hover:border-accent transition-colors"
-                >
-                  <span className="font-mono font-medium">{d.number}</span>
-                  <span className="text-ink-faint">{d.customer?.name ?? "Sin cliente"}</span>
-                </Link>
-              </li>
-            ))}
-            {company.dossiers.length === 0 && (
-              <p className="text-sm text-ink-faint">Todavía no hay ningún expediente.</p>
-            )}
-          </ul>
+          <DossierList dossiers={dossierItems} hReportOptions={hReportOptions} />
         </section>
 
         <section className="space-y-4">

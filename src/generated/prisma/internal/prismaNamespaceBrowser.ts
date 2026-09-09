@@ -176,7 +176,8 @@ export const DossierScalarFieldEnum = {
   companyId: 'companyId',
   number: 'number',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  archivedAt: 'archivedAt'
 } as const
 
 export type DossierScalarFieldEnum = (typeof DossierScalarFieldEnum)[keyof typeof DossierScalarFieldEnum]
