@@ -78,6 +78,7 @@ export function MassesForm({
       <input type="hidden" name="dossierId" value={dossierId} />
 
       <MassesSandbox
+        key={JSON.stringify(massesInputs)}
         vehicleConfig={vehicleConfig}
         initial={massesInputs}
         diagramStatic={{
