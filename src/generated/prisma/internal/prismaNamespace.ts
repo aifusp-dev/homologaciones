@@ -429,6 +429,9 @@ export const ModelName = {
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
   HReport: 'HReport',
+  HReportArticle: 'HReportArticle',
+  StockPurchase: 'StockPurchase',
+  ArticleInstallation: 'ArticleInstallation',
   RegulatoryActNumbers: 'RegulatoryActNumbers',
   CopCoverSheet: 'CopCoverSheet',
   RegistrationPlates: 'RegistrationPlates',
@@ -452,7 +455,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData" | "regulatoryUpdate"
+    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "hReportArticle" | "stockPurchase" | "articleInstallation" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData" | "regulatoryUpdate"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2824,6 +2827,228 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    HReportArticle: {
+      payload: Prisma.$HReportArticlePayload<ExtArgs>
+      fields: Prisma.HReportArticleFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.HReportArticleFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.HReportArticleFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        findFirst: {
+          args: Prisma.HReportArticleFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.HReportArticleFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        findMany: {
+          args: Prisma.HReportArticleFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>[]
+        }
+        create: {
+          args: Prisma.HReportArticleCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        createMany: {
+          args: Prisma.HReportArticleCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.HReportArticleCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>[]
+        }
+        delete: {
+          args: Prisma.HReportArticleDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        update: {
+          args: Prisma.HReportArticleUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        deleteMany: {
+          args: Prisma.HReportArticleDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.HReportArticleUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.HReportArticleUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>[]
+        }
+        upsert: {
+          args: Prisma.HReportArticleUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HReportArticlePayload>
+        }
+        aggregate: {
+          args: Prisma.HReportArticleAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHReportArticle>
+        }
+        groupBy: {
+          args: Prisma.HReportArticleGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HReportArticleGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.HReportArticleCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HReportArticleCountAggregateOutputType> | number
+        }
+      }
+    }
+    StockPurchase: {
+      payload: Prisma.$StockPurchasePayload<ExtArgs>
+      fields: Prisma.StockPurchaseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.StockPurchaseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.StockPurchaseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        findFirst: {
+          args: Prisma.StockPurchaseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.StockPurchaseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        findMany: {
+          args: Prisma.StockPurchaseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>[]
+        }
+        create: {
+          args: Prisma.StockPurchaseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        createMany: {
+          args: Prisma.StockPurchaseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.StockPurchaseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>[]
+        }
+        delete: {
+          args: Prisma.StockPurchaseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        update: {
+          args: Prisma.StockPurchaseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        deleteMany: {
+          args: Prisma.StockPurchaseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.StockPurchaseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.StockPurchaseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>[]
+        }
+        upsert: {
+          args: Prisma.StockPurchaseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$StockPurchasePayload>
+        }
+        aggregate: {
+          args: Prisma.StockPurchaseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateStockPurchase>
+        }
+        groupBy: {
+          args: Prisma.StockPurchaseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockPurchaseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.StockPurchaseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.StockPurchaseCountAggregateOutputType> | number
+        }
+      }
+    }
+    ArticleInstallation: {
+      payload: Prisma.$ArticleInstallationPayload<ExtArgs>
+      fields: Prisma.ArticleInstallationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ArticleInstallationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ArticleInstallationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        findFirst: {
+          args: Prisma.ArticleInstallationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ArticleInstallationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        findMany: {
+          args: Prisma.ArticleInstallationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>[]
+        }
+        create: {
+          args: Prisma.ArticleInstallationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        createMany: {
+          args: Prisma.ArticleInstallationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ArticleInstallationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>[]
+        }
+        delete: {
+          args: Prisma.ArticleInstallationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        update: {
+          args: Prisma.ArticleInstallationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        deleteMany: {
+          args: Prisma.ArticleInstallationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ArticleInstallationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ArticleInstallationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>[]
+        }
+        upsert: {
+          args: Prisma.ArticleInstallationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ArticleInstallationPayload>
+        }
+        aggregate: {
+          args: Prisma.ArticleInstallationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateArticleInstallation>
+        }
+        groupBy: {
+          args: Prisma.ArticleInstallationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArticleInstallationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ArticleInstallationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ArticleInstallationCountAggregateOutputType> | number
+        }
+      }
+    }
     RegulatoryActNumbers: {
       payload: Prisma.$RegulatoryActNumbersPayload<ExtArgs>
       fields: Prisma.RegulatoryActNumbersFieldRefs
@@ -4318,6 +4543,46 @@ export const HReportScalarFieldEnum = {
 export type HReportScalarFieldEnum = (typeof HReportScalarFieldEnum)[keyof typeof HReportScalarFieldEnum]
 
 
+export const HReportArticleScalarFieldEnum = {
+  id: 'id',
+  hReportId: 'hReportId',
+  name: 'name',
+  reference: 'reference',
+  unit: 'unit',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type HReportArticleScalarFieldEnum = (typeof HReportArticleScalarFieldEnum)[keyof typeof HReportArticleScalarFieldEnum]
+
+
+export const StockPurchaseScalarFieldEnum = {
+  id: 'id',
+  articleId: 'articleId',
+  quantity: 'quantity',
+  deliveryNoteNumber: 'deliveryNoteNumber',
+  purchaseDate: 'purchaseDate',
+  supplier: 'supplier',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type StockPurchaseScalarFieldEnum = (typeof StockPurchaseScalarFieldEnum)[keyof typeof StockPurchaseScalarFieldEnum]
+
+
+export const ArticleInstallationScalarFieldEnum = {
+  id: 'id',
+  articleId: 'articleId',
+  dossierId: 'dossierId',
+  quantity: 'quantity',
+  installDate: 'installDate',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type ArticleInstallationScalarFieldEnum = (typeof ArticleInstallationScalarFieldEnum)[keyof typeof ArticleInstallationScalarFieldEnum]
+
+
 export const RegulatoryActNumbersScalarFieldEnum = {
   id: 'id',
   dossierId: 'dossierId',
@@ -4805,6 +5070,9 @@ export type GlobalOmitConfig = {
   lightingFog?: Prisma.LightingFogOmit
   lightingMaterialChecklist?: Prisma.LightingMaterialChecklistOmit
   hReport?: Prisma.HReportOmit
+  hReportArticle?: Prisma.HReportArticleOmit
+  stockPurchase?: Prisma.StockPurchaseOmit
+  articleInstallation?: Prisma.ArticleInstallationOmit
   regulatoryActNumbers?: Prisma.RegulatoryActNumbersOmit
   copCoverSheet?: Prisma.CopCoverSheetOmit
   registrationPlates?: Prisma.RegistrationPlatesOmit

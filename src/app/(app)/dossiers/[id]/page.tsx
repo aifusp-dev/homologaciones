@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText, History, Send } from "lucide-react";
+import { User, Building2, ShieldCheck, Truck, Scale, Wrench, FileText, History, Send, Boxes } from "lucide-react";
 import { notFound } from "next/navigation";
 import { requireCompanyUser } from "@/lib/dal";
 import { prisma } from "@/lib/db";
@@ -22,6 +22,7 @@ import { DocumentsSection } from "./documents-section";
 import { AttachmentsSection } from "./attachments-section";
 import { DevicesSection } from "./devices-section";
 import { RegulatoryActNumbersForm } from "./regulatory-act-numbers-form";
+import { WarehouseTab } from "./warehouse-tab";
 import { HistorySection } from "./history-section";
 import { EitvSection } from "./eitv-section";
 import { DossierTabs, type DossierTab } from "./dossier-tabs";
@@ -51,6 +52,16 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   const savedCustomers = await prisma.savedCustomer.findMany({
     where: { companyId: user.companyId },
     orderBy: { name: "asc" },
+  });
+  const hReportArticles = await prisma.hReportArticle.findMany({
+    where: { hReport: { companyId: user.companyId } },
+    orderBy: { name: "asc" },
+    include: { hReport: { select: { number: true } } },
+  });
+  const installations = await prisma.articleInstallation.findMany({
+    where: { dossierId: id },
+    orderBy: { installDate: "desc" },
+    include: { article: { select: { id: true, name: true, unit: true, hReport: { select: { number: true } } } } },
   });
   const hReportsByCategory: Record<string, { id: string; number: string; issuer: string | null }[]> = {
     LIGHTING: [],
@@ -313,6 +324,24 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             catalog={hReportsByCategory}
           />
         </div>
+      ),
+    },
+    {
+      id: "almacen",
+      label: "Almacén",
+      icon: <Boxes size={16} strokeWidth={1.9} className="shrink-0" />,
+      content: (
+        <WarehouseTab
+          dossierId={dossier.id}
+          articles={hReportArticles.map((a) => ({
+            id: a.id,
+            name: a.name,
+            reference: a.reference,
+            unit: a.unit,
+            hReportNumber: a.hReport.number,
+          }))}
+          installations={installations}
+        />
       ),
     },
     {

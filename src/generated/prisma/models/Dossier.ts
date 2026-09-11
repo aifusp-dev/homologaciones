@@ -198,6 +198,7 @@ export type DossierWhereInput = {
   massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
   documents?: Prisma.GeneratedDocumentListRelationFilter
   attachmentFolders?: Prisma.AttachmentFolderListRelationFilter
+  articleInstallations?: Prisma.ArticleInstallationListRelationFilter
   couplingDevice?: Prisma.XOR<Prisma.CouplingDeviceNullableScalarRelationFilter, Prisma.CouplingDeviceWhereInput> | null
   spraySuppression?: Prisma.XOR<Prisma.SpraySuppressionNullableScalarRelationFilter, Prisma.SpraySuppressionWhereInput> | null
   electromagneticCompatibility?: Prisma.XOR<Prisma.ElectromagneticCompatibilityNullableScalarRelationFilter, Prisma.ElectromagneticCompatibilityWhereInput> | null
@@ -239,6 +240,7 @@ export type DossierOrderByWithRelationInput = {
   massesDimensions?: Prisma.MassesDimensionsOrderByWithRelationInput
   documents?: Prisma.GeneratedDocumentOrderByRelationAggregateInput
   attachmentFolders?: Prisma.AttachmentFolderOrderByRelationAggregateInput
+  articleInstallations?: Prisma.ArticleInstallationOrderByRelationAggregateInput
   couplingDevice?: Prisma.CouplingDeviceOrderByWithRelationInput
   spraySuppression?: Prisma.SpraySuppressionOrderByWithRelationInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityOrderByWithRelationInput
@@ -284,6 +286,7 @@ export type DossierWhereUniqueInput = Prisma.AtLeast<{
   massesDimensions?: Prisma.XOR<Prisma.MassesDimensionsNullableScalarRelationFilter, Prisma.MassesDimensionsWhereInput> | null
   documents?: Prisma.GeneratedDocumentListRelationFilter
   attachmentFolders?: Prisma.AttachmentFolderListRelationFilter
+  articleInstallations?: Prisma.ArticleInstallationListRelationFilter
   couplingDevice?: Prisma.XOR<Prisma.CouplingDeviceNullableScalarRelationFilter, Prisma.CouplingDeviceWhereInput> | null
   spraySuppression?: Prisma.XOR<Prisma.SpraySuppressionNullableScalarRelationFilter, Prisma.SpraySuppressionWhereInput> | null
   electromagneticCompatibility?: Prisma.XOR<Prisma.ElectromagneticCompatibilityNullableScalarRelationFilter, Prisma.ElectromagneticCompatibilityWhereInput> | null
@@ -348,6 +351,7 @@ export type DossierCreateInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -388,6 +392,7 @@ export type DossierUncheckedCreateInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -428,6 +433,7 @@ export type DossierUpdateInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -468,6 +474,7 @@ export type DossierUncheckedUpdateInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -945,6 +952,20 @@ export type DossierUpdateOneRequiredWithoutLightingMaterialChecklistNestedInput 
   update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutLightingMaterialChecklistInput, Prisma.DossierUpdateWithoutLightingMaterialChecklistInput>, Prisma.DossierUncheckedUpdateWithoutLightingMaterialChecklistInput>
 }
 
+export type DossierCreateNestedOneWithoutArticleInstallationsInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutArticleInstallationsInput, Prisma.DossierUncheckedCreateWithoutArticleInstallationsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutArticleInstallationsInput
+  connect?: Prisma.DossierWhereUniqueInput
+}
+
+export type DossierUpdateOneRequiredWithoutArticleInstallationsNestedInput = {
+  create?: Prisma.XOR<Prisma.DossierCreateWithoutArticleInstallationsInput, Prisma.DossierUncheckedCreateWithoutArticleInstallationsInput>
+  connectOrCreate?: Prisma.DossierCreateOrConnectWithoutArticleInstallationsInput
+  upsert?: Prisma.DossierUpsertWithoutArticleInstallationsInput
+  connect?: Prisma.DossierWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.DossierUpdateToOneWithWhereWithoutArticleInstallationsInput, Prisma.DossierUpdateWithoutArticleInstallationsInput>, Prisma.DossierUncheckedUpdateWithoutArticleInstallationsInput>
+}
+
 export type DossierCreateNestedOneWithoutRegulatoryActNumbersInput = {
   create?: Prisma.XOR<Prisma.DossierCreateWithoutRegulatoryActNumbersInput, Prisma.DossierUncheckedCreateWithoutRegulatoryActNumbersInput>
   connectOrCreate?: Prisma.DossierCreateOrConnectWithoutRegulatoryActNumbersInput
@@ -1056,6 +1077,7 @@ export type DossierCreateWithoutCompanyInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1095,6 +1117,7 @@ export type DossierUncheckedCreateWithoutCompanyInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1172,6 +1195,7 @@ export type DossierCreateWithoutDocumentsInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1211,6 +1235,7 @@ export type DossierUncheckedCreateWithoutDocumentsInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1266,6 +1291,7 @@ export type DossierUpdateWithoutDocumentsInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -1305,6 +1331,7 @@ export type DossierUncheckedUpdateWithoutDocumentsInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -1344,6 +1371,7 @@ export type DossierCreateWithoutAttachmentFoldersInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1383,6 +1411,7 @@ export type DossierUncheckedCreateWithoutAttachmentFoldersInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1438,6 +1467,7 @@ export type DossierUpdateWithoutAttachmentFoldersInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -1477,6 +1507,7 @@ export type DossierUncheckedUpdateWithoutAttachmentFoldersInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -1516,6 +1547,7 @@ export type DossierCreateWithoutCustomerInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1555,6 +1587,7 @@ export type DossierUncheckedCreateWithoutCustomerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1610,6 +1643,7 @@ export type DossierUpdateWithoutCustomerInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -1649,6 +1683,7 @@ export type DossierUncheckedUpdateWithoutCustomerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -1688,6 +1723,7 @@ export type DossierCreateWithoutDealerInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1727,6 +1763,7 @@ export type DossierUncheckedCreateWithoutDealerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1782,6 +1819,7 @@ export type DossierUpdateWithoutDealerInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -1821,6 +1859,7 @@ export type DossierUncheckedUpdateWithoutDealerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -1860,6 +1899,7 @@ export type DossierCreateWithoutCocInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -1899,6 +1939,7 @@ export type DossierUncheckedCreateWithoutCocInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -1954,6 +1995,7 @@ export type DossierUpdateWithoutCocInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -1993,6 +2035,7 @@ export type DossierUncheckedUpdateWithoutCocInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -2032,6 +2075,7 @@ export type DossierCreateWithoutBodyworkInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -2071,6 +2115,7 @@ export type DossierUncheckedCreateWithoutBodyworkInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -2126,6 +2171,7 @@ export type DossierUpdateWithoutBodyworkInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -2165,6 +2211,7 @@ export type DossierUncheckedUpdateWithoutBodyworkInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -2204,6 +2251,7 @@ export type DossierCreateWithoutMassesDimensionsInput = {
   bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -2243,6 +2291,7 @@ export type DossierUncheckedCreateWithoutMassesDimensionsInput = {
   bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -2298,6 +2347,7 @@ export type DossierUpdateWithoutMassesDimensionsInput = {
   bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -2337,6 +2387,7 @@ export type DossierUncheckedUpdateWithoutMassesDimensionsInput = {
   bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -2377,6 +2428,7 @@ export type DossierCreateWithoutCouplingDeviceInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
@@ -2416,6 +2468,7 @@ export type DossierUncheckedCreateWithoutCouplingDeviceInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
@@ -2471,6 +2524,7 @@ export type DossierUpdateWithoutCouplingDeviceInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
@@ -2510,6 +2564,7 @@ export type DossierUncheckedUpdateWithoutCouplingDeviceInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
@@ -2549,6 +2604,7 @@ export type DossierCreateWithoutSpraySuppressionInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
@@ -2588,6 +2644,7 @@ export type DossierUncheckedCreateWithoutSpraySuppressionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
@@ -2643,6 +2700,7 @@ export type DossierUpdateWithoutSpraySuppressionInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
@@ -2682,6 +2740,7 @@ export type DossierUncheckedUpdateWithoutSpraySuppressionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
@@ -2721,6 +2780,7 @@ export type DossierCreateWithoutElectromagneticCompatibilityInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
@@ -2760,6 +2820,7 @@ export type DossierUncheckedCreateWithoutElectromagneticCompatibilityInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
@@ -2815,6 +2876,7 @@ export type DossierUpdateWithoutElectromagneticCompatibilityInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
@@ -2854,6 +2916,7 @@ export type DossierUncheckedUpdateWithoutElectromagneticCompatibilityInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
@@ -2893,6 +2956,7 @@ export type DossierCreateWithoutLateralProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -2932,6 +2996,7 @@ export type DossierUncheckedCreateWithoutLateralProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -2987,6 +3052,7 @@ export type DossierUpdateWithoutLateralProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3026,6 +3092,7 @@ export type DossierUncheckedUpdateWithoutLateralProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3065,6 +3132,7 @@ export type DossierCreateWithoutRearProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3104,6 +3172,7 @@ export type DossierUncheckedCreateWithoutRearProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -3159,6 +3228,7 @@ export type DossierUpdateWithoutRearProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3198,6 +3268,7 @@ export type DossierUncheckedUpdateWithoutRearProtectionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3237,6 +3308,7 @@ export type DossierCreateWithoutLateralMarkingInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3276,6 +3348,7 @@ export type DossierUncheckedCreateWithoutLateralMarkingInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -3331,6 +3404,7 @@ export type DossierUpdateWithoutLateralMarkingInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3370,6 +3444,7 @@ export type DossierUncheckedUpdateWithoutLateralMarkingInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3409,6 +3484,7 @@ export type DossierCreateWithoutLightingSideInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3448,6 +3524,7 @@ export type DossierUncheckedCreateWithoutLightingSideInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -3503,6 +3580,7 @@ export type DossierUpdateWithoutLightingSideInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3542,6 +3620,7 @@ export type DossierUncheckedUpdateWithoutLightingSideInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3581,6 +3660,7 @@ export type DossierCreateWithoutLightingPositionInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3620,6 +3700,7 @@ export type DossierUncheckedCreateWithoutLightingPositionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -3675,6 +3756,7 @@ export type DossierUpdateWithoutLightingPositionInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3714,6 +3796,7 @@ export type DossierUncheckedUpdateWithoutLightingPositionInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3753,6 +3836,7 @@ export type DossierCreateWithoutLightingReflectorInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3792,6 +3876,7 @@ export type DossierUncheckedCreateWithoutLightingReflectorInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -3847,6 +3932,7 @@ export type DossierUpdateWithoutLightingReflectorInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -3886,6 +3972,7 @@ export type DossierUncheckedUpdateWithoutLightingReflectorInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -3925,6 +4012,7 @@ export type DossierCreateWithoutLightingBrakeInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -3964,6 +4052,7 @@ export type DossierUncheckedCreateWithoutLightingBrakeInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4019,6 +4108,7 @@ export type DossierUpdateWithoutLightingBrakeInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4058,6 +4148,7 @@ export type DossierUncheckedUpdateWithoutLightingBrakeInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4097,6 +4188,7 @@ export type DossierCreateWithoutLightingTurnSignalInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4136,6 +4228,7 @@ export type DossierUncheckedCreateWithoutLightingTurnSignalInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4191,6 +4284,7 @@ export type DossierUpdateWithoutLightingTurnSignalInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4230,6 +4324,7 @@ export type DossierUncheckedUpdateWithoutLightingTurnSignalInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4269,6 +4364,7 @@ export type DossierCreateWithoutLightingRearOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4308,6 +4404,7 @@ export type DossierUncheckedCreateWithoutLightingRearOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4363,6 +4460,7 @@ export type DossierUpdateWithoutLightingRearOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4402,6 +4500,7 @@ export type DossierUncheckedUpdateWithoutLightingRearOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4441,6 +4540,7 @@ export type DossierCreateWithoutLightingFrontOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4480,6 +4580,7 @@ export type DossierUncheckedCreateWithoutLightingFrontOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4535,6 +4636,7 @@ export type DossierUpdateWithoutLightingFrontOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4574,6 +4676,7 @@ export type DossierUncheckedUpdateWithoutLightingFrontOutlineMarkerInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4613,6 +4716,7 @@ export type DossierCreateWithoutLightingPlateInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4652,6 +4756,7 @@ export type DossierUncheckedCreateWithoutLightingPlateInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4707,6 +4812,7 @@ export type DossierUpdateWithoutLightingPlateInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4746,6 +4852,7 @@ export type DossierUncheckedUpdateWithoutLightingPlateInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4785,6 +4892,7 @@ export type DossierCreateWithoutLightingReverseInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4824,6 +4932,7 @@ export type DossierUncheckedCreateWithoutLightingReverseInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -4879,6 +4988,7 @@ export type DossierUpdateWithoutLightingReverseInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -4918,6 +5028,7 @@ export type DossierUncheckedUpdateWithoutLightingReverseInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -4957,6 +5068,7 @@ export type DossierCreateWithoutLightingFogInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -4996,6 +5108,7 @@ export type DossierUncheckedCreateWithoutLightingFogInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5051,6 +5164,7 @@ export type DossierUpdateWithoutLightingFogInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5090,6 +5204,7 @@ export type DossierUncheckedUpdateWithoutLightingFogInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5129,6 +5244,7 @@ export type DossierCreateWithoutLightingMaterialChecklistInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -5168,6 +5284,7 @@ export type DossierUncheckedCreateWithoutLightingMaterialChecklistInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5223,6 +5340,7 @@ export type DossierUpdateWithoutLightingMaterialChecklistInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5262,6 +5380,7 @@ export type DossierUncheckedUpdateWithoutLightingMaterialChecklistInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5287,6 +5406,182 @@ export type DossierUncheckedUpdateWithoutLightingMaterialChecklistInput = {
   versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
 }
 
+export type DossierCreateWithoutArticleInstallationsInput = {
+  id?: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  company: Prisma.CompanyCreateNestedOneWithoutDossiersInput
+  customer?: Prisma.CustomerCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
+  attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersCreateNestedOneWithoutDossierInput
+  copCoverSheet?: Prisma.CopCoverSheetCreateNestedOneWithoutDossierInput
+  registrationPlates?: Prisma.RegistrationPlatesCreateNestedOneWithoutDossierInput
+  platesInscriptions?: Prisma.PlatesInscriptionsCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataCreateNestedOneWithoutDossierInput
+  auditLogs?: Prisma.AuditLogCreateNestedManyWithoutDossierInput
+  versions?: Prisma.DossierVersionCreateNestedManyWithoutDossierInput
+}
+
+export type DossierUncheckedCreateWithoutArticleInstallationsInput = {
+  id?: string
+  companyId: string
+  number: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  archivedAt?: Date | string | null
+  customer?: Prisma.CustomerUncheckedCreateNestedOneWithoutDossierInput
+  dealer?: Prisma.DealerUncheckedCreateNestedOneWithoutDossierInput
+  coc?: Prisma.CocUncheckedCreateNestedOneWithoutDossierInput
+  bodywork?: Prisma.BodyworkUncheckedCreateNestedOneWithoutDossierInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
+  documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
+  attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedCreateNestedOneWithoutDossierInput
+  rearProtection?: Prisma.RearProtectionUncheckedCreateNestedOneWithoutDossierInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedCreateNestedOneWithoutDossierInput
+  lightingSide?: Prisma.LightingSideUncheckedCreateNestedOneWithoutDossierInput
+  lightingPosition?: Prisma.LightingPositionUncheckedCreateNestedOneWithoutDossierInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedCreateNestedOneWithoutDossierInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedCreateNestedOneWithoutDossierInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedCreateNestedOneWithoutDossierInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedCreateNestedOneWithoutDossierInput
+  lightingPlate?: Prisma.LightingPlateUncheckedCreateNestedOneWithoutDossierInput
+  lightingReverse?: Prisma.LightingReverseUncheckedCreateNestedOneWithoutDossierInput
+  lightingFog?: Prisma.LightingFogUncheckedCreateNestedOneWithoutDossierInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedCreateNestedOneWithoutDossierInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedOneWithoutDossierInput
+  copCoverSheet?: Prisma.CopCoverSheetUncheckedCreateNestedOneWithoutDossierInput
+  registrationPlates?: Prisma.RegistrationPlatesUncheckedCreateNestedOneWithoutDossierInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUncheckedCreateNestedOneWithoutDossierInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedCreateNestedOneWithoutDossierInput
+  auditLogs?: Prisma.AuditLogUncheckedCreateNestedManyWithoutDossierInput
+  versions?: Prisma.DossierVersionUncheckedCreateNestedManyWithoutDossierInput
+}
+
+export type DossierCreateOrConnectWithoutArticleInstallationsInput = {
+  where: Prisma.DossierWhereUniqueInput
+  create: Prisma.XOR<Prisma.DossierCreateWithoutArticleInstallationsInput, Prisma.DossierUncheckedCreateWithoutArticleInstallationsInput>
+}
+
+export type DossierUpsertWithoutArticleInstallationsInput = {
+  update: Prisma.XOR<Prisma.DossierUpdateWithoutArticleInstallationsInput, Prisma.DossierUncheckedUpdateWithoutArticleInstallationsInput>
+  create: Prisma.XOR<Prisma.DossierCreateWithoutArticleInstallationsInput, Prisma.DossierUncheckedCreateWithoutArticleInstallationsInput>
+  where?: Prisma.DossierWhereInput
+}
+
+export type DossierUpdateToOneWithWhereWithoutArticleInstallationsInput = {
+  where?: Prisma.DossierWhereInput
+  data: Prisma.XOR<Prisma.DossierUpdateWithoutArticleInstallationsInput, Prisma.DossierUncheckedUpdateWithoutArticleInstallationsInput>
+}
+
+export type DossierUpdateWithoutArticleInstallationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  company?: Prisma.CompanyUpdateOneRequiredWithoutDossiersNestedInput
+  customer?: Prisma.CustomerUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
+  attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUpdateOneWithoutDossierNestedInput
+  copCoverSheet?: Prisma.CopCoverSheetUpdateOneWithoutDossierNestedInput
+  registrationPlates?: Prisma.RegistrationPlatesUpdateOneWithoutDossierNestedInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUpdateOneWithoutDossierNestedInput
+  auditLogs?: Prisma.AuditLogUpdateManyWithoutDossierNestedInput
+  versions?: Prisma.DossierVersionUpdateManyWithoutDossierNestedInput
+}
+
+export type DossierUncheckedUpdateWithoutArticleInstallationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  archivedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  customer?: Prisma.CustomerUncheckedUpdateOneWithoutDossierNestedInput
+  dealer?: Prisma.DealerUncheckedUpdateOneWithoutDossierNestedInput
+  coc?: Prisma.CocUncheckedUpdateOneWithoutDossierNestedInput
+  bodywork?: Prisma.BodyworkUncheckedUpdateOneWithoutDossierNestedInput
+  massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
+  documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
+  attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
+  spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
+  electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
+  lateralProtection?: Prisma.LateralProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  rearProtection?: Prisma.RearProtectionUncheckedUpdateOneWithoutDossierNestedInput
+  lateralMarking?: Prisma.LateralMarkingUncheckedUpdateOneWithoutDossierNestedInput
+  lightingSide?: Prisma.LightingSideUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPosition?: Prisma.LightingPositionUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReflector?: Prisma.LightingReflectorUncheckedUpdateOneWithoutDossierNestedInput
+  lightingBrake?: Prisma.LightingBrakeUncheckedUpdateOneWithoutDossierNestedInput
+  lightingTurnSignal?: Prisma.LightingTurnSignalUncheckedUpdateOneWithoutDossierNestedInput
+  lightingRearOutlineMarker?: Prisma.LightingRearOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFrontOutlineMarker?: Prisma.LightingFrontOutlineMarkerUncheckedUpdateOneWithoutDossierNestedInput
+  lightingPlate?: Prisma.LightingPlateUncheckedUpdateOneWithoutDossierNestedInput
+  lightingReverse?: Prisma.LightingReverseUncheckedUpdateOneWithoutDossierNestedInput
+  lightingFog?: Prisma.LightingFogUncheckedUpdateOneWithoutDossierNestedInput
+  lightingMaterialChecklist?: Prisma.LightingMaterialChecklistUncheckedUpdateOneWithoutDossierNestedInput
+  regulatoryActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateOneWithoutDossierNestedInput
+  copCoverSheet?: Prisma.CopCoverSheetUncheckedUpdateOneWithoutDossierNestedInput
+  registrationPlates?: Prisma.RegistrationPlatesUncheckedUpdateOneWithoutDossierNestedInput
+  platesInscriptions?: Prisma.PlatesInscriptionsUncheckedUpdateOneWithoutDossierNestedInput
+  eitvNationalData?: Prisma.EitvNationalDataUncheckedUpdateOneWithoutDossierNestedInput
+  auditLogs?: Prisma.AuditLogUncheckedUpdateManyWithoutDossierNestedInput
+  versions?: Prisma.DossierVersionUncheckedUpdateManyWithoutDossierNestedInput
+}
+
 export type DossierCreateWithoutRegulatoryActNumbersInput = {
   id?: string
   number: string
@@ -5301,6 +5596,7 @@ export type DossierCreateWithoutRegulatoryActNumbersInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -5340,6 +5636,7 @@ export type DossierUncheckedCreateWithoutRegulatoryActNumbersInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5395,6 +5692,7 @@ export type DossierUpdateWithoutRegulatoryActNumbersInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5434,6 +5732,7 @@ export type DossierUncheckedUpdateWithoutRegulatoryActNumbersInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5473,6 +5772,7 @@ export type DossierCreateWithoutCopCoverSheetInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -5512,6 +5812,7 @@ export type DossierUncheckedCreateWithoutCopCoverSheetInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5567,6 +5868,7 @@ export type DossierUpdateWithoutCopCoverSheetInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5606,6 +5908,7 @@ export type DossierUncheckedUpdateWithoutCopCoverSheetInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5645,6 +5948,7 @@ export type DossierCreateWithoutRegistrationPlatesInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -5684,6 +5988,7 @@ export type DossierUncheckedCreateWithoutRegistrationPlatesInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5739,6 +6044,7 @@ export type DossierUpdateWithoutRegistrationPlatesInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5778,6 +6084,7 @@ export type DossierUncheckedUpdateWithoutRegistrationPlatesInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5817,6 +6124,7 @@ export type DossierCreateWithoutPlatesInscriptionsInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -5856,6 +6164,7 @@ export type DossierUncheckedCreateWithoutPlatesInscriptionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -5911,6 +6220,7 @@ export type DossierUpdateWithoutPlatesInscriptionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -5950,6 +6260,7 @@ export type DossierUncheckedUpdateWithoutPlatesInscriptionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -5989,6 +6300,7 @@ export type DossierCreateWithoutAuditLogsInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -6028,6 +6340,7 @@ export type DossierUncheckedCreateWithoutAuditLogsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -6083,6 +6396,7 @@ export type DossierUpdateWithoutAuditLogsInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -6122,6 +6436,7 @@ export type DossierUncheckedUpdateWithoutAuditLogsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -6161,6 +6476,7 @@ export type DossierCreateWithoutVersionsInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -6200,6 +6516,7 @@ export type DossierUncheckedCreateWithoutVersionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -6255,6 +6572,7 @@ export type DossierUpdateWithoutVersionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -6294,6 +6612,7 @@ export type DossierUncheckedUpdateWithoutVersionsInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -6333,6 +6652,7 @@ export type DossierCreateWithoutEitvNationalDataInput = {
   massesDimensions?: Prisma.MassesDimensionsCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityCreateNestedOneWithoutDossierInput
@@ -6372,6 +6692,7 @@ export type DossierUncheckedCreateWithoutEitvNationalDataInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedCreateNestedOneWithoutDossierInput
   documents?: Prisma.GeneratedDocumentUncheckedCreateNestedManyWithoutDossierInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedCreateNestedManyWithoutDossierInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutDossierInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedCreateNestedOneWithoutDossierInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedCreateNestedOneWithoutDossierInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedCreateNestedOneWithoutDossierInput
@@ -6427,6 +6748,7 @@ export type DossierUpdateWithoutEitvNationalDataInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -6466,6 +6788,7 @@ export type DossierUncheckedUpdateWithoutEitvNationalDataInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -6512,6 +6835,7 @@ export type DossierUpdateWithoutCompanyInput = {
   massesDimensions?: Prisma.MassesDimensionsUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUpdateOneWithoutDossierNestedInput
@@ -6551,6 +6875,7 @@ export type DossierUncheckedUpdateWithoutCompanyInput = {
   massesDimensions?: Prisma.MassesDimensionsUncheckedUpdateOneWithoutDossierNestedInput
   documents?: Prisma.GeneratedDocumentUncheckedUpdateManyWithoutDossierNestedInput
   attachmentFolders?: Prisma.AttachmentFolderUncheckedUpdateManyWithoutDossierNestedInput
+  articleInstallations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutDossierNestedInput
   couplingDevice?: Prisma.CouplingDeviceUncheckedUpdateOneWithoutDossierNestedInput
   spraySuppression?: Prisma.SpraySuppressionUncheckedUpdateOneWithoutDossierNestedInput
   electromagneticCompatibility?: Prisma.ElectromagneticCompatibilityUncheckedUpdateOneWithoutDossierNestedInput
@@ -6593,6 +6918,7 @@ export type DossierUncheckedUpdateManyWithoutCompanyInput = {
 export type DossierCountOutputType = {
   documents: number
   attachmentFolders: number
+  articleInstallations: number
   auditLogs: number
   versions: number
 }
@@ -6600,6 +6926,7 @@ export type DossierCountOutputType = {
 export type DossierCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   documents?: boolean | DossierCountOutputTypeCountDocumentsArgs
   attachmentFolders?: boolean | DossierCountOutputTypeCountAttachmentFoldersArgs
+  articleInstallations?: boolean | DossierCountOutputTypeCountArticleInstallationsArgs
   auditLogs?: boolean | DossierCountOutputTypeCountAuditLogsArgs
   versions?: boolean | DossierCountOutputTypeCountVersionsArgs
 }
@@ -6626,6 +6953,13 @@ export type DossierCountOutputTypeCountDocumentsArgs<ExtArgs extends runtime.Typ
  */
 export type DossierCountOutputTypeCountAttachmentFoldersArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AttachmentFolderWhereInput
+}
+
+/**
+ * DossierCountOutputType without action
+ */
+export type DossierCountOutputTypeCountArticleInstallationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.ArticleInstallationWhereInput
 }
 
 /**
@@ -6658,6 +6992,7 @@ export type DossierSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
   documents?: boolean | Prisma.Dossier$documentsArgs<ExtArgs>
   attachmentFolders?: boolean | Prisma.Dossier$attachmentFoldersArgs<ExtArgs>
+  articleInstallations?: boolean | Prisma.Dossier$articleInstallationsArgs<ExtArgs>
   couplingDevice?: boolean | Prisma.Dossier$couplingDeviceArgs<ExtArgs>
   spraySuppression?: boolean | Prisma.Dossier$spraySuppressionArgs<ExtArgs>
   electromagneticCompatibility?: boolean | Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>
@@ -6724,6 +7059,7 @@ export type DossierInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   massesDimensions?: boolean | Prisma.Dossier$massesDimensionsArgs<ExtArgs>
   documents?: boolean | Prisma.Dossier$documentsArgs<ExtArgs>
   attachmentFolders?: boolean | Prisma.Dossier$attachmentFoldersArgs<ExtArgs>
+  articleInstallations?: boolean | Prisma.Dossier$articleInstallationsArgs<ExtArgs>
   couplingDevice?: boolean | Prisma.Dossier$couplingDeviceArgs<ExtArgs>
   spraySuppression?: boolean | Prisma.Dossier$spraySuppressionArgs<ExtArgs>
   electromagneticCompatibility?: boolean | Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>
@@ -6768,6 +7104,7 @@ export type $DossierPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     massesDimensions: Prisma.$MassesDimensionsPayload<ExtArgs> | null
     documents: Prisma.$GeneratedDocumentPayload<ExtArgs>[]
     attachmentFolders: Prisma.$AttachmentFolderPayload<ExtArgs>[]
+    articleInstallations: Prisma.$ArticleInstallationPayload<ExtArgs>[]
     couplingDevice: Prisma.$CouplingDevicePayload<ExtArgs> | null
     spraySuppression: Prisma.$SpraySuppressionPayload<ExtArgs> | null
     electromagneticCompatibility: Prisma.$ElectromagneticCompatibilityPayload<ExtArgs> | null
@@ -7206,6 +7543,7 @@ export interface Prisma__DossierClient<T, Null = never, ExtArgs extends runtime.
   massesDimensions<T extends Prisma.Dossier$massesDimensionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$massesDimensionsArgs<ExtArgs>>): Prisma.Prisma__MassesDimensionsClient<runtime.Types.Result.GetResult<Prisma.$MassesDimensionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   documents<T extends Prisma.Dossier$documentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GeneratedDocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   attachmentFolders<T extends Prisma.Dossier$attachmentFoldersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$attachmentFoldersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AttachmentFolderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  articleInstallations<T extends Prisma.Dossier$articleInstallationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$articleInstallationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ArticleInstallationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   couplingDevice<T extends Prisma.Dossier$couplingDeviceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$couplingDeviceArgs<ExtArgs>>): Prisma.Prisma__CouplingDeviceClient<runtime.Types.Result.GetResult<Prisma.$CouplingDevicePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   spraySuppression<T extends Prisma.Dossier$spraySuppressionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$spraySuppressionArgs<ExtArgs>>): Prisma.Prisma__SpraySuppressionClient<runtime.Types.Result.GetResult<Prisma.$SpraySuppressionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   electromagneticCompatibility<T extends Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Dossier$electromagneticCompatibilityArgs<ExtArgs>>): Prisma.Prisma__ElectromagneticCompatibilityClient<runtime.Types.Result.GetResult<Prisma.$ElectromagneticCompatibilityPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
@@ -7806,6 +8144,30 @@ export type Dossier$attachmentFoldersArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.AttachmentFolderScalarFieldEnum | Prisma.AttachmentFolderScalarFieldEnum[]
+}
+
+/**
+ * Dossier.articleInstallations
+ */
+export type Dossier$articleInstallationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the ArticleInstallation
+   */
+  select?: Prisma.ArticleInstallationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the ArticleInstallation
+   */
+  omit?: Prisma.ArticleInstallationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArticleInstallationInclude<ExtArgs> | null
+  where?: Prisma.ArticleInstallationWhereInput
+  orderBy?: Prisma.ArticleInstallationOrderByWithRelationInput | Prisma.ArticleInstallationOrderByWithRelationInput[]
+  cursor?: Prisma.ArticleInstallationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.ArticleInstallationScalarFieldEnum | Prisma.ArticleInstallationScalarFieldEnum[]
 }
 
 /**

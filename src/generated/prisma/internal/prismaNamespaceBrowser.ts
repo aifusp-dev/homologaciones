@@ -83,6 +83,9 @@ export const ModelName = {
   LightingFog: 'LightingFog',
   LightingMaterialChecklist: 'LightingMaterialChecklist',
   HReport: 'HReport',
+  HReportArticle: 'HReportArticle',
+  StockPurchase: 'StockPurchase',
+  ArticleInstallation: 'ArticleInstallation',
   RegulatoryActNumbers: 'RegulatoryActNumbers',
   CopCoverSheet: 'CopCoverSheet',
   RegistrationPlates: 'RegistrationPlates',
@@ -970,6 +973,46 @@ export const HReportScalarFieldEnum = {
 } as const
 
 export type HReportScalarFieldEnum = (typeof HReportScalarFieldEnum)[keyof typeof HReportScalarFieldEnum]
+
+
+export const HReportArticleScalarFieldEnum = {
+  id: 'id',
+  hReportId: 'hReportId',
+  name: 'name',
+  reference: 'reference',
+  unit: 'unit',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type HReportArticleScalarFieldEnum = (typeof HReportArticleScalarFieldEnum)[keyof typeof HReportArticleScalarFieldEnum]
+
+
+export const StockPurchaseScalarFieldEnum = {
+  id: 'id',
+  articleId: 'articleId',
+  quantity: 'quantity',
+  deliveryNoteNumber: 'deliveryNoteNumber',
+  purchaseDate: 'purchaseDate',
+  supplier: 'supplier',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type StockPurchaseScalarFieldEnum = (typeof StockPurchaseScalarFieldEnum)[keyof typeof StockPurchaseScalarFieldEnum]
+
+
+export const ArticleInstallationScalarFieldEnum = {
+  id: 'id',
+  articleId: 'articleId',
+  dossierId: 'dossierId',
+  quantity: 'quantity',
+  installDate: 'installDate',
+  notes: 'notes',
+  createdAt: 'createdAt'
+} as const
+
+export type ArticleInstallationScalarFieldEnum = (typeof ArticleInstallationScalarFieldEnum)[keyof typeof ArticleInstallationScalarFieldEnum]
 
 
 export const RegulatoryActNumbersScalarFieldEnum = {

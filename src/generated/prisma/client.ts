@@ -202,6 +202,21 @@ export type LightingMaterialChecklist = Prisma.LightingMaterialChecklistModel
  */
 export type HReport = Prisma.HReportModel
 /**
+ * Model HReportArticle
+ * 
+ */
+export type HReportArticle = Prisma.HReportArticleModel
+/**
+ * Model StockPurchase
+ * 
+ */
+export type StockPurchase = Prisma.StockPurchaseModel
+/**
+ * Model ArticleInstallation
+ * 
+ */
+export type ArticleInstallation = Prisma.ArticleInstallationModel
+/**
  * Model RegulatoryActNumbers
  * 
  */

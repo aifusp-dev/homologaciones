@@ -213,6 +213,7 @@ export type HReportWhereInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
   emcActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
+  articles?: Prisma.HReportArticleListRelationFilter
 }
 
 export type HReportOrderByWithRelationInput = {
@@ -231,6 +232,7 @@ export type HReportOrderByWithRelationInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersOrderByRelationAggregateInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersOrderByRelationAggregateInput
   emcActNumbers?: Prisma.RegulatoryActNumbersOrderByRelationAggregateInput
+  articles?: Prisma.HReportArticleOrderByRelationAggregateInput
 }
 
 export type HReportWhereUniqueInput = Prisma.AtLeast<{
@@ -252,6 +254,7 @@ export type HReportWhereUniqueInput = Prisma.AtLeast<{
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
   emcActNumbers?: Prisma.RegulatoryActNumbersListRelationFilter
+  articles?: Prisma.HReportArticleListRelationFilter
 }, "id">
 
 export type HReportOrderByWithAggregationInput = {
@@ -297,6 +300,7 @@ export type HReportCreateInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateInput = {
@@ -314,6 +318,7 @@ export type HReportUncheckedCreateInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUpdateInput = {
@@ -331,6 +336,7 @@ export type HReportUpdateInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateInput = {
@@ -348,6 +354,7 @@ export type HReportUncheckedUpdateInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportCreateManyInput = {
@@ -425,6 +432,11 @@ export type HReportMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
 }
 
+export type HReportScalarRelationFilter = {
+  is?: Prisma.HReportWhereInput
+  isNot?: Prisma.HReportWhereInput
+}
+
 export type HReportNullableScalarRelationFilter = {
   is?: Prisma.HReportWhereInput | null
   isNot?: Prisma.HReportWhereInput | null
@@ -474,6 +486,20 @@ export type HReportUncheckedUpdateManyWithoutCompanyNestedInput = {
 
 export type EnumHReportCategoryFieldUpdateOperationsInput = {
   set?: $Enums.HReportCategory
+}
+
+export type HReportCreateNestedOneWithoutArticlesInput = {
+  create?: Prisma.XOR<Prisma.HReportCreateWithoutArticlesInput, Prisma.HReportUncheckedCreateWithoutArticlesInput>
+  connectOrCreate?: Prisma.HReportCreateOrConnectWithoutArticlesInput
+  connect?: Prisma.HReportWhereUniqueInput
+}
+
+export type HReportUpdateOneRequiredWithoutArticlesNestedInput = {
+  create?: Prisma.XOR<Prisma.HReportCreateWithoutArticlesInput, Prisma.HReportUncheckedCreateWithoutArticlesInput>
+  connectOrCreate?: Prisma.HReportCreateOrConnectWithoutArticlesInput
+  upsert?: Prisma.HReportUpsertWithoutArticlesInput
+  connect?: Prisma.HReportWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.HReportUpdateToOneWithWhereWithoutArticlesInput, Prisma.HReportUpdateWithoutArticlesInput>, Prisma.HReportUncheckedUpdateWithoutArticlesInput>
 }
 
 export type HReportCreateNestedOneWithoutLightingActNumbersInput = {
@@ -586,6 +612,7 @@ export type HReportCreateWithoutCompanyInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutCompanyInput = {
@@ -602,6 +629,7 @@ export type HReportUncheckedCreateWithoutCompanyInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutCompanyInput = {
@@ -644,6 +672,90 @@ export type HReportScalarWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"HReport"> | Date | string
 }
 
+export type HReportCreateWithoutArticlesInput = {
+  id?: string
+  category: $Enums.HReportCategory
+  number: string
+  issuer?: string | null
+  filePath?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  company: Prisma.CompanyCreateNestedOneWithoutHReportsInput
+  lightingActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutLightingHReportInput
+  spraySuppressionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutSpraySuppressionHReportInput
+  massesActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutMassesHReportInput
+  rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
+  rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
+  emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+}
+
+export type HReportUncheckedCreateWithoutArticlesInput = {
+  id?: string
+  companyId: string
+  category: $Enums.HReportCategory
+  number: string
+  issuer?: string | null
+  filePath?: string | null
+  notes?: string | null
+  createdAt?: Date | string
+  lightingActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutLightingHReportInput
+  spraySuppressionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutSpraySuppressionHReportInput
+  massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutMassesHReportInput
+  rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
+  rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
+  emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+}
+
+export type HReportCreateOrConnectWithoutArticlesInput = {
+  where: Prisma.HReportWhereUniqueInput
+  create: Prisma.XOR<Prisma.HReportCreateWithoutArticlesInput, Prisma.HReportUncheckedCreateWithoutArticlesInput>
+}
+
+export type HReportUpsertWithoutArticlesInput = {
+  update: Prisma.XOR<Prisma.HReportUpdateWithoutArticlesInput, Prisma.HReportUncheckedUpdateWithoutArticlesInput>
+  create: Prisma.XOR<Prisma.HReportCreateWithoutArticlesInput, Prisma.HReportUncheckedCreateWithoutArticlesInput>
+  where?: Prisma.HReportWhereInput
+}
+
+export type HReportUpdateToOneWithWhereWithoutArticlesInput = {
+  where?: Prisma.HReportWhereInput
+  data: Prisma.XOR<Prisma.HReportUpdateWithoutArticlesInput, Prisma.HReportUncheckedUpdateWithoutArticlesInput>
+}
+
+export type HReportUpdateWithoutArticlesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumHReportCategoryFieldUpdateOperationsInput | $Enums.HReportCategory
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  filePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  company?: Prisma.CompanyUpdateOneRequiredWithoutHReportsNestedInput
+  lightingActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutLightingHReportNestedInput
+  spraySuppressionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutSpraySuppressionHReportNestedInput
+  massesActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutMassesHReportNestedInput
+  rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
+  rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
+  emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+}
+
+export type HReportUncheckedUpdateWithoutArticlesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  companyId?: Prisma.StringFieldUpdateOperationsInput | string
+  category?: Prisma.EnumHReportCategoryFieldUpdateOperationsInput | $Enums.HReportCategory
+  number?: Prisma.StringFieldUpdateOperationsInput | string
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  filePath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  lightingActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutLightingHReportNestedInput
+  spraySuppressionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutSpraySuppressionHReportNestedInput
+  massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportNestedInput
+  rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
+  rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
+  emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+}
+
 export type HReportCreateWithoutLightingActNumbersInput = {
   id?: string
   category: $Enums.HReportCategory
@@ -658,6 +770,7 @@ export type HReportCreateWithoutLightingActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutLightingActNumbersInput = {
@@ -674,6 +787,7 @@ export type HReportUncheckedCreateWithoutLightingActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutLightingActNumbersInput = {
@@ -695,6 +809,7 @@ export type HReportCreateWithoutSpraySuppressionActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutSpraySuppressionActNumbersInput = {
@@ -711,6 +826,7 @@ export type HReportUncheckedCreateWithoutSpraySuppressionActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutSpraySuppressionActNumbersInput = {
@@ -732,6 +848,7 @@ export type HReportCreateWithoutMassesActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutMassesActNumbersInput = {
@@ -748,6 +865,7 @@ export type HReportUncheckedCreateWithoutMassesActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutMassesActNumbersInput = {
@@ -769,6 +887,7 @@ export type HReportCreateWithoutRearPlateActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutMassesHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutRearPlateActNumbersInput = {
@@ -785,6 +904,7 @@ export type HReportUncheckedCreateWithoutRearPlateActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutMassesHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutRearPlateActNumbersInput = {
@@ -806,6 +926,7 @@ export type HReportCreateWithoutRearProtectionActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutMassesHReportInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutRearProtectionActNumbersInput = {
@@ -822,6 +943,7 @@ export type HReportUncheckedCreateWithoutRearProtectionActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutMassesHReportInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutEmcHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutRearProtectionActNumbersInput = {
@@ -843,6 +965,7 @@ export type HReportCreateWithoutEmcActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutMassesHReportInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersCreateNestedManyWithoutRearProtectionHReportInput
+  articles?: Prisma.HReportArticleCreateNestedManyWithoutHReportInput
 }
 
 export type HReportUncheckedCreateWithoutEmcActNumbersInput = {
@@ -859,6 +982,7 @@ export type HReportUncheckedCreateWithoutEmcActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutMassesHReportInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearPlateHReportInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedCreateNestedManyWithoutRearProtectionHReportInput
+  articles?: Prisma.HReportArticleUncheckedCreateNestedManyWithoutHReportInput
 }
 
 export type HReportCreateOrConnectWithoutEmcActNumbersInput = {
@@ -891,6 +1015,7 @@ export type HReportUpdateWithoutLightingActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutLightingActNumbersInput = {
@@ -907,6 +1032,7 @@ export type HReportUncheckedUpdateWithoutLightingActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUpsertWithoutSpraySuppressionActNumbersInput = {
@@ -934,6 +1060,7 @@ export type HReportUpdateWithoutSpraySuppressionActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutSpraySuppressionActNumbersInput = {
@@ -950,6 +1077,7 @@ export type HReportUncheckedUpdateWithoutSpraySuppressionActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUpsertWithoutMassesActNumbersInput = {
@@ -977,6 +1105,7 @@ export type HReportUpdateWithoutMassesActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutMassesActNumbersInput = {
@@ -993,6 +1122,7 @@ export type HReportUncheckedUpdateWithoutMassesActNumbersInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUpsertWithoutRearPlateActNumbersInput = {
@@ -1020,6 +1150,7 @@ export type HReportUpdateWithoutRearPlateActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutMassesHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutRearPlateActNumbersInput = {
@@ -1036,6 +1167,7 @@ export type HReportUncheckedUpdateWithoutRearPlateActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUpsertWithoutRearProtectionActNumbersInput = {
@@ -1063,6 +1195,7 @@ export type HReportUpdateWithoutRearProtectionActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutMassesHReportNestedInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutRearProtectionActNumbersInput = {
@@ -1079,6 +1212,7 @@ export type HReportUncheckedUpdateWithoutRearProtectionActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportNestedInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUpsertWithoutEmcActNumbersInput = {
@@ -1106,6 +1240,7 @@ export type HReportUpdateWithoutEmcActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutMassesHReportNestedInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutEmcActNumbersInput = {
@@ -1122,6 +1257,7 @@ export type HReportUncheckedUpdateWithoutEmcActNumbersInput = {
   massesActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutMassesHReportNestedInput
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportCreateManyCompanyInput = {
@@ -1148,6 +1284,7 @@ export type HReportUpdateWithoutCompanyInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateWithoutCompanyInput = {
@@ -1164,6 +1301,7 @@ export type HReportUncheckedUpdateWithoutCompanyInput = {
   rearPlateActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearPlateHReportNestedInput
   rearProtectionActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutRearProtectionHReportNestedInput
   emcActNumbers?: Prisma.RegulatoryActNumbersUncheckedUpdateManyWithoutEmcHReportNestedInput
+  articles?: Prisma.HReportArticleUncheckedUpdateManyWithoutHReportNestedInput
 }
 
 export type HReportUncheckedUpdateManyWithoutCompanyInput = {
@@ -1188,6 +1326,7 @@ export type HReportCountOutputType = {
   rearPlateActNumbers: number
   rearProtectionActNumbers: number
   emcActNumbers: number
+  articles: number
 }
 
 export type HReportCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1197,6 +1336,7 @@ export type HReportCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   rearPlateActNumbers?: boolean | HReportCountOutputTypeCountRearPlateActNumbersArgs
   rearProtectionActNumbers?: boolean | HReportCountOutputTypeCountRearProtectionActNumbersArgs
   emcActNumbers?: boolean | HReportCountOutputTypeCountEmcActNumbersArgs
+  articles?: boolean | HReportCountOutputTypeCountArticlesArgs
 }
 
 /**
@@ -1251,6 +1391,13 @@ export type HReportCountOutputTypeCountEmcActNumbersArgs<ExtArgs extends runtime
   where?: Prisma.RegulatoryActNumbersWhereInput
 }
 
+/**
+ * HReportCountOutputType without action
+ */
+export type HReportCountOutputTypeCountArticlesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.HReportArticleWhereInput
+}
+
 
 export type HReportSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1268,6 +1415,7 @@ export type HReportSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   rearPlateActNumbers?: boolean | Prisma.HReport$rearPlateActNumbersArgs<ExtArgs>
   rearProtectionActNumbers?: boolean | Prisma.HReport$rearProtectionActNumbersArgs<ExtArgs>
   emcActNumbers?: boolean | Prisma.HReport$emcActNumbersArgs<ExtArgs>
+  articles?: boolean | Prisma.HReport$articlesArgs<ExtArgs>
   _count?: boolean | Prisma.HReportCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["hReport"]>
 
@@ -1315,6 +1463,7 @@ export type HReportInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   rearPlateActNumbers?: boolean | Prisma.HReport$rearPlateActNumbersArgs<ExtArgs>
   rearProtectionActNumbers?: boolean | Prisma.HReport$rearProtectionActNumbersArgs<ExtArgs>
   emcActNumbers?: boolean | Prisma.HReport$emcActNumbersArgs<ExtArgs>
+  articles?: boolean | Prisma.HReport$articlesArgs<ExtArgs>
   _count?: boolean | Prisma.HReportCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type HReportIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1334,6 +1483,7 @@ export type $HReportPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     rearPlateActNumbers: Prisma.$RegulatoryActNumbersPayload<ExtArgs>[]
     rearProtectionActNumbers: Prisma.$RegulatoryActNumbersPayload<ExtArgs>[]
     emcActNumbers: Prisma.$RegulatoryActNumbersPayload<ExtArgs>[]
+    articles: Prisma.$HReportArticlePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1745,6 +1895,7 @@ export interface Prisma__HReportClient<T, Null = never, ExtArgs extends runtime.
   rearPlateActNumbers<T extends Prisma.HReport$rearPlateActNumbersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.HReport$rearPlateActNumbersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegulatoryActNumbersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   rearProtectionActNumbers<T extends Prisma.HReport$rearProtectionActNumbersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.HReport$rearProtectionActNumbersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegulatoryActNumbersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   emcActNumbers<T extends Prisma.HReport$emcActNumbersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.HReport$emcActNumbersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$RegulatoryActNumbersPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  articles<T extends Prisma.HReport$articlesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.HReport$articlesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HReportArticlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2324,6 +2475,30 @@ export type HReport$emcActNumbersArgs<ExtArgs extends runtime.Types.Extensions.I
   take?: number
   skip?: number
   distinct?: Prisma.RegulatoryActNumbersScalarFieldEnum | Prisma.RegulatoryActNumbersScalarFieldEnum[]
+}
+
+/**
+ * HReport.articles
+ */
+export type HReport$articlesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the HReportArticle
+   */
+  select?: Prisma.HReportArticleSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the HReportArticle
+   */
+  omit?: Prisma.HReportArticleOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.HReportArticleInclude<ExtArgs> | null
+  where?: Prisma.HReportArticleWhereInput
+  orderBy?: Prisma.HReportArticleOrderByWithRelationInput | Prisma.HReportArticleOrderByWithRelationInput[]
+  cursor?: Prisma.HReportArticleWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.HReportArticleScalarFieldEnum | Prisma.HReportArticleScalarFieldEnum[]
 }
 
 /**

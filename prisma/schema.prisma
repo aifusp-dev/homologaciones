@@ -30,8 +30,8 @@ model Company {
   // fragilidad del "HI" & texto+1 del FileMaker original.
   nextDossierNumber Int @default(0)
 
-  users       User[]
-  invitations Invitation[]
+  users          User[]
+  invitations    Invitation[]
   dossiers       Dossier[]
   hReports       HReport[]
   savedCustomers SavedCustomer[]
@@ -129,23 +129,24 @@ model Invitation {
 // ---------------------------------------------------------------------
 
 model Dossier {
-  id        String   @id @default(cuid())
-  companyId String
+  id         String    @id @default(cuid())
+  companyId  String
   /// Numeración "HI"+correlativo propio de la empresa (antes
   /// EXPEDIENTE::Numero_de_expediente).
-  number    String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  number     String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
   archivedAt DateTime?
 
-  company          Company             @relation(fields: [companyId], references: [id], onDelete: Cascade)
-  customer         Customer?
-  dealer           Dealer?
-  coc              Coc?
-  bodywork         Bodywork?
-  massesDimensions MassesDimensions?
-  documents        GeneratedDocument[]
-  attachmentFolders AttachmentFolder[]
+  company              Company               @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  customer             Customer?
+  dealer               Dealer?
+  coc                  Coc?
+  bodywork             Bodywork?
+  massesDimensions     MassesDimensions?
+  documents            GeneratedDocument[]
+  attachmentFolders    AttachmentFolder[]
+  articleInstallations ArticleInstallation[]
 
   couplingDevice               CouplingDevice?
   spraySuppression             SpraySuppression?
@@ -2197,10 +2198,74 @@ model HReport {
   rearPlateActNumbers        RegulatoryActNumbers[] @relation("RearPlateHReport")
   rearProtectionActNumbers   RegulatoryActNumbers[] @relation("RearProtectionHReport")
   emcActNumbers              RegulatoryActNumbers[] @relation("EmcHReport")
+  articles                   HReportArticle[]
 
   @@index([companyId])
   @@index([companyId, category])
   @@map("h_reports")
+}
+
+// Almacén: artículos/componentes físicos que un Informe H concreto autoriza
+// (p.ej. el modelo de luz de matrícula validado por ese laboratorio). Un
+// mismo Informe H puede tener varios artículos catalogados.
+model HReportArticle {
+  id        String   @id @default(cuid())
+  hReportId String
+  name      String
+  reference String? // referencia/modelo del fabricante, si lo hay
+  unit      String   @default("ud")
+  notes     String?
+  createdAt DateTime @default(now())
+
+  // Restrict deliberado (no el default de Prisma): son registros de
+  // trazabilidad de compra/instalación con valor para la homologación, no
+  // deben desaparecer en cascada por borrar el Informe H o el artículo
+  // padre — ver el mismo criterio ya aplicado en RegulatoryActNumbers→HReport.
+  hReport       HReport               @relation(fields: [hReportId], references: [id], onDelete: Restrict)
+  purchases     StockPurchase[]
+  installations ArticleInstallation[]
+
+  @@index([hReportId])
+  @@map("h_report_articles")
+}
+
+// Entrada de almacén (compra) de un artículo — número de albarán + fecha,
+// para poder responder "cuándo y con qué albarán se compró esto". El stock
+// actual no se guarda: se calcula como suma de compras menos instalaciones.
+model StockPurchase {
+  id                 String   @id @default(cuid())
+  articleId          String
+  quantity           Int
+  deliveryNoteNumber String
+  purchaseDate       DateTime @db.Date
+  supplier           String?
+  notes              String?
+  createdAt          DateTime @default(now())
+
+  article HReportArticle @relation(fields: [articleId], references: [id], onDelete: Restrict)
+
+  @@index([articleId])
+  @@map("stock_purchases")
+}
+
+// Salida de almacén — instalación de un artículo en un expediente concreto.
+// Es la trazabilidad real que se pidió: "se instaló el artículo X en el
+// expediente Y el día Z".
+model ArticleInstallation {
+  id          String   @id @default(cuid())
+  articleId   String
+  dossierId   String
+  quantity    Int      @default(1)
+  installDate DateTime @db.Date
+  notes       String?
+  createdAt   DateTime @default(now())
+
+  article HReportArticle @relation(fields: [articleId], references: [id], onDelete: Restrict)
+  dossier Dossier        @relation(fields: [dossierId], references: [id], onDelete: Cascade)
+
+  @@index([articleId])
+  @@index([dossierId])
+  @@map("article_installations")
 }
 
 enum HReportCategory {
@@ -2399,45 +2464,45 @@ model EitvNationalData {
   remitenteDocumento String?
 
   /// DatosNacionales::tipodoc
-  tipodoc String?
+  tipodoc               String?
   /// DatosNacionales::tipodocvehicomp
-  tipodocvehicomp String?
+  tipodocvehicomp       String?
   /// DatosNacionales::docfabricante
-  docfabricante String?
+  docfabricante         String?
   /// DatosNacionales::docfabricantevehicomp
   docfabricantevehicomp String?
   /// DatosNacionales::tipotarjeta
-  tipotarjeta String?
+  tipotarjeta           String?
   /// DatosNacionales::autorizado
-  autorizado String?
+  autorizado            String?
   /// DatosNacionales::numcertificado
-  numcertificado String?
+  numcertificado        String?
   /// DatosNacionales::codprocedencia (IM/EEE/N)
-  codprocedencia String?
+  codprocedencia        String?
   /// DatosNacionales::textobservaciones
-  textobservaciones String?
+  textobservaciones     String?
   /// DatosNacionales::relopciones
-  relopciones String?
+  relopciones           String?
   /// DatosNacionales::lugarfirma
-  lugarfirma String?
+  lugarfirma            String?
   /// DatosNacionales::fechafirma (AAAAMMDD, se formatea al generar el XML)
-  fechafirma String?
+  fechafirma            String?
   /// DatosNacionales::firmante
-  firmante String?
+  firmante              String?
   /// DatosNacionales::sociedadinscrita
-  sociedadinscrita String?
+  sociedadinscrita      String?
   /// DatosNacionales::volumenbodega
-  volumenbodega String?
+  volumenbodega         String?
   /// DatosNacionales::cinseguridad
-  cinseguridad String?
+  cinseguridad          String?
   /// DatosNacionales::marcavb
-  marcavb String?
+  marcavb               String?
   /// DatosNacionales::numcertitvvehibase
-  numcertitvvehibase String?
+  numcertitvvehibase    String?
   /// DatosNacionales::masamarchavb
-  masamarchavb String?
+  masamarchavb          String?
   /// DatosNacionales::mmaeje4 (vehículos de 4 ejes, caso raro en esta app)
-  mmaeje4 String?
+  mmaeje4               String?
 
   dossier Dossier @relation(fields: [dossierId], references: [id], onDelete: Cascade)
 
@@ -2450,7 +2515,7 @@ model EitvNationalData {
 // empresa — es información pública compartida, mostrada sin login en
 // src/app/normativa/page.tsx.
 model RegulatoryUpdate {
-  id     String @id @default(cuid())
+  id         String @id @default(cuid())
   /// El atributo data-elem de la DGT (ej. "/.content/NormasTrafico/NormasTrafico-00244.xml")
   /// — identificador estable por instrucción, usado para deduplicar entre sondeos.
   externalId String @unique
@@ -2462,7 +2527,7 @@ model RegulatoryUpdate {
   summary     String?
   /// [{ label, url }]
   documents   Json
-  detectedAt  DateTime @default(now())
+  detectedAt  DateTime  @default(now())
 
   @@map("regulatory_updates")
 }

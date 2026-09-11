@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LayoutDashboard, Building2, FileBadge, Users, LogOut } from "lucide-react";
+import { LayoutDashboard, Building2, FileBadge, Users, Boxes, LogOut } from "lucide-react";
 import { getIdentity } from "@/lib/dal";
 import { logout } from "@/app/actions/auth";
 
@@ -47,6 +47,15 @@ export async function AppHeader() {
               >
                 <FileBadge size={15} strokeWidth={1.9} />
                 Informes H
+              </Link>
+            )}
+            {identity.companyUser && (
+              <Link
+                href="/almacen"
+                className="flex items-center gap-1.5 text-ink-dim hover:text-ink transition-colors"
+              >
+                <Boxes size={15} strokeWidth={1.9} />
+                Almacén
               </Link>
             )}
             {identity.companyUser && (
