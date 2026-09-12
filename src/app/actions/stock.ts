@@ -36,6 +36,7 @@ export async function createArticle(_state: FormState, formData: FormData): Prom
       name,
       reference: textOrNull(formData.get("reference")),
       unit: textOrNull(formData.get("unit")) ?? "ud",
+      isFavorite: formData.get("isFavorite") === "on",
       notes: textOrNull(formData.get("notes")),
     },
   });
@@ -43,6 +44,21 @@ export async function createArticle(_state: FormState, formData: FormData): Prom
   revalidatePath("/almacen");
   refresh();
   return { message: "Artículo añadido." };
+}
+
+export async function toggleArticleFavorite(_state: FormState, formData: FormData): Promise<FormState> {
+  const user = await requireCompanyUser();
+  const id = formData.get("id");
+  if (typeof id !== "string") return { message: "Artículo no válido." };
+
+  const article = await prisma.hReportArticle.findFirst({ where: { id, hReport: { companyId: user.companyId } } });
+  if (!article) return { message: "Artículo no encontrado." };
+
+  await prisma.hReportArticle.update({ where: { id }, data: { isFavorite: !article.isFavorite } });
+
+  revalidatePath("/almacen");
+  refresh();
+  return { message: article.isFavorite ? "Quitado de favoritos." : "Marcado como favorito." };
 }
 
 export async function deleteArticle(_state: FormState, formData: FormData): Promise<FormState> {

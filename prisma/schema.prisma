@@ -2209,13 +2209,18 @@ model HReport {
 // (p.ej. el modelo de luz de matrícula validado por ese laboratorio). Un
 // mismo Informe H puede tener varios artículos catalogados.
 model HReportArticle {
-  id        String   @id @default(cuid())
-  hReportId String
-  name      String
-  reference String? // referencia/modelo del fabricante, si lo hay
-  unit      String   @default("ud")
-  notes     String?
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  hReportId  String
+  name       String
+  reference  String? // referencia/modelo del fabricante — la "contraseña" que pide el proveedor al comprarlo
+  unit       String   @default("ud")
+  // Un Informe H suele autorizar muchos artículos distintos, pero el taller
+  // usa a diario siempre los mismos pocos — favorito es una marca manual del
+  // taller (no se infiere del histórico de instalaciones) para que esos
+  // destaquen primero en Almacén y en el desplegable de instalación.
+  isFavorite Boolean  @default(false)
+  notes      String?
+  createdAt  DateTime @default(now())
 
   // Restrict deliberado (no el default de Prisma): son registros de
   // trazabilidad de compra/instalación con valor para la homologación, no

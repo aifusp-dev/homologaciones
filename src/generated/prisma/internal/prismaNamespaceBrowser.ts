@@ -981,6 +981,7 @@ export const HReportArticleScalarFieldEnum = {
   name: 'name',
   reference: 'reference',
   unit: 'unit',
+  isFavorite: 'isFavorite',
   notes: 'notes',
   createdAt: 'createdAt'
 } as const

@@ -19,7 +19,7 @@ export default async function AlmacenPage() {
     orderBy: { createdAt: "desc" },
     include: {
       articles: {
-        orderBy: { createdAt: "asc" },
+        orderBy: [{ isFavorite: "desc" }, { createdAt: "asc" }],
         include: {
           purchases: { orderBy: { purchaseDate: "desc" } },
           installations: { orderBy: { installDate: "desc" }, include: { dossier: { select: { id: true, number: true } } } },

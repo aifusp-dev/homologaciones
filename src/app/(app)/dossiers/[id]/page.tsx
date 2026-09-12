@@ -55,7 +55,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
   });
   const hReportArticles = await prisma.hReportArticle.findMany({
     where: { hReport: { companyId: user.companyId } },
-    orderBy: { name: "asc" },
+    orderBy: [{ isFavorite: "desc" }, { name: "asc" }],
     include: { hReport: { select: { number: true } } },
   });
   const installations = await prisma.articleInstallation.findMany({
@@ -338,6 +338,7 @@ export default async function DossierPage({ params }: { params: Promise<{ id: st
             name: a.name,
             reference: a.reference,
             unit: a.unit,
+            isFavorite: a.isFavorite,
             hReportNumber: a.hReport.number,
           }))}
           installations={installations}

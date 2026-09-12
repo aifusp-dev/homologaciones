@@ -30,6 +30,7 @@ export type HReportArticleMinAggregateOutputType = {
   name: string | null
   reference: string | null
   unit: string | null
+  isFavorite: boolean | null
   notes: string | null
   createdAt: Date | null
 }
@@ -40,6 +41,7 @@ export type HReportArticleMaxAggregateOutputType = {
   name: string | null
   reference: string | null
   unit: string | null
+  isFavorite: boolean | null
   notes: string | null
   createdAt: Date | null
 }
@@ -50,6 +52,7 @@ export type HReportArticleCountAggregateOutputType = {
   name: number
   reference: number
   unit: number
+  isFavorite: number
   notes: number
   createdAt: number
   _all: number
@@ -62,6 +65,7 @@ export type HReportArticleMinAggregateInputType = {
   name?: true
   reference?: true
   unit?: true
+  isFavorite?: true
   notes?: true
   createdAt?: true
 }
@@ -72,6 +76,7 @@ export type HReportArticleMaxAggregateInputType = {
   name?: true
   reference?: true
   unit?: true
+  isFavorite?: true
   notes?: true
   createdAt?: true
 }
@@ -82,6 +87,7 @@ export type HReportArticleCountAggregateInputType = {
   name?: true
   reference?: true
   unit?: true
+  isFavorite?: true
   notes?: true
   createdAt?: true
   _all?: true
@@ -165,6 +171,7 @@ export type HReportArticleGroupByOutputType = {
   name: string
   reference: string | null
   unit: string
+  isFavorite: boolean
   notes: string | null
   createdAt: Date
   _count: HReportArticleCountAggregateOutputType | null
@@ -196,6 +203,7 @@ export type HReportArticleWhereInput = {
   name?: Prisma.StringFilter<"HReportArticle"> | string
   reference?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   unit?: Prisma.StringFilter<"HReportArticle"> | string
+  isFavorite?: Prisma.BoolFilter<"HReportArticle"> | boolean
   notes?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   createdAt?: Prisma.DateTimeFilter<"HReportArticle"> | Date | string
   hReport?: Prisma.XOR<Prisma.HReportScalarRelationFilter, Prisma.HReportWhereInput>
@@ -209,6 +217,7 @@ export type HReportArticleOrderByWithRelationInput = {
   name?: Prisma.SortOrder
   reference?: Prisma.SortOrderInput | Prisma.SortOrder
   unit?: Prisma.SortOrder
+  isFavorite?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   hReport?: Prisma.HReportOrderByWithRelationInput
@@ -225,6 +234,7 @@ export type HReportArticleWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringFilter<"HReportArticle"> | string
   reference?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   unit?: Prisma.StringFilter<"HReportArticle"> | string
+  isFavorite?: Prisma.BoolFilter<"HReportArticle"> | boolean
   notes?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   createdAt?: Prisma.DateTimeFilter<"HReportArticle"> | Date | string
   hReport?: Prisma.XOR<Prisma.HReportScalarRelationFilter, Prisma.HReportWhereInput>
@@ -238,6 +248,7 @@ export type HReportArticleOrderByWithAggregationInput = {
   name?: Prisma.SortOrder
   reference?: Prisma.SortOrderInput | Prisma.SortOrder
   unit?: Prisma.SortOrder
+  isFavorite?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.HReportArticleCountOrderByAggregateInput
@@ -254,6 +265,7 @@ export type HReportArticleScalarWhereWithAggregatesInput = {
   name?: Prisma.StringWithAggregatesFilter<"HReportArticle"> | string
   reference?: Prisma.StringNullableWithAggregatesFilter<"HReportArticle"> | string | null
   unit?: Prisma.StringWithAggregatesFilter<"HReportArticle"> | string
+  isFavorite?: Prisma.BoolWithAggregatesFilter<"HReportArticle"> | boolean
   notes?: Prisma.StringNullableWithAggregatesFilter<"HReportArticle"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"HReportArticle"> | Date | string
 }
@@ -263,6 +275,7 @@ export type HReportArticleCreateInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   hReport: Prisma.HReportCreateNestedOneWithoutArticlesInput
@@ -276,6 +289,7 @@ export type HReportArticleUncheckedCreateInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   purchases?: Prisma.StockPurchaseUncheckedCreateNestedManyWithoutArticleInput
@@ -287,6 +301,7 @@ export type HReportArticleUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   hReport?: Prisma.HReportUpdateOneRequiredWithoutArticlesNestedInput
@@ -300,6 +315,7 @@ export type HReportArticleUncheckedUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   purchases?: Prisma.StockPurchaseUncheckedUpdateManyWithoutArticleNestedInput
@@ -312,6 +328,7 @@ export type HReportArticleCreateManyInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
 }
@@ -321,6 +338,7 @@ export type HReportArticleUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -331,6 +349,7 @@ export type HReportArticleUncheckedUpdateManyInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -351,6 +370,7 @@ export type HReportArticleCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   reference?: Prisma.SortOrder
   unit?: Prisma.SortOrder
+  isFavorite?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -361,6 +381,7 @@ export type HReportArticleMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   reference?: Prisma.SortOrder
   unit?: Prisma.SortOrder
+  isFavorite?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -371,6 +392,7 @@ export type HReportArticleMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   reference?: Prisma.SortOrder
   unit?: Prisma.SortOrder
+  isFavorite?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -422,6 +444,10 @@ export type HReportArticleUncheckedUpdateManyWithoutHReportNestedInput = {
   deleteMany?: Prisma.HReportArticleScalarWhereInput | Prisma.HReportArticleScalarWhereInput[]
 }
 
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean
+}
+
 export type HReportArticleCreateNestedOneWithoutPurchasesInput = {
   create?: Prisma.XOR<Prisma.HReportArticleCreateWithoutPurchasesInput, Prisma.HReportArticleUncheckedCreateWithoutPurchasesInput>
   connectOrCreate?: Prisma.HReportArticleCreateOrConnectWithoutPurchasesInput
@@ -455,6 +481,7 @@ export type HReportArticleCreateWithoutHReportInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   purchases?: Prisma.StockPurchaseCreateNestedManyWithoutArticleInput
@@ -466,6 +493,7 @@ export type HReportArticleUncheckedCreateWithoutHReportInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   purchases?: Prisma.StockPurchaseUncheckedCreateNestedManyWithoutArticleInput
@@ -507,6 +535,7 @@ export type HReportArticleScalarWhereInput = {
   name?: Prisma.StringFilter<"HReportArticle"> | string
   reference?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   unit?: Prisma.StringFilter<"HReportArticle"> | string
+  isFavorite?: Prisma.BoolFilter<"HReportArticle"> | boolean
   notes?: Prisma.StringNullableFilter<"HReportArticle"> | string | null
   createdAt?: Prisma.DateTimeFilter<"HReportArticle"> | Date | string
 }
@@ -516,6 +545,7 @@ export type HReportArticleCreateWithoutPurchasesInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   hReport: Prisma.HReportCreateNestedOneWithoutArticlesInput
@@ -528,6 +558,7 @@ export type HReportArticleUncheckedCreateWithoutPurchasesInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   installations?: Prisma.ArticleInstallationUncheckedCreateNestedManyWithoutArticleInput
@@ -554,6 +585,7 @@ export type HReportArticleUpdateWithoutPurchasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   hReport?: Prisma.HReportUpdateOneRequiredWithoutArticlesNestedInput
@@ -566,6 +598,7 @@ export type HReportArticleUncheckedUpdateWithoutPurchasesInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   installations?: Prisma.ArticleInstallationUncheckedUpdateManyWithoutArticleNestedInput
@@ -576,6 +609,7 @@ export type HReportArticleCreateWithoutInstallationsInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   hReport: Prisma.HReportCreateNestedOneWithoutArticlesInput
@@ -588,6 +622,7 @@ export type HReportArticleUncheckedCreateWithoutInstallationsInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
   purchases?: Prisma.StockPurchaseUncheckedCreateNestedManyWithoutArticleInput
@@ -614,6 +649,7 @@ export type HReportArticleUpdateWithoutInstallationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   hReport?: Prisma.HReportUpdateOneRequiredWithoutArticlesNestedInput
@@ -626,6 +662,7 @@ export type HReportArticleUncheckedUpdateWithoutInstallationsInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   purchases?: Prisma.StockPurchaseUncheckedUpdateManyWithoutArticleNestedInput
@@ -636,6 +673,7 @@ export type HReportArticleCreateManyHReportInput = {
   name: string
   reference?: string | null
   unit?: string
+  isFavorite?: boolean
   notes?: string | null
   createdAt?: Date | string
 }
@@ -645,6 +683,7 @@ export type HReportArticleUpdateWithoutHReportInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   purchases?: Prisma.StockPurchaseUpdateManyWithoutArticleNestedInput
@@ -656,6 +695,7 @@ export type HReportArticleUncheckedUpdateWithoutHReportInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   purchases?: Prisma.StockPurchaseUncheckedUpdateManyWithoutArticleNestedInput
@@ -667,6 +707,7 @@ export type HReportArticleUncheckedUpdateManyWithoutHReportInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   reference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   unit?: Prisma.StringFieldUpdateOperationsInput | string
+  isFavorite?: Prisma.BoolFieldUpdateOperationsInput | boolean
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -717,6 +758,7 @@ export type HReportArticleSelect<ExtArgs extends runtime.Types.Extensions.Intern
   name?: boolean
   reference?: boolean
   unit?: boolean
+  isFavorite?: boolean
   notes?: boolean
   createdAt?: boolean
   hReport?: boolean | Prisma.HReportDefaultArgs<ExtArgs>
@@ -731,6 +773,7 @@ export type HReportArticleSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   name?: boolean
   reference?: boolean
   unit?: boolean
+  isFavorite?: boolean
   notes?: boolean
   createdAt?: boolean
   hReport?: boolean | Prisma.HReportDefaultArgs<ExtArgs>
@@ -742,6 +785,7 @@ export type HReportArticleSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   name?: boolean
   reference?: boolean
   unit?: boolean
+  isFavorite?: boolean
   notes?: boolean
   createdAt?: boolean
   hReport?: boolean | Prisma.HReportDefaultArgs<ExtArgs>
@@ -753,11 +797,12 @@ export type HReportArticleSelectScalar = {
   name?: boolean
   reference?: boolean
   unit?: boolean
+  isFavorite?: boolean
   notes?: boolean
   createdAt?: boolean
 }
 
-export type HReportArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "hReportId" | "name" | "reference" | "unit" | "notes" | "createdAt", ExtArgs["result"]["hReportArticle"]>
+export type HReportArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "hReportId" | "name" | "reference" | "unit" | "isFavorite" | "notes" | "createdAt", ExtArgs["result"]["hReportArticle"]>
 export type HReportArticleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   hReport?: boolean | Prisma.HReportDefaultArgs<ExtArgs>
   purchases?: boolean | Prisma.HReportArticle$purchasesArgs<ExtArgs>
@@ -784,6 +829,7 @@ export type $HReportArticlePayload<ExtArgs extends runtime.Types.Extensions.Inte
     name: string
     reference: string | null
     unit: string
+    isFavorite: boolean
     notes: string | null
     createdAt: Date
   }, ExtArgs["result"]["hReportArticle"]>
@@ -1217,6 +1263,7 @@ export interface HReportArticleFieldRefs {
   readonly name: Prisma.FieldRef<"HReportArticle", 'String'>
   readonly reference: Prisma.FieldRef<"HReportArticle", 'String'>
   readonly unit: Prisma.FieldRef<"HReportArticle", 'String'>
+  readonly isFavorite: Prisma.FieldRef<"HReportArticle", 'Boolean'>
   readonly notes: Prisma.FieldRef<"HReportArticle", 'String'>
   readonly createdAt: Prisma.FieldRef<"HReportArticle", 'DateTime'>
 }

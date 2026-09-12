@@ -7,7 +7,14 @@ const inputClass =
   "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
 const labelClass = "text-xs text-ink-dim";
 
-type ArticleOption = { id: string; name: string; reference: string | null; unit: string; hReportNumber: string };
+type ArticleOption = {
+  id: string;
+  name: string;
+  reference: string | null;
+  unit: string;
+  isFavorite: boolean;
+  hReportNumber: string;
+};
 type InstallationValue = {
   id: string;
   quantity: number;
@@ -33,6 +40,7 @@ function NewInstallationForm({ dossierId, articles }: { dossierId: string; artic
           </option>
           {articles.map((a) => (
             <option key={a.id} value={a.id}>
+              {a.isFavorite ? "★ " : ""}
               {a.name}
               {a.reference ? ` (${a.reference})` : ""} — Informe H {a.hReportNumber}
             </option>

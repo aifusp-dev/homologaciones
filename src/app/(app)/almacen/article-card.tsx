@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useActionState } from "react";
-import { createArticle, deleteArticle, createPurchase, deletePurchase } from "@/app/actions/stock";
+import { createArticle, deleteArticle, createPurchase, deletePurchase, toggleArticleFavorite } from "@/app/actions/stock";
 
 const inputClass =
   "w-full bg-panel border border-border rounded-lg px-3 py-2 text-sm outline-none focus:border-accent";
@@ -27,6 +27,7 @@ export type ArticleValue = {
   name: string;
   reference: string | null;
   unit: string;
+  isFavorite: boolean;
   notes: string | null;
   purchases: PurchaseValue[];
   installations: InstallationValue[];
@@ -46,10 +47,14 @@ export function NewArticleForm({ hReportId }: { hReportId: string }) {
         <input name="name" placeholder="p.ej. Luz de matrícula" required className={inputClass} />
       </div>
       <div className="space-y-1">
-        <label className={labelClass}>Referencia</label>
+        <label className={labelClass}>Referencia / contraseña</label>
         <input name="reference" className={inputClass} />
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-3">
+        <label className="flex items-center gap-1.5 text-xs text-ink-dim shrink-0">
+          <input name="isFavorite" type="checkbox" className="accent-accent" />
+          Favorito
+        </label>
         <button
           type="submit"
           disabled={pending}
@@ -72,6 +77,25 @@ function DeleteArticleButton({ id }: { id: string }) {
         {pending ? "Eliminando..." : "Eliminar artículo"}
       </button>
       {state?.message && <span className="ml-2 text-xs text-ink-faint">{state.message}</span>}
+    </form>
+  );
+}
+
+function FavoriteToggle({ id, isFavorite }: { id: string; isFavorite: boolean }) {
+  const [, action, pending] = useActionState(toggleArticleFavorite, undefined);
+  return (
+    <form action={action} onClick={(e) => e.stopPropagation()}>
+      <input type="hidden" name="id" value={id} />
+      <button
+        type="submit"
+        disabled={pending}
+        title={isFavorite ? "Quitar de favoritos" : "Marcar como favorito"}
+        className={`shrink-0 text-base leading-none disabled:opacity-50 ${
+          isFavorite ? "text-accent" : "text-ink-faint hover:text-ink-dim"
+        }`}
+      >
+        {isFavorite ? "★" : "☆"}
+      </button>
     </form>
   );
 }
@@ -130,9 +154,12 @@ export function ArticleCard({ article }: { article: ArticleValue }) {
   return (
     <details className="border border-border rounded-xl overflow-hidden">
       <summary className="cursor-pointer select-none px-4 py-3 bg-panel text-sm font-medium flex items-center justify-between gap-3">
-        <span className="min-w-0">
-          {article.name}
-          {article.reference && <span className="text-ink-faint"> · {article.reference}</span>}
+        <span className="flex items-center gap-2 min-w-0">
+          <FavoriteToggle id={article.id} isFavorite={article.isFavorite} />
+          <span className="min-w-0">
+            {article.name}
+            {article.reference && <span className="text-ink-faint"> · {article.reference}</span>}
+          </span>
         </span>
         <span className={`text-xs shrink-0 ${stock < 0 ? "text-danger" : "text-ink-faint"}`}>
           Stock: {stock} {article.unit}
