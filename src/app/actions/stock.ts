@@ -100,6 +100,7 @@ export async function createPurchase(_state: FormState, formData: FormData): Pro
       deliveryNoteNumber,
       purchaseDate,
       supplier: textOrNull(formData.get("supplier")),
+      supplierReference: textOrNull(formData.get("supplierReference")),
       notes: textOrNull(formData.get("notes")),
     },
   });

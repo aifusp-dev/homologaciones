@@ -4564,6 +4564,7 @@ export const StockPurchaseScalarFieldEnum = {
   deliveryNoteNumber: 'deliveryNoteNumber',
   purchaseDate: 'purchaseDate',
   supplier: 'supplier',
+  supplierReference: 'supplierReference',
   notes: 'notes',
   createdAt: 'createdAt'
 } as const

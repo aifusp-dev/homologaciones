@@ -41,6 +41,7 @@ export type StockPurchaseMinAggregateOutputType = {
   deliveryNoteNumber: string | null
   purchaseDate: Date | null
   supplier: string | null
+  supplierReference: string | null
   notes: string | null
   createdAt: Date | null
 }
@@ -52,6 +53,7 @@ export type StockPurchaseMaxAggregateOutputType = {
   deliveryNoteNumber: string | null
   purchaseDate: Date | null
   supplier: string | null
+  supplierReference: string | null
   notes: string | null
   createdAt: Date | null
 }
@@ -63,6 +65,7 @@ export type StockPurchaseCountAggregateOutputType = {
   deliveryNoteNumber: number
   purchaseDate: number
   supplier: number
+  supplierReference: number
   notes: number
   createdAt: number
   _all: number
@@ -84,6 +87,7 @@ export type StockPurchaseMinAggregateInputType = {
   deliveryNoteNumber?: true
   purchaseDate?: true
   supplier?: true
+  supplierReference?: true
   notes?: true
   createdAt?: true
 }
@@ -95,6 +99,7 @@ export type StockPurchaseMaxAggregateInputType = {
   deliveryNoteNumber?: true
   purchaseDate?: true
   supplier?: true
+  supplierReference?: true
   notes?: true
   createdAt?: true
 }
@@ -106,6 +111,7 @@ export type StockPurchaseCountAggregateInputType = {
   deliveryNoteNumber?: true
   purchaseDate?: true
   supplier?: true
+  supplierReference?: true
   notes?: true
   createdAt?: true
   _all?: true
@@ -204,6 +210,7 @@ export type StockPurchaseGroupByOutputType = {
   deliveryNoteNumber: string
   purchaseDate: Date
   supplier: string | null
+  supplierReference: string | null
   notes: string | null
   createdAt: Date
   _count: StockPurchaseCountAggregateOutputType | null
@@ -238,6 +245,7 @@ export type StockPurchaseWhereInput = {
   deliveryNoteNumber?: Prisma.StringFilter<"StockPurchase"> | string
   purchaseDate?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
   supplier?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
+  supplierReference?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   notes?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   createdAt?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
   article?: Prisma.XOR<Prisma.HReportArticleScalarRelationFilter, Prisma.HReportArticleWhereInput>
@@ -250,6 +258,7 @@ export type StockPurchaseOrderByWithRelationInput = {
   deliveryNoteNumber?: Prisma.SortOrder
   purchaseDate?: Prisma.SortOrder
   supplier?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierReference?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   article?: Prisma.HReportArticleOrderByWithRelationInput
@@ -265,6 +274,7 @@ export type StockPurchaseWhereUniqueInput = Prisma.AtLeast<{
   deliveryNoteNumber?: Prisma.StringFilter<"StockPurchase"> | string
   purchaseDate?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
   supplier?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
+  supplierReference?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   notes?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   createdAt?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
   article?: Prisma.XOR<Prisma.HReportArticleScalarRelationFilter, Prisma.HReportArticleWhereInput>
@@ -277,6 +287,7 @@ export type StockPurchaseOrderByWithAggregationInput = {
   deliveryNoteNumber?: Prisma.SortOrder
   purchaseDate?: Prisma.SortOrder
   supplier?: Prisma.SortOrderInput | Prisma.SortOrder
+  supplierReference?: Prisma.SortOrderInput | Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.StockPurchaseCountOrderByAggregateInput
@@ -296,6 +307,7 @@ export type StockPurchaseScalarWhereWithAggregatesInput = {
   deliveryNoteNumber?: Prisma.StringWithAggregatesFilter<"StockPurchase"> | string
   purchaseDate?: Prisma.DateTimeWithAggregatesFilter<"StockPurchase"> | Date | string
   supplier?: Prisma.StringNullableWithAggregatesFilter<"StockPurchase"> | string | null
+  supplierReference?: Prisma.StringNullableWithAggregatesFilter<"StockPurchase"> | string | null
   notes?: Prisma.StringNullableWithAggregatesFilter<"StockPurchase"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"StockPurchase"> | Date | string
 }
@@ -306,6 +318,7 @@ export type StockPurchaseCreateInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
   article: Prisma.HReportArticleCreateNestedOneWithoutPurchasesInput
@@ -318,6 +331,7 @@ export type StockPurchaseUncheckedCreateInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
 }
@@ -328,6 +342,7 @@ export type StockPurchaseUpdateInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   article?: Prisma.HReportArticleUpdateOneRequiredWithoutPurchasesNestedInput
@@ -340,6 +355,7 @@ export type StockPurchaseUncheckedUpdateInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -351,6 +367,7 @@ export type StockPurchaseCreateManyInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
 }
@@ -361,6 +378,7 @@ export type StockPurchaseUpdateManyMutationInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -372,6 +390,7 @@ export type StockPurchaseUncheckedUpdateManyInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -393,6 +412,7 @@ export type StockPurchaseCountOrderByAggregateInput = {
   deliveryNoteNumber?: Prisma.SortOrder
   purchaseDate?: Prisma.SortOrder
   supplier?: Prisma.SortOrder
+  supplierReference?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -408,6 +428,7 @@ export type StockPurchaseMaxOrderByAggregateInput = {
   deliveryNoteNumber?: Prisma.SortOrder
   purchaseDate?: Prisma.SortOrder
   supplier?: Prisma.SortOrder
+  supplierReference?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -419,6 +440,7 @@ export type StockPurchaseMinOrderByAggregateInput = {
   deliveryNoteNumber?: Prisma.SortOrder
   purchaseDate?: Prisma.SortOrder
   supplier?: Prisma.SortOrder
+  supplierReference?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -475,6 +497,7 @@ export type StockPurchaseCreateWithoutArticleInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
 }
@@ -485,6 +508,7 @@ export type StockPurchaseUncheckedCreateWithoutArticleInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
 }
@@ -525,6 +549,7 @@ export type StockPurchaseScalarWhereInput = {
   deliveryNoteNumber?: Prisma.StringFilter<"StockPurchase"> | string
   purchaseDate?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
   supplier?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
+  supplierReference?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   notes?: Prisma.StringNullableFilter<"StockPurchase"> | string | null
   createdAt?: Prisma.DateTimeFilter<"StockPurchase"> | Date | string
 }
@@ -535,6 +560,7 @@ export type StockPurchaseCreateManyArticleInput = {
   deliveryNoteNumber: string
   purchaseDate: Date | string
   supplier?: string | null
+  supplierReference?: string | null
   notes?: string | null
   createdAt?: Date | string
 }
@@ -545,6 +571,7 @@ export type StockPurchaseUpdateWithoutArticleInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -555,6 +582,7 @@ export type StockPurchaseUncheckedUpdateWithoutArticleInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -565,6 +593,7 @@ export type StockPurchaseUncheckedUpdateManyWithoutArticleInput = {
   deliveryNoteNumber?: Prisma.StringFieldUpdateOperationsInput | string
   purchaseDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   supplier?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  supplierReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -578,6 +607,7 @@ export type StockPurchaseSelect<ExtArgs extends runtime.Types.Extensions.Interna
   deliveryNoteNumber?: boolean
   purchaseDate?: boolean
   supplier?: boolean
+  supplierReference?: boolean
   notes?: boolean
   createdAt?: boolean
   article?: boolean | Prisma.HReportArticleDefaultArgs<ExtArgs>
@@ -590,6 +620,7 @@ export type StockPurchaseSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   deliveryNoteNumber?: boolean
   purchaseDate?: boolean
   supplier?: boolean
+  supplierReference?: boolean
   notes?: boolean
   createdAt?: boolean
   article?: boolean | Prisma.HReportArticleDefaultArgs<ExtArgs>
@@ -602,6 +633,7 @@ export type StockPurchaseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   deliveryNoteNumber?: boolean
   purchaseDate?: boolean
   supplier?: boolean
+  supplierReference?: boolean
   notes?: boolean
   createdAt?: boolean
   article?: boolean | Prisma.HReportArticleDefaultArgs<ExtArgs>
@@ -614,11 +646,12 @@ export type StockPurchaseSelectScalar = {
   deliveryNoteNumber?: boolean
   purchaseDate?: boolean
   supplier?: boolean
+  supplierReference?: boolean
   notes?: boolean
   createdAt?: boolean
 }
 
-export type StockPurchaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleId" | "quantity" | "deliveryNoteNumber" | "purchaseDate" | "supplier" | "notes" | "createdAt", ExtArgs["result"]["stockPurchase"]>
+export type StockPurchaseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleId" | "quantity" | "deliveryNoteNumber" | "purchaseDate" | "supplier" | "supplierReference" | "notes" | "createdAt", ExtArgs["result"]["stockPurchase"]>
 export type StockPurchaseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   article?: boolean | Prisma.HReportArticleDefaultArgs<ExtArgs>
 }
@@ -641,6 +674,7 @@ export type $StockPurchasePayload<ExtArgs extends runtime.Types.Extensions.Inter
     deliveryNoteNumber: string
     purchaseDate: Date
     supplier: string | null
+    supplierReference: string | null
     notes: string | null
     createdAt: Date
   }, ExtArgs["result"]["stockPurchase"]>
@@ -1073,6 +1107,7 @@ export interface StockPurchaseFieldRefs {
   readonly deliveryNoteNumber: Prisma.FieldRef<"StockPurchase", 'String'>
   readonly purchaseDate: Prisma.FieldRef<"StockPurchase", 'DateTime'>
   readonly supplier: Prisma.FieldRef<"StockPurchase", 'String'>
+  readonly supplierReference: Prisma.FieldRef<"StockPurchase", 'String'>
   readonly notes: Prisma.FieldRef<"StockPurchase", 'String'>
   readonly createdAt: Prisma.FieldRef<"StockPurchase", 'DateTime'>
 }

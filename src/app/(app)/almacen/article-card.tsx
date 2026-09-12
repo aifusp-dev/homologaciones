@@ -14,6 +14,7 @@ type PurchaseValue = {
   deliveryNoteNumber: string;
   purchaseDate: Date;
   supplier: string | null;
+  supplierReference: string | null;
   notes: string | null;
 };
 type InstallationValue = {
@@ -134,6 +135,10 @@ function NewPurchaseForm({ articleId }: { articleId: string }) {
         <label className={labelClass}>Proveedor</label>
         <input name="supplier" className={inputClass} />
       </div>
+      <div className="space-y-1">
+        <label className={labelClass}>Ref. del proveedor (albarán)</label>
+        <input name="supplierReference" className={inputClass} />
+      </div>
       <button
         type="submit"
         disabled={pending}
@@ -178,6 +183,7 @@ export function ArticleCard({ article }: { article: ArticleValue }) {
                     <span className="font-mono">{p.quantity}</span> {article.unit} · albarán{" "}
                     <span className="font-mono">{p.deliveryNoteNumber}</span> · {formatDate(p.purchaseDate)}
                     {p.supplier && <span className="text-ink-faint"> · {p.supplier}</span>}
+                    {p.supplierReference && <span className="text-ink-faint"> · ref. {p.supplierReference}</span>}
                   </span>
                   <DeletePurchaseButton id={p.id} />
                 </li>

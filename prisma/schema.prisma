@@ -2244,6 +2244,12 @@ model StockPurchase {
   deliveryNoteNumber String
   purchaseDate       DateTime @db.Date
   supplier           String?
+  // Referencia del producto en el almacén DEL PROVEEDOR, tal cual aparece en
+  // su albarán/factura — no tiene relación con la contraseña de homologación
+  // (esa viene grabada en la pieza física, nunca en el papel del proveedor,
+  // así que no sirve para cruzar automáticamente con HReportArticle.reference).
+  // Solo es para poder comparar esta compra contra el albarán si hace falta.
+  supplierReference  String?
   notes              String?
   createdAt          DateTime @default(now())
 
