@@ -19,7 +19,7 @@ type PurchaseValue = {
 };
 type InstallationValue = {
   id: string;
-  quantity: number;
+  serialReference: string;
   installDate: Date;
   dossier: { id: string; number: string };
 };
@@ -153,7 +153,7 @@ function NewPurchaseForm({ articleId }: { articleId: string }) {
 
 export function ArticleCard({ article }: { article: ArticleValue }) {
   const purchased = article.purchases.reduce((sum, p) => sum + p.quantity, 0);
-  const installed = article.installations.reduce((sum, i) => sum + i.quantity, 0);
+  const installed = article.installations.length;
   const stock = purchased - installed;
 
   return (
@@ -199,7 +199,7 @@ export function ArticleCard({ article }: { article: ArticleValue }) {
               {article.installations.map((i) => (
                 <li key={i.id} className="flex justify-between items-center border-t border-border pt-1.5">
                   <span>
-                    <span className="font-mono">{i.quantity}</span> {article.unit} en{" "}
+                    código <span className="font-mono">{i.serialReference}</span> en{" "}
                     <Link href={`/dossiers/${i.dossier.id}`} className="font-mono underline hover:text-ink">
                       {i.dossier.number}
                     </Link>{" "}

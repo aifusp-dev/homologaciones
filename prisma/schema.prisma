@@ -2212,7 +2212,10 @@ model HReportArticle {
   id         String   @id @default(cuid())
   hReportId  String
   name       String
-  reference  String? // referencia/modelo del fabricante — la "contraseña" que pide el proveedor al comprarlo
+  // Modelo/descripción libre del fabricante, NO la contraseña de homologación
+  // — esa va grabada en cada pieza física y es distinta por unidad (ver
+  // ArticleInstallation.serialReference), no se comparte a nivel de tipo.
+  reference  String?
   unit       String   @default("ud")
   // Un Informe H suele autorizar muchos artículos distintos, pero el taller
   // usa a diario siempre los mismos pocos — favorito es una marca manual del
@@ -2261,15 +2264,22 @@ model StockPurchase {
 
 // Salida de almacén — instalación de un artículo en un expediente concreto.
 // Es la trazabilidad real que se pidió: "se instaló el artículo X en el
-// expediente Y el día Z".
+// expediente Y el día Z". Cada fila es UNA pieza física, nunca un lote: la
+// contraseña de homologación va grabada en cada unidad y es distinta entre
+// ellas, así que instalar 7 unidades del mismo artículo son 7 filas, cada
+// una con su propio serialReference — no existe cantidad agregada aquí.
 model ArticleInstallation {
-  id          String   @id @default(cuid())
-  articleId   String
-  dossierId   String
-  quantity    Int      @default(1)
-  installDate DateTime @db.Date
-  notes       String?
-  createdAt   DateTime @default(now())
+  id              String   @id @default(cuid())
+  articleId       String
+  dossierId       String
+  // Contraseña/código de homologación grabado en esta pieza física concreta,
+  // tecleado por el ingeniero en el momento de instalarla (no se pre-registra
+  // al comprar, ver StockPurchase — al recibir el lote no se sabe todavía
+  // qué unidad concreta irá a qué expediente).
+  serialReference String
+  installDate     DateTime @db.Date
+  notes           String?
+  createdAt       DateTime @default(now())
 
   article HReportArticle @relation(fields: [articleId], references: [id], onDelete: Restrict)
   dossier Dossier        @relation(fields: [dossierId], references: [id], onDelete: Cascade)

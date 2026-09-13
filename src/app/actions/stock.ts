@@ -131,9 +131,9 @@ export async function createInstallation(_state: FormState, formData: FormData):
   const user = await requireCompanyUser();
   const articleId = formData.get("articleId");
   const dossierId = formData.get("dossierId");
-  const quantity = parsePositiveInt(formData.get("quantity")) ?? 1;
+  const serialReference = textOrNull(formData.get("serialReference"));
   const installDate = parseDate(formData.get("installDate"));
-  if (typeof articleId !== "string" || typeof dossierId !== "string" || !installDate) {
+  if (typeof articleId !== "string" || typeof dossierId !== "string" || !serialReference || !installDate) {
     return { message: "Datos no válidos." };
   }
 
@@ -151,7 +151,7 @@ export async function createInstallation(_state: FormState, formData: FormData):
     data: {
       articleId,
       dossierId,
-      quantity,
+      serialReference,
       installDate,
       notes: textOrNull(formData.get("notes")),
     },

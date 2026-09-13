@@ -4576,7 +4576,7 @@ export const ArticleInstallationScalarFieldEnum = {
   id: 'id',
   articleId: 'articleId',
   dossierId: 'dossierId',
-  quantity: 'quantity',
+  serialReference: 'serialReference',
   installDate: 'installDate',
   notes: 'notes',
   createdAt: 'createdAt'

@@ -20,25 +20,15 @@ export type ArticleInstallationModel = runtime.Types.Result.DefaultSelection<Pri
 
 export type AggregateArticleInstallation = {
   _count: ArticleInstallationCountAggregateOutputType | null
-  _avg: ArticleInstallationAvgAggregateOutputType | null
-  _sum: ArticleInstallationSumAggregateOutputType | null
   _min: ArticleInstallationMinAggregateOutputType | null
   _max: ArticleInstallationMaxAggregateOutputType | null
-}
-
-export type ArticleInstallationAvgAggregateOutputType = {
-  quantity: number | null
-}
-
-export type ArticleInstallationSumAggregateOutputType = {
-  quantity: number | null
 }
 
 export type ArticleInstallationMinAggregateOutputType = {
   id: string | null
   articleId: string | null
   dossierId: string | null
-  quantity: number | null
+  serialReference: string | null
   installDate: Date | null
   notes: string | null
   createdAt: Date | null
@@ -48,7 +38,7 @@ export type ArticleInstallationMaxAggregateOutputType = {
   id: string | null
   articleId: string | null
   dossierId: string | null
-  quantity: number | null
+  serialReference: string | null
   installDate: Date | null
   notes: string | null
   createdAt: Date | null
@@ -58,7 +48,7 @@ export type ArticleInstallationCountAggregateOutputType = {
   id: number
   articleId: number
   dossierId: number
-  quantity: number
+  serialReference: number
   installDate: number
   notes: number
   createdAt: number
@@ -66,19 +56,11 @@ export type ArticleInstallationCountAggregateOutputType = {
 }
 
 
-export type ArticleInstallationAvgAggregateInputType = {
-  quantity?: true
-}
-
-export type ArticleInstallationSumAggregateInputType = {
-  quantity?: true
-}
-
 export type ArticleInstallationMinAggregateInputType = {
   id?: true
   articleId?: true
   dossierId?: true
-  quantity?: true
+  serialReference?: true
   installDate?: true
   notes?: true
   createdAt?: true
@@ -88,7 +70,7 @@ export type ArticleInstallationMaxAggregateInputType = {
   id?: true
   articleId?: true
   dossierId?: true
-  quantity?: true
+  serialReference?: true
   installDate?: true
   notes?: true
   createdAt?: true
@@ -98,7 +80,7 @@ export type ArticleInstallationCountAggregateInputType = {
   id?: true
   articleId?: true
   dossierId?: true
-  quantity?: true
+  serialReference?: true
   installDate?: true
   notes?: true
   createdAt?: true
@@ -143,18 +125,6 @@ export type ArticleInstallationAggregateArgs<ExtArgs extends runtime.Types.Exten
   /**
    * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
    * 
-   * Select which fields to average
-  **/
-  _avg?: ArticleInstallationAvgAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
-   * Select which fields to sum
-  **/
-  _sum?: ArticleInstallationSumAggregateInputType
-  /**
-   * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-   * 
    * Select which fields to find the minimum value
   **/
   _min?: ArticleInstallationMinAggregateInputType
@@ -185,8 +155,6 @@ export type ArticleInstallationGroupByArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   _count?: ArticleInstallationCountAggregateInputType | true
-  _avg?: ArticleInstallationAvgAggregateInputType
-  _sum?: ArticleInstallationSumAggregateInputType
   _min?: ArticleInstallationMinAggregateInputType
   _max?: ArticleInstallationMaxAggregateInputType
 }
@@ -195,13 +163,11 @@ export type ArticleInstallationGroupByOutputType = {
   id: string
   articleId: string
   dossierId: string
-  quantity: number
+  serialReference: string
   installDate: Date
   notes: string | null
   createdAt: Date
   _count: ArticleInstallationCountAggregateOutputType | null
-  _avg: ArticleInstallationAvgAggregateOutputType | null
-  _sum: ArticleInstallationSumAggregateOutputType | null
   _min: ArticleInstallationMinAggregateOutputType | null
   _max: ArticleInstallationMaxAggregateOutputType | null
 }
@@ -228,7 +194,7 @@ export type ArticleInstallationWhereInput = {
   id?: Prisma.StringFilter<"ArticleInstallation"> | string
   articleId?: Prisma.StringFilter<"ArticleInstallation"> | string
   dossierId?: Prisma.StringFilter<"ArticleInstallation"> | string
-  quantity?: Prisma.IntFilter<"ArticleInstallation"> | number
+  serialReference?: Prisma.StringFilter<"ArticleInstallation"> | string
   installDate?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
   notes?: Prisma.StringNullableFilter<"ArticleInstallation"> | string | null
   createdAt?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
@@ -240,7 +206,7 @@ export type ArticleInstallationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   articleId?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
+  serialReference?: Prisma.SortOrder
   installDate?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -255,7 +221,7 @@ export type ArticleInstallationWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.ArticleInstallationWhereInput | Prisma.ArticleInstallationWhereInput[]
   articleId?: Prisma.StringFilter<"ArticleInstallation"> | string
   dossierId?: Prisma.StringFilter<"ArticleInstallation"> | string
-  quantity?: Prisma.IntFilter<"ArticleInstallation"> | number
+  serialReference?: Prisma.StringFilter<"ArticleInstallation"> | string
   installDate?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
   notes?: Prisma.StringNullableFilter<"ArticleInstallation"> | string | null
   createdAt?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
@@ -267,15 +233,13 @@ export type ArticleInstallationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   articleId?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
+  serialReference?: Prisma.SortOrder
   installDate?: Prisma.SortOrder
   notes?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.ArticleInstallationCountOrderByAggregateInput
-  _avg?: Prisma.ArticleInstallationAvgOrderByAggregateInput
   _max?: Prisma.ArticleInstallationMaxOrderByAggregateInput
   _min?: Prisma.ArticleInstallationMinOrderByAggregateInput
-  _sum?: Prisma.ArticleInstallationSumOrderByAggregateInput
 }
 
 export type ArticleInstallationScalarWhereWithAggregatesInput = {
@@ -285,7 +249,7 @@ export type ArticleInstallationScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"ArticleInstallation"> | string
   articleId?: Prisma.StringWithAggregatesFilter<"ArticleInstallation"> | string
   dossierId?: Prisma.StringWithAggregatesFilter<"ArticleInstallation"> | string
-  quantity?: Prisma.IntWithAggregatesFilter<"ArticleInstallation"> | number
+  serialReference?: Prisma.StringWithAggregatesFilter<"ArticleInstallation"> | string
   installDate?: Prisma.DateTimeWithAggregatesFilter<"ArticleInstallation"> | Date | string
   notes?: Prisma.StringNullableWithAggregatesFilter<"ArticleInstallation"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"ArticleInstallation"> | Date | string
@@ -293,7 +257,7 @@ export type ArticleInstallationScalarWhereWithAggregatesInput = {
 
 export type ArticleInstallationCreateInput = {
   id?: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -305,7 +269,7 @@ export type ArticleInstallationUncheckedCreateInput = {
   id?: string
   articleId: string
   dossierId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -313,7 +277,7 @@ export type ArticleInstallationUncheckedCreateInput = {
 
 export type ArticleInstallationUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -325,7 +289,7 @@ export type ArticleInstallationUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   articleId?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -335,7 +299,7 @@ export type ArticleInstallationCreateManyInput = {
   id?: string
   articleId: string
   dossierId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -343,7 +307,7 @@ export type ArticleInstallationCreateManyInput = {
 
 export type ArticleInstallationUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -353,7 +317,7 @@ export type ArticleInstallationUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   articleId?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -373,21 +337,17 @@ export type ArticleInstallationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   articleId?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
+  serialReference?: Prisma.SortOrder
   installDate?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-}
-
-export type ArticleInstallationAvgOrderByAggregateInput = {
-  quantity?: Prisma.SortOrder
 }
 
 export type ArticleInstallationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   articleId?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
+  serialReference?: Prisma.SortOrder
   installDate?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -397,14 +357,10 @@ export type ArticleInstallationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   articleId?: Prisma.SortOrder
   dossierId?: Prisma.SortOrder
-  quantity?: Prisma.SortOrder
+  serialReference?: Prisma.SortOrder
   installDate?: Prisma.SortOrder
   notes?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
-}
-
-export type ArticleInstallationSumOrderByAggregateInput = {
-  quantity?: Prisma.SortOrder
 }
 
 export type ArticleInstallationCreateNestedManyWithoutDossierInput = {
@@ -493,7 +449,7 @@ export type ArticleInstallationUncheckedUpdateManyWithoutArticleNestedInput = {
 
 export type ArticleInstallationCreateWithoutDossierInput = {
   id?: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -503,7 +459,7 @@ export type ArticleInstallationCreateWithoutDossierInput = {
 export type ArticleInstallationUncheckedCreateWithoutDossierInput = {
   id?: string
   articleId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -542,7 +498,7 @@ export type ArticleInstallationScalarWhereInput = {
   id?: Prisma.StringFilter<"ArticleInstallation"> | string
   articleId?: Prisma.StringFilter<"ArticleInstallation"> | string
   dossierId?: Prisma.StringFilter<"ArticleInstallation"> | string
-  quantity?: Prisma.IntFilter<"ArticleInstallation"> | number
+  serialReference?: Prisma.StringFilter<"ArticleInstallation"> | string
   installDate?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
   notes?: Prisma.StringNullableFilter<"ArticleInstallation"> | string | null
   createdAt?: Prisma.DateTimeFilter<"ArticleInstallation"> | Date | string
@@ -550,7 +506,7 @@ export type ArticleInstallationScalarWhereInput = {
 
 export type ArticleInstallationCreateWithoutArticleInput = {
   id?: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -560,7 +516,7 @@ export type ArticleInstallationCreateWithoutArticleInput = {
 export type ArticleInstallationUncheckedCreateWithoutArticleInput = {
   id?: string
   dossierId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -595,7 +551,7 @@ export type ArticleInstallationUpdateManyWithWhereWithoutArticleInput = {
 export type ArticleInstallationCreateManyDossierInput = {
   id?: string
   articleId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -603,7 +559,7 @@ export type ArticleInstallationCreateManyDossierInput = {
 
 export type ArticleInstallationUpdateWithoutDossierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -613,7 +569,7 @@ export type ArticleInstallationUpdateWithoutDossierInput = {
 export type ArticleInstallationUncheckedUpdateWithoutDossierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   articleId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -622,7 +578,7 @@ export type ArticleInstallationUncheckedUpdateWithoutDossierInput = {
 export type ArticleInstallationUncheckedUpdateManyWithoutDossierInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   articleId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -631,7 +587,7 @@ export type ArticleInstallationUncheckedUpdateManyWithoutDossierInput = {
 export type ArticleInstallationCreateManyArticleInput = {
   id?: string
   dossierId: string
-  quantity?: number
+  serialReference: string
   installDate: Date | string
   notes?: string | null
   createdAt?: Date | string
@@ -639,7 +595,7 @@ export type ArticleInstallationCreateManyArticleInput = {
 
 export type ArticleInstallationUpdateWithoutArticleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -649,7 +605,7 @@ export type ArticleInstallationUpdateWithoutArticleInput = {
 export type ArticleInstallationUncheckedUpdateWithoutArticleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -658,7 +614,7 @@ export type ArticleInstallationUncheckedUpdateWithoutArticleInput = {
 export type ArticleInstallationUncheckedUpdateManyWithoutArticleInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   dossierId?: Prisma.StringFieldUpdateOperationsInput | string
-  quantity?: Prisma.IntFieldUpdateOperationsInput | number
+  serialReference?: Prisma.StringFieldUpdateOperationsInput | string
   installDate?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -670,7 +626,7 @@ export type ArticleInstallationSelect<ExtArgs extends runtime.Types.Extensions.I
   id?: boolean
   articleId?: boolean
   dossierId?: boolean
-  quantity?: boolean
+  serialReference?: boolean
   installDate?: boolean
   notes?: boolean
   createdAt?: boolean
@@ -682,7 +638,7 @@ export type ArticleInstallationSelectCreateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   articleId?: boolean
   dossierId?: boolean
-  quantity?: boolean
+  serialReference?: boolean
   installDate?: boolean
   notes?: boolean
   createdAt?: boolean
@@ -694,7 +650,7 @@ export type ArticleInstallationSelectUpdateManyAndReturn<ExtArgs extends runtime
   id?: boolean
   articleId?: boolean
   dossierId?: boolean
-  quantity?: boolean
+  serialReference?: boolean
   installDate?: boolean
   notes?: boolean
   createdAt?: boolean
@@ -706,13 +662,13 @@ export type ArticleInstallationSelectScalar = {
   id?: boolean
   articleId?: boolean
   dossierId?: boolean
-  quantity?: boolean
+  serialReference?: boolean
   installDate?: boolean
   notes?: boolean
   createdAt?: boolean
 }
 
-export type ArticleInstallationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleId" | "dossierId" | "quantity" | "installDate" | "notes" | "createdAt", ExtArgs["result"]["articleInstallation"]>
+export type ArticleInstallationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "articleId" | "dossierId" | "serialReference" | "installDate" | "notes" | "createdAt", ExtArgs["result"]["articleInstallation"]>
 export type ArticleInstallationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   article?: boolean | Prisma.HReportArticleDefaultArgs<ExtArgs>
   dossier?: boolean | Prisma.DossierDefaultArgs<ExtArgs>
@@ -736,7 +692,7 @@ export type $ArticleInstallationPayload<ExtArgs extends runtime.Types.Extensions
     id: string
     articleId: string
     dossierId: string
-    quantity: number
+    serialReference: string
     installDate: Date
     notes: string | null
     createdAt: Date
@@ -1168,7 +1124,7 @@ export interface ArticleInstallationFieldRefs {
   readonly id: Prisma.FieldRef<"ArticleInstallation", 'String'>
   readonly articleId: Prisma.FieldRef<"ArticleInstallation", 'String'>
   readonly dossierId: Prisma.FieldRef<"ArticleInstallation", 'String'>
-  readonly quantity: Prisma.FieldRef<"ArticleInstallation", 'Int'>
+  readonly serialReference: Prisma.FieldRef<"ArticleInstallation", 'String'>
   readonly installDate: Prisma.FieldRef<"ArticleInstallation", 'DateTime'>
   readonly notes: Prisma.FieldRef<"ArticleInstallation", 'String'>
   readonly createdAt: Prisma.FieldRef<"ArticleInstallation", 'DateTime'>

@@ -17,7 +17,7 @@ type ArticleOption = {
 };
 type InstallationValue = {
   id: string;
-  quantity: number;
+  serialReference: string;
   installDate: Date;
   notes: string | null;
   article: { id: string; name: string; unit: string; hReport: { number: string } };
@@ -48,8 +48,8 @@ function NewInstallationForm({ dossierId, articles }: { dossierId: string; artic
         </select>
       </div>
       <div className="space-y-1">
-        <label className={labelClass}>Cantidad</label>
-        <input name="quantity" type="number" min={1} defaultValue={1} required className={inputClass} />
+        <label className={labelClass}>Código / contraseña de homologación</label>
+        <input name="serialReference" required className={inputClass} />
       </div>
       <div className="space-y-1">
         <label className={labelClass}>Fecha instalación</label>
@@ -121,10 +121,9 @@ export function WarehouseTab({
             {installations.map((i) => (
               <li key={i.id} className="flex justify-between items-center border-t border-border pt-2">
                 <span>
-                  <span className="font-mono">{i.quantity}</span> {i.article.unit} de{" "}
                   <span className="font-medium">{i.article.name}</span>{" "}
-                  <span className="text-ink-faint">(Informe H {i.article.hReport.number})</span> ·{" "}
-                  {formatDate(i.installDate)}
+                  <span className="text-ink-faint">(Informe H {i.article.hReport.number})</span> · código{" "}
+                  <span className="font-mono">{i.serialReference}</span> · {formatDate(i.installDate)}
                   {i.notes && <span className="text-ink-faint"> · {i.notes}</span>}
                 </span>
                 <DeleteInstallationButton id={i.id} dossierId={dossierId} />
