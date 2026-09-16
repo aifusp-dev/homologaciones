@@ -237,6 +237,9 @@ export type CompanyWhereInput = {
   dossiers?: Prisma.DossierListRelationFilter
   hReports?: Prisma.HReportListRelationFilter
   savedCustomers?: Prisma.SavedCustomerListRelationFilter
+  eitvWsConfig?: Prisma.XOR<Prisma.EitvWsConfigNullableScalarRelationFilter, Prisma.EitvWsConfigWhereInput> | null
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestListRelationFilter
+  eitvWsCallLogs?: Prisma.EitvWsCallLogListRelationFilter
 }
 
 export type CompanyOrderByWithRelationInput = {
@@ -252,6 +255,9 @@ export type CompanyOrderByWithRelationInput = {
   dossiers?: Prisma.DossierOrderByRelationAggregateInput
   hReports?: Prisma.HReportOrderByRelationAggregateInput
   savedCustomers?: Prisma.SavedCustomerOrderByRelationAggregateInput
+  eitvWsConfig?: Prisma.EitvWsConfigOrderByWithRelationInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestOrderByRelationAggregateInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogOrderByRelationAggregateInput
 }
 
 export type CompanyWhereUniqueInput = Prisma.AtLeast<{
@@ -270,6 +276,9 @@ export type CompanyWhereUniqueInput = Prisma.AtLeast<{
   dossiers?: Prisma.DossierListRelationFilter
   hReports?: Prisma.HReportListRelationFilter
   savedCustomers?: Prisma.SavedCustomerListRelationFilter
+  eitvWsConfig?: Prisma.XOR<Prisma.EitvWsConfigNullableScalarRelationFilter, Prisma.EitvWsConfigWhereInput> | null
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestListRelationFilter
+  eitvWsCallLogs?: Prisma.EitvWsCallLogListRelationFilter
 }, "id">
 
 export type CompanyOrderByWithAggregationInput = {
@@ -313,6 +322,9 @@ export type CompanyCreateInput = {
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateInput = {
@@ -328,6 +340,9 @@ export type CompanyUncheckedCreateInput = {
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUpdateInput = {
@@ -343,6 +358,9 @@ export type CompanyUpdateInput = {
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateInput = {
@@ -358,6 +376,9 @@ export type CompanyUncheckedUpdateInput = {
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateManyInput = {
@@ -523,6 +544,48 @@ export type CompanyUpdateOneRequiredWithoutHReportsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutHReportsInput, Prisma.CompanyUpdateWithoutHReportsInput>, Prisma.CompanyUncheckedUpdateWithoutHReportsInput>
 }
 
+export type CompanyCreateNestedOneWithoutEitvWsConfigInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedCreateWithoutEitvWsConfigInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsConfigInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutEitvWsConfigNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedCreateWithoutEitvWsConfigInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsConfigInput
+  upsert?: Prisma.CompanyUpsertWithoutEitvWsConfigInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutEitvWsConfigInput, Prisma.CompanyUpdateWithoutEitvWsConfigInput>, Prisma.CompanyUncheckedUpdateWithoutEitvWsConfigInput>
+}
+
+export type CompanyCreateNestedOneWithoutEitvWsRangeRequestsInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsRangeRequestsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsRangeRequestsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutEitvWsRangeRequestsNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsRangeRequestsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsRangeRequestsInput
+  upsert?: Prisma.CompanyUpsertWithoutEitvWsRangeRequestsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutEitvWsRangeRequestsInput, Prisma.CompanyUpdateWithoutEitvWsRangeRequestsInput>, Prisma.CompanyUncheckedUpdateWithoutEitvWsRangeRequestsInput>
+}
+
+export type CompanyCreateNestedOneWithoutEitvWsCallLogsInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsCallLogsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsCallLogsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+}
+
+export type CompanyUpdateOneRequiredWithoutEitvWsCallLogsNestedInput = {
+  create?: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsCallLogsInput>
+  connectOrCreate?: Prisma.CompanyCreateOrConnectWithoutEitvWsCallLogsInput
+  upsert?: Prisma.CompanyUpsertWithoutEitvWsCallLogsInput
+  connect?: Prisma.CompanyWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.CompanyUpdateToOneWithWhereWithoutEitvWsCallLogsInput, Prisma.CompanyUpdateWithoutEitvWsCallLogsInput>, Prisma.CompanyUncheckedUpdateWithoutEitvWsCallLogsInput>
+}
+
 export type CompanyCreateWithoutSavedCustomersInput = {
   id?: string
   name: string
@@ -535,6 +598,9 @@ export type CompanyCreateWithoutSavedCustomersInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutSavedCustomersInput = {
@@ -549,6 +615,9 @@ export type CompanyUncheckedCreateWithoutSavedCustomersInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutSavedCustomersInput = {
@@ -579,6 +648,9 @@ export type CompanyUpdateWithoutSavedCustomersInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutSavedCustomersInput = {
@@ -593,6 +665,9 @@ export type CompanyUncheckedUpdateWithoutSavedCustomersInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutUsersInput = {
@@ -607,6 +682,9 @@ export type CompanyCreateWithoutUsersInput = {
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutUsersInput = {
@@ -621,6 +699,9 @@ export type CompanyUncheckedCreateWithoutUsersInput = {
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutUsersInput = {
@@ -651,6 +732,9 @@ export type CompanyUpdateWithoutUsersInput = {
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutUsersInput = {
@@ -665,6 +749,9 @@ export type CompanyUncheckedUpdateWithoutUsersInput = {
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutInvitationsInput = {
@@ -679,6 +766,9 @@ export type CompanyCreateWithoutInvitationsInput = {
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutInvitationsInput = {
@@ -693,6 +783,9 @@ export type CompanyUncheckedCreateWithoutInvitationsInput = {
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutInvitationsInput = {
@@ -723,6 +816,9 @@ export type CompanyUpdateWithoutInvitationsInput = {
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutInvitationsInput = {
@@ -737,6 +833,9 @@ export type CompanyUncheckedUpdateWithoutInvitationsInput = {
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutDossiersInput = {
@@ -751,6 +850,9 @@ export type CompanyCreateWithoutDossiersInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutDossiersInput = {
@@ -765,6 +867,9 @@ export type CompanyUncheckedCreateWithoutDossiersInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutDossiersInput = {
@@ -795,6 +900,9 @@ export type CompanyUpdateWithoutDossiersInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutDossiersInput = {
@@ -809,6 +917,9 @@ export type CompanyUncheckedUpdateWithoutDossiersInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyCreateWithoutHReportsInput = {
@@ -823,6 +934,9 @@ export type CompanyCreateWithoutHReportsInput = {
   invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyUncheckedCreateWithoutHReportsInput = {
@@ -837,6 +951,9 @@ export type CompanyUncheckedCreateWithoutHReportsInput = {
   invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
   dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
   savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
 }
 
 export type CompanyCreateOrConnectWithoutHReportsInput = {
@@ -867,6 +984,9 @@ export type CompanyUpdateWithoutHReportsInput = {
   invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
 }
 
 export type CompanyUncheckedUpdateWithoutHReportsInput = {
@@ -881,6 +1001,261 @@ export type CompanyUncheckedUpdateWithoutHReportsInput = {
   invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
   dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
   savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutEitvWsConfigInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutEitvWsConfigInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutEitvWsConfigInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedCreateWithoutEitvWsConfigInput>
+}
+
+export type CompanyUpsertWithoutEitvWsConfigInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsConfigInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedCreateWithoutEitvWsConfigInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutEitvWsConfigInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsConfigInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsConfigInput>
+}
+
+export type CompanyUpdateWithoutEitvWsConfigInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutEitvWsConfigInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutEitvWsRangeRequestsInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutEitvWsRangeRequestsInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutEitvWsRangeRequestsInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsRangeRequestsInput>
+}
+
+export type CompanyUpsertWithoutEitvWsRangeRequestsInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsRangeRequestsInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsRangeRequestsInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutEitvWsRangeRequestsInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsRangeRequestsInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsRangeRequestsInput>
+}
+
+export type CompanyUpdateWithoutEitvWsRangeRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutEitvWsRangeRequestsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsCallLogs?: Prisma.EitvWsCallLogUncheckedUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyCreateWithoutEitvWsCallLogsInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyUncheckedCreateWithoutEitvWsCallLogsInput = {
+  id?: string
+  name: string
+  logoUrl?: string | null
+  taxId?: string | null
+  address?: string | null
+  createdAt?: Date | string
+  nextDossierNumber?: number
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutCompanyInput
+  invitations?: Prisma.InvitationUncheckedCreateNestedManyWithoutCompanyInput
+  dossiers?: Prisma.DossierUncheckedCreateNestedManyWithoutCompanyInput
+  hReports?: Prisma.HReportUncheckedCreateNestedManyWithoutCompanyInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedCreateNestedManyWithoutCompanyInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedCreateNestedOneWithoutCompanyInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedCreateNestedManyWithoutCompanyInput
+}
+
+export type CompanyCreateOrConnectWithoutEitvWsCallLogsInput = {
+  where: Prisma.CompanyWhereUniqueInput
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsCallLogsInput>
+}
+
+export type CompanyUpsertWithoutEitvWsCallLogsInput = {
+  update: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsCallLogsInput>
+  create: Prisma.XOR<Prisma.CompanyCreateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedCreateWithoutEitvWsCallLogsInput>
+  where?: Prisma.CompanyWhereInput
+}
+
+export type CompanyUpdateToOneWithWhereWithoutEitvWsCallLogsInput = {
+  where?: Prisma.CompanyWhereInput
+  data: Prisma.XOR<Prisma.CompanyUpdateWithoutEitvWsCallLogsInput, Prisma.CompanyUncheckedUpdateWithoutEitvWsCallLogsInput>
+}
+
+export type CompanyUpdateWithoutEitvWsCallLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUpdateManyWithoutCompanyNestedInput
+}
+
+export type CompanyUncheckedUpdateWithoutEitvWsCallLogsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  taxId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  address?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  nextDossierNumber?: Prisma.IntFieldUpdateOperationsInput | number
+  users?: Prisma.UserUncheckedUpdateManyWithoutCompanyNestedInput
+  invitations?: Prisma.InvitationUncheckedUpdateManyWithoutCompanyNestedInput
+  dossiers?: Prisma.DossierUncheckedUpdateManyWithoutCompanyNestedInput
+  hReports?: Prisma.HReportUncheckedUpdateManyWithoutCompanyNestedInput
+  savedCustomers?: Prisma.SavedCustomerUncheckedUpdateManyWithoutCompanyNestedInput
+  eitvWsConfig?: Prisma.EitvWsConfigUncheckedUpdateOneWithoutCompanyNestedInput
+  eitvWsRangeRequests?: Prisma.EitvWsRangeRequestUncheckedUpdateManyWithoutCompanyNestedInput
 }
 
 
@@ -894,6 +1269,8 @@ export type CompanyCountOutputType = {
   dossiers: number
   hReports: number
   savedCustomers: number
+  eitvWsRangeRequests: number
+  eitvWsCallLogs: number
 }
 
 export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -902,6 +1279,8 @@ export type CompanyCountOutputTypeSelect<ExtArgs extends runtime.Types.Extension
   dossiers?: boolean | CompanyCountOutputTypeCountDossiersArgs
   hReports?: boolean | CompanyCountOutputTypeCountHReportsArgs
   savedCustomers?: boolean | CompanyCountOutputTypeCountSavedCustomersArgs
+  eitvWsRangeRequests?: boolean | CompanyCountOutputTypeCountEitvWsRangeRequestsArgs
+  eitvWsCallLogs?: boolean | CompanyCountOutputTypeCountEitvWsCallLogsArgs
 }
 
 /**
@@ -949,6 +1328,20 @@ export type CompanyCountOutputTypeCountSavedCustomersArgs<ExtArgs extends runtim
   where?: Prisma.SavedCustomerWhereInput
 }
 
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountEitvWsRangeRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EitvWsRangeRequestWhereInput
+}
+
+/**
+ * CompanyCountOutputType without action
+ */
+export type CompanyCountOutputTypeCountEitvWsCallLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EitvWsCallLogWhereInput
+}
+
 
 export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -963,6 +1356,9 @@ export type CompanySelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   dossiers?: boolean | Prisma.Company$dossiersArgs<ExtArgs>
   hReports?: boolean | Prisma.Company$hReportsArgs<ExtArgs>
   savedCustomers?: boolean | Prisma.Company$savedCustomersArgs<ExtArgs>
+  eitvWsConfig?: boolean | Prisma.Company$eitvWsConfigArgs<ExtArgs>
+  eitvWsRangeRequests?: boolean | Prisma.Company$eitvWsRangeRequestsArgs<ExtArgs>
+  eitvWsCallLogs?: boolean | Prisma.Company$eitvWsCallLogsArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["company"]>
 
@@ -1003,6 +1399,9 @@ export type CompanyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs
   dossiers?: boolean | Prisma.Company$dossiersArgs<ExtArgs>
   hReports?: boolean | Prisma.Company$hReportsArgs<ExtArgs>
   savedCustomers?: boolean | Prisma.Company$savedCustomersArgs<ExtArgs>
+  eitvWsConfig?: boolean | Prisma.Company$eitvWsConfigArgs<ExtArgs>
+  eitvWsRangeRequests?: boolean | Prisma.Company$eitvWsRangeRequestsArgs<ExtArgs>
+  eitvWsCallLogs?: boolean | Prisma.Company$eitvWsCallLogsArgs<ExtArgs>
   _count?: boolean | Prisma.CompanyCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type CompanyIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1016,6 +1415,9 @@ export type $CompanyPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     dossiers: Prisma.$DossierPayload<ExtArgs>[]
     hReports: Prisma.$HReportPayload<ExtArgs>[]
     savedCustomers: Prisma.$SavedCustomerPayload<ExtArgs>[]
+    eitvWsConfig: Prisma.$EitvWsConfigPayload<ExtArgs> | null
+    eitvWsRangeRequests: Prisma.$EitvWsRangeRequestPayload<ExtArgs>[]
+    eitvWsCallLogs: Prisma.$EitvWsCallLogPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1424,6 +1826,9 @@ export interface Prisma__CompanyClient<T, Null = never, ExtArgs extends runtime.
   dossiers<T extends Prisma.Company$dossiersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$dossiersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DossierPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   hReports<T extends Prisma.Company$hReportsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$hReportsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   savedCustomers<T extends Prisma.Company$savedCustomersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$savedCustomersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SavedCustomerPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  eitvWsConfig<T extends Prisma.Company$eitvWsConfigArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$eitvWsConfigArgs<ExtArgs>>): Prisma.Prisma__EitvWsConfigClient<runtime.Types.Result.GetResult<Prisma.$EitvWsConfigPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  eitvWsRangeRequests<T extends Prisma.Company$eitvWsRangeRequestsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$eitvWsRangeRequestsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EitvWsRangeRequestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  eitvWsCallLogs<T extends Prisma.Company$eitvWsCallLogsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Company$eitvWsCallLogsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EitvWsCallLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1970,6 +2375,73 @@ export type Company$savedCustomersArgs<ExtArgs extends runtime.Types.Extensions.
   take?: number
   skip?: number
   distinct?: Prisma.SavedCustomerScalarFieldEnum | Prisma.SavedCustomerScalarFieldEnum[]
+}
+
+/**
+ * Company.eitvWsConfig
+ */
+export type Company$eitvWsConfigArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EitvWsConfig
+   */
+  select?: Prisma.EitvWsConfigSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EitvWsConfig
+   */
+  omit?: Prisma.EitvWsConfigOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EitvWsConfigInclude<ExtArgs> | null
+  where?: Prisma.EitvWsConfigWhereInput
+}
+
+/**
+ * Company.eitvWsRangeRequests
+ */
+export type Company$eitvWsRangeRequestsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EitvWsRangeRequest
+   */
+  select?: Prisma.EitvWsRangeRequestSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EitvWsRangeRequest
+   */
+  omit?: Prisma.EitvWsRangeRequestOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EitvWsRangeRequestInclude<ExtArgs> | null
+  where?: Prisma.EitvWsRangeRequestWhereInput
+  orderBy?: Prisma.EitvWsRangeRequestOrderByWithRelationInput | Prisma.EitvWsRangeRequestOrderByWithRelationInput[]
+  cursor?: Prisma.EitvWsRangeRequestWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EitvWsRangeRequestScalarFieldEnum | Prisma.EitvWsRangeRequestScalarFieldEnum[]
+}
+
+/**
+ * Company.eitvWsCallLogs
+ */
+export type Company$eitvWsCallLogsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the EitvWsCallLog
+   */
+  select?: Prisma.EitvWsCallLogSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the EitvWsCallLog
+   */
+  omit?: Prisma.EitvWsCallLogOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EitvWsCallLogInclude<ExtArgs> | null
+  where?: Prisma.EitvWsCallLogWhereInput
+  orderBy?: Prisma.EitvWsCallLogOrderByWithRelationInput | Prisma.EitvWsCallLogOrderByWithRelationInput[]
+  cursor?: Prisma.EitvWsCallLogWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EitvWsCallLogScalarFieldEnum | Prisma.EitvWsCallLogScalarFieldEnum[]
 }
 
 /**

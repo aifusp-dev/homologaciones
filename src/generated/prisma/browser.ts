@@ -232,3 +232,23 @@ export type EitvNationalData = Prisma.EitvNationalDataModel
  * 
  */
 export type RegulatoryUpdate = Prisma.RegulatoryUpdateModel
+/**
+ * Model EitvWsConfig
+ * 
+ */
+export type EitvWsConfig = Prisma.EitvWsConfigModel
+/**
+ * Model EitvWsRangeRequest
+ * 
+ */
+export type EitvWsRangeRequest = Prisma.EitvWsRangeRequestModel
+/**
+ * Model EitvWsRangeAuthorization
+ * 
+ */
+export type EitvWsRangeAuthorization = Prisma.EitvWsRangeAuthorizationModel
+/**
+ * Model EitvWsCallLog
+ * 
+ */
+export type EitvWsCallLog = Prisma.EitvWsCallLogModel

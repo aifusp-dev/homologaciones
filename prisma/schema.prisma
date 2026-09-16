@@ -36,6 +36,10 @@ model Company {
   hReports       HReport[]
   savedCustomers SavedCustomer[]
 
+  eitvWsConfig       EitvWsConfig?
+  eitvWsRangeRequests EitvWsRangeRequest[]
+  eitvWsCallLogs      EitvWsCallLog[]
+
   @@map("companies")
 }
 
@@ -2551,4 +2555,96 @@ model RegulatoryUpdate {
   detectedAt  DateTime  @default(now())
 
   @@map("regulatory_updates")
+}
+
+// eITV vía WSEITV (SOAP del Ministerio de Industria, wseitv.asmx) — trámite
+// DISTINTO del ECOC/EitvNationalData de más arriba (ese sigue congelado, no
+// tocar). Prefijo EitvWs a propósito en todo este bloque para que nunca se
+// confunda con el anterior. Ver plan "fluttering-splashing-puppy": esta
+// Fase A cubre solo las operaciones SIN firma XAdES (rangos + consultas);
+// el envío de lotes de tarjetas firmadas en el navegador es una fase aparte.
+
+// Identidad RFFR + credenciales del WS, una por empresa. El "entornoActivo"
+// decide contra qué URL (pruebas/producción, ver doc 2 del welcome pack)
+// se hacen las llamadas por defecto.
+model EitvWsConfig {
+  id        String @id @default(cuid())
+  companyId String @unique
+
+  fabricanteTipoDoc    String?
+  fabricanteDoc        String?
+  fabricanteNombre     String?
+  representanteTipoDoc String?
+  representanteDoc     String?
+  representanteNombre  String?
+  marca                String?
+
+  /// Cifrado con src/lib/eitvWs/secretCrypto.ts (AES-256-GCM) — nunca en claro.
+  pruebasLogin                String?
+  pruebasPasswordEncrypted    String?
+  produccionLogin             String?
+  produccionPasswordEncrypted String?
+  entornoActivo                String  @default("pruebas") // "pruebas" | "produccion"
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@map("eitv_ws_configs")
+}
+
+// Una fila por llamada a SolicitarRangos/SolicitarAmpliacionRangos.
+model EitvWsRangeRequest {
+  id                  String   @id @default(cuid())
+  companyId           String
+  operation           String   // "SolicitarRangos" | "SolicitarAmpliacionRangos"
+  tipoTarjeta          String?
+  nroSolicitadas       Int?
+  /// idsolicitud de la respuesta OK — se usa luego para ConsultaDeSolicitudes.
+  ministryIdSolicitud String?
+  entorno             String   // "pruebas" | "produccion"
+  rawResponseXml      String?
+  createdAt           DateTime @default(now())
+  createdBy           String
+
+  authorizations EitvWsRangeAuthorization[]
+  company        Company                    @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId])
+  @@map("eitv_ws_range_requests")
+}
+
+// Un par tipoVehiculo+contraseña dentro de una solicitud de rango — el
+// Ministerio acepta/rechaza cada par de forma independiente (ver doc 3/4).
+model EitvWsRangeAuthorization {
+  id             String  @id @default(cuid())
+  rangeRequestId String
+  tipoVehiculo   String
+  contrasena     String
+  status         String  @default("pendiente") // pendiente | aceptado | rechazado
+  motivoRechazo  String?
+  observaciones  String?
+
+  rangeRequest EitvWsRangeRequest @relation(fields: [rangeRequestId], references: [id], onDelete: Cascade)
+
+  @@map("eitv_ws_range_authorizations")
+}
+
+// Traza de cada llamada SOAP al WSEITV (request+response crudos), aparte
+// del AuditLog (que es por campo y por Dossier, no sirve para esto — ver
+// plan). Se escribe SIEMPRE, incluso si la llamada falla.
+model EitvWsCallLog {
+  id           String   @id @default(cuid())
+  companyId    String
+  operation    String
+  entorno      String
+  requestXml   String
+  responseXml  String?
+  httpStatus   Int?
+  errorMessage String?
+  actorEmail   String
+  createdAt    DateTime @default(now())
+
+  company Company @relation(fields: [companyId], references: [id], onDelete: Cascade)
+
+  @@index([companyId, createdAt])
+  @@map("eitv_ws_call_logs")
 }

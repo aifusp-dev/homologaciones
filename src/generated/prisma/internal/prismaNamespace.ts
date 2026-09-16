@@ -439,7 +439,11 @@ export const ModelName = {
   AuditLog: 'AuditLog',
   DossierVersion: 'DossierVersion',
   EitvNationalData: 'EitvNationalData',
-  RegulatoryUpdate: 'RegulatoryUpdate'
+  RegulatoryUpdate: 'RegulatoryUpdate',
+  EitvWsConfig: 'EitvWsConfig',
+  EitvWsRangeRequest: 'EitvWsRangeRequest',
+  EitvWsRangeAuthorization: 'EitvWsRangeAuthorization',
+  EitvWsCallLog: 'EitvWsCallLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -455,7 +459,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "hReportArticle" | "stockPurchase" | "articleInstallation" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData" | "regulatoryUpdate"
+    modelProps: "company" | "savedCustomer" | "user" | "loginToken" | "invitation" | "dossier" | "generatedDocument" | "attachmentFolder" | "attachment" | "customer" | "dealer" | "coc" | "bodywork" | "massesDimensions" | "couplingDevice" | "spraySuppression" | "electromagneticCompatibility" | "lateralProtection" | "rearProtection" | "lateralMarking" | "lightingSide" | "lightingPosition" | "lightingReflector" | "lightingBrake" | "lightingTurnSignal" | "lightingRearOutlineMarker" | "lightingFrontOutlineMarker" | "lightingPlate" | "lightingReverse" | "lightingFog" | "lightingMaterialChecklist" | "hReport" | "hReportArticle" | "stockPurchase" | "articleInstallation" | "regulatoryActNumbers" | "copCoverSheet" | "registrationPlates" | "platesInscriptions" | "auditLog" | "dossierVersion" | "eitvNationalData" | "regulatoryUpdate" | "eitvWsConfig" | "eitvWsRangeRequest" | "eitvWsRangeAuthorization" | "eitvWsCallLog"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -3641,6 +3645,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    EitvWsConfig: {
+      payload: Prisma.$EitvWsConfigPayload<ExtArgs>
+      fields: Prisma.EitvWsConfigFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EitvWsConfigFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EitvWsConfigFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        findFirst: {
+          args: Prisma.EitvWsConfigFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EitvWsConfigFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        findMany: {
+          args: Prisma.EitvWsConfigFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>[]
+        }
+        create: {
+          args: Prisma.EitvWsConfigCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        createMany: {
+          args: Prisma.EitvWsConfigCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EitvWsConfigCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>[]
+        }
+        delete: {
+          args: Prisma.EitvWsConfigDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        update: {
+          args: Prisma.EitvWsConfigUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        deleteMany: {
+          args: Prisma.EitvWsConfigDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EitvWsConfigUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EitvWsConfigUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>[]
+        }
+        upsert: {
+          args: Prisma.EitvWsConfigUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsConfigPayload>
+        }
+        aggregate: {
+          args: Prisma.EitvWsConfigAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEitvWsConfig>
+        }
+        groupBy: {
+          args: Prisma.EitvWsConfigGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsConfigGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EitvWsConfigCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsConfigCountAggregateOutputType> | number
+        }
+      }
+    }
+    EitvWsRangeRequest: {
+      payload: Prisma.$EitvWsRangeRequestPayload<ExtArgs>
+      fields: Prisma.EitvWsRangeRequestFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EitvWsRangeRequestFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EitvWsRangeRequestFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        findFirst: {
+          args: Prisma.EitvWsRangeRequestFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EitvWsRangeRequestFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        findMany: {
+          args: Prisma.EitvWsRangeRequestFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>[]
+        }
+        create: {
+          args: Prisma.EitvWsRangeRequestCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        createMany: {
+          args: Prisma.EitvWsRangeRequestCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EitvWsRangeRequestCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>[]
+        }
+        delete: {
+          args: Prisma.EitvWsRangeRequestDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        update: {
+          args: Prisma.EitvWsRangeRequestUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        deleteMany: {
+          args: Prisma.EitvWsRangeRequestDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EitvWsRangeRequestUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EitvWsRangeRequestUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>[]
+        }
+        upsert: {
+          args: Prisma.EitvWsRangeRequestUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeRequestPayload>
+        }
+        aggregate: {
+          args: Prisma.EitvWsRangeRequestAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEitvWsRangeRequest>
+        }
+        groupBy: {
+          args: Prisma.EitvWsRangeRequestGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsRangeRequestGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EitvWsRangeRequestCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsRangeRequestCountAggregateOutputType> | number
+        }
+      }
+    }
+    EitvWsRangeAuthorization: {
+      payload: Prisma.$EitvWsRangeAuthorizationPayload<ExtArgs>
+      fields: Prisma.EitvWsRangeAuthorizationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EitvWsRangeAuthorizationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EitvWsRangeAuthorizationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        findFirst: {
+          args: Prisma.EitvWsRangeAuthorizationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EitvWsRangeAuthorizationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        findMany: {
+          args: Prisma.EitvWsRangeAuthorizationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>[]
+        }
+        create: {
+          args: Prisma.EitvWsRangeAuthorizationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        createMany: {
+          args: Prisma.EitvWsRangeAuthorizationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EitvWsRangeAuthorizationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>[]
+        }
+        delete: {
+          args: Prisma.EitvWsRangeAuthorizationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        update: {
+          args: Prisma.EitvWsRangeAuthorizationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        deleteMany: {
+          args: Prisma.EitvWsRangeAuthorizationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EitvWsRangeAuthorizationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EitvWsRangeAuthorizationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>[]
+        }
+        upsert: {
+          args: Prisma.EitvWsRangeAuthorizationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsRangeAuthorizationPayload>
+        }
+        aggregate: {
+          args: Prisma.EitvWsRangeAuthorizationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEitvWsRangeAuthorization>
+        }
+        groupBy: {
+          args: Prisma.EitvWsRangeAuthorizationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsRangeAuthorizationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EitvWsRangeAuthorizationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsRangeAuthorizationCountAggregateOutputType> | number
+        }
+      }
+    }
+    EitvWsCallLog: {
+      payload: Prisma.$EitvWsCallLogPayload<ExtArgs>
+      fields: Prisma.EitvWsCallLogFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.EitvWsCallLogFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.EitvWsCallLogFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        findFirst: {
+          args: Prisma.EitvWsCallLogFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.EitvWsCallLogFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        findMany: {
+          args: Prisma.EitvWsCallLogFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>[]
+        }
+        create: {
+          args: Prisma.EitvWsCallLogCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        createMany: {
+          args: Prisma.EitvWsCallLogCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.EitvWsCallLogCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>[]
+        }
+        delete: {
+          args: Prisma.EitvWsCallLogDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        update: {
+          args: Prisma.EitvWsCallLogUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        deleteMany: {
+          args: Prisma.EitvWsCallLogDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.EitvWsCallLogUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.EitvWsCallLogUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>[]
+        }
+        upsert: {
+          args: Prisma.EitvWsCallLogUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$EitvWsCallLogPayload>
+        }
+        aggregate: {
+          args: Prisma.EitvWsCallLogAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateEitvWsCallLog>
+        }
+        groupBy: {
+          args: Prisma.EitvWsCallLogGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsCallLogGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.EitvWsCallLogCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.EitvWsCallLogCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -4711,6 +5011,71 @@ export const RegulatoryUpdateScalarFieldEnum = {
 export type RegulatoryUpdateScalarFieldEnum = (typeof RegulatoryUpdateScalarFieldEnum)[keyof typeof RegulatoryUpdateScalarFieldEnum]
 
 
+export const EitvWsConfigScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  fabricanteTipoDoc: 'fabricanteTipoDoc',
+  fabricanteDoc: 'fabricanteDoc',
+  fabricanteNombre: 'fabricanteNombre',
+  representanteTipoDoc: 'representanteTipoDoc',
+  representanteDoc: 'representanteDoc',
+  representanteNombre: 'representanteNombre',
+  marca: 'marca',
+  pruebasLogin: 'pruebasLogin',
+  pruebasPasswordEncrypted: 'pruebasPasswordEncrypted',
+  produccionLogin: 'produccionLogin',
+  produccionPasswordEncrypted: 'produccionPasswordEncrypted',
+  entornoActivo: 'entornoActivo'
+} as const
+
+export type EitvWsConfigScalarFieldEnum = (typeof EitvWsConfigScalarFieldEnum)[keyof typeof EitvWsConfigScalarFieldEnum]
+
+
+export const EitvWsRangeRequestScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  operation: 'operation',
+  tipoTarjeta: 'tipoTarjeta',
+  nroSolicitadas: 'nroSolicitadas',
+  ministryIdSolicitud: 'ministryIdSolicitud',
+  entorno: 'entorno',
+  rawResponseXml: 'rawResponseXml',
+  createdAt: 'createdAt',
+  createdBy: 'createdBy'
+} as const
+
+export type EitvWsRangeRequestScalarFieldEnum = (typeof EitvWsRangeRequestScalarFieldEnum)[keyof typeof EitvWsRangeRequestScalarFieldEnum]
+
+
+export const EitvWsRangeAuthorizationScalarFieldEnum = {
+  id: 'id',
+  rangeRequestId: 'rangeRequestId',
+  tipoVehiculo: 'tipoVehiculo',
+  contrasena: 'contrasena',
+  status: 'status',
+  motivoRechazo: 'motivoRechazo',
+  observaciones: 'observaciones'
+} as const
+
+export type EitvWsRangeAuthorizationScalarFieldEnum = (typeof EitvWsRangeAuthorizationScalarFieldEnum)[keyof typeof EitvWsRangeAuthorizationScalarFieldEnum]
+
+
+export const EitvWsCallLogScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  operation: 'operation',
+  entorno: 'entorno',
+  requestXml: 'requestXml',
+  responseXml: 'responseXml',
+  httpStatus: 'httpStatus',
+  errorMessage: 'errorMessage',
+  actorEmail: 'actorEmail',
+  createdAt: 'createdAt'
+} as const
+
+export type EitvWsCallLogScalarFieldEnum = (typeof EitvWsCallLogScalarFieldEnum)[keyof typeof EitvWsCallLogScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -5083,6 +5448,10 @@ export type GlobalOmitConfig = {
   dossierVersion?: Prisma.DossierVersionOmit
   eitvNationalData?: Prisma.EitvNationalDataOmit
   regulatoryUpdate?: Prisma.RegulatoryUpdateOmit
+  eitvWsConfig?: Prisma.EitvWsConfigOmit
+  eitvWsRangeRequest?: Prisma.EitvWsRangeRequestOmit
+  eitvWsRangeAuthorization?: Prisma.EitvWsRangeAuthorizationOmit
+  eitvWsCallLog?: Prisma.EitvWsCallLogOmit
 }
 
 /* Types for Logging */

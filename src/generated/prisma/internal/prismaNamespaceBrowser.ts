@@ -93,7 +93,11 @@ export const ModelName = {
   AuditLog: 'AuditLog',
   DossierVersion: 'DossierVersion',
   EitvNationalData: 'EitvNationalData',
-  RegulatoryUpdate: 'RegulatoryUpdate'
+  RegulatoryUpdate: 'RegulatoryUpdate',
+  EitvWsConfig: 'EitvWsConfig',
+  EitvWsRangeRequest: 'EitvWsRangeRequest',
+  EitvWsRangeAuthorization: 'EitvWsRangeAuthorization',
+  EitvWsCallLog: 'EitvWsCallLog'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -1141,6 +1145,71 @@ export const RegulatoryUpdateScalarFieldEnum = {
 } as const
 
 export type RegulatoryUpdateScalarFieldEnum = (typeof RegulatoryUpdateScalarFieldEnum)[keyof typeof RegulatoryUpdateScalarFieldEnum]
+
+
+export const EitvWsConfigScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  fabricanteTipoDoc: 'fabricanteTipoDoc',
+  fabricanteDoc: 'fabricanteDoc',
+  fabricanteNombre: 'fabricanteNombre',
+  representanteTipoDoc: 'representanteTipoDoc',
+  representanteDoc: 'representanteDoc',
+  representanteNombre: 'representanteNombre',
+  marca: 'marca',
+  pruebasLogin: 'pruebasLogin',
+  pruebasPasswordEncrypted: 'pruebasPasswordEncrypted',
+  produccionLogin: 'produccionLogin',
+  produccionPasswordEncrypted: 'produccionPasswordEncrypted',
+  entornoActivo: 'entornoActivo'
+} as const
+
+export type EitvWsConfigScalarFieldEnum = (typeof EitvWsConfigScalarFieldEnum)[keyof typeof EitvWsConfigScalarFieldEnum]
+
+
+export const EitvWsRangeRequestScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  operation: 'operation',
+  tipoTarjeta: 'tipoTarjeta',
+  nroSolicitadas: 'nroSolicitadas',
+  ministryIdSolicitud: 'ministryIdSolicitud',
+  entorno: 'entorno',
+  rawResponseXml: 'rawResponseXml',
+  createdAt: 'createdAt',
+  createdBy: 'createdBy'
+} as const
+
+export type EitvWsRangeRequestScalarFieldEnum = (typeof EitvWsRangeRequestScalarFieldEnum)[keyof typeof EitvWsRangeRequestScalarFieldEnum]
+
+
+export const EitvWsRangeAuthorizationScalarFieldEnum = {
+  id: 'id',
+  rangeRequestId: 'rangeRequestId',
+  tipoVehiculo: 'tipoVehiculo',
+  contrasena: 'contrasena',
+  status: 'status',
+  motivoRechazo: 'motivoRechazo',
+  observaciones: 'observaciones'
+} as const
+
+export type EitvWsRangeAuthorizationScalarFieldEnum = (typeof EitvWsRangeAuthorizationScalarFieldEnum)[keyof typeof EitvWsRangeAuthorizationScalarFieldEnum]
+
+
+export const EitvWsCallLogScalarFieldEnum = {
+  id: 'id',
+  companyId: 'companyId',
+  operation: 'operation',
+  entorno: 'entorno',
+  requestXml: 'requestXml',
+  responseXml: 'responseXml',
+  httpStatus: 'httpStatus',
+  errorMessage: 'errorMessage',
+  actorEmail: 'actorEmail',
+  createdAt: 'createdAt'
+} as const
+
+export type EitvWsCallLogScalarFieldEnum = (typeof EitvWsCallLogScalarFieldEnum)[keyof typeof EitvWsCallLogScalarFieldEnum]
 
 
 export const SortOrder = {
